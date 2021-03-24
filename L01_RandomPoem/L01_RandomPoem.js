@@ -5,9 +5,9 @@ var L01Poem;
     let praedikat = ["stiehlt", "verzaubert", "isst", "verflucht", "liebt", "belehrt"];
     let objekt = ["Schlafbohnen", "Drachen", "Dumbledores Phönix", "den Schnatz", "Krummbein", "die Heiligtümer des Todes"];
     // Ausgabe der Arrays subjekt, praedikat und objekt
-    console.log(subjekt);
-    console.log(praedikat);
-    console.log(objekt);
+    //console.log(subjekt);
+    //console.log(praedikat);
+    //console.log(objekt);
     // Variable für den Satz
     let vers = "";
     //Array in dem alle Verse gespeichert werden
@@ -16,14 +16,14 @@ var L01Poem;
         let finalVers = getVerse();
         allVerse.push(finalVers);
         //Ausgabe Lumos zeigt, dass der for Loop funktioniert
-        console.log("Lumos");
+        //console.log("Lumos");
         //Gibt den Wert von i +1 an (weil wir sonst nicht 6,5,4,3,2,1 sondern 5,4,3,2,1,0 hätten).
-        console.log(i);
+        //console.log(i);
     }
-    console.log(allVerse);
+    //console.log(allVerse);
     function getRandomNum(_nameOfArray) {
         let getNum = Math.floor(Math.random() * _nameOfArray.length);
-        console.log(getNum);
+        //console.log(getNum);
         return getNum;
     }
     function getVerse() {
