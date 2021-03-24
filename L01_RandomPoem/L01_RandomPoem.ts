@@ -12,7 +12,7 @@ namespace L01Poem {
     let allVerse: string [] = [];
     
     
-    for (let i: number = subjekt.length - 1; i > 0; i --) {
+    for (let i: number = subjekt.length - 1; i >= 0; i --) {
         let finalVers: string = getVerse();
         allVerse.push(finalVers);
        //Ausgabe Lumos zeigt, dass der for Loop funktioniert
@@ -49,5 +49,5 @@ namespace L01Poem {
       
         return vers;
     }
-    getVerse();
+    //getVerse();
 }

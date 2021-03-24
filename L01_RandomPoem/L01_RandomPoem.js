@@ -12,7 +12,7 @@ var L01Poem;
     let vers = "";
     //Array in dem alle Verse gespeichert werden
     let allVerse = [];
-    for (let i = subjekt.length - 1; i > 0; i--) {
+    for (let i = subjekt.length - 1; i >= 0; i--) {
         let finalVers = getVerse();
         allVerse.push(finalVers);
         //Ausgabe Lumos zeigt, dass der for Loop funktioniert
@@ -42,6 +42,6 @@ var L01Poem;
         //Nun soll mit den aktualisierten Arrays neue Verse erstellt werden
         return vers;
     }
-    getVerse();
+    //getVerse();
 })(L01Poem || (L01Poem = {}));
 //# sourceMappingURL=L01_RandomPoem.js.map
