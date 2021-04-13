@@ -29,7 +29,12 @@ function setInfoBox(_event: Event): void {
     //creating the span Element
     let span: HTMLSpanElement = document.createElement("span");
     span.innerHTML = _event.currentTarget + /*_event.pageX +*/  "lala" ;
-    console.log(_event);
+    span.style.left = "10px"; //Eigentlich hier die x koordinate meines mouseEvents
+    span.style.right = "50px"; //hier y Koordinate
+    span.style.width = "10px";
+    span.style.height = "20px";
+    document.body.appendChild(span);
+    //Irgendwie muss ich das dann wieder rauslöschen
     
 }
 //when something is clicked or the keyup event is triggerd logInfo will be called
