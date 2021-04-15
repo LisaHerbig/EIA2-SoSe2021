@@ -22,21 +22,26 @@ function handleLoad (): void {
     div1.addEventListener("keyup", logInfo);
 }
 
-//when mouse moves, setInfoBox is called
-function setInfoBox(_event: Event): void {
-    //Variables for the x und y coordinates
-    //let x: number = _event.;
+//when the mouse moves, setInfoBox is called
+function setInfoBox(_event: MouseEvent): void {
     //creating the span Element
     let span: HTMLSpanElement = document.createElement("span");
-    span.innerHTML = _event.currentTarget + /*_event.pageX +*/  "lala" ;
-    span.style.left = "10px"; //Eigentlich hier die x koordinate meines mouseEvents
-    span.style.right = "50px"; //hier y Koordinate
-    span.style.width = "10px";
-    span.style.height = "20px";
+    span.innerHTML = _event.currentTarget  + "  position left " + _event.clientX + " px" +   "  position top " + _event.clientY + " px";
+    span.style.left = _event.clientX  + "px"; //Eigentlich hier die x koordinate meines mouseEvents
+    span.style.top = _event.clientY   + "px"; //hier y Koordinate
+    span.setAttribute("class", "span");
     document.body.appendChild(span);
-    //Irgendwie muss ich das dann wieder rauslöschen
+    //_event.stopPropagation();
     
+    
+    //mouse moves again -> the "old" span element has to be deleted
+ 
+    document.body.removeChild(span);
+    console.log("hi");
+ 
 }
+
+
 //when something is clicked or the keyup event is triggerd logInfo will be called
 function logInfo(_event: Event): void {
     console.log(_event.type);
