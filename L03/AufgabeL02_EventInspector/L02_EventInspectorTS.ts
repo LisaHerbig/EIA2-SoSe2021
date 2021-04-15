@@ -3,7 +3,9 @@ namespace L02_EventInspector {
 window.addEventListener("load", handleLoad);
 //Variables
 let div0: HTMLDivElement = <HTMLDivElement> document.querySelector("#div0");
-let div1: HTMLDivElement = <HTMLDivElement> document.getElementById("div1");
+let div1: HTMLDivElement = <HTMLDivElement> document.querySelector("#div1");
+//let container: HTMLDivElement = <HTMLDivElement> document.querySelector("#container");
+
 
 //handleLoad
 function handleLoad (): void {
@@ -16,27 +18,32 @@ function handleLoad (): void {
     document.body.addEventListener("click", logInfo);
     document.body.addEventListener("keyup", logInfo);
     //and divs
+    //container.addEventListener("mousemove", setInfoBox);
+    //container.addEventListener("click", logInfo);
+    //container.addEventListener("keyup", logInfo);
+    //div0.addEventListener("mousemove", setInfoBox);
     div0.addEventListener("click", logInfo);
     div0.addEventListener("keyup", logInfo);
+    //div1.addEventListener("mousemove", setInfoBox);
     div1.addEventListener("click", logInfo);
     div1.addEventListener("keyup", logInfo);
 }
 
 //when the mouse moves, setInfoBox is called
 function setInfoBox(_event: MouseEvent): void {
+    _event.stopPropagation();
     //creating the span Element
     let span: HTMLSpanElement = document.createElement("span");
-    span.innerHTML = _event.currentTarget  + "  position left " + _event.clientX + " px" +   "  position top " + _event.clientY + " px";
-    span.style.left = _event.clientX  + "px"; //Eigentlich hier die x koordinate meines mouseEvents
-    span.style.top = _event.clientY   + "px"; //hier y Koordinate
+    span.innerHTML = _event.currentTarget  + "  position left " + _event.pageX + " px" +   "  position top " + _event.pageY + " px";
+    span.style.left = _event.pageX  + 10 + "px";
+    span.style.top = _event.pageY + 10  + "px";
     span.setAttribute("class", "span");
     document.body.appendChild(span);
-    //_event.stopPropagation();
     
     
     //mouse moves again -> the "old" span element has to be deleted
  
-    document.body.removeChild(span);
+    //document.body.removeChild(span);
     console.log("hi");
  
 }
@@ -44,6 +51,7 @@ function setInfoBox(_event: MouseEvent): void {
 
 //when something is clicked or the keyup event is triggerd logInfo will be called
 function logInfo(_event: Event): void {
+    _event.stopPropagation();
     console.log(_event.type);
     console.log(_event.target);
     console.log(_event.currentTarget);
