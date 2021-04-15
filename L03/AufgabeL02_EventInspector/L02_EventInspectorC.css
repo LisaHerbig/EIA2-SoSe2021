@@ -6,3 +6,26 @@
     display: border;
     position: fixed;
 }
+
+#container {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    
+    
+ }
+
+ #div0, #div1 {
+     border-style: solid;
+     border: black;
+     background-color: springgreen;
+     height: 700px;
+     width: 620px;
+     
+ }

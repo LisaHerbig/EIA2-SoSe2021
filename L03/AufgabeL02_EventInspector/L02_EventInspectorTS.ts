@@ -21,10 +21,10 @@ function handleLoad (): void {
     //container.addEventListener("mousemove", setInfoBox);
     //container.addEventListener("click", logInfo);
     //container.addEventListener("keyup", logInfo);
-    //div0.addEventListener("mousemove", setInfoBox);
+    div0.addEventListener("mousemove", setInfoBox);
     div0.addEventListener("click", logInfo);
     div0.addEventListener("keyup", logInfo);
-    //div1.addEventListener("mousemove", setInfoBox);
+    div1.addEventListener("mousemove", setInfoBox);
     div1.addEventListener("click", logInfo);
     div1.addEventListener("keyup", logInfo);
 }
@@ -34,11 +34,14 @@ function setInfoBox(_event: MouseEvent): void {
     _event.stopPropagation();
     //creating the span Element
     let span: HTMLSpanElement = document.createElement("span");
-    span.innerHTML = _event.currentTarget  + "  position left " + _event.pageX + " px" +   "  position top " + _event.pageY + " px";
-    span.style.left = _event.pageX  + 10 + "px";
-    span.style.top = _event.pageY + 10  + "px";
+    span.innerText = _event.currentTarget  + "  position left " + _event.pageX + " px" +   "  position top " + _event.pageY + " px";
+    span.style.left = _event.pageX  + 9 + "px";
+    span.style.top = _event.pageY + 11  + "px";
     span.setAttribute("class", "span");
     document.body.appendChild(span);
+    console.log(_event.currentTarget);
+
+    
     
     
     //mouse moves again -> the "old" span element has to be deleted
