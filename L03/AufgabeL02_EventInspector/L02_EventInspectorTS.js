@@ -18,9 +18,6 @@ var L02_EventInspector;
         document.body.addEventListener("click", logInfo);
         document.body.addEventListener("keyup", logInfo);
         //and divs
-        //container.addEventListener("mousemove", setInfoBox);
-        //container.addEventListener("click", logInfo);
-        //container.addEventListener("keyup", logInfo);
         div0.addEventListener("mousemove", setInfoBox);
         div0.addEventListener("click", logInfo);
         div0.addEventListener("keyup", logInfo);
