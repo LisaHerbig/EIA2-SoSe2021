@@ -1,11 +1,11 @@
 namespace L02_EventInspector {
 //wait for DOM to load and call handleLoad
 window.addEventListener("load", handleLoad);
+
 //Variables
 let div0: HTMLDivElement = <HTMLDivElement> document.querySelector("#div0");
 let div1: HTMLDivElement = <HTMLDivElement> document.querySelector("#div1");
-//let container: HTMLDivElement = <HTMLDivElement> document.querySelector("#container");
-
+let span: HTMLSpanElement = document.createElement("span");
 
 //handleLoad
 function handleLoad (): void {
@@ -32,25 +32,16 @@ function handleLoad (): void {
 //when the mouse moves, setInfoBox is called
 function setInfoBox(_event: MouseEvent): void {
     _event.stopPropagation();
-    //creating the span Element
-    let span: HTMLSpanElement = document.createElement("span");
+    //mouse moves again -> the "old" span element has to be deleted
+    if (document.body.contains(span) == true) {
+        document.body.removeChild(span);
+    }
     span.innerText = _event.currentTarget  + "  position left " + _event.pageX + " px" +   "  position top " + _event.pageY + " px";
     span.style.left = _event.pageX  + 9 + "px";
     span.style.top = _event.pageY + 11  + "px";
     span.setAttribute("class", "span");
-    document.body.appendChild(span);
-    console.log(_event.currentTarget);
-
-    
-    
-    
-    //mouse moves again -> the "old" span element has to be deleted
- 
-    //document.body.removeChild(span);
-    console.log("hi");
- 
+    document.body.appendChild (span);
 }
-
 
 //when something is clicked or the keyup event is triggerd logInfo will be called
 function logInfo(_event: Event): void {
@@ -58,8 +49,7 @@ function logInfo(_event: Event): void {
     console.log(_event.type);
     console.log(_event.target);
     console.log(_event.currentTarget);
-    console.log(_event);
-    
+    console.log(_event);   
 }
 
 }
