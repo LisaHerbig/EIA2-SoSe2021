@@ -7,6 +7,7 @@ var L02_EventInspector;
     let div0 = document.querySelector("#div0");
     let div1 = document.querySelector("#div1");
     let span = document.createElement("span");
+    let btn = document.querySelector("#btn");
     //handleLoad
     function handleLoad() {
         //install mouse move listener on document
@@ -24,6 +25,8 @@ var L02_EventInspector;
         div1.addEventListener("mousemove", setInfoBox);
         div1.addEventListener("click", logInfo);
         div1.addEventListener("keyup", logInfo);
+        //(und dem HTML Button)
+        btn.addEventListener("mousemove", setInfoBox);
     }
     //when the mouse moves, setInfoBox is called
     function setInfoBox(_event) {
@@ -45,6 +48,15 @@ var L02_EventInspector;
         console.log(_event.target);
         console.log(_event.currentTarget);
         console.log(_event);
+    }
+    //Bonus
+    btn.addEventListener("click", sayHi);
+    function sayHi(_e) {
+        // define a custom event that bubbles and carries some information
+        let event = new CustomEvent("sayHi", { bubbles: true, detail: { document: console.log("Hi from " + _e.currentTarget)
+            } });
+        // send the event from some dispatcher
+        document.dispatchEvent(event);
     }
 })(L02_EventInspector || (L02_EventInspector = {}));
 //# sourceMappingURL=L02_EventInspectorTS.js.map

@@ -6,6 +6,7 @@ window.addEventListener("load", handleLoad);
 let div0: HTMLDivElement = <HTMLDivElement> document.querySelector("#div0");
 let div1: HTMLDivElement = <HTMLDivElement> document.querySelector("#div1");
 let span: HTMLSpanElement = document.createElement("span");
+let btn: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#btn");
 
 //handleLoad
 function handleLoad (): void {
@@ -24,6 +25,8 @@ function handleLoad (): void {
     div1.addEventListener("mousemove", setInfoBox);
     div1.addEventListener("click", logInfo);
     div1.addEventListener("keyup", logInfo);
+    //(und dem HTML Button)
+    btn.addEventListener("mousemove", setInfoBox);
 }
 
 //when the mouse moves, setInfoBox is called
@@ -49,4 +52,16 @@ function logInfo(_event: Event): void {
     console.log(_event);   
 }
 
+//Bonus
+btn.addEventListener("click", sayHi);
+function sayHi(_e: Event): void {
+// define a custom event that bubbles and carries some information
+let event: CustomEvent = new CustomEvent("sayHi", {bubbles: true, detail: {document: console.log("Hi from " + _e.currentTarget)
+}});
+// send the event from some dispatcher
+document.dispatchEvent(event);
 }
+
+}
+
+
