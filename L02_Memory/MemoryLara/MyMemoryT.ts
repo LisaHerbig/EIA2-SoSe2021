@@ -1,3 +1,4 @@
+namespace MemoryLara {
 window.addEventListener("load", handleload);
 let menu: HTMLElement = <HTMLElement> document.getElementById("menu");
 //let levelArray: 
@@ -24,5 +25,5 @@ function turnCard (): void {}
 
 function compare (): void {}
 
-
+}
 
