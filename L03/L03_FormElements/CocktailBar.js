@@ -2,6 +2,7 @@
 var L03_Cocktailbar;
 (function (L03_Cocktailbar) {
     window.addEventListener("load", handleLoad);
+    let total = 0;
     function handleLoad(_event) {
         console.log("Start");
         let form = document.querySelector("div#form");
@@ -35,6 +36,10 @@ var L03_Cocktailbar;
                 price = literPrice;
             }
             order.innerHTML += item.value + "  € " + price + "<br>";
+            //console.log(price);
+            let finalPrice = (total += price).toFixed(2);
+            //total += price;
+            console.log(finalPrice);
         }
     }
     function displayAmount(_event) {

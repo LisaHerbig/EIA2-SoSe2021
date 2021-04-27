@@ -1,5 +1,6 @@
 namespace L03_Cocktailbar {
     window.addEventListener("load", handleLoad);
+    let total: number = 0;
 
     function handleLoad(_event: Event): void {
         console.log("Start");
@@ -27,18 +28,28 @@ namespace L03_Cocktailbar {
             let item: HTMLInputElement = <HTMLInputElement>document.querySelector("[value='" + entry[1] + "']");
             //console.log(item);
             let price: number = Number(item.getAttribute("price"));
+           
             //console.log(price);
             let drinkAmount: HTMLInputElement = <HTMLInputElement>document.querySelector("#amount");
             let priceAmount: string = drinkAmount.value;
             let amountPrice: number = parseFloat(priceAmount); 
             let literPrice: number = amountPrice * 5;
+            
             //wenn 1L 5€ Kostet
             //console.log(amountPrice * 5);
-          
+            
+            
+    
             if (item.value == priceAmount) {
                 price = literPrice;
             }
-            order.innerHTML += item.value + "  € " + price + "<br>" ;
+            order.innerHTML += item.value + "  € " + price + "<br>";
+            //console.log(price);
+            let finalPrice: string = (total += price).toFixed(2);
+            //total += price;
+            console.log(finalPrice);
+            
+            
             
         }
         
