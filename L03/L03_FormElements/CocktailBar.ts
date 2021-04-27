@@ -29,15 +29,15 @@ namespace L03_Cocktailbar {
             let price: number = Number(item.getAttribute("price"));
             //console.log(price);
             let drinkAmount: HTMLInputElement = <HTMLInputElement>document.querySelector("#amount");
-            let priceAmount: string = (<HTMLInputElement>_event.target).value; 
+            let priceAmount: string = drinkAmount.value;
             let amountPrice: number = parseFloat(priceAmount); 
+            let literPrice: number = amountPrice * 5;
             //wenn 1L 5€ Kostet
             //console.log(amountPrice * 5);
           
-            
-            if (_event.target == drinkAmount) {
-                order.innerHTML += item.value + " € " + (amountPrice * 5) + "<br>";
-            } 
+            if (item.value == priceAmount) {
+                price = literPrice;
+            }
             order.innerHTML += item.value + "  € " + price + "<br>" ;
             
         }
