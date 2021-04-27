@@ -13,8 +13,22 @@ var L03_Cocktailbar;
         //console.log(_event);
         //let drink: HTMLSelectElement = <HTMLSelectElement> document.querySelector("select");
         //console.log(drink.value);
-        let inputs = document.querySelectorAll("input");
-        console.log(inputs);
+        //let inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll("input");
+        //console.log(inputs);
+        let order = document.querySelector("div#order");
+        order.innerHTML = "";
+        let formData = new FormData(document.forms[0]);
+        //console.log(formData);
+        for (let entry of formData) {
+            //console.log(entry);
+            let item = document.querySelector("[value='" + entry[1] + "']");
+            //console.log(item);
+            let price = Number(item.getAttribute("price"));
+            //console.log(price);
+            //let amount: HTMLInputElement = <HTMLInputElement>document.querySelector("#slider");
+            //let priceAmount: number = Number (amount.value); 
+            order.innerHTML += item.value + "  € " + price + "<br>";
+        }
     }
     function displayAmount(_event) {
         let progress = document.querySelector("progress");
