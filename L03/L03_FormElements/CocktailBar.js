@@ -25,8 +25,14 @@ var L03_Cocktailbar;
             //console.log(item);
             let price = Number(item.getAttribute("price"));
             //console.log(price);
-            //let amount: HTMLInputElement = <HTMLInputElement>document.querySelector("#slider");
-            //let priceAmount: number = Number (amount.value); 
+            let drinkAmount = document.querySelector("#amount");
+            let priceAmount = _event.target.value;
+            let amountPrice = parseFloat(priceAmount);
+            //wenn 1L 5€ Kostet
+            //console.log(amountPrice * 5);
+            if (_event.target == drinkAmount) {
+                order.innerHTML += item.value + " € " + (amountPrice * 5) + "<br>";
+            }
             order.innerHTML += item.value + "  € " + price + "<br>";
         }
     }
