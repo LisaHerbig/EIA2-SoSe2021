@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L03_MemorySettings</title>
+    <link rel="stylesheet" href="stylesheetMemory.css">
+</head>
+<body>
+    <h1 id="heading">Memory</h1>
+    <p id="explain">Choose the settings for your Memory game. As soon as you are finished, press the start button.</p>
+
+    <fieldset id="num">
+        <legend>Number of cards</legend>
+		<input type="number" name="Stepper" step="5" min="5" max="25" value="5" /> 
+    </fieldset>
+
+    <fieldset id="size">
+        <legend>Size of cards (px)</legend>
+		<input type="range" name="Slider" min="100" max="200" step="10" value="100" /> 
+    </fieldset>
+
+    <fieldset id="color">
+        <legend>Color</legend>
+        Background
+		<input type="color" name="Color" placeholder="red" id="color" value="#ff0000">
+        <hr/>
+        Back of cards
+		<input type="color" name="Color" placeholder="green" id="color" value="#00ff00">
+        <hr/>
+        Font
+		<input type="color" name="Color" placeholder="blue" id="color" value="#0000ff">
+    </fieldset>
+
+    <fieldset id="font">
+        <legend>Font</legend>
+        Style
+		<select name="Select" id="select">
+			<option value="fantasy">Fantasy</option>
+			<option value="'Courier New', Courier, monospace">Courier New</option>
+			<option value="Arial, Helvetica, sans-serif">Arial, Helvetica</option>
+			<option value="'Times New Roman', Times, serif">Times New Roman</option>
+		</select>
+    </fieldset>
+    
+  
+    <button id="btn">Start the game</button>
+    
+</body>
+</html>

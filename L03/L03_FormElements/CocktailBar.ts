@@ -28,26 +28,39 @@ namespace L03_Cocktailbar {
             let item: HTMLInputElement = <HTMLInputElement>document.querySelector("[value='" + entry[1] + "']");
             //console.log(item);
             let price: number = Number(item.getAttribute("price"));
+
+            let total: number = 0;
            
             //console.log(price);
-            let drinkAmount: HTMLInputElement = <HTMLInputElement>document.querySelector("#amount");
-            let priceAmount: string = drinkAmount.value;
-            let amountPrice: number = parseFloat(priceAmount); 
-            let literPrice: number = amountPrice * 5;
+            //let drinkAmount: HTMLInputElement = <HTMLInputElement>document.querySelector("#amount");
+            //let priceAmount: string = drinkAmount.value;
+            //let amountPrice: number = parseFloat(priceAmount); 
+            //let literPrice: number = amountPrice * 5;
             
             //wenn 1L 5€ Kostet
             //console.log(amountPrice * 5);
             
             
     
-            if (item.value == priceAmount) {
-                price = literPrice;
-            }
-            order.innerHTML += item.value + "  € " + price + "<br>";
+            //if (item.value == priceAmount) {
+               // price = literPrice;
+           // }
+            if (entry[0] == "Drink") {
+
+            order.innerHTML +=  "Drink" + item.value + "  € " + price + "<br>";  
+           } 
+           else if (entry[0] == "Amount") {
+
+            order.innerHTML += "Amount" + item.value + "  € " + /*Number(item.value) * price*/ + "<br>";
+           }
+           else {
+            order.innerHTML += item.name + item.value + "  € " + price + "<br>";
+            total += price;
+           }
             //console.log(price);
-            let finalPrice: string = (total += price).toFixed(2);
+            //let finalPrice: string = (total += price).toFixed(2);
             //total += price;
-            console.log(finalPrice);
+            //console.log(finalPrice);
             
             
             
