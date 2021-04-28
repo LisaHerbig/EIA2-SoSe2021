@@ -9,6 +9,8 @@ var MemorySettings;
     let backgroundC = "";
     let fontColor = "";
     let fontStyle = "";
+    //Array für Vorderseiten im Spiel
+    let frontsGame = [];
     //Array für die Kartenvorderseiten
     let fronts = [
         {
@@ -369,7 +371,12 @@ var MemorySettings;
             back.style.width = cardsSize + "px";
             back.style.height = cardsSize + "px";
             grid.appendChild(back);
+            //Außerdem sollen die benötigten Karten aus dem fronts Array geholt, und in einen neuen gepushed werden.
+            frontsGame.push(fronts[i]);
         }
+        //Mischeln des neu geformten frontGames Array
+        frontsGame.sort(() => Math.random() * 0.5);
     }
+    console.log(frontsGame);
 })(MemorySettings || (MemorySettings = {}));
 //# sourceMappingURL=scriptMemory.js.map
