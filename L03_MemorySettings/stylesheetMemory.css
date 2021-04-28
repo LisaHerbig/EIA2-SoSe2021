@@ -1,11 +1,11 @@
 .grid {
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
+    /*grid-template-columns: auto;*/
+    /*grid-template-rows: auto;*/
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     justify-items: stretch;
-    align-items: stretch;
+    align-items: center;
 }
 #btn {
     margin: 5px;
