@@ -5,3 +5,7 @@
 #heading, #explain {
     text-align: center;
 }
+
+.hide {
+    display: none;
+}

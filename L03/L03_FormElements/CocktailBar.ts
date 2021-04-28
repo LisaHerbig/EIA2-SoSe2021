@@ -1,6 +1,6 @@
 namespace L03_Cocktailbar {
     window.addEventListener("load", handleLoad);
-    let total: number = 0;
+    //let total: number = 0;
 
     function handleLoad(_event: Event): void {
         console.log("Start");
@@ -29,7 +29,7 @@ namespace L03_Cocktailbar {
             //console.log(item);
             let price: number = Number(item.getAttribute("price"));
 
-            let total: number = 0;
+            //let total: number = 0;
            
             //console.log(price);
             //let drinkAmount: HTMLInputElement = <HTMLInputElement>document.querySelector("#amount");

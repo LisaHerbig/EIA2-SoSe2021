@@ -2,7 +2,7 @@
 var L03_Cocktailbar;
 (function (L03_Cocktailbar) {
     window.addEventListener("load", handleLoad);
-    let total = 0;
+    //let total: number = 0;
     function handleLoad(_event) {
         console.log("Start");
         let form = document.querySelector("div#form");
@@ -25,7 +25,7 @@ var L03_Cocktailbar;
             let item = document.querySelector("[value='" + entry[1] + "']");
             //console.log(item);
             let price = Number(item.getAttribute("price"));
-            let total = 0;
+            //let total: number = 0;
             //console.log(price);
             //let drinkAmount: HTMLInputElement = <HTMLInputElement>document.querySelector("#amount");
             //let priceAmount: string = drinkAmount.value;

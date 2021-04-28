@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L03_MemorySettings</title>
     <link rel="stylesheet" href="stylesheetMemory.css">
+    <script src="scriptMemory.js" defer></script>
 </head>
 <body>
     <h1 id="heading">Memory</h1>
     <p id="explain">Choose the settings for your Memory game. As soon as you are finished, press the start button.</p>
-
+    <form>
     <fieldset id="num">
         <legend>Number of cards</legend>
 		<input type="number" name="Stepper" step="5" min="5" max="25" value="5" /> 
@@ -24,13 +25,13 @@
     <fieldset id="color">
         <legend>Color</legend>
         Background
-		<input type="color" name="Color" placeholder="red" id="color" value="#ff0000">
+		<input type="color" name="Color1" placeholder="red" id="color" value="#ff0000">
         <hr/>
         Back of cards
-		<input type="color" name="Color" placeholder="green" id="color" value="#00ff00">
+		<input type="color" name="Color2" placeholder="green" id="color" value="#00ff00">
         <hr/>
         Font
-		<input type="color" name="Color" placeholder="blue" id="color" value="#0000ff">
+		<input type="color" name="Color3" placeholder="blue" id="color" value="#0000ff">
     </fieldset>
 
     <fieldset id="font">
@@ -43,6 +44,7 @@
 			<option value="'Times New Roman', Times, serif">Times New Roman</option>
 		</select>
     </fieldset>
+</form>
     
   
     <button id="btn">Start the game</button>
