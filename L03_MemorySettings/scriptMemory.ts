@@ -1,10 +1,10 @@
 namespace MemorySettings {
 window.addEventListener("load", handleLoad);
 //Variablen zum Speichern des Formularinhalts
-let cardsNum: FormDataEntryValue = "";
-let cardsSize: FormDataEntryValue = "";
+let cardsNum: number = Number("");
+let cardsSize: number = Number("");
 let cardColor: FormDataEntryValue = "";
-let backgroundC: FormDataEntryValue = "";
+let backgroundC: string = "";
 let fontColor: FormDataEntryValue = "";
 let fontStyle: FormDataEntryValue = "";
 
@@ -27,13 +27,13 @@ function handleChange(_event: Event): void {
         //}
         switch (entry[0]) {
             case "Stepper":
-                cardsNum = entry[1];
+                cardsNum = Number(entry[1]);
                 break;
             case "Slider":
-                cardsSize = entry[1];
+                cardsSize = Number(entry[1]);
                 break;
             case "Color1":
-                backgroundC = entry[1];
+                backgroundC = String(entry[1]);
                 break;
             case "Color2":
                 cardColor = entry[1];
@@ -59,8 +59,30 @@ function handleBtn(): void {
 
     let expain: HTMLElement = <HTMLElement>document.querySelector("#explain");
     expain.setAttribute("class", "hide");
+
+    prepareGame();
 }
 
+function prepareGame(): void {
+    let grid: HTMLElement = document.createElement("div");
+    grid.setAttribute("class", "grid");
+    document.body.appendChild(grid);
+    //create Backside of cards and place them
+    for (let i: number = 0; i < cardsNum; i++) {
+        let back: HTMLDivElement = document.createElement("div");
+        back.style.backgroundColor = backgroundC;
+        back.style.width = cardsSize + "px";
+        back.style.height = cardsSize + "px";
+        grid.appendChild(back);
+        
+        
+        
+    }
+    console.log("HI");
+    console.log(cardsNum);
+    
+    
+}
 
 
 

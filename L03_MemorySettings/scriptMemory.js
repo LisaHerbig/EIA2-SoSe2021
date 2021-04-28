@@ -3,8 +3,8 @@ var MemorySettings;
 (function (MemorySettings) {
     window.addEventListener("load", handleLoad);
     //Variablen zum Speichern des Formularinhalts
-    let cardsNum = "";
-    let cardsSize = "";
+    let cardsNum = Number("");
+    let cardsSize = Number("");
     let cardColor = "";
     let backgroundC = "";
     let fontColor = "";
@@ -26,13 +26,13 @@ var MemorySettings;
             //}
             switch (entry[0]) {
                 case "Stepper":
-                    cardsNum = entry[1];
+                    cardsNum = Number(entry[1]);
                     break;
                 case "Slider":
-                    cardsSize = entry[1];
+                    cardsSize = Number(entry[1]);
                     break;
                 case "Color1":
-                    backgroundC = entry[1];
+                    backgroundC = String(entry[1]);
                     break;
                 case "Color2":
                     cardColor = entry[1];
@@ -55,6 +55,22 @@ var MemorySettings;
         btn.setAttribute("class", "hide");
         let expain = document.querySelector("#explain");
         expain.setAttribute("class", "hide");
+        prepareGame();
+    }
+    function prepareGame() {
+        let grid = document.createElement("div");
+        grid.setAttribute("class", "grid");
+        document.body.appendChild(grid);
+        //create Backside of cards and place them
+        for (let i = 0; i < cardsNum; i++) {
+            let back = document.createElement("div");
+            back.style.backgroundColor = backgroundC;
+            back.style.width = cardsSize + "px";
+            back.style.height = cardsSize + "px";
+            grid.appendChild(back);
+        }
+        console.log("HI");
+        console.log(cardsNum);
     }
 })(MemorySettings || (MemorySettings = {}));
 //# sourceMappingURL=scriptMemory.js.map
