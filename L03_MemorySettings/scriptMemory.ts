@@ -369,19 +369,24 @@ function prepareGame(): void {
         back.setAttribute("id", "backN" + i);
         grid.appendChild(back);
         //Eventlistener for the back
-        back.addEventListener("pointerdown", handlePoint);
+        //back.addEventListener("pointerdown", handlePoint);
         //Push back into back Array
         backs.push(back);
         //Moreover, the number of cards that is needed for the game has to be pushed in the fontsGame Array
         frontsGame.push(fronts[i]);
     } 
 
-    //Mischeln des neu geformten frontGames Array
+    //Mix the Array of Card fronts in Game
     frontsGame.sort(() => Math.random() - 0.5);
+    //Change color and Family of the font
     for (let i: number = 0; i < frontsGame.length; i++ ) {
-        grid.appendChild(frontsGame[i]);
+        backs[i].appendChild(frontsGame[i]);
         frontsGame[i].style.fontFamily = fontStyle;
         frontsGame[i].style.color = fontColor;
+        frontsGame[i].style.width = cardsSize + "px";
+        frontsGame[i].style.height = cardsSize + "px";
+        frontsGame[i].addEventListener("pointerdown", handlePoint);
+        frontsGame[i].style.opacity = "0";
     }
     //Timer
     start = Date.now();
@@ -392,7 +397,8 @@ console.log(backs);
 
 function handlePoint(_event: Event): void {
    countPoint.push(1);
-   if (countPoint.length == 2) {
+   if (countPoint.length <= 2) {
+       
        if (countStrikes.length >= cardsNum * 2) {
            //stop the time
            const stop: number = Date.now();
@@ -415,8 +421,14 @@ function handlePoint(_event: Event): void {
 }
 
 function turnCard(_event: Event): void {
-    console.log(_event.currentTarget);
+    if (_event.target == null) {
+        console.log("fehler");
         
+    }
+    else {
+    let onpoint: HTMLElement = <HTMLElement> _event.target;
+    onpoint.style.opacity = "1";
+    }
 }
 
 function newGame(): void {
