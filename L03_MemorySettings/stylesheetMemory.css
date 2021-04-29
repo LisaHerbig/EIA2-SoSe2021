@@ -1,14 +1,24 @@
-.grid {
+/*.grid {
     display: grid;
-    /*grid-template-columns: auto;*/
-    /*grid-template-rows: auto;*/
-    grid-column-gap: 20px;
+    /*grid-template-columns: 150px, 150px, 150px, 150px;*/
+    /*grid-template-rows: 150px, 150px, 150px, 150px;*/
+   /* grid-column-gap: 20px;
     grid-row-gap: 20px;
     justify-items: stretch;
     align-items: center;
+}*/
+.grid {
+    display: grid;
+    grid-template-columns:  200px[place1] 200px[place2]  200px[place3]  200px[place4]  200px[place1];
+    grid-template-rows:  200px[place1]  200px[place2]  200px[place3]  200px[place4]  200px[place1];
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
 }
 #btn {
     margin: 5px;
+    
 }
 
 #heading, #explain {
