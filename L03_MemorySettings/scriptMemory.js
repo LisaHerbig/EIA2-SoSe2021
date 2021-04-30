@@ -13,6 +13,8 @@ var MemorySettings;
     let start = 0;
     //Array for counting turns
     let countPoint = [];
+    //Array for pointed cards (to compare)
+    let pointedCard = [];
     //Array for backs
     let backs = [];
     //Array for counting strikes
@@ -330,25 +332,28 @@ var MemorySettings;
     console.log(backs);
     function handlePoint(_event) {
         countPoint.push(1);
+        //if (countPoint.length <= 2) {
+        //if (countStrikes.length == cardsNum * 2) {
+        //stop the time
+        //const stop: number = Date.now();
+        //get the time 
+        //let time: number = stop - start;
+        //create a div for congratiolation
+        //let congrats: HTMLDivElement = document.createElement("div");
+        //congrats.innerText = "Congratiolations! You finished the game in " + time + "seconds! Press the button to go to the menu.";
+        //document.body.appendChild(congrats);
+        // create Button to start a new game
+        //let startAgain: HTMLButtonElement = document.createElement("button");
+        //startAgain.innerHTML = "Start a new game";
+        //startAgain.addEventListener("pointerdown", newGame);
+        //document.body.appendChild(startAgain);
+        //} 
+        //else 
         if (countPoint.length <= 2) {
-            if (countStrikes.length >= cardsNum * 2) {
-                //stop the time
-                const stop = Date.now();
-                //get the time 
-                let time = stop - start;
-                //create a div for congratiolation
-                let congrats = document.createElement("div");
-                congrats.innerText = "Congratiolations! You finished the game in " + time + "seconds! Press the button to go to the menu.";
-                // create Button to start a new game
-                let startAgain = document.createElement("button");
-                startAgain.innerHTML = "Start a new game";
-                startAgain.addEventListener("pointerdown", newGame);
-            }
-            else {
-                turnCard(_event);
-                countPoint.length = 0;
-            }
+            turnCard(_event);
+            //countPoint.length = 0;
         }
+        //}
     }
     function turnCard(_event) {
         if (_event.target == null) {
@@ -357,6 +362,44 @@ var MemorySettings;
         else {
             let onpoint = _event.target;
             onpoint.style.opacity = "1";
+            setTimeout(function () { onpoint.style.opacity = "0"; }, 2000);
+            pointedCard.push(onpoint);
+            compareCards();
+        }
+    }
+    function compareCards() {
+        if (countPoint.length == 2) {
+            if (pointedCard[0].className == pointedCard[1].className) {
+                pointedCard[0].style.backgroundColor = backgroundC;
+                let parent = pointedCard[0].parentElement;
+                parent.style.backgroundColor = backgroundC;
+                pointedCard[0].removeEventListener("pointerdown", handlePoint);
+                countStrikes.push(pointedCard[0]);
+                pointedCard[1].style.backgroundColor = backgroundC;
+                let parent2 = pointedCard[1].parentElement;
+                parent2.style.backgroundColor = backgroundC;
+                pointedCard[1].removeEventListener("pointerdown", handlePoint);
+                countStrikes.push(pointedCard[1]);
+                console.log(countStrikes);
+                //countPoint.length = 0;
+                if (countStrikes.length == cardsNum * 2) {
+                    //stop the time
+                    const stop = Date.now();
+                    //get the time 
+                    let time = stop - start;
+                    //create a div for congratiolation
+                    let congrats = document.createElement("div");
+                    congrats.innerText = "Congratiolations! You finished the game in " + time + "seconds! Press the button to go to the menu.";
+                    document.body.appendChild(congrats);
+                    // create Button to start a new game
+                    let startAgain = document.createElement("button");
+                    startAgain.innerHTML = "Start a new game";
+                    startAgain.addEventListener("pointerdown", newGame);
+                    document.body.appendChild(startAgain);
+                }
+            }
+            pointedCard = [];
+            countPoint.length = 0;
         }
     }
     function newGame() {
