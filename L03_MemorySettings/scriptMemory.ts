@@ -434,7 +434,7 @@ function turnCard(_event: Event): void {
     else {
     let onpoint: HTMLElement = <HTMLElement> _event.target;
     onpoint.style.opacity = "1";
-    setTimeout(function(): void {onpoint.style.opacity = "0"; }, 2000);
+    setTimeout(function(): void {onpoint.style.opacity = "0"; }, 1000);
     pointedCard.push(onpoint);
     compareCards();
     }
@@ -464,7 +464,7 @@ function compareCards (): void {
                 //create a div for congratiolation
                 let displayCongrats: HTMLElement = <HTMLElement>document.querySelector("#congrats");
                 let congrats: HTMLDivElement = document.createElement("div");
-                congrats.innerText = "Congratiolations! You finished the game in " + time + " ms! Press the button to go to the menu.";
+                congrats.innerText = "Congratiolations! You finished the game in " + time * 0.001 + " s! Press the button to go to the menu.";
                 congrats.setAttribute("id", "congrats");
                 displayCongrats.appendChild(congrats);
                 // create Button to start a new game

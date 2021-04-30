@@ -362,7 +362,7 @@ var MemorySettings;
         else {
             let onpoint = _event.target;
             onpoint.style.opacity = "1";
-            setTimeout(function () { onpoint.style.opacity = "0"; }, 2000);
+            setTimeout(function () { onpoint.style.opacity = "0"; }, 1000);
             pointedCard.push(onpoint);
             compareCards();
         }
@@ -390,7 +390,7 @@ var MemorySettings;
                     //create a div for congratiolation
                     let displayCongrats = document.querySelector("#congrats");
                     let congrats = document.createElement("div");
-                    congrats.innerText = "Congratiolations! You finished the game in " + time + " ms! Press the button to go to the menu.";
+                    congrats.innerText = "Congratiolations! You finished the game in " + time * 0.001 + " s! Press the button to go to the menu.";
                     congrats.setAttribute("id", "congrats");
                     displayCongrats.appendChild(congrats);
                     // create Button to start a new game
