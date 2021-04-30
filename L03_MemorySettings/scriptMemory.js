@@ -388,14 +388,16 @@ var MemorySettings;
                     //get the time 
                     let time = stop - start;
                     //create a div for congratiolation
+                    let displayCongrats = document.querySelector("#congrats");
                     let congrats = document.createElement("div");
-                    congrats.innerText = "Congratiolations! You finished the game in " + time + "seconds! Press the button to go to the menu.";
-                    document.body.appendChild(congrats);
+                    congrats.innerText = "Congratiolations! You finished the game in " + time + " ms! Press the button to go to the menu.";
+                    congrats.setAttribute("id", "congrats");
+                    displayCongrats.appendChild(congrats);
                     // create Button to start a new game
                     let startAgain = document.createElement("button");
                     startAgain.innerHTML = "Start a new game";
                     startAgain.addEventListener("pointerdown", newGame);
-                    document.body.appendChild(startAgain);
+                    congrats.appendChild(startAgain);
                 }
             }
             pointedCard = [];
