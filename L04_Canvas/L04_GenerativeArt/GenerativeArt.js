@@ -24,7 +24,9 @@ var L04_GenerativeArt;
         //createFilledCircle(createRandomNum());
         //createCheeseCircle(createRandomNum());
         //createTriangle();
-        createShaddowTriangle();
+        //createShaddowTriangle();
+        createCurve();
+        createSegmentCurve();
     }
     //backgound
     function createBackgound() {
@@ -92,6 +94,33 @@ var L04_GenerativeArt;
         crc2d.shadowOffsetY = createRandomNum();
         crc2d.shadowOffsetX = createRandomNum();
         crc2d.stroke();
+    }
+    //Curves 
+    function createCurve() {
+        crc2d.beginPath();
+        crc2d.moveTo(0, 0);
+        crc2d.bezierCurveTo(0, createRandomNum() * 6, createRandomNum() * 6, createRandomNum() * 6, 800, 600);
+        crc2d.lineWidth = createRandomNum() * 0.2;
+        crc2d.stroke();
+    }
+    function createSegmentCurve() {
+        crc2d.beginPath();
+        if (createRandomNum() < 50) {
+            crc2d.moveTo(0, createRandomNum());
+            crc2d.bezierCurveTo(0, createRandomNum() * 6, createRandomNum() * 6, createRandomNum() * 6, createRandomNum() * 6, createRandomNum() * 6);
+            crc2d.setLineDash([5, 15]);
+            crc2d.stroke();
+        }
+        else {
+            crc2d.moveTo(0, createRandomNum() * 6);
+            crc2d.bezierCurveTo(0, createRandomNum() * 6, createRandomNum() * 6, createRandomNum() * 6, createRandomNum() * 6, createRandomNum() * 6);
+            let currentNum = createRandomNum();
+            crc2d.lineWidth = currentNum * 0.2;
+            if (currentNum < 70) {
+                crc2d.lineCap = "round";
+            }
+            crc2d.stroke();
+        }
     }
     //Pattern
 })(L04_GenerativeArt || (L04_GenerativeArt = {}));
