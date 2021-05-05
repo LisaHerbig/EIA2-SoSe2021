@@ -6,18 +6,18 @@ namespace Canvas_Lektion {
 
     //Arc
     crc2.beginPath();
-    crc2.ellipse(150, 100, 20, 20, Math.PI / 5, 0, 2 * Math.PI);
-    //crc2.arc(100, 100, 20, 0, 1.5 * Math.PI);
-    //crc2.closePath();
-    crc2.moveTo(150, 100);
-    crc2.lineTo(200, 100);
-    crc2.lineTo(150, 50);
-    crc2.lineTo(150, 100);
+    //crc2.ellipse(150, 100, 20, 20, Math.PI / 5, 0, 2 * Math.PI);
+    crc2.arc(100, 100, 20, 0, 1.5 * Math.PI);
+    crc2.closePath();
+    //crc2.moveTo(150, 100);
+    //crc2.lineTo(200, 100);
+    //crc2.lineTo(150, 50);
+    //crc2.lineTo(150, 100);
     crc2.strokeStyle = "#0000FF";
     crc2.stroke();
    
     //Farbe
-    let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, 100);
+    /*let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, 100);
     gradient.addColorStop(0, "black");
     gradient.addColorStop(.2, "black");
     gradient.addColorStop(.4, "red");
@@ -30,7 +30,7 @@ namespace Canvas_Lektion {
     crc2.fillRect(0, 0, 200, 100);
 
     //Pattern
-    let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
+    /*let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
     pattern.canvas.width = 40;
     pattern.canvas.height = 20;
 
@@ -48,5 +48,5 @@ namespace Canvas_Lektion {
 
     crc2.fillStyle = <CanvasRenderingContext2D> crc2.createPattern(pattern.canvas, "repeat");
     crc2.fillRect(0, 0, canvas.width, canvas.height);
-
+*/
 }
