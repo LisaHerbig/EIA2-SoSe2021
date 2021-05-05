@@ -18,12 +18,13 @@ var L04_GenerativeArt;
         let canvas = document.querySelector("canvas");
         crc2d = canvas.getContext("2d");
         createBackgound();
-        createThinCircle(createRandomNum());
-        createSunCircle(createRandomNum());
-        createOpenCircle();
-        createFilledCircle(createRandomNum());
-        createCheeseCircle(createRandomNum());
-        createTriangle();
+        //createThinCircle(createRandomNum());
+        //createSunCircle(createRandomNum());
+        //createOpenCircle();
+        //createFilledCircle(createRandomNum());
+        //createCheeseCircle(createRandomNum());
+        //createTriangle();
+        createShaddowTriangle();
     }
     //backgound
     function createBackgound() {
@@ -81,5 +82,17 @@ var L04_GenerativeArt;
         crc2d.closePath();
         crc2d.stroke();
     }
+    function createShaddowTriangle() {
+        crc2d.beginPath();
+        crc2d.moveTo(createRandomNum(), createRandomNum());
+        crc2d.lineTo(createRandomNum(), createRandomNum());
+        crc2d.lineTo(createRandomNum(), createRandomNum());
+        crc2d.closePath();
+        crc2d.shadowColor = colorsArt[createRandomNum()];
+        crc2d.shadowOffsetY = createRandomNum();
+        crc2d.shadowOffsetX = createRandomNum();
+        crc2d.stroke();
+    }
+    //Pattern
 })(L04_GenerativeArt || (L04_GenerativeArt = {}));
 //# sourceMappingURL=GenerativeArt.js.map

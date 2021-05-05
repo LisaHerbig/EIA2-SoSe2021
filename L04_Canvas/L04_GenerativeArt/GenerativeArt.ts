@@ -19,12 +19,13 @@ namespace L04_GenerativeArt {
         crc2d = canvas.getContext("2d")!;
 
         createBackgound(); 
-        createThinCircle(createRandomNum());
-        createSunCircle(createRandomNum());
-        createOpenCircle();
-        createFilledCircle(createRandomNum());
-        createCheeseCircle(createRandomNum());
-        createTriangle();
+        //createThinCircle(createRandomNum());
+        //createSunCircle(createRandomNum());
+        //createOpenCircle();
+        //createFilledCircle(createRandomNum());
+        //createCheeseCircle(createRandomNum());
+        //createTriangle();
+        createShaddowTriangle();
         
     
     }
@@ -86,5 +87,18 @@ namespace L04_GenerativeArt {
         crc2d.closePath();
         crc2d.stroke();
     }
+    function createShaddowTriangle(): void {
+        crc2d.beginPath();
+        crc2d.moveTo(createRandomNum(), createRandomNum());
+        crc2d.lineTo(createRandomNum(), createRandomNum());
+        crc2d.lineTo(createRandomNum(), createRandomNum());
+        crc2d.closePath();
+        crc2d.shadowColor = colorsArt[createRandomNum()];
+        crc2d.shadowOffsetY = createRandomNum();
+        crc2d.shadowOffsetX = createRandomNum();
+        crc2d.stroke();
+    }
 
+    //Pattern
+    
 }
