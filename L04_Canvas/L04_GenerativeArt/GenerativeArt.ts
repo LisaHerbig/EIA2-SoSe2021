@@ -2,7 +2,7 @@ namespace L04_GenerativeArt {
     window.addEventListener("load", displayArt);
     //Get Context
     let crc2d: CanvasRenderingContext2D;
-
+    let i: number = 0;
     //Array for different colors
     let colorsArt: string[] = ["AntiqueWhite", "Aqua", "Aquamarine", "Beige", "Bisque", "Black", "Blue", "Blue", "BlueViolet", "DarkOrange", "BurlyWood", "CadetBlue", "Chartreuse", "DodgerBlue", "Coral", "CornflowerBlue", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGrey", "DarkGreen", "DarkMagenta", "DarkOrange", "DarkOrchid", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DeepPink", "DeepSkyBlue", "Fuchsia", "Gold", "Green", "GreenYellow", "HotPink", "IndianRed", "Indigo", "Lavender", "LawnGreen", "LightBlue", "LightCoral", "LightCyan", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSteelBlue", "Lime", "LimeGreen", "Magenta", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "Moccasin", "Navy", "Orange", "OrangeRed", "Orchid", "PaleGreen", "PaleTurquoise", "PeachPuff", "PowderBlue", "Purple", "RebeccaPurple", "Red", "RoyalBlue", "SeaGreen", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "SpringGreen", "SteelBlue", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "WhiteSmoke", "White", "Yellow", "YellowGreen", "Gainsboro", "Silver", "DimGray", "DarkSlateGray", "LightSlateGray", "SeaShell", "MistyRose", "Azure", " HoneyDew", "MintCream"];
 
@@ -19,15 +19,34 @@ namespace L04_GenerativeArt {
         crc2d = canvas.getContext("2d")!;
 
         createBackgound(); 
-        //createThinCircle(createRandomNum());
-        //createSunCircle(createRandomNum());
-        //createOpenCircle();
-        //createFilledCircle(createRandomNum());
-        //createCheeseCircle(createRandomNum());
-        //createTriangle();
-        //createShaddowTriangle();
+        for (i; i < createRandomNum(); i++) {
+        createThinCircle(createRandomNum());
+        }
+        for (i; i > createRandomNum(); i++) {
+        createSunCircle(createRandomNum());
+        }
+        for (i; i > createRandomNum(); i++) {
+        createOpenCircle();
+        }
+        for (i; i < createRandomNum(); i++) {
+        createFilledCircle(createRandomNum());
+        }
+        for (i; i > createRandomNum(); i++) {
+        createCheeseCircle(createRandomNum());
+        }
+        for (i; i < createRandomNum(); i++) {
+        createTriangle();
+        }
+        for (i; i > createRandomNum(); i++) {
+        createShaddowTriangle();
+        }
+        for (i; i < createRandomNum(); i++) {
         createCurve();
+        }
+        for (i; i > createRandomNum(); i++) {
         createSegmentCurve();
+        }
+        createPattern();
         
     
     }
@@ -45,15 +64,21 @@ namespace L04_GenerativeArt {
     //Circles
     function createThinCircle(randomNum: number): void {
         crc2d.beginPath();
-        crc2d.ellipse(randomNum, randomNum, randomNum, randomNum, Math.PI / randomNum, randomNum, randomNum * Math.PI);       
+        crc2d.ellipse(randomNum, randomNum, randomNum, randomNum, Math.PI / randomNum, randomNum, randomNum * Math.PI);
+        crc2d.strokeStyle = colorsArt[createRandomNum()];     
+        if (createRandomNum() > 50) {
+            crc2d.lineWidth = createRandomNum() * 0.1;
+        }  
         crc2d.stroke();
     }
     function createSunCircle(randomNum: number): void {
         crc2d.beginPath();
         crc2d.ellipse(randomNum, randomNum, randomNum, randomNum, Math.PI / randomNum, randomNum, randomNum * Math.PI);
-        //crc2d.ellipse(createRandomNum(), createRandomNum(), createRandomNum(), createRandomNum(), Math.PI / createRandomNum(), createRandomNum(), createRandomNum() * Math.PI);
+        //crc2d.ellipse(createRandomNum(), createRandomNum(), createRandomNum(), createRandomNum(), Math.PI / createRandomNum(), createRandomNum ), createRandomNum() * Math.PI);
+        crc2d.strokeStyle = colorsArt[createRandomNum()];
         crc2d.lineWidth = randomNum;
         //crc2d.lineWidth = randomNum;
+        
     }
     function createOpenCircle(): void {
         if (createRandomNum() > 50) {
@@ -129,5 +154,27 @@ namespace L04_GenerativeArt {
     }
 
     //Pattern
+    function createPattern(): void {
+        if (createRandomNum() == 100) {
+            let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
+            pattern.canvas.width = 40;
+            pattern.canvas.height = 20;
 
+            pattern.fillStyle = colorsArt[createRandomNum()];
+            pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
+            pattern.moveTo(0, 20);
+            pattern.lineTo(20, 20);
+            pattern.lineTo(0, 40);
+            pattern.lineTo(60, 0);
+            pattern.lineTo(0, 80);
+            pattern.lineTo(100, 0);
+            pattern.lineTo(0, 120);
+            pattern.lineTo(140, 0);
+            pattern.stroke();
+
+            crc2d.fillStyle = <CanvasRenderingContext2D> crc2d.createPattern(pattern.canvas, "repeat");
+            crc2d.fillRect(0, 0, 800, 600);
+
+        }
+    }
 }

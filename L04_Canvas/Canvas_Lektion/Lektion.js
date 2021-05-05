@@ -27,14 +27,12 @@ var Canvas_Lektion;
     gradient.addColorStop(1, "gold");
 
     crc2.fillStyle = gradient;
-    crc2.fillRect(0, 0, 200, 100);
-
+    crc2.fillRect(0, 0, 200, 100);*/
     //Pattern
-    /*let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
+    let pattern = document.createElement("canvas").getContext("2d");
     pattern.canvas.width = 40;
     pattern.canvas.height = 20;
-
-    pattern.fillStyle = "#fec";
+    pattern.fillStyle = "#0000ff";
     pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
     pattern.moveTo(0, 10);
     pattern.lineTo(10, 10);
@@ -45,9 +43,7 @@ var Canvas_Lektion;
     pattern.lineTo(20, 20);
     pattern.lineTo(10, 10);
     pattern.stroke();
-
-    crc2.fillStyle = <CanvasRenderingContext2D> crc2.createPattern(pattern.canvas, "repeat");
+    crc2.fillStyle = crc2.createPattern(pattern.canvas, "repeat");
     crc2.fillRect(0, 0, canvas.width, canvas.height);
-*/
 })(Canvas_Lektion || (Canvas_Lektion = {}));
 //# sourceMappingURL=Lektion.js.map
