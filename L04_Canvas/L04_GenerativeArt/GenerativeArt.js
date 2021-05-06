@@ -27,7 +27,7 @@ var L04_GenerativeArt;
         createBackgound();
         //crc2d.resetTransform();
         createThinCircle(createRandomNum());
-        //crc2d.resetTransform();
+        crc2d.resetTransform();
         createSunCircle(createRandomNum());
         //crc2d.resetTransform();
         createOpenCircle();
@@ -70,14 +70,14 @@ var L04_GenerativeArt;
         }
     }
     function createSunCircle(randomNum) {
-        for (i; i < createRandomNum(); i++) {
+        for (i; i < createRandomNum() * 2; i++) {
             crc2d.beginPath();
             crc2d.ellipse(randomNum, randomNum, randomNum, randomNum, Math.PI / randomNum, randomNum, randomNum * Math.PI);
             //crc2d.ellipse(createRandomNum(), createRandomNum(), createRandomNum(), createRandomNum(), Math.PI / createRandomNum(), createRandomNum ), createRandomNum() * Math.PI);
             crc2d.strokeStyle = colorsArt[createRandomNum()];
             crc2d.lineWidth = randomNum;
             if (createRandomNum() < 20) {
-                crc2d.translate(createRandomNum(), createRandomNum());
+                crc2d.translate(createRandomNum() * 6, createRandomNum() * 6);
             }
             //crc2d.lineWidth = randomNum;
         }
