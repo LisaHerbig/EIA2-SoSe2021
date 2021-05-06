@@ -31,18 +31,18 @@ var GenerativeArtTSL04;
         crc2d.resetTransform();
         createCircle();
         crc2d.resetTransform();
-        createCheeseCircle();
-        crc2d.resetTransform();
-        createFilledCircle();
-        crc2d.resetTransform();
         createTriangle();
         crc2d.resetTransform();
         createShaddowTriangle();
         crc2d.resetTransform();
         createCurve();
         crc2d.resetTransform();
-        createCheeseCurve();
+        createCheeseCircle();
         crc2d.resetTransform();
+        createFilledCircle();
+        crc2d.resetTransform();
+        createCheeseCurve();
+        //crc2d.resetTransform();
         if (createRandomNum() > 95) {
             createPattern1();
         }
@@ -67,13 +67,17 @@ var GenerativeArtTSL04;
             crc2d.strokeStyle = colors[createRandomNum()];
             if (createRandomNum() > 70) {
                 crc2d.translate(createRandomNum(), createRandomNum());
+                crc2d.shadowBlur = createRandomNum();
+                crc2d.shadowColor = colors[createRandomNum()];
+                crc2d.shadowOffsetY = createRandomNum();
+                crc2d.shadowOffsetX = createRandomNum();
                 //crc2d.scale(createRandomNum(), createRandomNum());
             }
             crc2d.stroke();
         }
         //crc2d.resetTransform();
     }
-    //Create Cheese Circle
+    //Create Segment Circle
     function createCheeseCircle() {
         for (i; i < createNumPxCanvas(); i++) {
             let num = createRandomNum();
@@ -98,7 +102,7 @@ var GenerativeArtTSL04;
             let num = createRandomNum();
             crc2d.ellipse(createNumPxCanvas(), createNumPxCanvas(), num, num, 0, 0, 2 * Math.PI);
             crc2d.fill();
-            //crc2d.stroke();
+            crc2d.stroke();
         }
         //crc2d.resetTransform();
     }
@@ -141,10 +145,12 @@ var GenerativeArtTSL04;
             crc2d.moveTo(0, 0);
             crc2d.bezierCurveTo(0, createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), 800, 800);
             crc2d.lineWidth = createRandomNum() * 0.1;
-            if (createRandomNum() < 35) {
-                crc2d.setLineDash([5, createRandomNum()]);
-            }
             crc2d.stroke();
+            if (createRandomNum() < 35) {
+                crc2d.setLineDash([5, 15]);
+                crc2d.stroke();
+            }
+            //crc2d.stroke();  
         }
         //crc2d.resetTransform();
     }
@@ -156,10 +162,12 @@ var GenerativeArtTSL04;
                 crc2d.moveTo(0, 0);
                 crc2d.bezierCurveTo(0, createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas());
                 crc2d.setLineDash([5, 10]);
+                crc2d.stroke();
                 //crc2d.stroke();
             }
             else if (createRandomNum() < 2) {
                 crc2d.lineCap = "round";
+                crc2d.stroke();
             }
             else {
                 crc2d.moveTo(800, 800);
@@ -167,6 +175,7 @@ var GenerativeArtTSL04;
                 let currentNum = createRandomNum();
                 crc2d.lineWidth = currentNum * 0.1;
                 //crc2d.lineCap = "round";
+                crc2d.stroke();
             }
             crc2d.stroke();
         }
