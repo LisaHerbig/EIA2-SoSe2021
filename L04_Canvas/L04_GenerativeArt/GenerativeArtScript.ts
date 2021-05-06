@@ -31,23 +31,28 @@ namespace GenerativeArtTSL04 {
 
         
         createBackgound();
-        //crc2d.resetTransform();
-        //createCircle();
-        //crc2d.resetTransform();
-        //createCheeseCircle();
-        //crc2d.resetTransform();
-        //createFilledCircle();
-        //crc2d.resetTransform();
-        //createTriangle();
-        //crc2d.resetTransform();
-        //createShaddowTriangle();
-        //crc2d.resetTransform();
-        //createCurve();
-        //crc2d.resetTransform();
-        //createCheeseCurve();
-        //crc2d.resetTransform();
-        //createPattern1();
+        crc2d.resetTransform();
+        createCircle();
+        crc2d.resetTransform();
+        createCheeseCircle();
+        crc2d.resetTransform();
+        createFilledCircle();
+        crc2d.resetTransform();
+        createTriangle();
+        crc2d.resetTransform();
+        createShaddowTriangle();
+        crc2d.resetTransform();
+        createCurve();
+        crc2d.resetTransform();
+        createCheeseCurve();
+        crc2d.resetTransform();
+
+        if ( createRandomNum() > 95) {
+        createPattern1();
+        }
+        if (createRandomNum() < 30) {
         createPattern2();
+        }
     }
 
 
@@ -67,7 +72,7 @@ namespace GenerativeArtTSL04 {
     function createCircle(): void {
         for (i; i <= createNumPxCanvas() * 2; i++) {
             crc2d.beginPath();
-            crc2d.ellipse(createNumPxCanvas(), createNumPxCanvas(), createRandomNum(), createRandomNum(), Math.PI / 1, 0, 2 * Math.PI);
+            crc2d.arc(createRandomNum(), createRandomNum(), createRandomNum(), 0, 2 * Math.PI);
             crc2d.strokeStyle = colors[createRandomNum()];     
             if (createRandomNum() > 70) {
                 crc2d.translate(createRandomNum(), createRandomNum());
@@ -75,7 +80,7 @@ namespace GenerativeArtTSL04 {
             }  
             crc2d.stroke();
         }
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
     }
     
     //Create Cheese Circle
@@ -94,7 +99,7 @@ namespace GenerativeArtTSL04 {
             crc2d.setLineDash([5, createRandomNum()]);
             crc2d.stroke();
         }
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
     }
     //Create filled Circles
     function createFilledCircle(): void {
@@ -106,7 +111,7 @@ namespace GenerativeArtTSL04 {
             crc2d.fill();
             //crc2d.stroke();
         }
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
     }
 
     //Create Triangle
@@ -123,7 +128,7 @@ namespace GenerativeArtTSL04 {
             //crc2d.strokeStyle = colors[createRandomNum()];
             crc2d.stroke();
         }
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
     }
         
     //Create Triangle with Shaddow
@@ -140,7 +145,7 @@ namespace GenerativeArtTSL04 {
             crc2d.shadowBlur = createRandomNum() / 2;
             crc2d.stroke();
         }
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
     }
 
     // Curves
@@ -155,7 +160,7 @@ namespace GenerativeArtTSL04 {
             }
             crc2d.stroke();  
         }
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
     }
 
     //Cheese Curve
@@ -179,7 +184,7 @@ namespace GenerativeArtTSL04 {
             }
             crc2d.stroke();
         }
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
     }
 
     //Pattern
@@ -198,6 +203,7 @@ namespace GenerativeArtTSL04 {
         pattern.lineTo(100, 0);
         pattern.lineTo(0, 120);
         pattern.lineTo(140, 0);
+        pattern.strokeStyle = colors[createRandomNum()];
         pattern.stroke();
 
         crc2d.fillStyle = <CanvasRenderingContext2D> crc2d.createPattern(pattern.canvas, "repeat");
@@ -225,20 +231,21 @@ namespace GenerativeArtTSL04 {
         pattern.moveTo(700, 0);
         pattern.bezierCurveTo(700, 0, 700, 100, 800, 100);
         // other side
-        pattern.moveTo(100, 0);
-        pattern.bezierCurveTo(100, 0, 100, 700, 800, 700);
-        pattern.moveTo(200, 0);
-        pattern.bezierCurveTo(200, 0, 200, 600, 800, 600);
-        pattern.moveTo(300, 0);
-        pattern.bezierCurveTo(300, 0, 300, 500, 800, 500);
-        pattern.moveTo(400, 0);
-        pattern.bezierCurveTo(400, 0, 400, 400, 800, 400);
-        pattern.moveTo (500, 0);
-        pattern.bezierCurveTo(500, 0, 500, 300, 800, 300);
-        pattern.moveTo(600, 0);
-        pattern.bezierCurveTo(600, 0, 600, 200, 800, 200);
-        pattern.moveTo(700, 0);
-        pattern.bezierCurveTo(700, 0, 700, 100, 800, 100);
+        pattern.moveTo(0, 100);
+        pattern.bezierCurveTo(0, 100, 700, 100, 700, 800);
+        pattern.moveTo(0, 200);
+        pattern.bezierCurveTo(0, 200, 600, 200, 600, 800);
+        pattern.moveTo(0, 300);
+        pattern.bezierCurveTo(0, 300, 500, 300, 500, 800);
+        pattern.moveTo(0, 400);
+        pattern.bezierCurveTo(0, 400, 400, 400, 400, 800);
+        pattern.moveTo (0, 500);
+        pattern.bezierCurveTo(0, 500, 300, 500, 300, 800);
+        pattern.moveTo(0, 600);
+        pattern.bezierCurveTo(0, 600, 200, 600, 200, 800);
+        pattern.moveTo(0, 700);
+        pattern.bezierCurveTo(0, 700, 100, 700, 100, 800);
+        pattern.strokeStyle = colors[createRandomNum()];
         pattern.stroke();
 
         crc2d.fillStyle = <CanvasRenderingContext2D> crc2d.createPattern(pattern.canvas, "repeat");
