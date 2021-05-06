@@ -28,7 +28,31 @@ namespace GenerativeArtTSL04 {
 
     function displayArt(): void {
         console.log(colors.length);
-        //Create background of Canvas
+
+        
+        createBackgound();
+        //crc2d.resetTransform();
+        //createCircle();
+        //crc2d.resetTransform();
+        //createCheeseCircle();
+        //crc2d.resetTransform();
+        //createFilledCircle();
+        //crc2d.resetTransform();
+        //createTriangle();
+        //crc2d.resetTransform();
+        //createShaddowTriangle();
+        //crc2d.resetTransform();
+        //createCurve();
+        //crc2d.resetTransform();
+        //createCheeseCurve();
+        //crc2d.resetTransform();
+        //createPattern1();
+        createPattern2();
+    }
+
+
+    //Create background of Canvas
+    function createBackgound(): void {
         let gradient: CanvasGradient = crc2d.createRadialGradient(0, 50, 15, 150, 60, 800);
         gradient.addColorStop(0, colors[createRandomNum()]);
         gradient.addColorStop(.5, colors[createRandomNum()]);
@@ -36,9 +60,12 @@ namespace GenerativeArtTSL04 {
     
         crc2d.fillStyle = gradient;
         crc2d.fillRect(0, 0, crc2d.canvas.width, crc2d.canvas.height);
+    
+    }
 
-        //Create a Circle
-        /*for (i; i <= createNumPxCanvas() * 2; i++) {
+    //Create a Circle
+    function createCircle(): void {
+        for (i; i <= createNumPxCanvas() * 2; i++) {
             crc2d.beginPath();
             crc2d.ellipse(createNumPxCanvas(), createNumPxCanvas(), createRandomNum(), createRandomNum(), Math.PI / 1, 0, 2 * Math.PI);
             crc2d.strokeStyle = colors[createRandomNum()];     
@@ -47,10 +74,13 @@ namespace GenerativeArtTSL04 {
                 //crc2d.scale(createRandomNum(), createRandomNum());
             }  
             crc2d.stroke();
-        }*/
-
-        //Create Cheese Circle
-        /*for (i; i < createRandomNum() * 2; i++) {
+        }
+        crc2d.resetTransform();
+    }
+    
+    //Create Cheese Circle
+    function createCheeseCircle(): void {
+        for (i; i < createNumPxCanvas() ; i++) {
             let num: number = createRandomNum();
             crc2d.beginPath();
             crc2d.ellipse(createNumPxCanvas(), createNumPxCanvas(), num, num, Math.PI / num, num, num * Math.PI);
@@ -63,31 +93,42 @@ namespace GenerativeArtTSL04 {
             
             crc2d.setLineDash([5, createRandomNum()]);
             crc2d.stroke();
-        }*/
-
-        //Create filled Circles
-        /*for (i; i < createRandomNum(); i++) {
+        }
+        crc2d.resetTransform();
+    }
+    //Create filled Circles
+    function createFilledCircle(): void {
+        for (i; i < createRandomNum(); i++) {
             crc2d.fillStyle = colors[createRandomNum()];
             crc2d.beginPath();
             let num: number = createRandomNum();
             crc2d.ellipse(createNumPxCanvas(), createNumPxCanvas(), num, num, 0, 0, 2 * Math.PI);
             crc2d.fill();
             //crc2d.stroke();
-        }*/
+        }
+        crc2d.resetTransform();
+    }
 
-        //Create Triangle
-        /*for (i; i < createRandomNum() * 2; i++) {
+    //Create Triangle
+    function createTriangle(): void {
+        for (i; i < createRandomNum() ; i++) {
             crc2d.beginPath();
             crc2d.moveTo(createNumPxCanvas(), createNumPxCanvas());
             crc2d.lineTo(createNumPxCanvas(), createNumPxCanvas());
             crc2d.lineTo(createNumPxCanvas(), createNumPxCanvas());
             crc2d.closePath();
+            if (createNumPxCanvas() < 200) {
+                crc2d.scale (createRandomNum() / 10, createRandomNum() / 10);
+            }
             //crc2d.strokeStyle = colors[createRandomNum()];
             crc2d.stroke();
-        }*/
-
-        //Create Triangle with Shaddow
-        /*for (i; i < createRandomNum(); i++) {
+        }
+        crc2d.resetTransform();
+    }
+        
+    //Create Triangle with Shaddow
+    function createShaddowTriangle(): void {
+        for (i; i < createRandomNum(); i++) {
             crc2d.beginPath();
             crc2d.moveTo(createNumPxCanvas(), createNumPxCanvas());
             crc2d.lineTo(createNumPxCanvas(), createNumPxCanvas());
@@ -96,36 +137,112 @@ namespace GenerativeArtTSL04 {
             crc2d.shadowColor = colors[createRandomNum()];
             crc2d.shadowOffsetY = createRandomNum();
             crc2d.shadowOffsetX = createRandomNum();
+            crc2d.shadowBlur = createRandomNum() / 2;
             crc2d.stroke();
-        }*/
+        }
+        crc2d.resetTransform();
+    }
 
-        // Curves
-        /*for (i; i < createRandomNum(); i++) {
+    // Curves
+    function createCurve(): void {
+        for (i; i < createRandomNum(); i++) {
             crc2d.beginPath();
             crc2d.moveTo(0, 0);
             crc2d. bezierCurveTo(0, createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), 800, 800);
             crc2d.lineWidth = createRandomNum() * 0.1;
+            if (createRandomNum() < 35) {
+                crc2d.setLineDash([5, createRandomNum()]);
+            }
             crc2d.stroke();  
-        }*/
+        }
+        crc2d.resetTransform();
+    }
 
-        //Cheese Curve
-        for (i; i < createRandomNum(); i++) {
+    //Cheese Curve
+    function createCheeseCurve(): void {
+        for (i; i < createRandomNum() / 10; i++) {
             crc2d.beginPath();
             if (createRandomNum() < 50) {
                 crc2d.moveTo(0, 0);
                 crc2d.bezierCurveTo(0, createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas());
                 crc2d.setLineDash([5, 10]);
                 //crc2d.stroke();
-            } else {
+            } else if (createRandomNum() < 2) {
+                crc2d.lineCap = "round";
+            }
+            else {
                 crc2d.moveTo(800, 800);
                 crc2d.bezierCurveTo(0, createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas());
                 let currentNum: number = createRandomNum();
                 crc2d.lineWidth = currentNum * 0.1;
-                crc2d.lineCap = "round";
+                //crc2d.lineCap = "round";
             }
             crc2d.stroke();
         }
+        crc2d.resetTransform();
+    }
 
+    //Pattern
+    function createPattern1(): void {
+        let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
+        pattern.canvas.width = 80;
+        pattern.canvas.height = 80;
+    
+        pattern.fillStyle = "rgba(0, 0, 0, 0)";
+        pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
+        pattern.moveTo(0, 20);
+        pattern.lineTo(20, 20);
+        pattern.lineTo(0, 40);
+        pattern.lineTo(60, 0);
+        pattern.lineTo(0, 80);
+        pattern.lineTo(100, 0);
+        pattern.lineTo(0, 120);
+        pattern.lineTo(140, 0);
+        pattern.stroke();
+
+        crc2d.fillStyle = <CanvasRenderingContext2D> crc2d.createPattern(pattern.canvas, "repeat");
+        crc2d.fillRect(0, 0, 800, 800);
+    }
+
+    function createPattern2(): void {
+        let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
+        pattern.canvas.width = 800;
+        pattern.canvas.height = 800; 
+        pattern.fillStyle = "rgba(0, 0, 0, 0)";
+        pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
+        pattern.moveTo(100, 0);
+        pattern.bezierCurveTo(100, 0, 100, 700, 800, 700);
+        pattern.moveTo(200, 0);
+        pattern.bezierCurveTo(200, 0, 200, 600, 800, 600);
+        pattern.moveTo(300, 0);
+        pattern.bezierCurveTo(300, 0, 300, 500, 800, 500);
+        pattern.moveTo(400, 0);
+        pattern.bezierCurveTo(400, 0, 400, 400, 800, 400);
+        pattern.moveTo (500, 0);
+        pattern.bezierCurveTo(500, 0, 500, 300, 800, 300);
+        pattern.moveTo(600, 0);
+        pattern.bezierCurveTo(600, 0, 600, 200, 800, 200);
+        pattern.moveTo(700, 0);
+        pattern.bezierCurveTo(700, 0, 700, 100, 800, 100);
+        // other side
+        pattern.moveTo(100, 0);
+        pattern.bezierCurveTo(100, 0, 100, 700, 800, 700);
+        pattern.moveTo(200, 0);
+        pattern.bezierCurveTo(200, 0, 200, 600, 800, 600);
+        pattern.moveTo(300, 0);
+        pattern.bezierCurveTo(300, 0, 300, 500, 800, 500);
+        pattern.moveTo(400, 0);
+        pattern.bezierCurveTo(400, 0, 400, 400, 800, 400);
+        pattern.moveTo (500, 0);
+        pattern.bezierCurveTo(500, 0, 500, 300, 800, 300);
+        pattern.moveTo(600, 0);
+        pattern.bezierCurveTo(600, 0, 600, 200, 800, 200);
+        pattern.moveTo(700, 0);
+        pattern.bezierCurveTo(700, 0, 700, 100, 800, 100);
+        pattern.stroke();
+
+        crc2d.fillStyle = <CanvasRenderingContext2D> crc2d.createPattern(pattern.canvas, "repeat");
+        crc2d.fillRect(0, 0, 800, 800);
     }
 
 }
