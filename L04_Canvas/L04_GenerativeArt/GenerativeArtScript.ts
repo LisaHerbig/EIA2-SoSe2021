@@ -1,4 +1,11 @@
 namespace GenerativeArtTSL04 {
+    /*
+    Aufgabe: L08.1 Generative Kunst
+    Name: Lisa Herbig
+    Matrikel: 266236
+    Datum: 07.05.2021
+    */
+
     window.addEventListener("load", handleLoad);
     //Get Context
     let crc2d: CanvasRenderingContext2D;
@@ -22,34 +29,34 @@ namespace GenerativeArtTSL04 {
 
     function handleLoad(): void {
         let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
-        crc2d = canvas.getContext("2d")!;  
+        crc2d = canvas.getContext("2d")!;
         displayArt();
     }
 
     function displayArt(): void {
-        console.log(colors.length);
+        
         createBackgound();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createCircle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createTriangle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createShaddowTriangle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createCurve();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createCheeseCircle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createFilledCircle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createCheeseCurve();
         //crc2d.resetTransform();
 
-        if ( createRandomNum() > 95) {
-        createPattern1();
+        if (createRandomNum() > 95) {
+            createPattern1();
         }
         if (createRandomNum() < 30) {
-        createPattern2();
+            createPattern2();
         }
     }
 
@@ -60,10 +67,10 @@ namespace GenerativeArtTSL04 {
         gradient.addColorStop(0, colors[createRandomNum()]);
         gradient.addColorStop(.5, colors[createRandomNum()]);
         gradient.addColorStop(1, colors[createRandomNum()]);
-    
+
         crc2d.fillStyle = gradient;
         crc2d.fillRect(0, 0, crc2d.canvas.width, crc2d.canvas.height);
-    
+
     }
 
     //Create a Circle
@@ -71,7 +78,7 @@ namespace GenerativeArtTSL04 {
         for (i; i <= createNumPxCanvas() * 2; i++) {
             crc2d.beginPath();
             crc2d.arc(createRandomNum(), createRandomNum(), createRandomNum(), 0, 2 * Math.PI);
-            crc2d.strokeStyle = colors[createRandomNum()];     
+            crc2d.strokeStyle = colors[createRandomNum()];
             if (createRandomNum() > 70) {
                 crc2d.translate(createRandomNum(), createRandomNum());
                 crc2d.shadowBlur = createRandomNum();
@@ -79,15 +86,15 @@ namespace GenerativeArtTSL04 {
                 crc2d.shadowOffsetY = createRandomNum();
                 crc2d.shadowOffsetX = createRandomNum();
                 //crc2d.scale(createRandomNum(), createRandomNum());
-            }  
+            }
             crc2d.stroke();
         }
         //crc2d.resetTransform();
     }
-    
+
     //Create Segment Circle
     function createCheeseCircle(): void {
-        for (i; i < createNumPxCanvas() ; i++) {
+        for (i; i < createNumPxCanvas(); i++) {
             let num: number = createRandomNum();
             crc2d.beginPath();
             crc2d.ellipse(createNumPxCanvas(), createNumPxCanvas(), num, num, Math.PI / num, num, num * Math.PI);
@@ -97,7 +104,7 @@ namespace GenerativeArtTSL04 {
             if (createRandomNum() < 20) {
                 crc2d.translate(createRandomNum() * 6, createRandomNum() * 6);
             }
-            
+
             crc2d.setLineDash([5, createRandomNum()]);
             crc2d.stroke();
         }
@@ -118,21 +125,21 @@ namespace GenerativeArtTSL04 {
 
     //Create Triangle
     function createTriangle(): void {
-        for (i; i < createRandomNum() ; i++) {
+        for (i; i < createRandomNum(); i++) {
             crc2d.beginPath();
             crc2d.moveTo(createNumPxCanvas(), createNumPxCanvas());
             crc2d.lineTo(createNumPxCanvas(), createNumPxCanvas());
             crc2d.lineTo(createNumPxCanvas(), createNumPxCanvas());
             crc2d.closePath();
             if (createNumPxCanvas() < 200) {
-                crc2d.scale (createRandomNum() / 10, createRandomNum() / 10);
+                crc2d.scale(createRandomNum() / 10, createRandomNum() / 10);
             }
             //crc2d.strokeStyle = colors[createRandomNum()];
             crc2d.stroke();
         }
         //crc2d.resetTransform();
     }
-        
+
     //Create Triangle with Shaddow
     function createShaddowTriangle(): void {
         for (i; i < createRandomNum(); i++) {
@@ -155,7 +162,7 @@ namespace GenerativeArtTSL04 {
         for (i; i < createRandomNum(); i++) {
             crc2d.beginPath();
             crc2d.moveTo(0, 0);
-            crc2d. bezierCurveTo(0, createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), 800, 800);
+            crc2d.bezierCurveTo(0, createNumPxCanvas(), createNumPxCanvas(), createNumPxCanvas(), 800, 800);
             crc2d.lineWidth = createRandomNum() * 0.1;
             crc2d.stroke();
             if (createRandomNum() < 35) {
@@ -199,7 +206,7 @@ namespace GenerativeArtTSL04 {
         let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
         pattern.canvas.width = 80;
         pattern.canvas.height = 80;
-    
+
         pattern.fillStyle = "rgba(0, 0, 0, 0)";
         pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
         pattern.moveTo(0, 20);
@@ -213,14 +220,14 @@ namespace GenerativeArtTSL04 {
         pattern.strokeStyle = colors[createRandomNum()];
         pattern.stroke();
 
-        crc2d.fillStyle = <CanvasRenderingContext2D> crc2d.createPattern(pattern.canvas, "repeat");
+        crc2d.fillStyle = <CanvasRenderingContext2D>crc2d.createPattern(pattern.canvas, "repeat");
         crc2d.fillRect(0, 0, 800, 800);
     }
 
     function createPattern2(): void {
         let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
         pattern.canvas.width = 800;
-        pattern.canvas.height = 800; 
+        pattern.canvas.height = 800;
         pattern.fillStyle = "rgba(0, 0, 0, 0)";
         pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
         pattern.moveTo(100, 0);
@@ -231,7 +238,7 @@ namespace GenerativeArtTSL04 {
         pattern.bezierCurveTo(300, 0, 300, 500, 800, 500);
         pattern.moveTo(400, 0);
         pattern.bezierCurveTo(400, 0, 400, 400, 800, 400);
-        pattern.moveTo (500, 0);
+        pattern.moveTo(500, 0);
         pattern.bezierCurveTo(500, 0, 500, 300, 800, 300);
         pattern.moveTo(600, 0);
         pattern.bezierCurveTo(600, 0, 600, 200, 800, 200);
@@ -246,7 +253,7 @@ namespace GenerativeArtTSL04 {
         pattern.bezierCurveTo(0, 300, 500, 300, 500, 800);
         pattern.moveTo(0, 400);
         pattern.bezierCurveTo(0, 400, 400, 400, 400, 800);
-        pattern.moveTo (0, 500);
+        pattern.moveTo(0, 500);
         pattern.bezierCurveTo(0, 500, 300, 500, 300, 800);
         pattern.moveTo(0, 600);
         pattern.bezierCurveTo(0, 600, 200, 600, 200, 800);
@@ -255,7 +262,7 @@ namespace GenerativeArtTSL04 {
         pattern.strokeStyle = colors[createRandomNum()];
         pattern.stroke();
 
-        crc2d.fillStyle = <CanvasRenderingContext2D> crc2d.createPattern(pattern.canvas, "repeat");
+        crc2d.fillStyle = <CanvasRenderingContext2D>crc2d.createPattern(pattern.canvas, "repeat");
         crc2d.fillRect(0, 0, 800, 800);
     }
 
