@@ -1,4 +1,4 @@
-namespace L03_Cocktailbar {
+/*namespace L03_Cocktailbar {
     window.addEventListener("load", handleLoad);
     //let total: number = 0;
 
@@ -52,7 +52,7 @@ namespace L03_Cocktailbar {
            else if (entry[0] == "Amount") {
 
             order.innerHTML += "Amount" + item.value + "  € " + /*Number(item.value) * price*/ + "<br>";
-           }
+           /*}
            else {
             order.innerHTML += item.name + item.value + "  € " + price + "<br>";
             total += price;
@@ -74,4 +74,4 @@ namespace L03_Cocktailbar {
         let amount: string = (<HTMLInputElement>_event.target).value;
         progress.value = parseFloat(amount);
     }
-}
+}*/
