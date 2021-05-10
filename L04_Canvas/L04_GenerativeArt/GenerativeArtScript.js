@@ -1,6 +1,12 @@
 "use strict";
 var GenerativeArtTSL04;
 (function (GenerativeArtTSL04) {
+    /*
+    Aufgabe: L08.1 Generative Kunst
+    Name: Lisa Herbig
+    Matrikel: 266236
+    Datum: 07.05.2021
+    */
     window.addEventListener("load", handleLoad);
     //Get Context
     let crc2d;
@@ -26,21 +32,20 @@ var GenerativeArtTSL04;
         displayArt();
     }
     function displayArt() {
-        console.log(colors.length);
         createBackgound();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createCircle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createTriangle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createShaddowTriangle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createCurve();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createCheeseCircle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createFilledCircle();
-        crc2d.resetTransform();
+        //crc2d.resetTransform();
         createCheeseCurve();
         //crc2d.resetTransform();
         if (createRandomNum() > 95) {
