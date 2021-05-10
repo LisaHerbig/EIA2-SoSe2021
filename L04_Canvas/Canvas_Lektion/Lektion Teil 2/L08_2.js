@@ -29,6 +29,10 @@ var L08_Canvas_Alley;
         posTreesEnd.x = posTreesEnd.x + streetWidthFront + 2 * treesOffsetFront;
         drawTrees(8, posTreesStart, posTreesEnd, 0.1, 0.37, 1.4);
     }
+    function createRandomNum(_min, _max) {
+        return Math.floor(Math.random() * (_max - _min + 1) + _min);
+    }
+    console.log(createRandomNum(0, 150));
     function drawTrees(_nTrees, _posStart, _posEnd, _minScale, _stepPos, _stepScale) {
         console.log("Trees", _posStart, _posEnd);
         let transform = crc2.getTransform();

@@ -8,6 +8,7 @@ namespace L08_Canvas_Alley {
     let crc2: CanvasRenderingContext2D;
     let golden: number = 0.62;
 
+    
     function handleLoad(_event: Event): void {
         let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
         if (!canvas)
@@ -36,6 +37,11 @@ namespace L08_Canvas_Alley {
         posTreesEnd.x = posTreesEnd.x + streetWidthFront + 2 * treesOffsetFront;
         drawTrees(8, posTreesStart, posTreesEnd, 0.1, 0.37, 1.4);
     }
+    
+    function createRandomNum(_min: number, _max: number): number {
+        return Math.floor(Math.random() * (_max - _min + 1) + _min);
+    }
+    console.log(createRandomNum(0, 150));
 
     function drawTrees(_nTrees: number, _posStart: Vector, _posEnd: Vector, _minScale: number, _stepPos: number, _stepScale: number): void {
         console.log("Trees", _posStart, _posEnd);
@@ -200,4 +206,6 @@ namespace L08_Canvas_Alley {
 
         crc2.restore();
     }
+
+    
 }
