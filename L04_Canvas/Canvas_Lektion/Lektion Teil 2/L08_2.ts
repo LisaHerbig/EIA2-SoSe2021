@@ -67,8 +67,8 @@ namespace L08_Canvas_Alley {
 
     function drawTree(): void {
         console.log("Tree");
-        let nBranches: number = 50;
-        let maxRadius: number = 60;
+        let nBranches: number = 80;
+        let maxRadius: number = 45;
         let branch: Path2D = new Path2D();
         branch.arc(0, 0, maxRadius, 0, 2 * Math.PI);
 
@@ -76,7 +76,7 @@ namespace L08_Canvas_Alley {
         crc2.fillRect(0, 0, 20, -200);
 
         crc2.save();
-        crc2.translate(0, -120);
+        crc2.translate(0, -100);
 
         do {
             let y: number = Math.random() * 350;
@@ -133,7 +133,7 @@ namespace L08_Canvas_Alley {
     function drawCloud(_position: Vector, _size: Vector): void {
         console.log("Cloud", _position, _size);
 
-        let nParticles: number = 20;
+        let nParticles: number = 25;
         let radiusParticle: number = 50;
         let particle: Path2D = new Path2D();
         let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
@@ -172,6 +172,15 @@ namespace L08_Canvas_Alley {
 
         crc2.fillStyle = gradient;
         crc2.fill();
+
+        //Selbstversuch
+        crc2.beginPath();
+        crc2.moveTo(400, crc2.canvas.height * golden);
+        crc2.lineTo(400, 600);
+        crc2.strokeStyle = "White";
+        crc2.setLineDash([5, 10]);
+        crc2.lineWidth = 5;
+        crc2.stroke();
     }
 
     function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
@@ -188,8 +197,8 @@ namespace L08_Canvas_Alley {
         crc2.lineTo(0, -_max);
 
         do {
-            x += stepMin + Math.random() * (stepMax - stepMin);
-            let y: number = -_min - Math.random() * (_max - _min);
+            x += stepMin + createRandomNum(stepMin, stepMax);
+            let y: number = -_min - createRandomNum(_min, _max);
 
             crc2.lineTo(x, y);
         } while (x < crc2.canvas.width);

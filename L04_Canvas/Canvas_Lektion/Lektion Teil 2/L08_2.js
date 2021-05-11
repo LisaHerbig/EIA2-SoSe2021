@@ -51,14 +51,14 @@ var L08_Canvas_Alley;
     }
     function drawTree() {
         console.log("Tree");
-        let nBranches = 50;
-        let maxRadius = 60;
+        let nBranches = 80;
+        let maxRadius = 45;
         let branch = new Path2D();
         branch.arc(0, 0, maxRadius, 0, 2 * Math.PI);
         crc2.fillStyle = "brown";
         crc2.fillRect(0, 0, 20, -200);
         crc2.save();
-        crc2.translate(0, -120);
+        crc2.translate(0, -100);
         do {
             let y = Math.random() * 350;
             let size = 1 - y / 700;
@@ -100,7 +100,7 @@ var L08_Canvas_Alley;
     }
     function drawCloud(_position, _size) {
         console.log("Cloud", _position, _size);
-        let nParticles = 20;
+        let nParticles = 25;
         let radiusParticle = 50;
         let particle = new Path2D();
         let gradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
@@ -133,6 +133,14 @@ var L08_Canvas_Alley;
         gradient.addColorStop(0.6, "black ");
         crc2.fillStyle = gradient;
         crc2.fill();
+        //Selbstversuch
+        crc2.beginPath();
+        crc2.moveTo(400, crc2.canvas.height * golden);
+        crc2.lineTo(400, 600);
+        crc2.strokeStyle = "White";
+        crc2.setLineDash([5, 10]);
+        crc2.lineWidth = 5;
+        crc2.stroke();
     }
     function drawMountains(_position, _min, _max, _colorLow, _colorHigh) {
         console.log("Mountains", _position, _min, _max);
@@ -145,8 +153,8 @@ var L08_Canvas_Alley;
         crc2.moveTo(0, 0);
         crc2.lineTo(0, -_max);
         do {
-            x += stepMin + Math.random() * (stepMax - stepMin);
-            let y = -_min - Math.random() * (_max - _min);
+            x += stepMin + createRandomNum(stepMin, stepMax);
+            let y = -_min - createRandomNum(_min, _max);
             crc2.lineTo(x, y);
         } while (x < crc2.canvas.width);
         crc2.lineTo(x, 0);
