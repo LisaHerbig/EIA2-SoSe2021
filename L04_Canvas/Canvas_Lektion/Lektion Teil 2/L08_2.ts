@@ -9,6 +9,7 @@ namespace L08_Canvas_Alley {
     let golden: number = 0.62;
     let streetWidthBack: number = 100;
     let streetWidthFront: number = 600;
+    let fPoint: number = createRandomNum(-200, 200);
     
     function handleLoad(_event: Event): void {
         let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
@@ -23,7 +24,7 @@ namespace L08_Canvas_Alley {
         let treesOffsetFront: number = 100;
 
         let posMountains: Vector = { x: 0, y: horizon };
-        let posStreet: Vector = { x: crc2.canvas.width / 2, y: horizon };
+        let posStreet: Vector = { x: fPoint + streetWidthBack / 2, y: horizon };
         let posTreesStart: Vector = { x: posStreet.x - streetWidthBack / 2 - treesOffsetBack, y: horizon };
         let posTreesEnd: Vector = { x: crc2.canvas.width / 2 - streetWidthFront / 2 - treesOffsetFront, y: crc2.canvas.height };
 
@@ -160,13 +161,13 @@ namespace L08_Canvas_Alley {
 
     function drawStreet(_position: Vector, _widthBack: number, _widthFront: number): void {
         console.log("Street", _position, _widthBack, _widthFront);
-        let fPoint: number = createRandomNum(-200, 200);
+        //let fPoint: number = createRandomNum(-200, 200);
         _position.x = fPoint;
         crc2.beginPath();
         crc2.moveTo(_position.x + _widthBack, _position.y);
         crc2.lineTo(crc2.canvas.width / 2 + _widthFront / 2, crc2.canvas.height);
         crc2.lineTo(crc2.canvas.width / 2 - _widthFront / 2, crc2.canvas.height);
-        crc2.lineTo(fPoint - _widthBack / 2, _position.y);
+        crc2.lineTo(_position.x - _widthBack / 2, _position.y);
         crc2.closePath();
         
 
