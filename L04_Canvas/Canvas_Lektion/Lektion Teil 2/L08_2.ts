@@ -7,7 +7,8 @@ namespace L08_Canvas_Alley {
     window.addEventListener("load", handleLoad);
     let crc2: CanvasRenderingContext2D;
     let golden: number = 0.62;
-
+    let streetWidthBack: number = 100;
+    let streetWidthFront: number = 600;
     
     function handleLoad(_event: Event): void {
         let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
@@ -16,8 +17,8 @@ namespace L08_Canvas_Alley {
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         let horizon: number = crc2.canvas.height * golden;
-        let streetWidthBack: number = 100;
-        let streetWidthFront: number = 600;
+        //let streetWidthBack: number = 100;
+        //let streetWidthFront: number = 600;
         let treesOffsetBack: number = 15;
         let treesOffsetFront: number = 100;
 
@@ -103,7 +104,7 @@ namespace L08_Canvas_Alley {
         console.log("Background");
 
         let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
-        gradient.addColorStop(0, "lightblue");
+        gradient.addColorStop(0, "DodgerBlue");
         gradient.addColorStop(golden, "white");
         gradient.addColorStop(1, "HSL(100, 80%, 30%)");
 

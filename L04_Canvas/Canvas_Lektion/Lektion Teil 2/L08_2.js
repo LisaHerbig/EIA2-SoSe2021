@@ -4,14 +4,16 @@ var L08_Canvas_Alley;
     window.addEventListener("load", handleLoad);
     let crc2;
     let golden = 0.62;
+    let streetWidthBack = 100;
+    let streetWidthFront = 600;
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
         if (!canvas)
             return;
         crc2 = canvas.getContext("2d");
         let horizon = crc2.canvas.height * golden;
-        let streetWidthBack = 100;
-        let streetWidthFront = 600;
+        //let streetWidthBack: number = 100;
+        //let streetWidthFront: number = 600;
         let treesOffsetBack = 15;
         let treesOffsetFront = 100;
         let posMountains = { x: 0, y: horizon };
@@ -78,7 +80,7 @@ var L08_Canvas_Alley;
     function drawBackground() {
         console.log("Background");
         let gradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
-        gradient.addColorStop(0, "lightblue");
+        gradient.addColorStop(0, "DodgerBlue");
         gradient.addColorStop(golden, "white");
         gradient.addColorStop(1, "HSL(100, 80%, 30%)");
         crc2.fillStyle = gradient;
