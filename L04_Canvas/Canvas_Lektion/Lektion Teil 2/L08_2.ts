@@ -160,12 +160,15 @@ namespace L08_Canvas_Alley {
 
     function drawStreet(_position: Vector, _widthBack: number, _widthFront: number): void {
         console.log("Street", _position, _widthBack, _widthFront);
+        let fPoint: number = createRandomNum(-200, 200);
+        _position.x = fPoint;
         crc2.beginPath();
-        crc2.moveTo(_position.x + _widthBack / 2, _position.y);
+        crc2.moveTo(_position.x + _widthBack, _position.y);
         crc2.lineTo(crc2.canvas.width / 2 + _widthFront / 2, crc2.canvas.height);
         crc2.lineTo(crc2.canvas.width / 2 - _widthFront / 2, crc2.canvas.height);
-        crc2.lineTo(_position.x - _widthBack / 2, _position.y);
+        crc2.lineTo(fPoint - _widthBack / 2, _position.y);
         crc2.closePath();
+        
 
         let gradient: CanvasGradient = crc2.createLinearGradient(0, _position.y, 0, crc2.canvas.height);
         gradient.addColorStop(0, "darkgrey");
@@ -176,7 +179,7 @@ namespace L08_Canvas_Alley {
 
         //Selbstversuch
         crc2.beginPath();
-        crc2.moveTo(400, crc2.canvas.height * golden);
+        crc2.moveTo(_position.x + _widthBack / 2, crc2.canvas.height * golden);
         crc2.lineTo(400, 600);
         crc2.strokeStyle = "White";
         crc2.setLineDash([5, 10]);
