@@ -33,6 +33,8 @@ namespace L08_2_Blumenwiese {
         drawMountains({x: 0, y: 320}, 20, 120, "black", "lightgrey");
         drawFlower1({x: 20, y: 360});
         drawFlower2({x: 80, y: 360});
+        drawFlower3({x: 120, y: 360});
+        drawFlower4({x: 160, y: 360});
     }
 
     function createRandomNum(_min: number, _max: number): number {
@@ -187,20 +189,126 @@ namespace L08_2_Blumenwiese {
     }
 
     function drawFlower2(_positionStem: Vector): void {
+        let nLeaves: number = 7;
+        let rMax: number = 7;
+        let posX: number = _positionStem.x + 1;
+        let posY: number = _positionStem.y - 1;
 
         crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
         crc2d.fillRect(_positionStem.x, _positionStem.y, 5, 20);
         crc2d.save();
-
-        //let tulip: Path2D = new Path2D();
-        crc2d.beginPath();
-        crc2d.arc(_positionStem.x + 2, _positionStem.y - 15, 15, 0, Math.PI);
-        //crc2d.moveTo(_positionStem.x,_positionStem.y - 10 );
-        crc2d.closePath();
-        crc2d.fillStyle = colorfulColors[createRandomNum(0, 12)];
-        crc2d.fill();
-        crc2d.stroke();
+    
+        for (let i: number = 0; i < nLeaves; i++) {
+            crc2d.beginPath();
+            crc2d.ellipse(posX, posY, rMax - i * 0.5 , rMax - i * 0.5, 0, 0, 2 * Math.PI);
+            crc2d.fillStyle = colorfulColors [createRandomNum(0, 12)];
+            crc2d.closePath();
+            crc2d.fill();
+        }
         crc2d.restore();
+       
+        
+        
+        
+    }
+
+    function drawFlower3(_positionStem: Vector): void {
+        crc2d.beginPath();
+        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
+        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, 20);
+        crc2d.closePath();
+        crc2d.save();
+        
+        let color: string = colorfulColors[createRandomNum(0, 12)];
+        
+        for (let drawn: number = 0; drawn < 5; drawn++) {
+           //crc2d.save();
+           let rotate: number = 0;
+           switch (drawn) {
+            case 0:
+                //crc2d.rotate(0 * Math.PI / 180);
+                rotate = 0;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                break;
+            case 1:
+                //crc2d.rotate(72 * Math.PI / 180);
+                rotate = 72;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                
+                break;
+            case 2:
+                //crc2d.rotate(144 * Math.PI / 180);
+                rotate = 144;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                
+                break;
+            case 3: 
+                //crc2d.rotate(216 * Math.PI / 180);
+                rotate = 216;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                
+                break;
+            case 4:
+                //crc2d.rotate(288 * Math.PI / 180);
+                rotate = 288;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                
+                break;
+            default:
+                console.log("Something is wrong");
+                
+            }
+           //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+           crc2d.beginPath();
+           crc2d.ellipse(_positionStem.x + 2 , _positionStem.y - 5, 5, 15, rotate * Math.PI / 180, 0, 2 * Math.PI);
+           crc2d.fillStyle = color;
+           crc2d.fill();
+           crc2d.closePath();
+           crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+           crc2d.restore();
+
+           crc2d.beginPath();
+           crc2d.ellipse(_positionStem.x + 2, _positionStem.y - 5, 5, 5, 0, 0, 2 * Math.PI);
+           crc2d.fillStyle = "HSLA(58, 100%, 50%, 1)";
+           crc2d.fill();
+           crc2d.closePath();
+           crc2d.save();
+        
+        }
+    }
+
+    function drawFlower4(_positionStem: Vector): void {
+        crc2d.beginPath();
+        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
+        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, 20);
+        crc2d.closePath();
+        crc2d.save();
+
+        let nLeaves: number = 3;
+        let rMax: number = 10;
+        let x: number = 0;
+        let y: number = 0;
+
+        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
+        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, 20);
+        crc2d.save();
+        
+        for (let drawn: number = 0; drawn < nLeaves; drawn++) {
+            crc2d.save();
+           
+            crc2d.translate(x, y);
+            let posX: number = _positionStem.x + 1;
+            let posY: number = _positionStem.y - 1;
+            crc2d.beginPath();
+            crc2d.ellipse(posX, posY, rMax - drawn * 2  , rMax - drawn * 2 , 0, 0, 2 * Math.PI);
+            crc2d.fillStyle = colorfulColors [createRandomNum(0, 12)];
+            crc2d.closePath();
+            //crc2d.closePath();
+            //crc2d.save();
+            crc2d.fill();
+            
+            crc2d.restore();
+        }
         
     }
 }
