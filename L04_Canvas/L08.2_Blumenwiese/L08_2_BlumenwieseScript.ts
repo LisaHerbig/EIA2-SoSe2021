@@ -31,6 +31,7 @@ namespace L08_2_Blumenwiese {
         drawCloud({x: 200, y: 140}, {x: 80, y: 30}, 17);
         drawMountains({x: 0, y: 320}, 60, 180, "grey", "White");
         drawMountains({x: 0, y: 320}, 20, 120, "black", "lightgrey");
+        drawHouse({x: 0, y: 340}, 80, -40);
         drawFlower1({x: 20, y: 360});
         drawFlower2({x: 80, y: 360});
         drawFlower3({x: 120, y: 360});
@@ -125,6 +126,29 @@ namespace L08_2_Blumenwiese {
         crc2d.fill();
 
         crc2d.restore(); 
+    }
+
+    function drawHouse(_position: Vector, _stepSide: number, _stepUp: number): void {
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.moveTo(_position.x, _position.y);
+        crc2d.lineTo(_stepSide, _position.y);
+        crc2d.lineTo(_stepSide, _position.y + _stepUp);
+        crc2d.lineTo(-_stepSide, _position.y + _stepUp);
+        crc2d.closePath();
+        crc2d.fillStyle = "HSLA(30, 100%, 22%, 1)";
+        crc2d.fill();
+        crc2d.restore();
+
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.moveTo(_position.x, _position.y + _stepUp);
+        crc2d.lineTo(_position.x + _stepSide, _position.y + _stepUp);
+        crc2d.lineTo((_position.x + _stepSide) - _stepSide / 2 , _position.y + 2 * _stepUp);
+        crc2d.closePath();
+        crc2d.fillStyle = "HSLA(9, 100%, 58%, 1)";
+        crc2d.fill();
+        crc2d.restore();
     }
 
     function drawFlower1(_positionStem: Vector): void {
