@@ -10,6 +10,9 @@ var L08_2_Blumenwiese;
    */
     window.addEventListener("load", handleLoad);
     let crc2d;
+    let pinkPurple = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)"];
+    let colorfulColors = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)", "HSLA(0, 100%, 50%, 0.8)", "HSLA(19, 100%, 50%, 0.8)", "HSLA(32, 100%, 50%, 0.9)", "HSLA(60, 100%, 50%, 0.7)", "HSLA(165, 100%, 50%, 0.8)", "HSLA(203, 100%, 50%, 0.8)", "HSLA(244, 100%, 50%, 0.8)", "HSLA((356, 100%, 50%, 0.8))"];
+    console.log(colorfulColors.length);
     function handleLoad() {
         console.log("Hello");
         let canvas = document.querySelector("canvas");
@@ -22,6 +25,8 @@ var L08_2_Blumenwiese;
         drawCloud({ x: 200, y: 140 }, { x: 80, y: 30 }, 17);
         drawMountains({ x: 0, y: 320 }, 60, 180, "grey", "White");
         drawMountains({ x: 0, y: 320 }, 20, 120, "black", "lightgrey");
+        drawFlower1({ x: 20, y: 360 });
+        drawFlower2({ x: 80, y: 360 });
     }
     function createRandomNum(_min, _max) {
         return Math.floor(Math.random() * (_max - _min + 1) + _min);
@@ -53,7 +58,7 @@ var L08_2_Blumenwiese;
         let particle = new Path2D();
         let gradient = crc2d.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
         particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-        gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
+        gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.4)");
         gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
         crc2d.save();
         crc2d.translate(_position.x, _position.y);
@@ -90,6 +95,76 @@ var L08_2_Blumenwiese;
         gradient.addColorStop(0.7, _colorHigh);
         crc2d.fillStyle = gradient;
         crc2d.fill();
+        crc2d.restore();
+    }
+    function drawFlower1(_positionStem) {
+        let nLeaves = 7;
+        let rMax = 7;
+        let x = 0;
+        let y = 0;
+        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
+        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, 20);
+        crc2d.save();
+        for (let drawn = 0; drawn < nLeaves; drawn++) {
+            crc2d.save();
+            switch (drawn) {
+                case 0 /*|| 2 || 4*/:
+                    x = -5;
+                    y = 0;
+                    break;
+                case 1:
+                    x = 5;
+                    y = 0;
+                    break;
+                case 2:
+                    x = -4;
+                    y = -10;
+                    break;
+                case 3 /*|| 3 || 5*/:
+                    x = 4;
+                    y = -10;
+                    break;
+                case 4:
+                    x = -3;
+                    y = -17;
+                    break;
+                case 5:
+                    x = 3;
+                    y = -17;
+                    break;
+                case 6:
+                    x = 0;
+                    y = -25;
+                    break;
+                default:
+                    console.log("something is wrong");
+            }
+            crc2d.save();
+            crc2d.translate(x, y);
+            let posX = _positionStem.x + 1;
+            let posY = _positionStem.y - 1;
+            crc2d.beginPath();
+            crc2d.ellipse(posX, posY, rMax - drawn * 0.5, rMax - drawn * 0.5, 0, 0, 2 * Math.PI);
+            crc2d.fillStyle = pinkPurple[createRandomNum(0, 3)];
+            crc2d.closePath();
+            //crc2d.closePath();
+            //crc2d.save();
+            crc2d.fill();
+            crc2d.restore();
+        }
+    }
+    function drawFlower2(_positionStem) {
+        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
+        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, 20);
+        crc2d.save();
+        //let tulip: Path2D = new Path2D();
+        crc2d.beginPath();
+        crc2d.arc(_positionStem.x + 2, _positionStem.y - 15, 15, 0, Math.PI);
+        //crc2d.moveTo(_positionStem.x,_positionStem.y - 10 );
+        crc2d.closePath();
+        crc2d.fillStyle = colorfulColors[createRandomNum(0, 12)];
+        crc2d.fill();
+        crc2d.stroke();
         crc2d.restore();
     }
 })(L08_2_Blumenwiese || (L08_2_Blumenwiese = {}));
