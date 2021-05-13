@@ -35,6 +35,7 @@ namespace L08_2_Blumenwiese {
         drawFlower2({x: 80, y: 360});
         drawFlower3({x: 120, y: 360});
         drawFlower4({x: 160, y: 360});
+        drawFlower5({x: 200, y: 360});
     }
 
     function createRandomNum(_min: number, _max: number): number {
@@ -189,26 +190,68 @@ namespace L08_2_Blumenwiese {
     }
 
     function drawFlower2(_positionStem: Vector): void {
-        let nLeaves: number = 7;
-        let rMax: number = 7;
-        let posX: number = _positionStem.x + 1;
-        let posY: number = _positionStem.y - 1;
-
+        crc2d.beginPath();
         crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
         crc2d.fillRect(_positionStem.x, _positionStem.y, 5, 20);
+        crc2d.closePath();
         crc2d.save();
-    
-        for (let i: number = 0; i < nLeaves; i++) {
-            crc2d.beginPath();
-            crc2d.ellipse(posX, posY, rMax - i * 0.5 , rMax - i * 0.5, 0, 0, 2 * Math.PI);
-            crc2d.fillStyle = colorfulColors [createRandomNum(0, 12)];
-            crc2d.closePath();
-            crc2d.fill();
+        
+        let color: string = colorfulColors[createRandomNum(0, 12)];
+        
+        for (let drawn: number = 0; drawn < 5; drawn++) {
+           //crc2d.save();
+           let rotate: number = 0;
+           switch (drawn) {
+            case 0:
+                //crc2d.rotate(0 * Math.PI / 180);
+                rotate = 0;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                break;
+            case 1:
+                //crc2d.rotate(72 * Math.PI / 180);
+                rotate = 72;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                
+                break;
+            case 2:
+                //crc2d.rotate(144 * Math.PI / 180);
+                rotate = 144;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                
+                break;
+            case 3: 
+                //crc2d.rotate(216 * Math.PI / 180);
+                rotate = 216;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                
+                break;
+            case 4:
+                //crc2d.rotate(288 * Math.PI / 180);
+                rotate = 288;
+                //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+                
+                break;
+            default:
+                console.log("Something is wrong");
+                
+            }
+           //crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+           crc2d.beginPath();
+           crc2d.ellipse(_positionStem.x + 2 , _positionStem.y - 5, 2, 20, rotate * Math.PI / 180, 0, 2 * Math.PI);
+           crc2d.fillStyle = color;
+           crc2d.fill();
+           crc2d.closePath();
+           crc2d.translate(_positionStem.x + 2, _positionStem.y - 5);
+           crc2d.restore();
+
+           crc2d.beginPath();
+           crc2d.ellipse(_positionStem.x + 2, _positionStem.y - 5, 5, 5, 0, 0, 2 * Math.PI);
+           crc2d.fillStyle = "HSLA(58, 100%, 50%, 1)";
+           crc2d.fill();
+           crc2d.closePath();
+           crc2d.save();
+        
         }
-        crc2d.restore();
-       
-        
-        
         
     }
 
@@ -218,7 +261,7 @@ namespace L08_2_Blumenwiese {
         crc2d.fillRect(_positionStem.x, _positionStem.y, 5, 20);
         crc2d.closePath();
         crc2d.save();
-        
+
         let color: string = colorfulColors[createRandomNum(0, 12)];
         
         for (let drawn: number = 0; drawn < 5; drawn++) {
@@ -311,4 +354,68 @@ namespace L08_2_Blumenwiese {
         }
         
     }
+
+    function drawFlower5(_positionStem: Vector): void {
+        let nLeaves: number = 7;
+        let rMax: number = 7;
+        let x: number = 0;
+        let y: number = 0;
+        let randomColor: number = createRandomNum(0, 360); 
+        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
+        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, 20);
+        crc2d.save();
+        
+        for (let drawn: number = 0; drawn < nLeaves; drawn++) {
+            crc2d.save();
+            switch (drawn) {
+                case 0 /*|| 2 || 4*/:
+                    x = - 6;
+                    y = 0;
+                    break;
+                case 1:
+                    x = 6;
+                    y = 0;
+                    break;
+                case 2:
+                    x = -12;
+                    y = -10;
+                    break;
+                case 3 /*|| 3 || 5*/:
+                    x = 6;
+                    y = -22;
+                    break;
+                case 4:
+                    x = 12;
+                    y = -10;
+                    break;
+                case 5:
+                    x = -6;
+                    y = -22;
+                    break;
+                case 6:
+                    x = 0;
+                    y = -10;
+                    randomColor = 60;
+                    break;
+                default:
+                    console.log("something is wrong");
+                    
+            }
+            crc2d.save();
+            crc2d.translate(x, y);
+            let posX: number = _positionStem.x + 1;
+            let posY: number = _positionStem.y - 1;
+            crc2d.beginPath();
+            crc2d.ellipse(posX, posY, rMax, rMax, 0, 0, 2 * Math.PI);
+            crc2d.fillStyle = "HSLA(" + randomColor + ", 100%, 50%, 0.8";
+            crc2d.closePath();
+            //crc2d.closePath();
+            //crc2d.save();
+            crc2d.fill();
+            
+            
+            crc2d.restore();
+        }
+        
+
 }
