@@ -1,13 +1,14 @@
 @media only screen and (min-width: 1000px) {
     /* desktop: */
 
-body {
-    text-align: center;
-}
-canvas {
-    width: auto;
-    height: 90%;
-}
+    body {
+        text-align: center;
+    }
+    canvas {
+        width: auto;
+        height: 90%;
+    }
+
 }
   
 /*@media only screen and (min-width: 768px) {
