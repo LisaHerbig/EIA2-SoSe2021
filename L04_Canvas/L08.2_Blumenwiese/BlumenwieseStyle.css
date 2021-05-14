@@ -1,5 +1,12 @@
+@media only screen and (min-width: 768px) {
+    /* desktop: */
+
+body {
+    text-align: center;
+}
 canvas {
-    width: 50%;
-    height: 720px;;
-    display:block;
- }
+    width: auto;
+    height: 90%;
+}
+    }
+  
