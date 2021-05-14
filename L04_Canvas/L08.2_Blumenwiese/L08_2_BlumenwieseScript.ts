@@ -520,54 +520,17 @@ namespace L08_2_Blumenwiese {
     }
 
     function drawFlowers(): void {
-        /*let rows: Vector [] = [
-            {x: 10, y: 360},
-            {x: 20, y: 400},
-            {x: 10, y: 460},
-            {x: 20, y: 540},
-            {x: 10, y: 640},
-            {x: 20, y: 720}
-        ];
-        */
-       // let paricleSize: number = 5;
+
         let step: number = 60;
         let i: number = 0;
-        //let stemSize: number;
-        //let sXY: number;
-        
-    
-        for (i; i < 6; i++) {
-            //stemSize = i * 10 + 10;
-            //sXY = i + 0.5 ;
-           // switch (i) {
-               // case 0:
-                 //   sXY = 0.5;
-                  //  break;
-                //case 1:
-                 ///   sXY = 2;
-                 //   break;
-                //case 3:
-                 //   sXY = 2.5;
-                 //   break;
-               // case 4:
-                  //  sXY = 3;
-                  //  break;
-                //case 5:
-                   // sXY = 4;
-                  //  break;
-               // default:
-                     //console.log("Something went wrong");     
-            //}
-            
-                
+       
+        for (i; i < 6; i++) {  
             drawFlower1({x: rows[i].x, y: rows[i].y});
             drawFlower2({x: rows[i].x + step, y: rows[i].y});
             drawFlower3({x: rows[i].x + 2 * step, y: rows[i].y});
             drawFlower4({x: rows[i].x + 3 * step, y: rows[i].y});
             drawFlower5({x: rows[i].x + 4 * step, y: rows[i].y});
             drawFlower6({x: rows[i].x + 5 * step, y: rows[i].y});
-            
-        
         }
     }
 
