@@ -558,12 +558,16 @@ namespace L08_2_Blumenwiese {
                // default:
                      //console.log("Something went wrong");     
             //}
+            
+                
             drawFlower1({x: rows[i].x, y: rows[i].y});
             drawFlower2({x: rows[i].x + step, y: rows[i].y});
             drawFlower3({x: rows[i].x + 2 * step, y: rows[i].y});
             drawFlower4({x: rows[i].x + 3 * step, y: rows[i].y});
             drawFlower5({x: rows[i].x + 4 * step, y: rows[i].y});
             drawFlower6({x: rows[i].x + 5 * step, y: rows[i].y});
+            
+        
         }
     }
 
