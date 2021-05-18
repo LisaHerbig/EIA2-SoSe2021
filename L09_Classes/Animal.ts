@@ -5,7 +5,7 @@ namespace L09_MyFarm {
       favFood: string;
       sound: string;
 
-      currentAnimal(_species: string, _myName: string, _favFood: string, _sound: string): void {
+      current(_species: string, _myName: string, _favFood: string, _sound: string): void {
         this.species = _species;
         this.myName = _myName;
         this.favFood = _favFood;
@@ -26,8 +26,8 @@ namespace L09_MyFarm {
         "Ee i ee i o");
       }
 
-      eaten(_amount: string): void {
-        console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + _amount + " kg of " + this.favFood + " today. Have a nice evening.");
+      eaten(_amount: string, _totalAmount: number): void {
+        console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + parseInt(_amount) + " kg of " + this.favFood + " today. That means " + (_totalAmount - parseInt(_amount)) + " kg are left.");
         
       }
 
