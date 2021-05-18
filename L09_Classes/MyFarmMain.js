@@ -2,7 +2,7 @@
 var L09_MyFarm;
 (function (L09_MyFarm) {
     window.addEventListener("load", handleLoad);
-    let maxAmount = 0;
+    let totalAmount = 15;
     let animalNames = ["Biscuit", "Charlie", "Coco", "Sam", "Sandy", "Sky", "Waffles", "Max", "Nicky", "Danny", "Dobby", "Lucky", "Moonpie", "Peanut", "Sunny"];
     let allAnimals = [
         {
@@ -62,17 +62,17 @@ var L09_MyFarm;
             //animal.myName = allAnimals[i].name;
             //animal.favFood = allAnimals[i].food;
             //animal.sound = allAnimals[i].sound;
-            animal.currentAnimal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound);
+            animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound);
             animal.sing();
             let eatenFood = createRandomNum(2, 16) / createRandomNum(1, 15);
-            animal.eaten(eatenFood.toFixed(2));
+            animal.eaten(eatenFood.toFixed(2), totalAmount);
         }
     }
     function createRandomNum(_min, _max) {
         //let min: number = 5;
         //let max: number = 15;
-        maxAmount = Math.floor(Math.random() * (_max - _min + 1) + _min);
-        return maxAmount;
+        return Math.floor(Math.random() * (_max - _min + 1) + _min);
+        //return maxAmount;
     }
 })(L09_MyFarm || (L09_MyFarm = {}));
 //# sourceMappingURL=MyFarmMain.js.map

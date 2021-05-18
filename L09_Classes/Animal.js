@@ -2,7 +2,7 @@
 var L09_MyFarm;
 (function (L09_MyFarm) {
     class Animal {
-        currentAnimal(_species, _myName, _favFood, _sound) {
+        current(_species, _myName, _favFood, _sound) {
             this.species = _species;
             this.myName = _myName;
             this.favFood = _favFood;
@@ -20,8 +20,8 @@ var L09_MyFarm;
                 "Old Mac Donald had a farm " + "\n" +
                 "Ee i ee i o");
         }
-        eaten(_amount) {
-            console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + _amount + " kg of " + this.favFood + " today. Have a nice evening.");
+        eaten(_amount, _totalAmount) {
+            console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + parseInt(_amount) + " kg of " + this.favFood + " today. That means " + (_totalAmount - parseInt(_amount)) + " kg are left.");
         }
     }
     L09_MyFarm.Animal = Animal;
