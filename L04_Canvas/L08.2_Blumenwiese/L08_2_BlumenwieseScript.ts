@@ -162,8 +162,7 @@ namespace L08_2_Blumenwiese {
         let x: number = 0;
         let y: number = 0;
         crc2d.save();
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         //crc2d.save();
 
         
@@ -222,8 +221,7 @@ namespace L08_2_Blumenwiese {
     function drawFlower2(_positionStem: Vector): void {
         let nLeaves: number = 5;
         crc2d.beginPath();
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         crc2d.closePath();
         crc2d.save();
         
@@ -275,8 +273,7 @@ namespace L08_2_Blumenwiese {
     function drawFlower3(_positionStem: Vector): void {
         let nLeaves: number = 5;
         crc2d.beginPath();
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         crc2d.closePath();
         crc2d.save();
 
@@ -339,8 +336,7 @@ namespace L08_2_Blumenwiese {
         let x: number = 0;
         let y: number = 0;
 
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         //crc2d.save();
         
         for (let drawn: number = 0; drawn < nLeaves; drawn++) {
@@ -366,8 +362,7 @@ namespace L08_2_Blumenwiese {
         let x: number = 0;
         let y: number = 0;
         let randomColor: number = createRandomNum(0, 360); 
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         crc2d.save();
         
         for (let drawn: number = 0; drawn < nLeaves; drawn++) {
@@ -428,8 +423,7 @@ namespace L08_2_Blumenwiese {
         let x: number = 0;
         let y: number = 0;
         let randomColor: number = createRandomNum(0, 360); 
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         crc2d.save();
         
         for (let drawn: number = 0; drawn < nLeaves; drawn++) {
@@ -535,6 +529,10 @@ namespace L08_2_Blumenwiese {
         }
     }
 
+    function drawFlowerStem(_positionStem: Vector): void {
+        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
+        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);   
+    }
 
 
 }
