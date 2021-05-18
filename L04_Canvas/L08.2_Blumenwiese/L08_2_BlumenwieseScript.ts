@@ -525,6 +525,7 @@ namespace L08_2_Blumenwiese {
         let i: number = 0;
        
         for (i; i < 6; i++) {  
+            //let scale: number = i;
             drawFlower1({x: rows[i].x, y: rows[i].y});
             drawFlower2({x: rows[i].x + step, y: rows[i].y});
             drawFlower3({x: rows[i].x + 2 * step, y: rows[i].y});
