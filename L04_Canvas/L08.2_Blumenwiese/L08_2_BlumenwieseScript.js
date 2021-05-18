@@ -132,8 +132,7 @@ var L08_2_Blumenwiese;
         let x = 0;
         let y = 0;
         crc2d.save();
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         //crc2d.save();
         for (let drawn = 0; drawn < nLeaves; drawn++) {
             crc2d.save();
@@ -187,8 +186,7 @@ var L08_2_Blumenwiese;
     function drawFlower2(_positionStem) {
         let nLeaves = 5;
         crc2d.beginPath();
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         crc2d.closePath();
         crc2d.save();
         let color = colorfulColors[createRandomNum(0, 12)];
@@ -233,8 +231,7 @@ var L08_2_Blumenwiese;
     function drawFlower3(_positionStem) {
         let nLeaves = 5;
         crc2d.beginPath();
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         crc2d.closePath();
         crc2d.save();
         let color = colorfulColors[createRandomNum(0, 12)];
@@ -287,8 +284,7 @@ var L08_2_Blumenwiese;
         let rMax = 10;
         let x = 0;
         let y = 0;
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         //crc2d.save();
         for (let drawn = 0; drawn < nLeaves; drawn++) {
             crc2d.save();
@@ -310,8 +306,7 @@ var L08_2_Blumenwiese;
         let x = 0;
         let y = 0;
         let randomColor = createRandomNum(0, 360);
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         crc2d.save();
         for (let drawn = 0; drawn < nLeaves; drawn++) {
             crc2d.save();
@@ -367,8 +362,7 @@ var L08_2_Blumenwiese;
         let x = 0;
         let y = 0;
         let randomColor = createRandomNum(0, 360);
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
+        drawFlowerStem(_positionStem);
         crc2d.save();
         for (let drawn = 0; drawn < nLeaves; drawn++) {
             crc2d.save();
@@ -466,6 +460,10 @@ var L08_2_Blumenwiese;
             drawFlower5({ x: rows[i].x + 4 * step, y: rows[i].y });
             drawFlower6({ x: rows[i].x + 5 * step, y: rows[i].y });
         }
+    }
+    function drawFlowerStem(_positionStem) {
+        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
+        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
     }
 })(L08_2_Blumenwiese || (L08_2_Blumenwiese = {}));
 //# sourceMappingURL=L08_2_BlumenwieseScript.js.map
