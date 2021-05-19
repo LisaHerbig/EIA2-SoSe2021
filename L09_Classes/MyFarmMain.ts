@@ -58,7 +58,7 @@ namespace L09_MyFarm {
             species: "duck",
             name: animalNames[createRandomNum(0, 14)],
             food: "grains",
-            sound: "ih-ah"
+            sound: "quack"
         }
     ];
   
@@ -75,7 +75,7 @@ namespace L09_MyFarm {
             animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound);
            
             animal.sing();
-            let eatenFood: number = createRandomNum(2, 16) / createRandomNum(1, 15);
+            let eatenFood: number = createRandomNum(14, 15) / createRandomNum(2, 10);
             animal.eaten(eatenFood.toFixed(2), totalAmount);
        }
     }

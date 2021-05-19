@@ -51,7 +51,7 @@ var L09_MyFarm;
             species: "duck",
             name: animalNames[createRandomNum(0, 14)],
             food: "grains",
-            sound: "ih-ah"
+            sound: "quack"
         }
     ];
     function handleLoad() {
@@ -64,7 +64,7 @@ var L09_MyFarm;
             //animal.sound = allAnimals[i].sound;
             animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound);
             animal.sing();
-            let eatenFood = createRandomNum(2, 16) / createRandomNum(1, 15);
+            let eatenFood = createRandomNum(14, 15) / createRandomNum(2, 10);
             animal.eaten(eatenFood.toFixed(2), totalAmount);
         }
     }
