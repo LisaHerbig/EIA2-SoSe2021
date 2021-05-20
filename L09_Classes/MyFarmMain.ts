@@ -1,7 +1,13 @@
 namespace L09_MyFarm {
     window.addEventListener("load", handleLoad);
+    
 
-    let totalAmount: number = 15;
+    export let totalAmountGras: number = 500;
+    export let totalAmountGrain: number = 100;
+    export let totalAmountFish: number = 20;
+    export let totalAmountMeat: number = 20;
+    export let totalAmountJunk: number = 50;
+
     let animalNames: string [] = ["Biscuit", "Charlie", "Coco", "Sam", "Sandy", "Sky", "Waffles", "Max", "Nicky", "Danny", "Dobby", "Lucky", "Moonpie", "Peanut", "Sunny"];
     //let animalSounds: string [] = ["moo", "meow", "woof", "oink", "maa", "goawk", "ih-ah", "quak"];
 
@@ -10,76 +16,86 @@ namespace L09_MyFarm {
         name: string;
         food: string;
         sound: string;
+        eaten: number;
     }
     let allAnimals: FarmAnimal[] = [
         {
             species: "cow",
             name: animalNames[createRandomNum(0, 14)],
             food: "grass",
-            sound: "moo"
+            sound: "moo",
+            eaten: createRandomNum(1, 50)
         },
         {
             species: "cat",
             name: animalNames[createRandomNum(0, 14)],
             food: "fish",
-            sound: "mewo"
+            sound: "mewo",
+            eaten: createRandomNum(1, 10)
         },
         {
             species: "dog",
             name: animalNames[createRandomNum(0, 14)],
             food: "meat",
-            sound: "woof"
+            sound: "woof",
+            eaten: createRandomNum(1, 10)
         },
         {
             species: "pig",
             name: animalNames[createRandomNum(0, 14)],
             food: "junk",
-            sound: "oink"
+            sound: "oink",
+            eaten: createRandomNum(1, 20)
         },
         {
             species: "goat",
             name: animalNames[createRandomNum(0, 14)],
             food: "grass",
-            sound: "maaeh"
+            sound: "maaeh",
+            eaten: createRandomNum(1, 20)
         },
         {
             species: "chicken",
             name: animalNames[createRandomNum(0, 14)],
             food: "grains",
-            sound: "goawk"
+            sound: "goawk",
+            eaten: createRandomNum(1, 10)
         },
         {
             species: "donkey",
             name: animalNames[createRandomNum(0, 14)],
             food: "grass",
-            sound: "ih-ah"
+            sound: "ih-ah",
+            eaten: createRandomNum(1, 50)
         }, 
         {
             species: "duck",
             name: animalNames[createRandomNum(0, 14)],
             food: "grains",
-            sound: "quack"
+            sound: "quack",
+            eaten: createRandomNum(1, 10)
         }
     ];
-  
+
 
     function handleLoad(): void {
-        console.log("Farmday over"); 
+        console.log("Day over"); 
         
         for (let i: number = 0; i < allAnimals.length; i ++) {
             let animal: Animal = new Animal();
-            //animal.species = allAnimals[i].species;
-            //animal.myName = allAnimals[i].name;
-            //animal.favFood = allAnimals[i].food;
-            //animal.sound = allAnimals[i].sound;
-            animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound);
+    
+            animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
            
             animal.sing();
-            let eatenFood: number = createRandomNum(14, 15) / createRandomNum(2, 10);
-            animal.eaten(eatenFood.toFixed(2), totalAmount);
-       }
-    }
 
+            //let eatenFood: number = createRandomNum(14, 15) / createRandomNum(2, 10);
+            animal.eaten();
+       }
+
+        let btn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#btn");
+        btn.addEventListener("click", handleLoad);
+    }
+   
     function createRandomNum(_min: number, _max: number): number {
         //let min: number = 5;
         //let max: number = 15;
@@ -87,6 +103,20 @@ namespace L09_MyFarm {
         //return maxAmount;
     }
 
+    //function handleClick(): void {
+
+        //for (let i: number = 0; i < allAnimals.length; i ++) {
+            //let animal: Animal = new Animal();
+    
+            //animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+           
+            //animal.sing();
+
+            //let eatenFood: number = createRandomNum(14, 15) / createRandomNum(2, 10);
+           // animal.eaten();
+       //}
+        
+    //}
  
     
 }
