@@ -4,11 +4,11 @@ namespace L09_2_Blumenwiese {
    Name: Lisa Herbig
    Matrikel: 266236
    Datum: 14.05.2021
-   Inspiration: Code und Diagramm aus der Lektion (L08.2), bei Sonne, Wolken und Bergen
+   Inspiration: Code und Diagramm aus der Lektion (L08.2), bei Sonne, Wolken und Bergen und L09
    */
 
    window.addEventListener("load", handleLoad);
-   let crc2d: CanvasRenderingContext2D;
+   export let crc2d: CanvasRenderingContext2D;
    interface Vector {
        x: number;
        y: number;
@@ -571,11 +571,13 @@ namespace L09_2_Blumenwiese {
        crc2d.arc(-10, 2, 1, 0, 2 * Math.PI);
        crc2d.strokeStyle = "White";
        crc2d.stroke();
+       //crc2d.restore();
 //Wing Front
        createWing(10, 10);
    }
 
    function createWing(_direction: number, _x: number): void {
+    crc2d.save();
     crc2d.beginPath();
     crc2d.ellipse(_x, -12, 4, 8, _direction, 0, 2 * Math.PI);
     crc2d.strokeStyle = "Blue";
@@ -583,6 +585,7 @@ namespace L09_2_Blumenwiese {
     crc2d.fillStyle = "Lightblue";
     crc2d.fill();
     crc2d.stroke();
+    crc2d.restore();
 
    }
 
