@@ -3,18 +3,30 @@ var L09_2_Blumenwiese;
 (function (L09_2_Blumenwiese) {
     class Flower {
         constructor() {
-            this.position.x = /*randomNumber*/ 1;
-            this.position.y = /*randomNumber on canvas gras*/ 2;
-            this.type = /*random num btw 0 and Array Flowers -1*/ 1;
-            this.size = /*randomNum between 0.5 and 2*/ 1;
+            this.position.x = L09_2_Blumenwiese.createRandomNum(0, 360);
+            this.position.y = L09_2_Blumenwiese.createRandomNum(320, 700);
+            this.type = L09_2_Blumenwiese.createRandomNum(0, 5);
+            this.size = L09_2_Blumenwiese.createRandomNum(0.5, 2);
         }
         draw() {
-            L09_2_Blumenwiese.crc2d.save();
-            L09_2_Blumenwiese.crc2d.translate(this.position.x, this.position.y);
-            L09_2_Blumenwiese.crc2d.scale(this.size, this.size);
-            L09_2_Blumenwiese.crc2d.translate(-50, -50);
-            //crc2d.stroke(Flowers[this.type]);
-            L09_2_Blumenwiese.crc2d.restore();
+            if (this.type == 0) {
+                L09_2_Blumenwiese.drawFlower1(this.position, this.size);
+            }
+            if (this.type == 1) {
+                L09_2_Blumenwiese.drawFlower2(this.position, this.size);
+            }
+            if (this.type == 2) {
+                L09_2_Blumenwiese.drawFlower3(this.position, this.size);
+            }
+            if (this.type == 3) {
+                L09_2_Blumenwiese.drawFlower4(this.position, this.size);
+            }
+            if (this.type == 4) {
+                L09_2_Blumenwiese.drawFlower5(this.position, this.size);
+            }
+            if (this.type == 5) {
+                L09_2_Blumenwiese.drawFlower6(this.position, this.size);
+            }
         }
     }
     L09_2_Blumenwiese.Flower = Flower;
