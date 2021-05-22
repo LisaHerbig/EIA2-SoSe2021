@@ -27,10 +27,12 @@ var L09_2_Blumenwiese;
         drawMountains({ x: 0, y: 320 }, 20, 120, "black", "lightgrey");
         drawHouse({ x: 0, y: 340 }, 80, -40);
         drawBee();
-        let flower = new L09_2_Blumenwiese.Flower(true);
-        flower.draw();
-        L09_2_Blumenwiese.crc2d.getImageData(0, 0, 360, 720);
-        //Flower
+        for (let i = 0; i < createRandomNum(35, 50); i++) {
+            let flower = new L09_2_Blumenwiese.Flower(true);
+            flower.draw();
+            L09_2_Blumenwiese.crc2d.getImageData(0, 0, 360, 720);
+            //Flower
+        }
         //console.log(flowerTypes);
     }
     function createRandomNum(_min, _max) {
