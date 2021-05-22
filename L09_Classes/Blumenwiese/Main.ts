@@ -32,9 +32,12 @@ namespace L09_2_Blumenwiese {
        drawMountains({x: 0, y: 320}, 60, 180, "grey", "White");
        drawMountains({x: 0, y: 320}, 20, 120, "black", "lightgrey");
        drawHouse({x: 0, y: 340}, 80, -40);
-    
        drawBee();
+       let flower: Flower = new Flower(true);
+       flower.draw();
        crc2d.getImageData(0, 0, 360, 720);
+       //Flower
+       
        //console.log(flowerTypes);
        
    }
@@ -196,6 +199,7 @@ namespace L09_2_Blumenwiese {
        //crc2d.restore();
 //Wing Front
        createWing(10, 10);
+       crc2d.restore();
    }
 
    function createWing(_direction: number, _x: number): void {

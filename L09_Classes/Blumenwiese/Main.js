@@ -27,7 +27,10 @@ var L09_2_Blumenwiese;
         drawMountains({ x: 0, y: 320 }, 20, 120, "black", "lightgrey");
         drawHouse({ x: 0, y: 340 }, 80, -40);
         drawBee();
+        let flower = new L09_2_Blumenwiese.Flower(true);
+        flower.draw();
         L09_2_Blumenwiese.crc2d.getImageData(0, 0, 360, 720);
+        //Flower
         //console.log(flowerTypes);
     }
     function createRandomNum(_min, _max) {
@@ -162,6 +165,7 @@ var L09_2_Blumenwiese;
         //crc2d.restore();
         //Wing Front
         createWing(10, 10);
+        L09_2_Blumenwiese.crc2d.restore();
     }
     function createWing(_direction, _x) {
         L09_2_Blumenwiese.crc2d.save();

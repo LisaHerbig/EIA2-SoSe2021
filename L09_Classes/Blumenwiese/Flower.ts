@@ -4,9 +4,15 @@ namespace L09_2_Blumenwiese {
         type: number;
         size: number;
 
-        constructor() {
-            this.position.x = createRandomNum(0, 360);
-            this.position.y = createRandomNum(320, 700);
+        constructor(_active: boolean) {
+            console.log(_active);
+            let numX: number = createRandomNum(20, 360);
+            let numY: number = createRandomNum(340, 700);
+            console.log(numX);
+            
+            //console.log(numY);
+            
+            this.position = new Vector(numX, numY);
 
             this.type = createRandomNum(0, 5);
 

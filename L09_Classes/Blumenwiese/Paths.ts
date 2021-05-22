@@ -50,7 +50,7 @@ namespace L09_2_Blumenwiese {
                   crc2d.ellipse(posX, posY, rMax - drawn * 0.5 , rMax - drawn * 0.5, 0, 0, 2 * Math.PI);
                   crc2d.fillStyle = pinkPurple [createRandomNum(0, 3)];
                   crc2d.closePath();
-                  crc2d.scale(_size, _size);
+                  //crc2d.scale(_size, _size);
                   crc2d.fill();
                   crc2d.restore();
               }
@@ -62,9 +62,9 @@ namespace L09_2_Blumenwiese {
     //Flower 2
     export function drawFlower2(_positionStem: Vector, _size: number): void {
         let nLeaves: number = 5;
-        crc2d.beginPath();
+        //crc2d.beginPath();
         drawFlowerStem(_positionStem);
-        crc2d.closePath();
+        //crc2d.closePath();
         crc2d.save();
         
         let color: string = colorfulColors[createRandomNum(0, 12)];
@@ -94,7 +94,7 @@ namespace L09_2_Blumenwiese {
            crc2d.beginPath();
            crc2d.ellipse(_positionStem.x + 2 , _positionStem.y - 25, 2, 20, rotate * Math.PI / 180, 0, 2 * Math.PI);
            crc2d.fillStyle = color;
-           crc2d.scale(_size, _size);
+           //crc2d.scale(_size, _size);
            crc2d.fill();
            crc2d.closePath();
            crc2d.translate(_positionStem.x + 2, _positionStem.y - 25);
@@ -103,7 +103,7 @@ namespace L09_2_Blumenwiese {
            crc2d.beginPath();
            crc2d.ellipse(_positionStem.x + 2, _positionStem.y - 25, 5, 5, 0, 0, 2 * Math.PI);
            crc2d.fillStyle = "HSLA(58, 100%, 50%, 1)";
-           crc2d.scale(_size, _size);
+           //crc2d.scale(_size, _size);
            crc2d.fill();
            crc2d.closePath();
            crc2d.save();
@@ -148,7 +148,7 @@ namespace L09_2_Blumenwiese {
            crc2d.beginPath();
            crc2d.ellipse(_positionStem.x + 2 , _positionStem.y - 25, 5, 15, rotate * Math.PI / 180, 0, 2 * Math.PI);
            crc2d.fillStyle = color;
-           crc2d.scale(_size, _size);
+           //crc2d.scale(_size, _size);
            crc2d.fill();
            crc2d.closePath();
            crc2d.translate(_positionStem.x + 2, _positionStem.y - 25);
@@ -157,7 +157,7 @@ namespace L09_2_Blumenwiese {
            crc2d.beginPath();
            crc2d.ellipse(_positionStem.x + 2, _positionStem.y - 25, 5, 5, 0, 0, 2 * Math.PI);
            crc2d.fillStyle = "HSLA(58, 100%, 50%, 1)";
-           crc2d.scale(_size, _size);
+           //crc2d.scale(_size, _size);
            crc2d.fill();
            crc2d.closePath();
            crc2d.save();
@@ -191,7 +191,7 @@ namespace L09_2_Blumenwiese {
             crc2d.ellipse(posX, posY - 20, rMax - drawn * 2  , rMax - drawn * 2 , 0, 0, 2 * Math.PI);
             crc2d.fillStyle = colorfulColors [createRandomNum(0, 12)];
             crc2d.closePath();
-            crc2d.scale(_size, _size);
+            //crc2d.scale(_size, _size);
             crc2d.fill();
             crc2d.restore();
         }
@@ -349,7 +349,7 @@ namespace L09_2_Blumenwiese {
             crc2d.ellipse(posX, posY, rMax, rMax, 0, 0, 2 * Math.PI);
             crc2d.fillStyle = "HSLA(" + randomColor + ", 100%, 50%, 0.8";
             crc2d.closePath();
-            crc2d.scale(_size, _size);
+            //crc2d.scale(_size, _size);
             crc2d.fill();
             
             crc2d.restore();
