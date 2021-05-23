@@ -31,7 +31,7 @@ namespace L09_2_Blumenwiese {
        drawMountains({x: 0, y: 320}, 60, 180, "grey", "White");
        drawMountains({x: 0, y: 320}, 20, 120, "black", "lightgrey");
        drawHouse({x: 0, y: 340}, 80, -40);
-       drawBee();
+       //drawBee();
 
        for (let i: number = 0; i < createRandomNum(35, 50); i ++) {
        let flower: Flower = new Flower(true);
@@ -141,6 +141,7 @@ namespace L09_2_Blumenwiese {
    }
 
    let cloud: Cloud = new Cloud();
+   let bee: Bee = new Bee();
 
    function update(): void {
        crc2d.clearRect(0, 0, 360, 720);
@@ -149,6 +150,11 @@ namespace L09_2_Blumenwiese {
        //crc2d.fillRect(0, 0, 360, 720);
        cloud.move(1 / 50);
        cloud.draw(); 
+       
+       bee.move(1 / 50);
+       bee.draw();
+
+
    }
 
 

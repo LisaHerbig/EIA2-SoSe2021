@@ -23,7 +23,7 @@ var L09_2_Blumenwiese;
         drawMountains({ x: 0, y: 320 }, 60, 180, "grey", "White");
         drawMountains({ x: 0, y: 320 }, 20, 120, "black", "lightgrey");
         drawHouse({ x: 0, y: 340 }, 80, -40);
-        L09_2_Blumenwiese.drawBee();
+        //drawBee();
         for (let i = 0; i < createRandomNum(35, 50); i++) {
             let flower = new L09_2_Blumenwiese.Flower(true);
             flower.draw();
@@ -112,6 +112,7 @@ var L09_2_Blumenwiese;
     }
     L09_2_Blumenwiese.drawFlowerStem = drawFlowerStem;
     let cloud = new L09_2_Blumenwiese.Cloud();
+    let bee = new L09_2_Blumenwiese.Bee();
     function update() {
         L09_2_Blumenwiese.crc2d.clearRect(0, 0, 360, 720);
         //crc2d.restore();
@@ -119,6 +120,8 @@ var L09_2_Blumenwiese;
         //crc2d.fillRect(0, 0, 360, 720);
         cloud.move(1 / 50);
         cloud.draw();
+        bee.move(1 / 50);
+        bee.draw();
     }
 })(L09_2_Blumenwiese || (L09_2_Blumenwiese = {}));
 //# sourceMappingURL=Main.js.map

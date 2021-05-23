@@ -383,14 +383,14 @@ namespace L09_2_Blumenwiese {
     }
 
     //Bee
-    export function drawBee(): void {
+    export function drawBee(_position: Vector): void {
 
         //body
                crc2d.save();
                crc2d.beginPath();
-               crc2d.ellipse(200, 500, 20, 10, 0, 0, 2 * Math.PI);
+               crc2d.ellipse(_position.x, _position.y, 20, 10, 0, 0, 2 * Math.PI);
                crc2d.save();
-               crc2d.translate(198, 495);
+               crc2d.translate(_position.x - 2, _position.y - 5);
         //sting      
                crc2d.moveTo(20, 1);
                crc2d.lineTo(30, 5);

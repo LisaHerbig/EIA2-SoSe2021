@@ -354,13 +354,13 @@ var L09_2_Blumenwiese;
     }
     L09_2_Blumenwiese.drawCloud = drawCloud;
     //Bee
-    function drawBee() {
+    function drawBee(_position) {
         //body
         L09_2_Blumenwiese.crc2d.save();
         L09_2_Blumenwiese.crc2d.beginPath();
-        L09_2_Blumenwiese.crc2d.ellipse(200, 500, 20, 10, 0, 0, 2 * Math.PI);
+        L09_2_Blumenwiese.crc2d.ellipse(_position.x, _position.y, 20, 10, 0, 0, 2 * Math.PI);
         L09_2_Blumenwiese.crc2d.save();
-        L09_2_Blumenwiese.crc2d.translate(198, 495);
+        L09_2_Blumenwiese.crc2d.translate(_position.x - 2, _position.y - 5);
         //sting      
         L09_2_Blumenwiese.crc2d.moveTo(20, 1);
         L09_2_Blumenwiese.crc2d.lineTo(30, 5);
