@@ -330,5 +330,81 @@ var L09_2_Blumenwiese;
         }
     }
     L09_2_Blumenwiese.drawFlower6 = drawFlower6;
+    //Cloud
+    function drawCloud(_position) {
+        let nParticles = 25;
+        let radiusParticle = 55;
+        let particle = new Path2D();
+        let gradient = L09_2_Blumenwiese.crc2d.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.4)");
+        gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+        L09_2_Blumenwiese.crc2d.save();
+        L09_2_Blumenwiese.crc2d.translate(_position.x, _position.y);
+        L09_2_Blumenwiese.crc2d.fillStyle = gradient;
+        for (let drawn = 0; drawn < nParticles; drawn++) {
+            L09_2_Blumenwiese.crc2d.save();
+            let x = (Math.random() - 0.5) * 150;
+            let y = -(Math.random() * 115);
+            L09_2_Blumenwiese.crc2d.translate(x, y);
+            L09_2_Blumenwiese.crc2d.fill(particle);
+            L09_2_Blumenwiese.crc2d.restore();
+        }
+        L09_2_Blumenwiese.crc2d.restore();
+    }
+    L09_2_Blumenwiese.drawCloud = drawCloud;
+    //Bee
+    function drawBee() {
+        //body
+        L09_2_Blumenwiese.crc2d.save();
+        L09_2_Blumenwiese.crc2d.beginPath();
+        L09_2_Blumenwiese.crc2d.ellipse(200, 500, 20, 10, 0, 0, 2 * Math.PI);
+        L09_2_Blumenwiese.crc2d.save();
+        L09_2_Blumenwiese.crc2d.translate(198, 495);
+        //sting      
+        L09_2_Blumenwiese.crc2d.moveTo(20, 1);
+        L09_2_Blumenwiese.crc2d.lineTo(30, 5);
+        L09_2_Blumenwiese.crc2d.lineTo(20, 9);
+        L09_2_Blumenwiese.crc2d.lineTo(20, 1);
+        L09_2_Blumenwiese.crc2d.fillStyle = "Black";
+        L09_2_Blumenwiese.crc2d.fill();
+        L09_2_Blumenwiese.crc2d.stroke();
+        //Wing back
+        createWing(-10, 0);
+        //Stripes
+        L09_2_Blumenwiese.crc2d.beginPath();
+        L09_2_Blumenwiese.crc2d.moveTo(20, -1);
+        L09_2_Blumenwiese.crc2d.lineTo(20, 11);
+        L09_2_Blumenwiese.crc2d.moveTo(10, -5);
+        L09_2_Blumenwiese.crc2d.lineTo(10, 15);
+        L09_2_Blumenwiese.crc2d.moveTo(0, -6);
+        L09_2_Blumenwiese.crc2d.lineTo(0, 16);
+        L09_2_Blumenwiese.crc2d.strokeStyle = "Yellow";
+        L09_2_Blumenwiese.crc2d.lineWidth = 3;
+        L09_2_Blumenwiese.crc2d.stroke();
+        //Eye
+        L09_2_Blumenwiese.crc2d.beginPath();
+        L09_2_Blumenwiese.crc2d.arc(-10, 2, 1, 0, 2 * Math.PI);
+        L09_2_Blumenwiese.crc2d.strokeStyle = "White";
+        L09_2_Blumenwiese.crc2d.stroke();
+        //crc2d.restore();
+        //Wing Front
+        createWing(10, 10);
+        L09_2_Blumenwiese.crc2d.restore();
+    }
+    L09_2_Blumenwiese.drawBee = drawBee;
+    //Wing
+    function createWing(_direction, _x) {
+        L09_2_Blumenwiese.crc2d.save();
+        L09_2_Blumenwiese.crc2d.beginPath();
+        L09_2_Blumenwiese.crc2d.ellipse(_x, -12, 4, 8, _direction, 0, 2 * Math.PI);
+        L09_2_Blumenwiese.crc2d.strokeStyle = "Blue";
+        L09_2_Blumenwiese.crc2d.lineWidth = 1;
+        L09_2_Blumenwiese.crc2d.fillStyle = "Lightblue";
+        L09_2_Blumenwiese.crc2d.fill();
+        L09_2_Blumenwiese.crc2d.stroke();
+        L09_2_Blumenwiese.crc2d.restore();
+    }
+    L09_2_Blumenwiese.createWing = createWing;
 })(L09_2_Blumenwiese || (L09_2_Blumenwiese = {}));
 //# sourceMappingURL=Paths.js.map

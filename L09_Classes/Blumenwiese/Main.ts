@@ -1,10 +1,10 @@
 namespace L09_2_Blumenwiese {
     /*
-   Aufgabe: L08.2 Blumenwiese
+   Aufgabe: L09.2 Blumenwiese
    Name: Lisa Herbig
    Matrikel: 266236
-   Datum: 14.05.2021
-   Inspiration: Code und Diagramm aus der Lektion (L08.2), bei Sonne, Wolken und Bergen und L09
+   Datum: 23.05.2021
+   Inspiration: Code und Diagramm aus der Lektion (L08.2), bei Sonne, Wolken und Bergen und L09 Asteroids für die Animation
    */
 
    window.addEventListener("load", handleLoad);
@@ -13,10 +13,11 @@ namespace L09_2_Blumenwiese {
        x: number;
        y: number;
    }
-   //let flowerTypes: Path2D[] = [];
+   let imgData: ImageData;
+   
+   
    export let pinkPurple: string [] = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)"];
    export let colorfulColors: string[] = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)", "HSLA(0, 100%, 50%, 0.8)", "HSLA(19, 100%, 50%, 0.8)", "HSLA(32, 100%, 50%, 0.9)", "HSLA(60, 100%, 50%, 0.7)", "HSLA(165, 100%, 50%, 0.8)", "HSLA(203, 100%, 50%, 0.8)", "HSLA(244, 100%, 50%, 0.8)", "HSLA((356, 100%, 50%, 0.8))", "HSLA(65, 100%, 95%, 0.9)"];
-   console.log(colorfulColors.length);
    
    function handleLoad(): void {
        console.log("Hello");
@@ -27,21 +28,22 @@ namespace L09_2_Blumenwiese {
 
        drawBackground();
        drawSun({x: 100, y: 120});
-       //drawCloud({x: 290, y: 60}, {x: 100, y: 60}, 30);
-       //drawCloud({x: 200, y: 140}, {x: 80, y: 30}, 17);
        drawMountains({x: 0, y: 320}, 60, 180, "grey", "White");
        drawMountains({x: 0, y: 320}, 20, 120, "black", "lightgrey");
        drawHouse({x: 0, y: 340}, 80, -40);
        drawBee();
+
        for (let i: number = 0; i < createRandomNum(35, 50); i ++) {
        let flower: Flower = new Flower(true);
        flower.draw();
-       crc2d.getImageData(0, 0, 360, 720);
-       //Flower
        }
+       //let cloud: Cloud = new Cloud();
+       //cloud.draw();
+        /*brauche ich das hier schon oder erst in update?*/
+       imgData = crc2d.getImageData(0, 0, crc2d.canvas.width, crc2d.canvas.height);
+       crc2d.save();
        
-       //console.log(flowerTypes);
-       
+       window.setInterval(update, 20);
    }
 
    export function createRandomNum(_min: number, _max: number): number {
@@ -74,30 +76,6 @@ namespace L09_2_Blumenwiese {
        crc2d.fill();
        crc2d.restore();
 
-   }
-
-   function drawCloud(_position: Vector, _size: Vector, radiusParticle: number): void {
-       let nParticles: number = 25;
-       let particle: Path2D = new Path2D();
-       let gradient: CanvasGradient = crc2d.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
-
-       particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-       gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.4)");
-       gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
-
-       crc2d.save();
-       crc2d.translate(_position.x, _position.y);
-       crc2d.fillStyle = gradient;
-
-       for (let drawn: number = 0; drawn < nParticles; drawn++) {
-           crc2d.save();
-           let x: number = (Math.random() - 0.5) * _size.x;
-           let y: number = - (Math.random() * _size.y);
-           crc2d.translate(x, y);
-           crc2d.fill(particle);
-           crc2d.restore();
-       }
-       crc2d.restore();
    }
 
    function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
@@ -162,60 +140,18 @@ namespace L09_2_Blumenwiese {
        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);   
    }
 
-   function drawBee(): void {
+   let cloud: Cloud = new Cloud();
 
-//body
-       crc2d.save();
-       crc2d.beginPath();
-       crc2d.ellipse(200, 500, 20, 10, 0, 0, 2 * Math.PI);
-       crc2d.save();
-       crc2d.translate(198, 495);
-//sting      
-       crc2d.moveTo(20, 1);
-       crc2d.lineTo(30, 5);
-       crc2d.lineTo(20, 9);
-       crc2d.lineTo(20, 1);
-       crc2d.fillStyle = "Black";
-       crc2d.fill();
-       crc2d.stroke();
-//Wing back
-       createWing(-10, 0);
-
-//Stripes
-       crc2d.beginPath();
-       crc2d.moveTo(20, -1);
-       crc2d.lineTo(20, 11);
-       crc2d.moveTo(10, -5);
-       crc2d.lineTo(10, 15);
-
-       crc2d.moveTo(0, -6);
-       crc2d.lineTo(0, 16);
-       crc2d.strokeStyle = "Yellow";
-       crc2d.lineWidth = 3;
-       crc2d.stroke();
-//Eye
-       crc2d.beginPath();
-       crc2d.arc(-10, 2, 1, 0, 2 * Math.PI);
-       crc2d.strokeStyle = "White";
-       crc2d.stroke();
+   function update(): void {
+       crc2d.clearRect(0, 0, 360, 720);
        //crc2d.restore();
-//Wing Front
-       createWing(10, 10);
-       crc2d.restore();
+       crc2d.putImageData(imgData, 0, 0);
+       //crc2d.fillRect(0, 0, 360, 720);
+       cloud.move(1 / 50);
+       cloud.draw(); 
    }
 
-   function createWing(_direction: number, _x: number): void {
-    crc2d.save();
-    crc2d.beginPath();
-    crc2d.ellipse(_x, -12, 4, 8, _direction, 0, 2 * Math.PI);
-    crc2d.strokeStyle = "Blue";
-    crc2d.lineWidth = 1;
-    crc2d.fillStyle = "Lightblue";
-    crc2d.fill();
-    crc2d.stroke();
-    crc2d.restore();
 
-   }
 
 
 }

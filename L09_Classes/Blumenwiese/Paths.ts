@@ -355,6 +355,88 @@ namespace L09_2_Blumenwiese {
             crc2d.restore();
         } 
     }
+
+    //Cloud
+    export function drawCloud(_position: Vector): void {
+        let nParticles: number = 25;
+        let radiusParticle: number = 55;
+        let particle: Path2D = new Path2D();
+        let gradient: CanvasGradient = crc2d.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
+ 
+        particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
+        gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.4)");
+        gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+ 
+        crc2d.save();
+        crc2d.translate(_position.x, _position.y);
+        crc2d.fillStyle = gradient;
+ 
+        for (let drawn: number = 0; drawn < nParticles; drawn++) {
+            crc2d.save();
+            let x: number = (Math.random() - 0.5) * 150 ;
+            let y: number = - (Math.random() * 115);
+            crc2d.translate(x, y);
+            crc2d.fill(particle);
+            crc2d.restore();
+        }
+        crc2d.restore();
+    }
+
+    //Bee
+    export function drawBee(): void {
+
+        //body
+               crc2d.save();
+               crc2d.beginPath();
+               crc2d.ellipse(200, 500, 20, 10, 0, 0, 2 * Math.PI);
+               crc2d.save();
+               crc2d.translate(198, 495);
+        //sting      
+               crc2d.moveTo(20, 1);
+               crc2d.lineTo(30, 5);
+               crc2d.lineTo(20, 9);
+               crc2d.lineTo(20, 1);
+               crc2d.fillStyle = "Black";
+               crc2d.fill();
+               crc2d.stroke();
+        //Wing back
+               createWing(-10, 0);
+        
+        //Stripes
+               crc2d.beginPath();
+               crc2d.moveTo(20, -1);
+               crc2d.lineTo(20, 11);
+               crc2d.moveTo(10, -5);
+               crc2d.lineTo(10, 15);
+        
+               crc2d.moveTo(0, -6);
+               crc2d.lineTo(0, 16);
+               crc2d.strokeStyle = "Yellow";
+               crc2d.lineWidth = 3;
+               crc2d.stroke();
+        //Eye
+               crc2d.beginPath();
+               crc2d.arc(-10, 2, 1, 0, 2 * Math.PI);
+               crc2d.strokeStyle = "White";
+               crc2d.stroke();
+               //crc2d.restore();
+        //Wing Front
+               createWing(10, 10);
+               crc2d.restore();
+           }
+        //Wing
+    export function createWing(_direction: number, _x: number): void {
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.ellipse(_x, -12, 4, 8, _direction, 0, 2 * Math.PI);
+        crc2d.strokeStyle = "Blue";
+        crc2d.lineWidth = 1;
+        crc2d.fillStyle = "Lightblue";
+        crc2d.fill();
+        crc2d.stroke();
+        crc2d.restore();
+    
+       }
         
       
 
