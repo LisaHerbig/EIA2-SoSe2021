@@ -150,9 +150,10 @@ namespace L09_2_Blumenwiese {
        //crc2d.fillRect(0, 0, 360, 720);
        cloud.move(1 / 50);
        cloud.draw(); 
-       
+      
        bee.move(1 / 50);
        bee.draw();
+       
 
 
    }
