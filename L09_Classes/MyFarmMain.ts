@@ -82,9 +82,9 @@ namespace L09_MyFarm {
         console.log("Day over"); 
         
         for (let i: number = 0; i < allAnimals.length; i ++) {
-            let animal: Animal = new Animal();
+            let animal: Animal = new Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
     
-            animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+            //animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
            
             animal.sing();
 

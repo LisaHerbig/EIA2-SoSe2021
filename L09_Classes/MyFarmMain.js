@@ -69,8 +69,8 @@ var L09_MyFarm;
     function handleLoad() {
         console.log("Day over");
         for (let i = 0; i < allAnimals.length; i++) {
-            let animal = new L09_MyFarm.Animal();
-            animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+            let animal = new L09_MyFarm.Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+            //animal.current(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
             animal.sing();
             //let eatenFood: number = createRandomNum(14, 15) / createRandomNum(2, 10);
             animal.eaten();

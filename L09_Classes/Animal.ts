@@ -7,7 +7,7 @@ namespace L09_MyFarm {
       ate: number;
      
 
-      current(_species: string, _myName: string, _favFood: string, _sound: string, _eaten: number): void {
+      constructor(_species: string, _myName: string, _favFood: string, _sound: string, _eaten: number) {
         this.species = _species;
         this.myName = _myName;
         this.favFood = _favFood;
@@ -35,23 +35,23 @@ namespace L09_MyFarm {
     switch (this.favFood) {
           case "grass":
             leftOver = totalAmountGras - this.ate;
-            totalAmountGras -= leftOver;
+            totalAmountGras = leftOver;
             break;
           case "fish":
             leftOver = totalAmountFish - this.ate;
-            totalAmountFish -= leftOver;
+            totalAmountFish = leftOver;
             break;
           case "meat":
             leftOver = totalAmountMeat - this.ate;
-            totalAmountMeat -= leftOver;
+            totalAmountMeat = leftOver;
             break;
           case "junk":
             leftOver = totalAmountJunk - this.ate;
-            totalAmountJunk -= leftOver;
+            totalAmountJunk = leftOver;
             break;
           case "grains":
             leftOver = totalAmountGrain - this.ate;
-            totalAmountGrain -= leftOver;
+            totalAmountGrain = leftOver;
             break;
           default:
           console.log("something is wrong");

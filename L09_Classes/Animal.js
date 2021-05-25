@@ -2,7 +2,7 @@
 var L09_MyFarm;
 (function (L09_MyFarm) {
     class Animal {
-        current(_species, _myName, _favFood, _sound, _eaten) {
+        constructor(_species, _myName, _favFood, _sound, _eaten) {
             this.species = _species;
             this.myName = _myName;
             this.favFood = _favFood;
@@ -26,23 +26,23 @@ var L09_MyFarm;
             switch (this.favFood) {
                 case "grass":
                     leftOver = L09_MyFarm.totalAmountGras - this.ate;
-                    L09_MyFarm.totalAmountGras -= leftOver;
+                    L09_MyFarm.totalAmountGras = leftOver;
                     break;
                 case "fish":
                     leftOver = L09_MyFarm.totalAmountFish - this.ate;
-                    L09_MyFarm.totalAmountFish -= leftOver;
+                    L09_MyFarm.totalAmountFish = leftOver;
                     break;
                 case "meat":
                     leftOver = L09_MyFarm.totalAmountMeat - this.ate;
-                    L09_MyFarm.totalAmountMeat -= leftOver;
+                    L09_MyFarm.totalAmountMeat = leftOver;
                     break;
                 case "junk":
                     leftOver = L09_MyFarm.totalAmountJunk - this.ate;
-                    L09_MyFarm.totalAmountJunk -= leftOver;
+                    L09_MyFarm.totalAmountJunk = leftOver;
                     break;
                 case "grains":
                     leftOver = L09_MyFarm.totalAmountGrain - this.ate;
-                    L09_MyFarm.totalAmountGrain -= leftOver;
+                    L09_MyFarm.totalAmountGrain = leftOver;
                     break;
                 default:
                     console.log("something is wrong");
