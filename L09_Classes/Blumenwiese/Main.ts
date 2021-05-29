@@ -14,13 +14,11 @@ namespace L09_2_Blumenwiese {
        y: number;
    }
    let imgData: ImageData;
-
+   
+   
    export let pinkPurple: string [] = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)"];
    export let colorfulColors: string[] = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)", "HSLA(0, 100%, 50%, 0.8)", "HSLA(19, 100%, 50%, 0.8)", "HSLA(32, 100%, 50%, 0.9)", "HSLA(60, 100%, 50%, 0.7)", "HSLA(165, 100%, 50%, 0.8)", "HSLA(203, 100%, 50%, 0.8)", "HSLA(244, 100%, 50%, 0.8)", "HSLA((356, 100%, 50%, 0.8))", "HSLA(65, 100%, 95%, 0.9)"];
    
-   let bees: Bee[] = [];
-   let cloud: Cloud = new Cloud();
-
    function handleLoad(): void {
        console.log("Hello");
        let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
@@ -136,11 +134,22 @@ namespace L09_2_Blumenwiese {
        crc2d.restore();
    }
 
+
+   export function drawFlowerStem(_positionStem: Vector): void {
+       crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
+       crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);   
+   }
+
+   let bees: Bee[] = [];
+   let cloud: Cloud = new Cloud();
+
    for (let i: number = 0; i < 8; i++) {
    let bee: Bee = new Bee();
    bees.push(bee);
    }
    
+   
+
    function update(): void {
        crc2d.clearRect(0, 0, 360, 720);
        //crc2d.restore();

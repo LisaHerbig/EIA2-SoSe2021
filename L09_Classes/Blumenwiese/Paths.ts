@@ -1,11 +1,6 @@
 namespace L09_2_Blumenwiese {
 
-    //Stem
-    export function drawFlowerStem(_positionStem: Vector): void {
-        crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);   
-    }
-
+  
     //Flower 1
     export function drawFlower1(_position: Vector, _size: number): void {
               let nLeaves: number = 7;

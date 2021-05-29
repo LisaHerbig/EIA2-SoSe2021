@@ -1,12 +1,6 @@
 "use strict";
 var L09_2_Blumenwiese;
 (function (L09_2_Blumenwiese) {
-    //Stem
-    function drawFlowerStem(_positionStem) {
-        L09_2_Blumenwiese.crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        L09_2_Blumenwiese.crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
-    }
-    L09_2_Blumenwiese.drawFlowerStem = drawFlowerStem;
     //Flower 1
     function drawFlower1(_position, _size) {
         let nLeaves = 7;
@@ -14,7 +8,7 @@ var L09_2_Blumenwiese;
         let x = 0;
         let y = 0;
         L09_2_Blumenwiese.crc2d.save();
-        drawFlowerStem(_position);
+        L09_2_Blumenwiese.drawFlowerStem(_position);
         for (let drawn = 0; drawn < nLeaves; drawn++) {
             L09_2_Blumenwiese.crc2d.save();
             switch (drawn) {
@@ -67,7 +61,7 @@ var L09_2_Blumenwiese;
     function drawFlower2(_positionStem, _size) {
         let nLeaves = 5;
         //crc2d.beginPath();
-        drawFlowerStem(_positionStem);
+        L09_2_Blumenwiese.drawFlowerStem(_positionStem);
         //crc2d.closePath();
         L09_2_Blumenwiese.crc2d.save();
         let color = L09_2_Blumenwiese.colorfulColors[L09_2_Blumenwiese.createRandomNum(0, 12)];
@@ -114,7 +108,7 @@ var L09_2_Blumenwiese;
     function drawFlower3(_positionStem, _size) {
         let nLeaves = 5;
         L09_2_Blumenwiese.crc2d.beginPath();
-        drawFlowerStem(_positionStem);
+        L09_2_Blumenwiese.drawFlowerStem(_positionStem);
         L09_2_Blumenwiese.crc2d.closePath();
         L09_2_Blumenwiese.crc2d.save();
         let color = L09_2_Blumenwiese.colorfulColors[L09_2_Blumenwiese.createRandomNum(0, 12)];
@@ -168,7 +162,7 @@ var L09_2_Blumenwiese;
         let rMax = 10;
         let x = 0;
         let y = 0;
-        drawFlowerStem(_positionStem);
+        L09_2_Blumenwiese.drawFlowerStem(_positionStem);
         for (let drawn = 0; drawn < nLeaves; drawn++) {
             L09_2_Blumenwiese.crc2d.save();
             L09_2_Blumenwiese.crc2d.translate(x, y);
@@ -191,7 +185,7 @@ var L09_2_Blumenwiese;
         let x = 0;
         let y = 0;
         let randomColor = L09_2_Blumenwiese.createRandomNum(0, 360);
-        drawFlowerStem(_positionStem);
+        L09_2_Blumenwiese.drawFlowerStem(_positionStem);
         L09_2_Blumenwiese.crc2d.save();
         for (let drawn = 0; drawn < nLeaves; drawn++) {
             L09_2_Blumenwiese.crc2d.save();
@@ -248,7 +242,7 @@ var L09_2_Blumenwiese;
         let x = 0;
         let y = 0;
         let randomColor = L09_2_Blumenwiese.createRandomNum(0, 360);
-        drawFlowerStem(_positionStem);
+        L09_2_Blumenwiese.drawFlowerStem(_positionStem);
         L09_2_Blumenwiese.crc2d.save();
         for (let drawn = 0; drawn < nLeaves; drawn++) {
             L09_2_Blumenwiese.crc2d.save();
