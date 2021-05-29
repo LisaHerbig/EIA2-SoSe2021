@@ -120,8 +120,10 @@ var L09_2_Blumenwiese;
         //crc2d.fillRect(0, 0, 360, 720);
         cloud.move(1 / 50);
         cloud.draw();
-        bee.move(1 / 50);
-        bee.draw();
+        for (let i = 0; i < 5; i++) {
+            bee.move(1 / 50);
+            bee.draw();
+        }
     }
 })(L09_2_Blumenwiese || (L09_2_Blumenwiese = {}));
 //# sourceMappingURL=Main.js.map
