@@ -3,7 +3,7 @@ namespace L09_2_Blumenwiese {
    Aufgabe: L09.2 Blumenwiese
    Name: Lisa Herbig
    Matrikel: 266236
-   Datum: 23.05.2021
+   Datum: 29.05.2021
    Inspiration: Code und Diagramm aus der Lektion (L08.2), bei Sonne, Wolken und Bergen und L09 Asteroids für die Animation
    */
 
@@ -140,8 +140,15 @@ namespace L09_2_Blumenwiese {
        crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);   
    }
 
+   let bees: Bee[] = [];
    let cloud: Cloud = new Cloud();
+
+   for (let i: number = 0; i < 8; i++) {
    let bee: Bee = new Bee();
+   bees.push(bee);
+   }
+   
+   
 
    function update(): void {
        crc2d.clearRect(0, 0, 360, 720);
@@ -150,9 +157,9 @@ namespace L09_2_Blumenwiese {
        //crc2d.fillRect(0, 0, 360, 720);
        cloud.move(1 / 50);
        cloud.draw(); 
-       for (let i: number = 0; i < 5; i++) {
-       bee.move(1 / 50);
-       bee.draw();
+       for (let j: number = 0; j < 8; j++) {
+       bees[j].move(1 / 50);
+       bees[j].draw();
       }
        
 

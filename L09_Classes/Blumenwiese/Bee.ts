@@ -16,8 +16,8 @@ namespace L09_2_Blumenwiese {
     move(_timeSlice: number): void {
         crc2d.restore();
         //console.log("Move Cloud");
-        //this.velocity = new Vector(200, 350);
-        this.velocity = this.position;
+        this.velocity = new Vector(200, 350);
+        //this.velocity = this.position;
         this.velocity.random(createRandomNum(-300, 300), createRandomNum(-600, 600));
     
         //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
@@ -39,7 +39,11 @@ namespace L09_2_Blumenwiese {
     
     draw(): void {
         //console.log("drawBee");
-        drawBee(this.position);  
+        //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
+        for (let j: number = 0; j < 3; j++) {
+            //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
+            drawBee(this.position);  
+        }
     }
 
 

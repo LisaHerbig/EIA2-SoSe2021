@@ -11,8 +11,8 @@ var L09_2_Blumenwiese;
         move(_timeSlice) {
             L09_2_Blumenwiese.crc2d.restore();
             //console.log("Move Cloud");
-            //this.velocity = new Vector(200, 350);
-            this.velocity = this.position;
+            this.velocity = new L09_2_Blumenwiese.Vector(200, 350);
+            //this.velocity = this.position;
             this.velocity.random(L09_2_Blumenwiese.createRandomNum(-300, 300), L09_2_Blumenwiese.createRandomNum(-600, 600));
             //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
             let offset = new L09_2_Blumenwiese.Vector(this.velocity.x, this.velocity.y);
@@ -29,7 +29,11 @@ var L09_2_Blumenwiese;
         }
         draw() {
             //console.log("drawBee");
-            L09_2_Blumenwiese.drawBee(this.position);
+            //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
+            for (let j = 0; j < 3; j++) {
+                //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
+                L09_2_Blumenwiese.drawBee(this.position);
+            }
         }
     }
     L09_2_Blumenwiese.Bee = Bee;
