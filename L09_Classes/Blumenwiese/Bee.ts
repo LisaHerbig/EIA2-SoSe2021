@@ -40,10 +40,10 @@ namespace L09_2_Blumenwiese {
     draw(): void {
         //console.log("drawBee");
         //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
-        for (let j: number = 0; j < 3; j++) {
+        //for (let j: number = 0; j < 3; j++) {
             //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
             drawBee(this.position);  
-        }
+        //}
     }
 
 

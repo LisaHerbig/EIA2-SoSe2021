@@ -30,10 +30,10 @@ var L09_2_Blumenwiese;
         draw() {
             //console.log("drawBee");
             //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
-            for (let j = 0; j < 3; j++) {
-                //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
-                L09_2_Blumenwiese.drawBee(this.position);
-            }
+            //for (let j: number = 0; j < 3; j++) {
+            //this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
+            L09_2_Blumenwiese.drawBee(this.position);
+            //}
         }
     }
     L09_2_Blumenwiese.Bee = Bee;

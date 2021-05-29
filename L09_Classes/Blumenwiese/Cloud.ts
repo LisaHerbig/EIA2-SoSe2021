@@ -2,7 +2,7 @@ namespace L09_2_Blumenwiese {
     export class Cloud {
         position: Vector;
         velocity: Vector;
-        size: number;
+        //size: number;
 
         constructor() {
             console.log("Constructor Cloud");
@@ -34,10 +34,8 @@ namespace L09_2_Blumenwiese {
         }
 
         draw(): void {
-            console.log("drawCloud");
-
-            drawCloud(this.position);
-            
+            //console.log("drawCloud");
+            drawCloud(this.position);  
         }
     }
 

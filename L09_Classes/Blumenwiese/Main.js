@@ -12,6 +12,8 @@ var L09_2_Blumenwiese;
     let imgData;
     L09_2_Blumenwiese.pinkPurple = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)"];
     L09_2_Blumenwiese.colorfulColors = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)", "HSLA(0, 100%, 50%, 0.8)", "HSLA(19, 100%, 50%, 0.8)", "HSLA(32, 100%, 50%, 0.9)", "HSLA(60, 100%, 50%, 0.7)", "HSLA(165, 100%, 50%, 0.8)", "HSLA(203, 100%, 50%, 0.8)", "HSLA(244, 100%, 50%, 0.8)", "HSLA((356, 100%, 50%, 0.8))", "HSLA(65, 100%, 95%, 0.9)"];
+    let bees = [];
+    let cloud = new L09_2_Blumenwiese.Cloud();
     function handleLoad() {
         console.log("Hello");
         let canvas = document.querySelector("canvas");
@@ -106,13 +108,6 @@ var L09_2_Blumenwiese;
         L09_2_Blumenwiese.crc2d.fill();
         L09_2_Blumenwiese.crc2d.restore();
     }
-    function drawFlowerStem(_positionStem) {
-        L09_2_Blumenwiese.crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-        L09_2_Blumenwiese.crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);
-    }
-    L09_2_Blumenwiese.drawFlowerStem = drawFlowerStem;
-    let bees = [];
-    let cloud = new L09_2_Blumenwiese.Cloud();
     for (let i = 0; i < 8; i++) {
         let bee = new L09_2_Blumenwiese.Bee();
         bees.push(bee);

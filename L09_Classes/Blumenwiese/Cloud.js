@@ -2,6 +2,7 @@
 var L09_2_Blumenwiese;
 (function (L09_2_Blumenwiese) {
     class Cloud {
+        //size: number;
         constructor() {
             console.log("Constructor Cloud");
             this.position = new L09_2_Blumenwiese.Vector(L09_2_Blumenwiese.createRandomNum(200, 290), L09_2_Blumenwiese.createRandomNum(60, 140));
@@ -23,7 +24,7 @@ var L09_2_Blumenwiese;
                 this.position.y -= L09_2_Blumenwiese.crc2d.canvas.height;
         }
         draw() {
-            console.log("drawCloud");
+            //console.log("drawCloud");
             L09_2_Blumenwiese.drawCloud(this.position);
         }
     }
