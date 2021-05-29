@@ -125,7 +125,7 @@ var L09_2_Blumenwiese;
         cloud.move(1 / 50);
         cloud.draw();
         for (let j = 0; j < 8; j++) {
-            bees[j].move(1 / 50);
+            bees[j].move(1 / createRandomNum(25, 125));
             bees[j].draw();
         }
     }
