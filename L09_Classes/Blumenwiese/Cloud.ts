@@ -5,7 +5,7 @@ namespace L09_2_Blumenwiese {
         //size: number;
 
         constructor() {
-            console.log("Constructor Cloud");
+            //console.log("Constructor Cloud");
             this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
             
 
@@ -16,7 +16,7 @@ namespace L09_2_Blumenwiese {
         }
 
         move(_timeSlice: number): void {
-            console.log("Move Cloud");
+            //console.log("Move Cloud");
         
             let offset: Vector = new Vector(this.velocity.x, 0);
             offset.scale(_timeSlice);

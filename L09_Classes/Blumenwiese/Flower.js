@@ -3,7 +3,7 @@ var L09_2_Blumenwiese;
 (function (L09_2_Blumenwiese) {
     class Flower {
         constructor(_active) {
-            console.log(_active);
+            //console.log(_active);
             let numX = L09_2_Blumenwiese.createRandomNum(20, 360);
             let numY = L09_2_Blumenwiese.createRandomNum(340, 700);
             console.log(numX);

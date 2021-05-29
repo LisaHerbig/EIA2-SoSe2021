@@ -5,7 +5,7 @@ namespace L09_2_Blumenwiese {
         size: number;
 
         constructor(_active: boolean) {
-            console.log(_active);
+            //console.log(_active);
             let numX: number = createRandomNum(20, 360);
             let numY: number = createRandomNum(340, 700);
             console.log(numX);
