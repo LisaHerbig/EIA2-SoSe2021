@@ -3,7 +3,7 @@ var L09_2_Blumenwiese;
 (function (L09_2_Blumenwiese) {
     class Bee {
         constructor() {
-            this.position = new L09_2_Blumenwiese.Vector(L09_2_Blumenwiese.createRandomNum(200, 290), L09_2_Blumenwiese.createRandomNum(60, 140));
+            this.position = new L09_2_Blumenwiese.Vector(L09_2_Blumenwiese.createRandomNum(150, 250), L09_2_Blumenwiese.createRandomNum(300, 400));
             //this.position = new Vector (0, 0);
             //this.velocity = new Vector(0, 0);
             //this.velocity.random(createRandomNum(-100, 100), createRandomNum(-200, 200));

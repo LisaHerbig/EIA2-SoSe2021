@@ -4,7 +4,7 @@ namespace L09_2_Blumenwiese {
     velocity: Vector;
 
     constructor() {
-        this.position = new Vector (createRandomNum(200, 290), createRandomNum(60, 140));
+        this.position = new Vector (createRandomNum(150, 250), createRandomNum(300, 400));
          
         //this.position = new Vector (0, 0);
         //this.velocity = new Vector(0, 0);
