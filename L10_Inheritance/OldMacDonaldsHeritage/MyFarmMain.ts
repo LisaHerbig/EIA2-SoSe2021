@@ -114,6 +114,12 @@ namespace L10_1_OldMacDonalsHeritage  {
                     goat.eaten();
                     goat.doSpecialAction();
                     break;
+                case "Chicken":
+                    let chicken: Chicken = new Chicken(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+                    chicken.sing();
+                    chicken.eaten();
+                    chicken.doSpecialAction();
+                    break;
             }
        }
 

@@ -103,6 +103,12 @@ var L10_1_OldMacDonalsHeritage;
                     goat.eaten();
                     goat.doSpecialAction();
                     break;
+                case "Chicken":
+                    let chicken = new L10_1_OldMacDonalsHeritage.Chicken(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+                    chicken.sing();
+                    chicken.eaten();
+                    chicken.doSpecialAction();
+                    break;
             }
         }
         let btn = document.querySelector("#btn");
