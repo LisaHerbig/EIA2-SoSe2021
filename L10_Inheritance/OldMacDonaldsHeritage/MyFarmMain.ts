@@ -79,15 +79,15 @@ namespace L10_1_OldMacDonalsHeritage  {
         console.log("Day over"); 
         
         for (let i: number = 0; i < allAnimals.length; i ++) {
-            //let animal: Animal = new Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+            let animal: Animal = new Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
     
-            //animal.sing();
-            //animal.eaten();
+            animal.sing();
+            animal.eaten();
             switch (allAnimals[i].species) {
                 case "Cow":
                     let cow: Cow = new Cow(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
-                    cow.sing();
-                    cow.eaten();
+                    //cow.sing();
+                    //cow.eaten();
                     cow.doSpecialAction();
                 case "Cat":
                     let cat: Cat = new Cat(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
