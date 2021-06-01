@@ -1,65 +1,65 @@
 "use strict";
-var L09_MyFarm;
-(function (L09_MyFarm) {
+var L10_1_OldMacDonalsHeritage;
+(function (L10_1_OldMacDonalsHeritage) {
     window.addEventListener("load", handleLoad);
-    L09_MyFarm.totalAmountGras = 500;
-    L09_MyFarm.totalAmountGrain = 100;
-    L09_MyFarm.totalAmountFish = 20;
-    L09_MyFarm.totalAmountMeat = 20;
-    L09_MyFarm.totalAmountJunk = 50;
+    L10_1_OldMacDonalsHeritage.totalAmountGras = 500;
+    L10_1_OldMacDonalsHeritage.totalAmountGrain = 100;
+    L10_1_OldMacDonalsHeritage.totalAmountFish = 20;
+    L10_1_OldMacDonalsHeritage.totalAmountMeat = 20;
+    L10_1_OldMacDonalsHeritage.totalAmountJunk = 50;
     let animalNames = ["Biscuit", "Charlie", "Coco", "Sam", "Sandy", "Sky", "Waffles", "Max", "Nicky", "Danny", "Dobby", "Lucky", "Moonpie", "Peanut", "Sunny"];
     let allAnimals = [
         {
-            species: "cow",
+            species: "Cow",
             name: animalNames[createRandomNum(0, 14)],
             food: "grass",
             sound: "moo",
             eaten: createRandomNum(1, 50)
         },
         {
-            species: "cat",
+            species: "Cat",
             name: animalNames[createRandomNum(0, 14)],
             food: "fish",
             sound: "mewo",
             eaten: createRandomNum(1, 10)
         },
         {
-            species: "dog",
+            species: "Dog",
             name: animalNames[createRandomNum(0, 14)],
             food: "meat",
             sound: "woof",
             eaten: createRandomNum(1, 10)
         },
         {
-            species: "pig",
+            species: "Pig",
             name: animalNames[createRandomNum(0, 14)],
             food: "junk",
             sound: "oink",
             eaten: createRandomNum(1, 20)
         },
         {
-            species: "goat",
+            species: "Goat",
             name: animalNames[createRandomNum(0, 14)],
             food: "grass",
             sound: "maaeh",
             eaten: createRandomNum(1, 20)
         },
         {
-            species: "chicken",
+            species: "Chicken",
             name: animalNames[createRandomNum(0, 14)],
             food: "grains",
             sound: "goawk",
             eaten: createRandomNum(1, 10)
         },
         {
-            species: "donkey",
+            species: "Donkey",
             name: animalNames[createRandomNum(0, 14)],
             food: "grass",
             sound: "ih-ah",
             eaten: createRandomNum(1, 50)
         },
         {
-            species: "duck",
+            species: "Duck",
             name: animalNames[createRandomNum(0, 14)],
             food: "grains",
             sound: "quack",
@@ -69,9 +69,16 @@ var L09_MyFarm;
     function handleLoad() {
         console.log("Day over");
         for (let i = 0; i < allAnimals.length; i++) {
-            let animal = new L09_MyFarm.Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+            let animal = new L10_1_OldMacDonalsHeritage.Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
             animal.sing();
             animal.eaten();
+            switch (allAnimals[i].species) {
+                case "Cow":
+                    let cow = new L10_1_OldMacDonalsHeritage.Cow(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+                    cow.sing();
+                    cow.eaten();
+                    cow.doSpecialAction();
+            }
         }
         let btn = document.querySelector("#btn");
         btn.addEventListener("click", handleLoad);
@@ -79,5 +86,5 @@ var L09_MyFarm;
     function createRandomNum(_min, _max) {
         return Math.floor(Math.random() * (_max - _min + 1) + _min);
     }
-})(L09_MyFarm || (L09_MyFarm = {}));
+})(L10_1_OldMacDonalsHeritage || (L10_1_OldMacDonalsHeritage = {}));
 //# sourceMappingURL=MyFarmMain.js.map

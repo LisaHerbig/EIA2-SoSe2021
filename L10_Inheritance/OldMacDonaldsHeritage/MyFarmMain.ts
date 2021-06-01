@@ -1,4 +1,4 @@
-namespace L09_MyFarm {
+namespace L10_1_OldMacDonalsHeritage  {
     window.addEventListener("load", handleLoad);
     
     export let totalAmountGras: number = 500;
@@ -18,56 +18,56 @@ namespace L09_MyFarm {
     }
     let allAnimals: FarmAnimal[] = [
         {
-            species: "cow",
+            species: "Cow",
             name: animalNames[createRandomNum(0, 14)],
             food: "grass",
             sound: "moo",
             eaten: createRandomNum(1, 50)
         },
         {
-            species: "cat",
+            species: "Cat",
             name: animalNames[createRandomNum(0, 14)],
             food: "fish",
             sound: "mewo",
             eaten: createRandomNum(1, 10)
         },
         {
-            species: "dog",
+            species: "Dog",
             name: animalNames[createRandomNum(0, 14)],
             food: "meat",
             sound: "woof",
             eaten: createRandomNum(1, 10)
         },
         {
-            species: "pig",
+            species: "Pig",
             name: animalNames[createRandomNum(0, 14)],
             food: "junk",
             sound: "oink",
             eaten: createRandomNum(1, 20)
         },
         {
-            species: "goat",
+            species: "Goat",
             name: animalNames[createRandomNum(0, 14)],
             food: "grass",
             sound: "maaeh",
             eaten: createRandomNum(1, 20)
         },
         {
-            species: "chicken",
+            species: "Chicken",
             name: animalNames[createRandomNum(0, 14)],
             food: "grains",
             sound: "goawk",
             eaten: createRandomNum(1, 10)
         },
         {
-            species: "donkey",
+            species: "Donkey",
             name: animalNames[createRandomNum(0, 14)],
             food: "grass",
             sound: "ih-ah",
             eaten: createRandomNum(1, 50)
         }, 
         {
-            species: "duck",
+            species: "Duck",
             name: animalNames[createRandomNum(0, 14)],
             food: "grains",
             sound: "quack",
@@ -83,6 +83,13 @@ namespace L09_MyFarm {
     
             animal.sing();
             animal.eaten();
+            switch (allAnimals[i].species) {
+                case "Cow":
+                    let cow: Cow = new Cow(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+                    cow.sing();
+                    cow.eaten();
+                    cow.doSpecialAction();
+            }
        }
 
         let btn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#btn");
