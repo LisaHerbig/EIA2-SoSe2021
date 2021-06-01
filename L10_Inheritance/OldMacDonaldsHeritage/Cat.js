@@ -5,7 +5,7 @@ var L10_1_OldMacDonalsHeritage;
         constructor(_species, _myName, _favFood, _sound, _eaten) {
             super(_species, _myName, _favFood, _sound, _eaten);
             //console.log("CowConstructor");
-            this.special = "I caught some mice ";
+            this.special = "to catch mice ";
         }
         sing() {
             console.log("Old Mac Donald had a farm" + "\n"
@@ -20,14 +20,14 @@ var L10_1_OldMacDonalsHeritage;
                 "Ee i ee i o");
         }
         eaten() {
-            let leftOver = 0;
-            leftOver = L10_1_OldMacDonalsHeritage.totalAmountFish - this.ate;
-            L10_1_OldMacDonalsHeritage.totalAmountFish = leftOver;
-            console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + this.ate + " kg of " + this.favFood + " today. That means " + leftOver + " kg are left.");
+            let leftOverFish = 0;
+            leftOverFish = L10_1_OldMacDonalsHeritage.totalAmountFish - this.ate;
+            L10_1_OldMacDonalsHeritage.totalAmountFish = leftOverFish;
+            console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + this.ate + " kg of " + this.favFood + " today. That means " + leftOverFish + " kg are left.");
             //leftOver = 0;
         }
         doSpecialAction() {
-            console.log("I´m special because " + this.special);
+            console.log("My special action is  " + this.special);
         }
     }
     L10_1_OldMacDonalsHeritage.Cat = Cat;

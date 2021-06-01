@@ -79,21 +79,41 @@ namespace L10_1_OldMacDonalsHeritage  {
         console.log("Day over"); 
         
         for (let i: number = 0; i < allAnimals.length; i ++) {
-            let animal: Animal = new Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+            //let animal: Animal = new Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
     
-            animal.sing();
-            animal.eaten();
+            //animal.sing();
+            //animal.eaten();
             switch (allAnimals[i].species) {
                 case "Cow":
                     let cow: Cow = new Cow(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
-                    //cow.sing();
-                    //cow.eaten();
+                    cow.sing();
+                    cow.eaten();
                     cow.doSpecialAction();
+                    break;
                 case "Cat":
                     let cat: Cat = new Cat(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
                     cat.sing();
                     cat.eaten();
                     cat.doSpecialAction();
+                    break;
+                case "Dog":
+                    let dog: Dog = new Dog(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+                    dog.sing();
+                    dog.eaten();
+                    dog.doSpecialAction();
+                    break;
+                case "Pig":
+                    let pig: Pig = new Pig(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+                    pig.sing();
+                    pig.eaten();
+                    pig.doSpecialAction();
+                    break;
+                case "Goat":
+                    let goat: Goat = new Goat(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
+                    goat.sing();
+                    goat.eaten();
+                    goat.doSpecialAction();
+                    break;
             }
        }
 

@@ -1,11 +1,11 @@
 namespace L10_1_OldMacDonalsHeritage {
-    export class Cat extends Animal {
+    export class Goat extends Animal {
         special: string;
 
         constructor(_species: string, _myName: string, _favFood: string, _sound: string, _eaten: number) {
             super(_species, _myName, _favFood, _sound, _eaten);
             //console.log("CowConstructor");
-            this.special = "to catch mice ";
+            this.special = "to chew on cloths ";
             
         }
         sing(): void {
@@ -22,10 +22,10 @@ namespace L10_1_OldMacDonalsHeritage {
         }
 
         eaten(): void {
-            let leftOverFish: number = 0;
-            leftOverFish = totalAmountFish - this.ate;
-            totalAmountFish = leftOverFish;
-            console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + this.ate + " kg of " + this.favFood + " today. That means " + leftOverFish + " kg are left.");
+            let leftOverGras: number = 0;
+            leftOverGras = totalAmountGras - this.ate;
+            totalAmountGras = leftOverGras;
+            console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + this.ate + " kg of " + this.favFood + " today. That means " + leftOverGras + " kg are left.");
             //leftOver = 0;
         }
         doSpecialAction(): void {

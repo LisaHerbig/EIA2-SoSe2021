@@ -5,7 +5,7 @@ namespace L10_1_OldMacDonalsHeritage {
         constructor(_species: string, _myName: string, _favFood: string, _sound: string, _eaten: number) {
             super(_species, _myName, _favFood, _sound, _eaten);
             //console.log("CowConstructor");
-            this.special = "I gave you milk";
+            this.special = " to give you milk";
             
         }
         sing(): void {
@@ -22,14 +22,14 @@ namespace L10_1_OldMacDonalsHeritage {
         }
 
         eaten(): void {
-            let leftOver: number = 0;
-            leftOver = totalAmountGras - this.ate;
-            totalAmountGras = leftOver;
-            console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + this.ate + " kg of " + this.favFood + " today. That means " + leftOver + " kg are left.");
+            let leftOverGrass: number = 0;
+            leftOverGrass = totalAmountGras - this.ate;
+            totalAmountGras = leftOverGrass;
+            console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + this.ate + " kg of " + this.favFood + " today. That means " + leftOverGrass + " kg are left.");
             //leftOver = 0; 
         }
         doSpecialAction(): void {
-            console.log("I´m special because " + this.special);
+            console.log("My special Action is " + this.special);
             
         }
     }
