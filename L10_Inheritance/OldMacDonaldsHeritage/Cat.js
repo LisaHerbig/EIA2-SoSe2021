@@ -1,11 +1,11 @@
 "use strict";
 var L10_1_OldMacDonalsHeritage;
 (function (L10_1_OldMacDonalsHeritage) {
-    class Cow extends L10_1_OldMacDonalsHeritage.Animal {
+    class Cat extends L10_1_OldMacDonalsHeritage.Animal {
         constructor(_species, _myName, _favFood, _sound, _eaten) {
             super(_species, _myName, _favFood, _sound, _eaten);
             //console.log("CowConstructor");
-            this.special = "I gave you milk";
+            this.special = "I caught some mice ";
         }
         sing() {
             console.log("Old Mac Donald had a farm" + "\n"
@@ -21,15 +21,15 @@ var L10_1_OldMacDonalsHeritage;
         }
         eaten() {
             let leftOver = 0;
-            leftOver = L10_1_OldMacDonalsHeritage.totalAmountGras - this.ate;
-            L10_1_OldMacDonalsHeritage.totalAmountGras = leftOver;
+            leftOver = L10_1_OldMacDonalsHeritage.totalAmountFish - this.ate;
+            L10_1_OldMacDonalsHeritage.totalAmountFish = leftOver;
             console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + this.ate + " kg of " + this.favFood + " today. That means " + leftOver + " kg are left.");
-            //leftOver = 0; 
+            //leftOver = 0;
         }
         doSpecialAction() {
             console.log("I´m special because " + this.special);
         }
     }
-    L10_1_OldMacDonalsHeritage.Cow = Cow;
+    L10_1_OldMacDonalsHeritage.Cat = Cat;
 })(L10_1_OldMacDonalsHeritage || (L10_1_OldMacDonalsHeritage = {}));
-//# sourceMappingURL=Cow.js.map
+//# sourceMappingURL=Cat.js.map
