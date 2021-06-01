@@ -118,6 +118,7 @@ var L10_1_OldMacDonalsHeritage;
                     chicken.sing();
                     chicken.eaten();
                     chicken.doSpecialAction();
+                    chicken.draw();
                     break;
             }
         }
