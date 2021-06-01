@@ -61,6 +61,9 @@ namespace L10_1_OldMacDonalsHeritage {
     console.log("Hello, my Name is " + this.myName + ". I am a " + this.species + " and I ate " + this.ate + " kg of " + this.favFood + " today. That means " + leftOver + " kg are left.");
     leftOver = 0; */  
   }
+  draw(): void {
+    //drawAnimal
+  }
 
 
   }  

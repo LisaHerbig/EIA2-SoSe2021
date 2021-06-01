@@ -29,8 +29,12 @@ namespace L10_1_OldMacDonalsHeritage {
             //leftOver = 0; 
         }
         doSpecialAction(): void {
-            console.log("My special Action is " + this.special);
-            
+            console.log("My special Action is " + this.special);  
         }
+
+        draw(): void {
+            drawCow();
+        }
+        
     }
 }

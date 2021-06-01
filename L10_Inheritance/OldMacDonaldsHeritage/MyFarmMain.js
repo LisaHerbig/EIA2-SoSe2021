@@ -67,6 +67,10 @@ var L10_1_OldMacDonalsHeritage;
         }
     ];
     function handleLoad() {
+        let canvas = document.querySelector("canvas");
+        if (!canvas)
+            return;
+        L10_1_OldMacDonalsHeritage.crc2d = canvas.getContext("2d");
         console.log("Day over");
         for (let i = 0; i < allAnimals.length; i++) {
             //let animal: Animal = new Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
@@ -78,6 +82,7 @@ var L10_1_OldMacDonalsHeritage;
                     cow.sing();
                     cow.eaten();
                     cow.doSpecialAction();
+                    cow.draw();
                     break;
                 case "Cat":
                     let cat = new L10_1_OldMacDonalsHeritage.Cat(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
