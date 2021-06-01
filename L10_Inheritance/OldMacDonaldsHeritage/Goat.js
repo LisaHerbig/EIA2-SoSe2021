@@ -29,6 +29,9 @@ var L10_1_OldMacDonalsHeritage;
         doSpecialAction() {
             console.log("My special action is  " + this.special);
         }
+        draw() {
+            L10_1_OldMacDonalsHeritage.drawGoat();
+        }
     }
     L10_1_OldMacDonalsHeritage.Goat = Goat;
 })(L10_1_OldMacDonalsHeritage || (L10_1_OldMacDonalsHeritage = {}));

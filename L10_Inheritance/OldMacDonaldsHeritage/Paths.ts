@@ -241,4 +241,149 @@ namespace L10_1_OldMacDonalsHeritage {
             }    
         }
     }
+
+    //pig
+    export function drawPig(): void {
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.arc(625, 225, 30, 0, 2 * Math.PI);
+        crc2d.stroke();
+        crc2d.restore();
+
+        //Eyes
+        for (let i: number = 0; i < 3; i++) {
+            //crc2d.save();
+            if (i == 0) {
+                crc2d.save();
+                crc2d.beginPath();
+                crc2d.arc(615, 210, 3, 0, 2 * Math.PI);
+                crc2d.fill();
+                crc2d.closePath();
+                crc2d.restore();
+            }
+            if (i == 1) {
+                crc2d.save();
+                crc2d.beginPath();
+                crc2d.arc(635, 210, 3, 0, 2 * Math.PI);
+                crc2d.fill();
+                crc2d.closePath();
+                crc2d.restore();
+            }
+
+        //Nose
+            crc2d.save();
+            crc2d.beginPath();
+            crc2d.arc(625, 230, 15, 0, 2 * Math.PI);
+            crc2d.closePath();
+            crc2d.stroke();
+            crc2d.restore();
+
+            crc2d.save();
+            crc2d.beginPath();
+            crc2d.arc(620, 230, 2, 0, 2 * Math.PI);
+            crc2d.closePath();
+            crc2d.stroke();
+            crc2d.restore();
+
+            crc2d.save();
+            crc2d.beginPath();
+            crc2d.arc(630, 230, 2, 0, 2 * Math.PI);
+            crc2d.closePath();
+            crc2d.stroke();
+            crc2d.restore();
+
+            //Ears
+            function drawPigEars(_x: number): void {
+                crc2d.save();
+                crc2d.beginPath();
+                crc2d.arc(_x, 200, 5, 0, 2 * Math.PI);
+                crc2d.closePath(),
+                crc2d.stroke();
+                crc2d.restore();
+            }
+            drawPigEars(600);
+            drawPigEars(650);
+            
+    }
+}
+
+    //Goat
+    export function drawGoat(): void {
+        crc2d.save();
+        crc2d.moveTo(50, 400);
+        crc2d.lineTo(100, 400);
+        crc2d.lineTo(100, 450);
+        crc2d.lineTo(75, 470);
+        crc2d.lineTo(50, 450);
+        crc2d.closePath();
+        crc2d.stroke();
+        crc2d.restore();
+
+        //Nose
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.moveTo(75, 470);
+        crc2d.lineTo(75, 450);
+        crc2d.lineTo(70, 445);
+        crc2d.stroke();
+        crc2d.restore();
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.moveTo(75, 450);
+        crc2d.lineTo(80, 445);
+        crc2d.stroke();
+        crc2d.restore();
+    
+
+        //Eyes
+        for (let i: number = 0; i < 4; i++) {
+            //crc2d.save();
+            if (i == 0) {
+                crc2d.save();
+                crc2d.beginPath();
+                crc2d.arc(70, 430, 3, 0, 2 * Math.PI);
+                crc2d.fill();
+                crc2d.closePath();
+                crc2d.restore();
+            }
+            if (i == 1) {
+                crc2d.save();
+                crc2d.beginPath();
+                crc2d.arc(80, 430, 3, 0, 2 * Math.PI);
+                crc2d.fill();
+                crc2d.closePath();
+                crc2d.restore();
+            }
+        }
+        //Ears
+        function drawGoatEars(_x: number): void {
+            crc2d.save();
+            crc2d.beginPath();
+            crc2d.arc(_x, 405, 5, 0, 2 * Math.PI);
+            crc2d.closePath(),
+            crc2d.stroke();
+            crc2d.restore();
+        }
+        drawGoatEars(45);
+        drawGoatEars(105);  
+
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.moveTo(60, 400);
+        crc2d.lineTo(70, 400);
+        crc2d.lineTo(65, 380);
+        crc2d.closePath();
+        crc2d.stroke();
+        crc2d.restore();
+
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.moveTo(80, 400);
+        crc2d.lineTo(90, 400);
+        crc2d.lineTo(85, 380);
+        crc2d.closePath();
+        crc2d.stroke();
+        crc2d.restore();
+
+    }
 }

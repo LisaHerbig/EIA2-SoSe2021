@@ -104,12 +104,14 @@ var L10_1_OldMacDonalsHeritage;
                     pig.sing();
                     pig.eaten();
                     pig.doSpecialAction();
+                    pig.draw();
                     break;
                 case "Goat":
                     let goat = new L10_1_OldMacDonalsHeritage.Goat(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
                     goat.sing();
                     goat.eaten();
                     goat.doSpecialAction();
+                    goat.draw();
                     break;
                 case "Chicken":
                     let chicken = new L10_1_OldMacDonalsHeritage.Chicken(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
