@@ -78,5 +78,89 @@ var L10_1_OldMacDonalsHeritage;
         }
     }
     L10_1_OldMacDonalsHeritage.drawCow = drawCow;
+    //Cat
+    function drawCat() {
+        //head
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(600, 10);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(650, 10);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(650, 60);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(600, 60);
+        L10_1_OldMacDonalsHeritage.crc2d.closePath();
+        L10_1_OldMacDonalsHeritage.crc2d.strokeStyle = "black";
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        //eyes
+        for (let i = 0; i < 3; i++) {
+            //crc2d.save();
+            if (i == 0) {
+                L10_1_OldMacDonalsHeritage.crc2d.save();
+                L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+                L10_1_OldMacDonalsHeritage.crc2d.arc(620, 30, 3, 0, 2 * Math.PI);
+                L10_1_OldMacDonalsHeritage.crc2d.fill();
+                L10_1_OldMacDonalsHeritage.crc2d.closePath();
+                L10_1_OldMacDonalsHeritage.crc2d.restore();
+            }
+            if (i == 1) {
+                L10_1_OldMacDonalsHeritage.crc2d.save();
+                L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+                L10_1_OldMacDonalsHeritage.crc2d.arc(630, 30, 3, 0, 2 * Math.PI);
+                L10_1_OldMacDonalsHeritage.crc2d.fill();
+                L10_1_OldMacDonalsHeritage.crc2d.closePath();
+                L10_1_OldMacDonalsHeritage.crc2d.restore();
+            }
+        }
+        //nose
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(620, 40);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(625, 45);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(630, 40);
+        L10_1_OldMacDonalsHeritage.crc2d.closePath();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(625, 45);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(625, 50);
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        //hair
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(610, 43);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(590, 43);
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(610, 46);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(590, 46);
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(640, 43);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(660, 43);
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(640, 46);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(660, 46);
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        //ears
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(600, 10);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(620, 10);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(610, 0);
+        L10_1_OldMacDonalsHeritage.crc2d.closePath();
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(650, 10);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(630, 10);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(640, 0);
+        L10_1_OldMacDonalsHeritage.crc2d.closePath();
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+    }
+    L10_1_OldMacDonalsHeritage.drawCat = drawCat;
 })(L10_1_OldMacDonalsHeritage || (L10_1_OldMacDonalsHeritage = {}));
 //# sourceMappingURL=Paths.js.map

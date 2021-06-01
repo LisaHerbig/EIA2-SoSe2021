@@ -100,6 +100,7 @@ namespace L10_1_OldMacDonalsHeritage  {
                     cat.sing();
                     cat.eaten();
                     cat.doSpecialAction();
+                    cat.draw();
                     break;
                 case "Dog":
                     let dog: Dog = new Dog(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);

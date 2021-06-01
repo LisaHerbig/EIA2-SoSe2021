@@ -32,5 +32,8 @@ namespace L10_1_OldMacDonalsHeritage {
             console.log("My special action is  " + this.special);
             
         }
+        draw(): void {
+            drawCat();
+        }
     }
 }
