@@ -97,6 +97,7 @@ var L10_1_OldMacDonalsHeritage;
                     dog.sing();
                     dog.eaten();
                     dog.doSpecialAction();
+                    dog.draw();
                     break;
                 case "Pig":
                     let pig = new L10_1_OldMacDonalsHeritage.Pig(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);

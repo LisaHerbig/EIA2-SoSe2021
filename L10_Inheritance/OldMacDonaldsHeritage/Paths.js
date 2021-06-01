@@ -162,5 +162,71 @@ var L10_1_OldMacDonalsHeritage;
         L10_1_OldMacDonalsHeritage.crc2d.restore();
     }
     L10_1_OldMacDonalsHeritage.drawCat = drawCat;
+    //Dog
+    function drawDog() {
+        //head
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(50, 200);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(100, 200);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(100, 250);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(50, 250);
+        L10_1_OldMacDonalsHeritage.crc2d.closePath();
+        L10_1_OldMacDonalsHeritage.crc2d.strokeStyle = "black";
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        //eyes
+        for (let i = 0; i < 3; i++) {
+            //crc2d.save();
+            if (i == 0) {
+                L10_1_OldMacDonalsHeritage.crc2d.save();
+                L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+                L10_1_OldMacDonalsHeritage.crc2d.arc(70, 220, 3, 0, 2 * Math.PI);
+                L10_1_OldMacDonalsHeritage.crc2d.fill();
+                L10_1_OldMacDonalsHeritage.crc2d.closePath();
+                L10_1_OldMacDonalsHeritage.crc2d.restore();
+            }
+            if (i == 1) {
+                L10_1_OldMacDonalsHeritage.crc2d.save();
+                L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+                L10_1_OldMacDonalsHeritage.crc2d.arc(80, 220, 3, 0, 2 * Math.PI);
+                L10_1_OldMacDonalsHeritage.crc2d.fill();
+                L10_1_OldMacDonalsHeritage.crc2d.closePath();
+                L10_1_OldMacDonalsHeritage.crc2d.restore();
+            }
+        }
+        //nose
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+        L10_1_OldMacDonalsHeritage.crc2d.ellipse(75, 230, 5, 2, 0, 0, 2 * Math.PI);
+        L10_1_OldMacDonalsHeritage.crc2d.closePath();
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        L10_1_OldMacDonalsHeritage.crc2d.save();
+        L10_1_OldMacDonalsHeritage.crc2d.moveTo(75, 232);
+        L10_1_OldMacDonalsHeritage.crc2d.lineTo(75, 240);
+        L10_1_OldMacDonalsHeritage.crc2d.stroke();
+        L10_1_OldMacDonalsHeritage.crc2d.restore();
+        //Ears
+        for (let i = 0; i < 3; i++) {
+            if (i == 0) {
+                L10_1_OldMacDonalsHeritage.crc2d.save();
+                L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+                L10_1_OldMacDonalsHeritage.crc2d.ellipse(45, 210, 5, 10, 0.5, 0, 2 * Math.PI);
+                L10_1_OldMacDonalsHeritage.crc2d.stroke();
+                L10_1_OldMacDonalsHeritage.crc2d.closePath();
+                L10_1_OldMacDonalsHeritage.crc2d.restore();
+            }
+            if (i == 1) {
+                L10_1_OldMacDonalsHeritage.crc2d.save();
+                L10_1_OldMacDonalsHeritage.crc2d.beginPath();
+                L10_1_OldMacDonalsHeritage.crc2d.ellipse(105, 210, 5, 10, -0.5, 0, 2 * Math.PI);
+                L10_1_OldMacDonalsHeritage.crc2d.stroke();
+                L10_1_OldMacDonalsHeritage.crc2d.closePath();
+                L10_1_OldMacDonalsHeritage.crc2d.restore();
+            }
+        }
+    }
+    L10_1_OldMacDonalsHeritage.drawDog = drawDog;
 })(L10_1_OldMacDonalsHeritage || (L10_1_OldMacDonalsHeritage = {}));
 //# sourceMappingURL=Paths.js.map

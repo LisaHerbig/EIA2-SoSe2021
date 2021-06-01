@@ -170,5 +170,75 @@ namespace L10_1_OldMacDonalsHeritage {
         crc2d.closePath();
         crc2d.stroke();
         crc2d.restore();
-}
+    }
+
+    //Dog
+    export function drawDog(): void {
+        //head
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.moveTo(50, 200);
+        crc2d.lineTo(100, 200);
+        crc2d.lineTo(100, 250);
+        crc2d.lineTo(50, 250);
+        crc2d.closePath();
+        crc2d.strokeStyle = "black";
+        crc2d.stroke();
+        crc2d.restore();
+
+        //eyes
+        for (let i: number = 0; i < 3; i++) {
+            //crc2d.save();
+            if (i == 0) {
+                crc2d.save();
+                crc2d.beginPath();
+                crc2d.arc(70, 220, 3, 0, 2 * Math.PI);
+                crc2d.fill();
+                crc2d.closePath();
+                crc2d.restore();
+            }
+            if (i == 1) {
+                crc2d.save();
+                crc2d.beginPath();
+                crc2d.arc(80, 220, 3, 0, 2 * Math.PI);
+                crc2d.fill();
+                crc2d.closePath();
+                crc2d.restore();
+            }
+        }
+
+        //nose
+        crc2d.save();
+        crc2d.beginPath();
+        crc2d.ellipse(75, 230, 5, 2, 0, 0, 2 * Math.PI);
+        crc2d.closePath();
+        crc2d.stroke();
+        crc2d.restore();
+
+        crc2d.save();
+        crc2d.moveTo(75, 232);
+        crc2d.lineTo(75, 240);
+        crc2d.stroke();
+        crc2d.restore();
+
+        //Ears
+        for (let i: number = 0; i < 3; i++) {
+            if (i == 0) {
+                crc2d.save();
+                crc2d.beginPath();
+                crc2d.ellipse(45, 210, 5, 10, 0.5, 0, 2 * Math.PI);
+                crc2d.stroke();
+                crc2d.closePath();
+                crc2d.restore();
+            }
+            if ( i == 1) {
+                crc2d.save();
+                crc2d.beginPath();
+                crc2d.ellipse(105, 210, 5, 10, -0.5, 0, 2 * Math.PI);
+                crc2d.stroke();
+                crc2d.closePath();
+                crc2d.restore();
+            }    
+        }
+    }
 }
