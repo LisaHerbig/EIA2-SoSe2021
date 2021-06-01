@@ -72,6 +72,7 @@ var L10_1_OldMacDonalsHeritage;
             return;
         L10_1_OldMacDonalsHeritage.crc2d = canvas.getContext("2d");
         console.log("Day over");
+        L10_1_OldMacDonalsHeritage.crc2d.clearRect(0, 0, 1200, 600);
         for (let i = 0; i < allAnimals.length; i++) {
             //let animal: Animal = new Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
             //animal.sing();

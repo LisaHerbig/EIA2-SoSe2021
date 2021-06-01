@@ -81,6 +81,7 @@ namespace L10_1_OldMacDonalsHeritage  {
            return;
         crc2d = <CanvasRenderingContext2D>canvas.getContext("2d"); 
         console.log("Day over"); 
+        crc2d.clearRect(0, 0, 1200, 600);
         
         for (let i: number = 0; i < allAnimals.length; i ++) {
             //let animal: Animal = new Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
