@@ -83,7 +83,7 @@ namespace L10_1_OldMacDonalsHeritage  {
         console.log("Day over"); 
         crc2d.clearRect(0, 0, 1200, 600);
         
-        for (let i: number = 0; i < allAnimals.length; i ++) {
+        for (let i: number = 0; i < 7; i ++) {
             //let animal: Animal = new Animal(allAnimals[i].species, allAnimals[i].name, allAnimals[i].food, allAnimals[i].sound, allAnimals[i].eaten);
     
             //animal.sing();

@@ -127,7 +127,7 @@ namespace L10_1_OldMacDonalsHeritage {
         crc2d.stroke();
         crc2d.restore();
 
-    //hair
+    //whiskers
         crc2d.save();
         crc2d.moveTo(610, 43);
         crc2d.lineTo(590, 43);
