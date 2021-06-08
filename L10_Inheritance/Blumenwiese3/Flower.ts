@@ -4,18 +4,11 @@ namespace L10_2_Blumenwiese {
         type: number;
         size: number;
 
-        constructor(_active: boolean) {
-            //console.log(_active);
-            let numX: number = createRandomNum(20, 360);
+        constructor() {
+            let numX: number = createRandomNum(20, 1100);
             let numY: number = createRandomNum(340, 700);
-            console.log(numX);
-            
-            //console.log(numY);
-            
             this.position = new Vector(numX, numY);
-
             this.type = createRandomNum(0, 5);
-
             this.size = createRandomNum(0.5, 2);
         }
 

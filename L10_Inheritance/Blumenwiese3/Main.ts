@@ -1,6 +1,6 @@
 namespace L10_2_Blumenwiese {
     /*
-   Aufgabe: L09.2 Blumenwiese
+   Aufgabe: L10.2 Blumenwiese
    Name: Lisa Herbig
    Matrikel: 266236
    Datum: 29.05.2021
@@ -9,164 +9,64 @@ namespace L10_2_Blumenwiese {
 
    window.addEventListener("load", handleLoad);
    export let crc2d: CanvasRenderingContext2D;
-   interface Vector {
-       x: number;
-       y: number;
-   }
    let imgData: ImageData;
-   
-   
-   export let pinkPurple: string [] = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)"];
-   export let colorfulColors: string[] = ["HSLA(296, 100%, 50%, 0.8)", "HSLA(296, 100%, 50%, 0.8)", "HSLA(273, 100%, 50%, 0.8)", "HSLA(283, 100%, 50%, 0.8)", "HSLA(0, 100%, 50%, 0.8)", "HSLA(19, 100%, 50%, 0.8)", "HSLA(32, 100%, 50%, 0.9)", "HSLA(60, 100%, 50%, 0.7)", "HSLA(165, 100%, 50%, 0.8)", "HSLA(203, 100%, 50%, 0.8)", "HSLA(244, 100%, 50%, 0.8)", "HSLA((356, 100%, 50%, 0.8))", "HSLA(65, 100%, 95%, 0.9)"];
-   
+
+  
+   //console.log("Moveable" + moveables.length);
    function handleLoad(): void {
-       console.log("Hello");
-       let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
-       if (!canvas)
-           return;
-       crc2d = <CanvasRenderingContext2D>canvas.getContext("2d"); 
+    console.log("Hello");
+    let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
+    if (!canvas)
+        return;
+    crc2d = <CanvasRenderingContext2D>canvas.getContext("2d"); 
 
-       drawBackground();
-       drawSun({x: 100, y: 120});
-       drawMountains({x: 0, y: 320}, 60, 180, "grey", "White");
-       drawMountains({x: 0, y: 320}, 20, 120, "black", "lightgrey");
-       drawHouse({x: 0, y: 340}, 80, -40);
-       //drawBee();
+    drawBackground();
+    drawSun(new Vector(createRandomNum(20, 1100), createRandomNum(10, 130)));
+    drawMountains(new Vector(0, 320), 60, 180, "grey", "White");
+    drawMountains(new Vector(0, 320), 20, 120, "black", "lightgrey");
+    drawHouse(new Vector(0, 340), 80, -40);
+    for (let i: number = 0; i < createRandomNum(50, 100); i ++) {
+    let flower: Flower = new Flower();
+    flower.draw();
+    }
+    drawBeehive(new Vector(600, 500));
 
-       for (let i: number = 0; i < createRandomNum(35, 50); i ++) {
-       let flower: Flower = new Flower(true);
-       flower.draw();
-       }
-       //let cloud: Cloud = new Cloud();
-       //cloud.draw();
-        /*brauche ich das hier schon oder erst in update?*/
-       imgData = crc2d.getImageData(0, 0, crc2d.canvas.width, crc2d.canvas.height);
-       crc2d.save();
-       
-       window.setInterval(update, 20);
+    imgData = crc2d.getImageData(0, 0, crc2d.canvas.width, crc2d.canvas.height);
+    //crc2d.save();
+    
+    window.setInterval(update, 20);
+}
+
+   let moveables: Moveable[] = [];
+
+   for (let j: number = 0; j < 3; j++) {
+        let pos: Vector = new Vector(5 * j , 15);
+        let cloud: Cloud = new Cloud(pos);
+        moveables.push(cloud);
+        console.log("MoveableInCloud" + moveables.length);
    }
 
-   export function createRandomNum(_min: number, _max: number): number {
-       return Math.floor(Math.random() * (_max - _min + 1) + _min);
+   for (let k: number = 0; k < 8; k++) {
+       let pos: Vector = new Vector (655, 455);
+       let bee: Bee = new Bee(pos);
+       moveables.push(bee);
+       console.log("MoveableInBee " + moveables.length);
    }
-
-   function drawBackground(): void {
-       let gradient: CanvasGradient = crc2d.createLinearGradient(0, 0, 0, crc2d.canvas.height);
-       gradient.addColorStop(0, "HSLA(193, 100%, 40%, 1");
-       gradient.addColorStop(0.2, "HSLA(323, 90%, 51%, 1");
-       gradient.addColorStop(0.4, "HSLA(55, 100%, 50%, 1");
-       gradient.addColorStop(1, "HSLA(126, 100%, 39%, 1");
-
-       crc2d.fillStyle = gradient;
-       crc2d.fillRect(0, 0, crc2d.canvas.width, crc2d.canvas.height);
-   }
-
-   function drawSun(_position: Vector): void {
-       let r1: number = 20;
-       let r2: number = 110;
-       let gradient: CanvasGradient = crc2d.createRadialGradient(0, 0, r1, 0, 0, r2);
-
-       gradient.addColorStop(0, "HSLA(61, 100%, 75%, 1)");
-       gradient.addColorStop(1, "HSLA(60, 100%, 50%, 0)");
-
-       crc2d.save();
-       crc2d.translate(_position.x, _position.y);
-       crc2d.fillStyle = gradient;
-       crc2d.arc(0, 0, r2, 0, 2 * Math.PI);
-       crc2d.fill();
-       crc2d.restore();
-
-   }
-
-   function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
-       console.log("hi");
-       
-       let stepMin: number = 10;
-       let stepMax: number = 50;
-       let x: number = 0;
-
-       crc2d.save();
-       crc2d.translate(_position.x, _position.y);
-       crc2d.beginPath();
-       crc2d.moveTo(0, 0);
-       crc2d.lineTo(0, -_max);
-
-       do {
-           x += stepMin + createRandomNum(stepMin, stepMax);
-           let y: number = -_min - createRandomNum(_min, _max);
-
-           crc2d.lineTo(x, y);
-       } while (x < crc2d.canvas.width);
-
-       crc2d.lineTo(x, 0);
-       crc2d.closePath();
-
-       let gradient: CanvasGradient = crc2d.createLinearGradient(0, 0, 0, -_max);
-       gradient.addColorStop(0, _colorLow);
-       gradient.addColorStop(0.7, _colorHigh);
-
-       crc2d.fillStyle = gradient;
-       crc2d.fill();
-
-       crc2d.restore(); 
-   }
-
-   function drawHouse(_position: Vector, _stepSide: number, _stepUp: number): void {
-       crc2d.save();
-       crc2d.beginPath();
-       crc2d.moveTo(_position.x, _position.y);
-       crc2d.lineTo(_stepSide, _position.y);
-       crc2d.lineTo(_stepSide, _position.y + _stepUp);
-       crc2d.lineTo(-_stepSide, _position.y + _stepUp);
-       crc2d.closePath();
-       crc2d.fillStyle = "HSLA(30, 100%, 22%, 1)";
-       crc2d.fill();
-       crc2d.restore();
-
-       crc2d.save();
-       crc2d.beginPath();
-       crc2d.moveTo(_position.x, _position.y + _stepUp);
-       crc2d.lineTo(_position.x + _stepSide, _position.y + _stepUp);
-       crc2d.lineTo((_position.x + _stepSide) - _stepSide / 2 , _position.y + 2 * _stepUp);
-       crc2d.closePath();
-       crc2d.fillStyle = "HSLA(9, 100%, 58%, 1)";
-       crc2d.fill();
-       crc2d.restore();
-   }
-
-
-   export function drawFlowerStem(_positionStem: Vector): void {
-       crc2d.fillStyle = "HSLA(112, 100%, 20%, 1)";
-       crc2d.fillRect(_positionStem.x, _positionStem.y, 5, -20);   
-   }
-
-   let bees: Bee[] = [];
-   let cloud: Cloud = new Cloud();
-
-   for (let i: number = 0; i < 8; i++) {
-   let bee: Bee = new Bee();
-   bees.push(bee);
-   }
-   
-   
 
    function update(): void {
        crc2d.clearRect(0, 0, 360, 720);
-       //crc2d.restore();
        crc2d.putImageData(imgData, 0, 0);
-       //crc2d.fillRect(0, 0, 360, 720);
-       cloud.move(1 / 50);
-       cloud.draw(); 
-       for (let j: number = 0; j < 8; j++) {
-       bees[j].move(1 / createRandomNum(25, 125));
-       bees[j].draw();
-      }
-       
 
-
+       for (let moveable of moveables) {
+       moveable.move(1 / 50);
+       moveable.draw(); 
+       }
+       //for (let k: number = 0; k < 8; k++) {
+       //bees[k].move(1 / createRandomNum(25, 125));
+       //bees[k].draw();
+      //}
    }
-
-
-
-
+   console.log("Hi?");
+   
+   
 }

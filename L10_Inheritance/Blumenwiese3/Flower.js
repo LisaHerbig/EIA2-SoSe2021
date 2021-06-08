@@ -2,12 +2,9 @@
 var L10_2_Blumenwiese;
 (function (L10_2_Blumenwiese) {
     class Flower {
-        constructor(_active) {
-            //console.log(_active);
-            let numX = L10_2_Blumenwiese.createRandomNum(20, 360);
+        constructor() {
+            let numX = L10_2_Blumenwiese.createRandomNum(20, 1100);
             let numY = L10_2_Blumenwiese.createRandomNum(340, 700);
-            console.log(numX);
-            //console.log(numY);
             this.position = new L10_2_Blumenwiese.Vector(numX, numY);
             this.type = L10_2_Blumenwiese.createRandomNum(0, 5);
             this.size = L10_2_Blumenwiese.createRandomNum(0.5, 2);

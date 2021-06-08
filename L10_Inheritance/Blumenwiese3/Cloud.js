@@ -2,15 +2,13 @@
 var L10_2_Blumenwiese;
 (function (L10_2_Blumenwiese) {
     class Cloud {
-        //size: number;
-        constructor() {
-            //console.log("Constructor Cloud");
-            this.position = new L10_2_Blumenwiese.Vector(L10_2_Blumenwiese.createRandomNum(200, 290), L10_2_Blumenwiese.createRandomNum(60, 140));
+        constructor(_position) {
+            //super(_position);
+            this.position = new L10_2_Blumenwiese.Vector(L10_2_Blumenwiese.createRandomNum(50, 110), L10_2_Blumenwiese.createRandomNum(10, 110));
             this.velocity = new L10_2_Blumenwiese.Vector(0, 0);
             this.velocity.random(100, 0);
         }
         move(_timeSlice) {
-            //console.log("Move Cloud");
             let offset = new L10_2_Blumenwiese.Vector(this.velocity.x, 0);
             offset.scale(_timeSlice);
             this.position.add(offset);
@@ -24,7 +22,6 @@ var L10_2_Blumenwiese;
                 this.position.y -= L10_2_Blumenwiese.crc2d.canvas.height;
         }
         draw() {
-            //console.log("drawCloud");
             L10_2_Blumenwiese.drawCloud(this.position);
         }
     }
