@@ -1,4 +1,4 @@
-namespace L10_2_Blumenwiese {
+namespace L09_2_Blumenwiese {
     export class Bee {
     position: Vector;
     velocity: Vector;

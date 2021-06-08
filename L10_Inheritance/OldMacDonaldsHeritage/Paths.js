@@ -122,7 +122,7 @@ var L10_1_OldMacDonalsHeritage;
         L10_1_OldMacDonalsHeritage.crc2d.lineTo(625, 50);
         L10_1_OldMacDonalsHeritage.crc2d.stroke();
         L10_1_OldMacDonalsHeritage.crc2d.restore();
-        //hair
+        //whiskers
         L10_1_OldMacDonalsHeritage.crc2d.save();
         L10_1_OldMacDonalsHeritage.crc2d.moveTo(610, 43);
         L10_1_OldMacDonalsHeritage.crc2d.lineTo(590, 43);
