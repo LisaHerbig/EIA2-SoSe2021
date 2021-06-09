@@ -2,6 +2,8 @@
 var L10_2_Blumenwiese;
 (function (L10_2_Blumenwiese) {
     class Bee extends L10_2_Blumenwiese.Moveable {
+        //velocity: Vector;
+        //type: string;
         constructor(_position, _type) {
             super(_position, _type);
             this.position = _position;

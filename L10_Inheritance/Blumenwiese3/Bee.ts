@@ -1,8 +1,8 @@
 namespace L10_2_Blumenwiese {
     export class Bee extends Moveable {
     position: Vector;
-    velocity: Vector;
-    type: string;
+    //velocity: Vector;
+    //type: string;
 
     constructor(_position: Vector, _type: string) {
         super(_position, _type);
