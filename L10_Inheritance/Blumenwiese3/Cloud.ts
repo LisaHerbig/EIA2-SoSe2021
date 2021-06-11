@@ -31,7 +31,7 @@ namespace L10_2_Blumenwiese {
 
         draw(): void {
             drawCloud(this.position);  
-            console.log("DrawingCloud");
+            //console.log("DrawingCloud");
             
         }
     }
