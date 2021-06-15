@@ -5,7 +5,7 @@ var L10_2_Blumenwiese;
    Aufgabe: L10.2 Blumenwiese
    Name: Lisa Herbig
    Matrikel: 266236
-   Datum: 08.06.2021
+   Datum: 11.06.2021
    Inspiration: Code und Diagramm aus den Lektionen
    */
     window.addEventListener("load", handleLoad);

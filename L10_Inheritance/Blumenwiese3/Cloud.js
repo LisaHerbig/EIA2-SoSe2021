@@ -29,7 +29,7 @@ var L10_2_Blumenwiese;
         }*/
         draw() {
             L10_2_Blumenwiese.drawCloud(this.position);
-            console.log("DrawingCloud");
+            //console.log("DrawingCloud");
         }
     }
     L10_2_Blumenwiese.Cloud = Cloud;
