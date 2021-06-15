@@ -29,6 +29,9 @@ var L11_1_Blumenwiese;
                 drawFlower6(this.position);
             }*/
         }
+        displayNectarLevel() {
+            //Nectar 
+        }
     }
     L11_1_Blumenwiese.Flower = Flower;
 })(L11_1_Blumenwiese || (L11_1_Blumenwiese = {}));

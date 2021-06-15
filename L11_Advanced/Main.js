@@ -67,6 +67,7 @@ var L11_1_Blumenwiese;
         //}
         for (let flower of flowers) {
             flower.draw();
+            flower.displayNectarLevel();
         }
         L11_1_Blumenwiese.drawBeehive(new L11_1_Blumenwiese.Vector(600, 500));
         imgData = L11_1_Blumenwiese.crc2d.getImageData(0, 0, L11_1_Blumenwiese.crc2d.canvas.width, L11_1_Blumenwiese.crc2d.canvas.height);

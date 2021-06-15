@@ -11,6 +11,7 @@ var L11_1_Blumenwiese;
         }
         displayNectarLevel() {
             //Nectar
+            console.log(this.levelMax);
         }
         draw() {
             //drawFlower1

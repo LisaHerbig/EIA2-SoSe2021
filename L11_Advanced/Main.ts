@@ -71,6 +71,7 @@ namespace L11_1_Blumenwiese {
     //}
     for (let flower of flowers) {
         flower.draw();
+        flower.displayNectarLevel();
     }
     drawBeehive(new Vector(600, 500));
     imgData = crc2d.getImageData(0, 0, crc2d.canvas.width, crc2d.canvas.height);

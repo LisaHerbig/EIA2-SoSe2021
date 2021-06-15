@@ -34,5 +34,10 @@ namespace L11_1_Blumenwiese {
           
         }
 
+        displayNectarLevel(): void {
+            //Nectar 
+        }
+
+
     }
 }

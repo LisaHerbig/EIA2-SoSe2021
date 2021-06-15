@@ -8,6 +8,8 @@ namespace L11_1_Blumenwiese {
 
         displayNectarLevel(): void {
             //Nectar
+            console.log(this.levelMax);
+            
         }
 
         draw(): void {
