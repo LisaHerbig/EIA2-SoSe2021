@@ -2,7 +2,7 @@
 var L11_1_Blumenwiese;
 (function (L11_1_Blumenwiese) {
     class Flower5 extends L11_1_Blumenwiese.Flower {
-        constructor(_position, _type) {
+        constructor(_position) {
             super();
             this.levelMax = L11_1_Blumenwiese.createRandomNum(10, 80);
         }
@@ -11,7 +11,7 @@ var L11_1_Blumenwiese;
         }
         draw() {
             //drawFlower1
-            L11_1_Blumenwiese.drawFlower2(this.position);
+            L11_1_Blumenwiese.drawFlower5(this.position);
         }
     }
     L11_1_Blumenwiese.Flower5 = Flower5;

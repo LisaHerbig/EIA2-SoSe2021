@@ -13,33 +13,45 @@ namespace L11_1_Blumenwiese {
    let moveables: Moveable[] = [];
    let flowers: Flower [] = [];
 
-   for (let h: number = 0; h < createRandomNum(10, 100); h++) {
-       //Flower1
-       let pos1: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
-       let flower1: Flower1 = new Flower1(pos1);
-       flowers.push(flower1);
-       //Flower2
-       let pos2: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
-       let flower2: Flower2 = new Flower1(pos2);
-       flowers.push(flower2);
-       //Flower3
-       let pos3: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
-       let flower3: Flower3 = new Flower1(pos3);
-       flowers.push(flower3);
-       //Flower4
-       let pos4: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
-       let flower4: Flower4 = new Flower1(pos4);
-       flowers.push(flower4);
-       //Flower5
-       let pos5: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
-       let flower5: Flower5 = new Flower1(pos5);
-       flowers.push(flower5);
-       //Flower6
-       let pos6: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
-       let flower6: Flower1 = new Flower6(pos6);
-       flowers.push(flower6);
+   for (let h: number = 0; h < createRandomNum(20, 100); h++) {
+       let type: number = createRandomNum(0, 5);
+       switch (type) {
+            case(0):
+                let pos1: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
+                let flower1: Flower1 = new Flower1(pos1);
+                flowers.push(flower1);
+                break;
+            case(1):
+                let pos2: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
+                let flower2: Flower2 = new Flower2(pos2);
+                flowers.push(flower2);
+                break;
+            case(2):
+                let pos3: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
+                let flower3: Flower3 = new Flower3(pos3);
+                flowers.push(flower3);
+                break;
+            case(3):
+                let pos4: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
+                let flower4: Flower4 = new Flower4(pos4);
+                flowers.push(flower4);
+                break;
+            case(4):
+                let pos5: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
+                let flower5: Flower5 = new Flower5(pos5);
+                flowers.push(flower5);
+                break;
+            case(5):
+                let pos6: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
+                let flower6: Flower1 = new Flower6(pos6);
+                flowers.push(flower6);
+                break;
+            default:
+                console.log("Something went wrong");
+                
+       }
    }
-   console.log("FlowersArray" + flowers.length);
+   console.log("FlowersArray" + flowers);
 
    function handleLoad(): void {
     //console.log("Hello");

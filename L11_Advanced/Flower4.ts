@@ -2,7 +2,7 @@ namespace L11_1_Blumenwiese {
     export class Flower4 extends Flower {
         levelMax: number = createRandomNum(10, 80);
 
-        constructor(_position: Vector, _type: number) {
+        constructor(_position: Vector) {
             super();
         }
 
@@ -12,7 +12,7 @@ namespace L11_1_Blumenwiese {
 
         draw(): void {
             //drawFlower1
-            drawFlower2(this.position);
+            drawFlower4(this.position);
         }
     }
 }

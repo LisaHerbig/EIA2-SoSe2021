@@ -12,7 +12,7 @@ namespace L11_1_Blumenwiese {
 
         draw(): void {
             //drawFlower1
-            drawFlower2(this.position);
+            drawFlower6(this.position);
         }
     }
 }

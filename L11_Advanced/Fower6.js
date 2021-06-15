@@ -11,7 +11,7 @@ var L11_1_Blumenwiese;
         }
         draw() {
             //drawFlower1
-            L11_1_Blumenwiese.drawFlower2(this.position);
+            L11_1_Blumenwiese.drawFlower6(this.position);
         }
     }
     L11_1_Blumenwiese.Flower6 = Flower6;

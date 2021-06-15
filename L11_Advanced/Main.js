@@ -12,33 +12,44 @@ var L11_1_Blumenwiese;
     let imgData;
     let moveables = [];
     let flowers = [];
-    for (let h = 0; h < L11_1_Blumenwiese.createRandomNum(10, 100); h++) {
-        //Flower1
-        let pos1 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
-        let flower1 = new L11_1_Blumenwiese.Flower1(pos1);
-        flowers.push(flower1);
-        //Flower2
-        let pos2 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
-        let flower2 = new L11_1_Blumenwiese.Flower1(pos2);
-        flowers.push(flower2);
-        //Flower3
-        let pos3 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
-        let flower3 = new L11_1_Blumenwiese.Flower1(pos3);
-        flowers.push(flower3);
-        //Flower4
-        let pos4 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
-        let flower4 = new L11_1_Blumenwiese.Flower1(pos4);
-        flowers.push(flower4);
-        //Flower5
-        let pos5 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
-        let flower5 = new L11_1_Blumenwiese.Flower1(pos5);
-        flowers.push(flower5);
-        //Flower6
-        let pos6 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
-        let flower6 = new L11_1_Blumenwiese.Flower6(pos6);
-        flowers.push(flower6);
+    for (let h = 0; h < L11_1_Blumenwiese.createRandomNum(20, 100); h++) {
+        let type = L11_1_Blumenwiese.createRandomNum(0, 5);
+        switch (type) {
+            case (0):
+                let pos1 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
+                let flower1 = new L11_1_Blumenwiese.Flower1(pos1);
+                flowers.push(flower1);
+                break;
+            case (1):
+                let pos2 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
+                let flower2 = new L11_1_Blumenwiese.Flower2(pos2);
+                flowers.push(flower2);
+                break;
+            case (2):
+                let pos3 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
+                let flower3 = new L11_1_Blumenwiese.Flower3(pos3);
+                flowers.push(flower3);
+                break;
+            case (3):
+                let pos4 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
+                let flower4 = new L11_1_Blumenwiese.Flower4(pos4);
+                flowers.push(flower4);
+                break;
+            case (4):
+                let pos5 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
+                let flower5 = new L11_1_Blumenwiese.Flower5(pos5);
+                flowers.push(flower5);
+                break;
+            case (5):
+                let pos6 = new L11_1_Blumenwiese.Vector(L11_1_Blumenwiese.createRandomNum(10, 310), L11_1_Blumenwiese.createRandomNum(400, 700));
+                let flower6 = new L11_1_Blumenwiese.Flower6(pos6);
+                flowers.push(flower6);
+                break;
+            default:
+                console.log("Something went wrong");
+        }
     }
-    console.log("FlowersArray" + flowers.length);
+    console.log("FlowersArray" + flowers);
     function handleLoad() {
         //console.log("Hello");
         let canvas = document.querySelector("canvas");
