@@ -7,7 +7,6 @@ var L11_1_Blumenwiese;
             this.color = "DarkOrchid";
             this.fps = 8;
         }
-        ;
         displayNectarLevel() {
             //Nectar
             L11_1_Blumenwiese.showNectar(this.position, Flower5.degree, this.color, this.fps);

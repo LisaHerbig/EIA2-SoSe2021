@@ -5,8 +5,8 @@ var L11_1_Blumenwiese;
    Aufgabe: L11.1 BlumenwieseAdvanced
    Name: Lisa Herbig
    Matrikel: 266236
-   Datum: 11.06.2021
-   Inspiration: Code und Diagramm aus den Lektionen
+   Datum: 16.06.2021
+   Inspiration: Code und Diagramm aus den Lektionen, für die Kreisanimation:https://codepen.io/egorava/pen/wGmmJW
    */
     window.addEventListener("load", handleLoad);
     let imgData;

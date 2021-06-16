@@ -6,7 +6,7 @@ namespace L11_1_Blumenwiese {
         this.position = _position; 
     }
 
-    draw(): void {
+    public draw(): void {
             drawBee(this.position);  
      }
      }

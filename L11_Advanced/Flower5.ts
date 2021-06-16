@@ -1,5 +1,5 @@
 namespace L11_1_Blumenwiese {
-    export class Flower5 extends Flower {;
+    export class Flower5 extends Flower {
         private color: string = "DarkOrchid";
         private fps: number = 8;
 
