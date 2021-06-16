@@ -4,11 +4,21 @@ var L11_1_Blumenwiese;
     class Flower3 extends L11_1_Blumenwiese.Flower {
         constructor(_position) {
             super();
-            this.levelMax = L11_1_Blumenwiese.createRandomNum(10, 80);
+            this.color = "Gold";
+            this.fps = 40;
         }
         displayNectarLevel() {
             //Nectar
-            console.log(this.levelMax);
+            L11_1_Blumenwiese.showNectar(this.position, Flower3.degree, this.color, this.fps);
+            L11_1_Blumenwiese.crc2d.save();
+            L11_1_Blumenwiese.crc2d.beginPath();
+            L11_1_Blumenwiese.crc2d.strokeStyle = this.color;
+            L11_1_Blumenwiese.crc2d.lineWidth = 5;
+            L11_1_Blumenwiese.crc2d.lineCap = "round";
+            L11_1_Blumenwiese.crc2d.arc(this.position.x + 2, this.position.y + 7, 10, 0, 360);
+            L11_1_Blumenwiese.crc2d.stroke();
+            L11_1_Blumenwiese.crc2d.closePath();
+            L11_1_Blumenwiese.crc2d.restore();
         }
         draw() {
             //drawFlower1

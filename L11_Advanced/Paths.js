@@ -523,5 +523,37 @@ var L11_1_Blumenwiese;
         L11_1_Blumenwiese.crc2d.restore();
     }
     L11_1_Blumenwiese.drawBeehive = drawBeehive;
+    //Nectar
+    function showNectar(_position, _degree, _color, _fps) {
+        let x = _position.x + 2;
+        let y = _position.y + 7;
+        let degree = _degree;
+        degree = 0;
+        let intervall = setInterval(function () {
+            degree += 1;
+            L11_1_Blumenwiese.crc2d.save();
+            L11_1_Blumenwiese.crc2d.beginPath();
+            L11_1_Blumenwiese.crc2d.arc(x, y, 10, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + 360));
+            L11_1_Blumenwiese.crc2d.strokeStyle = "white";
+            L11_1_Blumenwiese.crc2d.lineWidth = 5;
+            L11_1_Blumenwiese.crc2d.lineCap = "round";
+            L11_1_Blumenwiese.crc2d.stroke();
+            L11_1_Blumenwiese.crc2d.closePath();
+            L11_1_Blumenwiese.crc2d.restore();
+            L11_1_Blumenwiese.crc2d.save();
+            L11_1_Blumenwiese.crc2d.beginPath();
+            L11_1_Blumenwiese.crc2d.strokeStyle = _color;
+            L11_1_Blumenwiese.crc2d.lineWidth = 5;
+            L11_1_Blumenwiese.crc2d.lineCap = "round";
+            L11_1_Blumenwiese.crc2d.arc(x, y, 10, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + degree));
+            L11_1_Blumenwiese.crc2d.stroke();
+            L11_1_Blumenwiese.crc2d.closePath();
+            L11_1_Blumenwiese.crc2d.restore();
+            //console.log(intervall);
+            if (degree == 361)
+                clearInterval(intervall);
+        }, _fps);
+    }
+    L11_1_Blumenwiese.showNectar = showNectar;
 })(L11_1_Blumenwiese || (L11_1_Blumenwiese = {}));
 //# sourceMappingURL=Paths.js.map

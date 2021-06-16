@@ -49,7 +49,6 @@ var L11_1_Blumenwiese;
                 console.log("Something went wrong");
         }
     }
-    console.log("FlowersArray" + flowers);
     function handleLoad() {
         //console.log("Hello");
         let canvas = document.querySelector("canvas");
@@ -61,10 +60,6 @@ var L11_1_Blumenwiese;
         L11_1_Blumenwiese.drawMountains(new L11_1_Blumenwiese.Vector(0, 320), 60, 180, "grey", "White");
         L11_1_Blumenwiese.drawMountains(new L11_1_Blumenwiese.Vector(0, 320), 20, 120, "black", "lightgrey");
         L11_1_Blumenwiese.drawHouse(new L11_1_Blumenwiese.Vector(0, 340), 80, -40);
-        //for (let i: number = 0; i < createRandomNum(50, 100); i ++) {
-        //let flower: Flower = new Flower();
-        //flower.draw();
-        //}
         for (let flower of flowers) {
             flower.draw();
             flower.displayNectarLevel();
@@ -79,7 +74,6 @@ var L11_1_Blumenwiese;
         let pos = new L11_1_Blumenwiese.Vector(5 * j, 15);
         let cloud = new L11_1_Blumenwiese.Cloud(pos, type);
         moveables.push(cloud);
-        //console.log("MoveableInCloud" + moveables.length);
     }
     //Bee
     for (let k = 0; k < 8; k++) {
@@ -87,7 +81,6 @@ var L11_1_Blumenwiese;
         let pos = new L11_1_Blumenwiese.Vector(655, 455);
         let bee = new L11_1_Blumenwiese.Bee(pos, type);
         moveables.push(bee);
-        //console.log("MoveableInBee " + moveables.length);
     }
     function update() {
         L11_1_Blumenwiese.crc2d.clearRect(0, 0, 360, 720);

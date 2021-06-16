@@ -1,18 +1,30 @@
 namespace L11_1_Blumenwiese {
     export class Flower4 extends Flower {
-        levelMax: number = createRandomNum(10, 80);
+        private color: string = "orange";
+        private fps: number = 10;
 
         constructor(_position: Vector) {
             super();
         }
 
-        displayNectarLevel(): void {
+        public displayNectarLevel(): void {
             //Nectar
-            console.log(this.levelMax);
+            showNectar(this.position, Flower4.degree, this.color, this.fps);
+
+            crc2d.save();
+            crc2d.beginPath();
+            crc2d.strokeStyle = this.color;
+            crc2d.lineWidth = 5;
+            crc2d.lineCap = "round";
+            crc2d.arc(this.position.x + 2, this.position.y + 7, 10, 0, 360);
+            crc2d.stroke();
+            crc2d.closePath();
+            crc2d.restore();
             
         }
 
-        draw(): void {
+
+        public draw(): void {
             //drawFlower1
             drawFlower4(this.position);
         }

@@ -554,4 +554,37 @@ namespace L11_1_Blumenwiese {
 
 
     }
+    //Nectar
+    export function showNectar(_position: Vector, _degree: number, _color: string, _fps: number): void {
+    let x: number = _position.x + 2;
+    let y: number = _position.y + 7;
+    let degree: number = _degree;
+    degree = 0;
+    let intervall: number = setInterval (function(): void {
+      degree += 1;
+      crc2d.save();
+      crc2d.beginPath();
+      crc2d.arc(x, y, 10, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + 360));
+      crc2d.strokeStyle = "white";
+      crc2d.lineWidth = 5;
+      crc2d.lineCap = "round";
+      crc2d.stroke();
+      crc2d.closePath();
+      crc2d.restore();
+      crc2d.save();
+      crc2d.beginPath();
+      crc2d.strokeStyle = _color;
+      crc2d.lineWidth = 5;
+      crc2d.lineCap = "round";
+      crc2d.arc(x, y, 10, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + degree));
+      crc2d.stroke();
+      crc2d.closePath();
+      crc2d.restore();
+      //console.log(intervall);
+      if (degree == 361)   
+        clearInterval(intervall);
+  },                                     _fps);    
+}
+
+
 }

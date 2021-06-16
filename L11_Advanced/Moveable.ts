@@ -1,8 +1,8 @@
 namespace L11_1_Blumenwiese { 
-    export class Moveable {
-        position: Vector;
-        velocity: Vector;
-        type: string;
+    export abstract class Moveable {
+        public position: Vector;
+        protected velocity: Vector;
+        private type: string;
 
         constructor(_position: Vector, _type: string) {
             this.type = _type;
@@ -14,8 +14,9 @@ namespace L11_1_Blumenwiese {
                 this.velocity.random(100, 0);
             }
         }
+        abstract draw(): void;
 
-        move(_timeSlice: number): void {
+        public move(_timeSlice: number): void {
            
            if (this.type == "Bee") {
                 this.velocity = new Vector(1100, 650);
@@ -44,9 +45,7 @@ namespace L11_1_Blumenwiese {
                  this.position.y -= crc2d.canvas.height;
         }
 
-        draw(): void {
-            //console.log("MoveableDraw");
-        }
+      
     
     }
 }

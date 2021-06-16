@@ -43,7 +43,7 @@ namespace L11_1_Blumenwiese {
                 break;
             case(5):
                 let pos6: Vector = new Vector(createRandomNum(10, 310), createRandomNum(400, 700));
-                let flower6: Flower1 = new Flower6(pos6);
+                let flower6: Flower6 = new Flower6(pos6);
                 flowers.push(flower6);
                 break;
             default:
@@ -51,7 +51,6 @@ namespace L11_1_Blumenwiese {
                 
        }
    }
-   console.log("FlowersArray" + flowers);
 
    function handleLoad(): void {
     //console.log("Hello");
@@ -65,10 +64,7 @@ namespace L11_1_Blumenwiese {
     drawMountains(new Vector(0, 320), 60, 180, "grey", "White");
     drawMountains(new Vector(0, 320), 20, 120, "black", "lightgrey");
     drawHouse(new Vector(0, 340), 80, -40);
-    //for (let i: number = 0; i < createRandomNum(50, 100); i ++) {
-    //let flower: Flower = new Flower();
-    //flower.draw();
-    //}
+
     for (let flower of flowers) {
         flower.draw();
         flower.displayNectarLevel();
@@ -76,7 +72,8 @@ namespace L11_1_Blumenwiese {
     drawBeehive(new Vector(600, 500));
     imgData = crc2d.getImageData(0, 0, crc2d.canvas.width, crc2d.canvas.height);
     window.setInterval(update, 20);
-}
+   
+   }
 
     //Coud
    for (let j: number = 0; j < 3; j++) {
@@ -84,16 +81,15 @@ namespace L11_1_Blumenwiese {
     let pos: Vector = new Vector(5 * j , 15);
     let cloud: Cloud = new Cloud(pos, type);
     moveables.push(cloud);
-    //console.log("MoveableInCloud" + moveables.length);
-}
+    }
+
     //Bee
    for (let k: number = 0; k < 8; k++) {
     let type: string = "Bee";
     let pos: Vector = new Vector (655, 455);
     let bee: Bee = new Bee(pos, type);
     moveables.push(bee);
-    //console.log("MoveableInBee " + moveables.length);
-}
+    }
 
    function update(): void {
        crc2d.clearRect(0, 0, 360, 720);

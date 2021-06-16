@@ -34,9 +34,6 @@ var L11_1_Blumenwiese;
             if (this.position.y > L11_1_Blumenwiese.crc2d.canvas.height)
                 this.position.y -= L11_1_Blumenwiese.crc2d.canvas.height;
         }
-        draw() {
-            //console.log("MoveableDraw");
-        }
     }
     L11_1_Blumenwiese.Moveable = Moveable;
 })(L11_1_Blumenwiese || (L11_1_Blumenwiese = {}));
