@@ -5,7 +5,7 @@ var L11_1_Blumenwiese;
         constructor(_position) {
             super();
             this.color = "Gold";
-            this.fps = 40;
+            this.fps = 9;
         }
         displayNectarLevel() {
             //Nectar

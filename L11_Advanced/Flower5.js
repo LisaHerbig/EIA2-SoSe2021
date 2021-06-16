@@ -5,7 +5,7 @@ var L11_1_Blumenwiese;
         constructor(_position) {
             super();
             this.color = "DarkOrchid";
-            this.fps = 30;
+            this.fps = 8;
         }
         ;
         displayNectarLevel() {

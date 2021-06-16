@@ -5,7 +5,7 @@ var L11_1_Blumenwiese;
         constructor(_position) {
             super();
             this.color = "DodgerBlue";
-            this.fps = 20;
+            this.fps = 11;
         }
         displayNectarLevel() {
             //Nectar

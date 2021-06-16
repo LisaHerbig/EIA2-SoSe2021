@@ -5,7 +5,7 @@ var L11_1_Blumenwiese;
         constructor(_position) {
             super();
             this.color = "Fuchsia";
-            this.fps = 70;
+            this.fps = 10;
         }
         displayNectarLevel() {
             L11_1_Blumenwiese.showNectar(this.position, Flower1.degree, this.color, this.fps);

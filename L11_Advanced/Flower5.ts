@@ -1,7 +1,7 @@
 namespace L11_1_Blumenwiese {
     export class Flower5 extends Flower {;
         private color: string = "DarkOrchid";
-        private fps: number = 30;
+        private fps: number = 8;
 
         constructor(_position: Vector) {
             super();
