@@ -86,7 +86,7 @@ namespace L11_2_Blumenwiese {
     }
     drawBeehive(new Vector(600, 500));
     imgData = crc2d.getImageData(0, 0, crc2d.canvas.width, crc2d.canvas.height);
-    window.setInterval(update, 20);
+    window.setInterval(update, 100);
    
    }
 
@@ -107,17 +107,11 @@ namespace L11_2_Blumenwiese {
     }
     
    let testBee: Bee = new Bee (new Vector (655, 455), "Bee");
-   testBee.findDestination();
+   //testBee.findDestination();
    function update(): void {
        crc2d.clearRect(0, 0, 360, 720);
        crc2d.putImageData(imgData, 0, 0);
-
-       //for (let moveable of moveables) {
-               // moveable.move(1 / 50); 
-                //moveable.draw(); 
-       //}
-       //testBee.findDestination();
-       testBee.flyToFlower();
+       testBee.flyToFlower(1 / 50);
        testBee.draw();
       
    }

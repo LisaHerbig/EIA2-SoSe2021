@@ -81,7 +81,7 @@ var L11_2_Blumenwiese;
         }
         L11_2_Blumenwiese.drawBeehive(new L11_2_Blumenwiese.Vector(600, 500));
         imgData = L11_2_Blumenwiese.crc2d.getImageData(0, 0, L11_2_Blumenwiese.crc2d.canvas.width, L11_2_Blumenwiese.crc2d.canvas.height);
-        window.setInterval(update, 20);
+        window.setInterval(update, 100);
     }
     //Coud
     for (let j = 0; j < 3; j++) {
@@ -98,16 +98,11 @@ var L11_2_Blumenwiese;
         moveables.push(bee);
     }
     let testBee = new L11_2_Blumenwiese.Bee(new L11_2_Blumenwiese.Vector(655, 455), "Bee");
-    testBee.findDestination();
+    //testBee.findDestination();
     function update() {
         L11_2_Blumenwiese.crc2d.clearRect(0, 0, 360, 720);
         L11_2_Blumenwiese.crc2d.putImageData(imgData, 0, 0);
-        //for (let moveable of moveables) {
-        // moveable.move(1 / 50); 
-        //moveable.draw(); 
-        //}
-        //testBee.findDestination();
-        testBee.flyToFlower();
+        testBee.flyToFlower(1 / 50);
         testBee.draw();
     }
 })(L11_2_Blumenwiese || (L11_2_Blumenwiese = {}));

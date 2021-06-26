@@ -415,11 +415,11 @@ namespace L11_2_Blumenwiese {
                createWing(10, 10);
                crc2d.restore();
 
-               crc2d.save();
-               if (_direction.x > 0) {
-                   crc2d.scale(-1, 1);
-               }
-               crc2d.restore();
+               //crc2d.save();
+               //if (_direction.x > 0) {
+                   //crc2d.scale(-1, 1);
+               //}
+               //crc2d.restore();
            }
     //Wing
     export function createWing(_direction: number, _x: number): void {
@@ -561,7 +561,7 @@ namespace L11_2_Blumenwiese {
 
     }
     //Nectar
-    export function showNectar(_position: Vector, _degree: number, _color: string, _fps: number): void {
+    export function showNectar(_position: Vector, _degree: number, _color: string, _colorIn: string, _fps: number): void {
     let x: number = _position.x + 2;
     let y: number = _position.y + 7;
     let degree: number = _degree;
@@ -571,7 +571,7 @@ namespace L11_2_Blumenwiese {
       crc2d.save();
       crc2d.beginPath();
       crc2d.arc(x, y, 10, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + 360));
-      crc2d.strokeStyle = "white";
+      crc2d.strokeStyle = _colorIn;
       crc2d.lineWidth = 5;
       crc2d.lineCap = "round";
       crc2d.stroke();
@@ -591,6 +591,7 @@ namespace L11_2_Blumenwiese {
         clearInterval(intervall);
   },                                     _fps);    
 }
+
 
 
 

@@ -9,7 +9,7 @@ var L11_2_Blumenwiese;
         }
         displayNectarLevel() {
             //Nectar
-            L11_2_Blumenwiese.showNectar(this.position, Flower2.degree, this.color, this.fps);
+            L11_2_Blumenwiese.showNectar(this.position, Flower2.degree, this.color, "white", this.fps);
             L11_2_Blumenwiese.crc2d.save();
             L11_2_Blumenwiese.crc2d.beginPath();
             L11_2_Blumenwiese.crc2d.strokeStyle = this.color;

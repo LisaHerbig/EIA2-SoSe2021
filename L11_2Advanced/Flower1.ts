@@ -8,8 +8,7 @@ namespace L11_2_Blumenwiese {
         }
 
         public displayNectarLevel(): void {
-            showNectar(this.position, Flower1.degree, this.color, this.fps);
-
+            //showNectar(this.position, Flower1.degree, this.color, "white", this.fps)
             crc2d.save();
             crc2d.beginPath();
             crc2d.strokeStyle = this.color;

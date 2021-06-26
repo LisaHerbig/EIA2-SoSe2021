@@ -387,11 +387,11 @@ var L11_2_Blumenwiese;
         //Wing Front
         createWing(10, 10);
         L11_2_Blumenwiese.crc2d.restore();
-        L11_2_Blumenwiese.crc2d.save();
-        if (_direction.x > 0) {
-            L11_2_Blumenwiese.crc2d.scale(-1, 1);
-        }
-        L11_2_Blumenwiese.crc2d.restore();
+        //crc2d.save();
+        //if (_direction.x > 0) {
+        //crc2d.scale(-1, 1);
+        //}
+        //crc2d.restore();
     }
     L11_2_Blumenwiese.drawBee = drawBee;
     //Wing
@@ -529,7 +529,7 @@ var L11_2_Blumenwiese;
     }
     L11_2_Blumenwiese.drawBeehive = drawBeehive;
     //Nectar
-    function showNectar(_position, _degree, _color, _fps) {
+    function showNectar(_position, _degree, _color, _colorIn, _fps) {
         let x = _position.x + 2;
         let y = _position.y + 7;
         let degree = _degree;
@@ -539,7 +539,7 @@ var L11_2_Blumenwiese;
             L11_2_Blumenwiese.crc2d.save();
             L11_2_Blumenwiese.crc2d.beginPath();
             L11_2_Blumenwiese.crc2d.arc(x, y, 10, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + 360));
-            L11_2_Blumenwiese.crc2d.strokeStyle = "white";
+            L11_2_Blumenwiese.crc2d.strokeStyle = _colorIn;
             L11_2_Blumenwiese.crc2d.lineWidth = 5;
             L11_2_Blumenwiese.crc2d.lineCap = "round";
             L11_2_Blumenwiese.crc2d.stroke();
