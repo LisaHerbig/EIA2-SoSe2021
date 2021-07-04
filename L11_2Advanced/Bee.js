@@ -12,14 +12,6 @@ var L11_2_Blumenwiese;
                 this.destination = new L11_2_Blumenwiese.Vector(L11_2_Blumenwiese.fullFlowers[i].x, L11_2_Blumenwiese.fullFlowers[i].y);
                 L11_2_Blumenwiese.fullFlowers.splice(i, 1);
             }
-            // public findDestination(): void {
-            //console.log(fullFlowers);
-            //for (let h: number = 0; h < 1; h++) {
-            //let i: number = createRandomNum(0, fullFlowers.length - 1);
-            //this.destination = new Vector(fullFlowers[i].x, fullFlowers[i].y);
-            //fullFlowers.splice(i,  1); 
-            //} 
-            console.log(this.destination);
         }
         flyToFlower(_timeSlice) {
             let posDes = this.position.x - this.destination.x;

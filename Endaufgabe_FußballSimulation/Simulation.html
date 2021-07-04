@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fußball-Simualtion Endaufgabe EIA</title>
+    <link rel="stylesheet" href="Simulation.css">
+</head>
+<body>
+    <h2>Wilkommen zur Fußball-Simualtion</h2>
+    <p>Wähle deine Wunsch-Einstellungen aus und starte das Spiel</p>
+    <div id="settings">
+        <fieldset id="team">
+            <legend>Team</legend>
+            Team 1
+            <select name="Select" id="select">
+                <option value="germany">GER</option>
+                <option value="belgien">BEL</option>
+                <option value="italy">ITA</option>
+                <option value="poland">POL</option>
+                <option value="russia">RUS</option>
+                <option value="ukraine">UKR</option>
+                <option value="spain">ESP</option>
+                <option value="england">ENG</option>
+                <option value="france">FRA</option>
+                <option value="czech">CZE</option>
+                <option value="turkey">TUR</option>
+                <option value="finland">FIN</option>
+            </select>
+            <br>
+            Team 2
+            <select name="Select" id="select">
+                <option value="sweden">SWE</option>
+                <option value="croatia">CRO</option>
+                <option value="netherlands">NED</option>
+                <option value="austria">AUT</option>
+                <option value="portugal">POR</option>
+                <option value="denmark">DEN</option>
+                <option value="switzerland">SUI</option>
+                <option value="wales">WAL</option>
+                <option value="northMacedonia">MKD</option>
+                <option value="hungary">HUN</option>
+                <option value="slovakia">SVK</option>
+                <option value="scotland">SCO</option>
+            </select>
+        </fieldset>
+
+        <fieldset id="color">
+            <legend>Jersey</legend>
+            Team 1
+            <input type="color" name="Color1" placeholder="white" id="color" value="#ffffff">
+            <hr/>
+            Team 2
+            <input type="color" name="Color2" placeholder="blue" id="color" value="#0000ff">
+            <hr/>
+            Referee
+            <input type="color" name="Color3" placeholder="yellow" id="color" value="#ffff00">
+            <hr/>
+            Line Judges
+            <input type= "color" name="Color4" placeholder="black" id="color" value="#000000">
+        </fieldset>
+        
+        <fieldset id="speed">
+            <legend>Speed</legend>
+            min
+            <input type="range" name="Slider" min="100" max="200" step="10" value="100" /> 
+            max
+            <input type="range" name="Slider" min="100" max="200" step="10" value="100" /> 
+        </fieldset>
+
+        <fieldset id="precision">
+            <legend>Precision in %</legend>
+            min
+            <input type="range" name="Slider" min="100" max="200" step="10" value="100" /> 
+            max
+            <input type="range" name="Slider" min="100" max="200" step="10" value="100" /> 
+        </fieldset>
+        <br>
+        <button id="startMatch">Start</button>
+
+    </div>
+</body>
+</html>
