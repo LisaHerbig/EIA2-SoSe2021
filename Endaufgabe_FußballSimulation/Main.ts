@@ -1,6 +1,10 @@
-//namespace Endaufgabe {
+namespace Endaufgabe_FußballSiumulation {
     
     window.addEventListener("load", handleLoad);
+
+    export let crc2: CanvasRenderingContext2D;
+
+    let explain: HTMLElement = <HTMLElement>document.querySelector("#explain");
 
     let team1: string = "";
     let team2: string = "";
@@ -29,10 +33,13 @@
        // MOVEHOME
     //}
 
+    let form: HTMLFormElement = <HTMLFormElement> document.querySelector("form");
+    let btnStart: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#btn");
+
     function handleLoad(): void {
-        let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
+        //let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
         form.addEventListener("change", handleChange);
-        let btnStart: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#btn");
+        //let btnStart: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#btn");
         btnStart.addEventListener("click", handleBtn);
     }
 
@@ -42,43 +49,43 @@
             switch (entry[0]) {
                 case "Select1":
                     team1 = String (entry[1]);
-                    console.log(entry[1]);
+                    console.log(team1);
                     break;
                 case "Select2":
                     team2 = String (entry[1]);
-                    console.log(entry[1]);
+                    console.log(team2);
                     break;
                 case "Color1":
                     colorTeam1 = String(entry[1]);
-                    console.log(entry[1]);
+                    console.log(colorTeam1);
                     break;
                 case "Color2":
                     colorTeam2 = String(entry[1]);
-                    console.log(entry[1]);
+                    console.log(colorTeam2);
                     break;
                 case "Color3":
                     colorReferee = String(entry[1]);
-                    console.log(entry[1]);
+                    console.log(colorReferee);
                     break;
                 case "Color4":
                     colorLineJudge = String (entry[1]);
-                    console.log(entry[1]);
+                    console.log(colorLineJudge);
                     break;
                 case "Slider1":
                     speedMin = Number(entry[1]);
-                    console.log(entry[1]);
+                    console.log(speedMin);
                     break;
                 case "Slider2":
                     speedMax = Number(entry[1]);
-                    console.log(entry[1]);
+                    console.log(speedMax);
                     break;
                 case "Slider3":
                     precisionMin = Number (entry[1]);
-                    console.log(entry[1]);
+                    console.log(precisionMin);
                     break;
                 case "Slider4":
                     precisionMax = Number (entry [1]);
-                    console.log(entry[1]);
+                    console.log(precisionMax);
                     break;
                 default:
                     console.log("Something is wrong");      
@@ -88,15 +95,23 @@
 
     function handleBtn(): void {
         console.log("StartMatch");
-        let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
+      
         form.setAttribute("class", "hide");
 
-        let btnStart: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#btn");
         btnStart.setAttribute("class", "hide");
 
-        let explain: HTMLElement = <HTMLElement>document.querySelector("#explain");
         explain.setAttribute("class", "hide");
 
+        prepareGame();
     }
 
-//}
+    function prepareGame(): void {
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
+        canvas.removeAttribute("class");
+        if (!canvas)
+            return;
+        crc2 = <CanvasRenderingContext2D>canvas.getContext("2d"); 
+    
+    }
+
+}
