@@ -71,13 +71,56 @@ namespace Endaufgabe_FußballSiumulation {
         crc2.stroke();
         crc2.restore();
 
-        //Bogen über Straffraum
+        //Bogen über Straffraum links
         crc2.save();
         crc2.beginPath();
         crc2.arc(canvas.width / 110 * 21.5, canvas.height / 2, 50, 90 * (Math.PI / 180), 270 * (Math.PI / 180), true);
         crc2.closePath();
         crc2.strokeStyle = "white";
         crc2.lineWidth = 5;
+        crc2.stroke();
+        crc2.restore();
+
+        //Elfmeter Punkt (jedenfalls fast) links
+        crc2.save();
+        crc2.beginPath();
+        crc2.arc(canvas.width / 110 * 15.75, canvas.height / 2, 4, 0, 360);
+        crc2.closePath();
+        crc2.fillStyle = "white";
+        crc2.lineWidth = 5;
+        crc2.fill();
+        crc2.restore();
+
+        //Tor links
+        crc2.save();
+        crc2.beginPath();
+        crc2.moveTo(canvas.width / 110 * 5, (canvas.height / 2) + 40);
+        crc2.lineTo(canvas.width / 110 * 1, (canvas.height / 2) + 40);
+        crc2.lineTo(canvas.width / 110 * 1, (canvas.height / 2) - 40);
+        crc2.lineTo(canvas.width / 110 * 5, (canvas.height / 2) - 40);
+        crc2.closePath();
+        crc2.strokeStyle = "white";
+        crc2.lineWidth = 5;
+        crc2.stroke();
+        crc2.restore();
+
+        //Netz Tor
+        crc2.save();
+        crc2.beginPath();
+        crc2.moveTo (canvas.width / 110 * 2, (canvas.height / 2) + 40);
+        crc2.lineTo(canvas.width / 110 * 2, (canvas.height / 2) - 40);
+        crc2.moveTo(canvas.width / 110 * 3, (canvas.height / 2) - 40);
+        crc2.lineTo (canvas.width / 110 * 3, (canvas.height / 2) + 40);
+        crc2.moveTo(canvas.width / 110 * 4, (canvas.height / 2) + 40);
+        crc2.lineTo(canvas.width / 110 * 4, (canvas.height / 2) - 40);
+        crc2.moveTo(canvas.width / 110 * 1, (canvas.height / 2) + 20);
+        crc2.lineTo(canvas.width / 110 * 5, (canvas.height / 2) + 20);
+        crc2.moveTo(canvas.width / 110 * 1, (canvas.height / 2) + 0);
+        crc2.lineTo(canvas.width / 110 * 5, (canvas.height / 2) + 0);
+        crc2.moveTo(canvas.width / 110 * 1, (canvas.height / 2) - 20);
+        crc2.lineTo(canvas.width / 110 * 5, (canvas.height / 2) - 20);
+        crc2.closePath();
+        crc2.strokeStyle = "white";
         crc2.stroke();
         crc2.restore();
     }

@@ -67,13 +67,53 @@ var Endaufgabe_FußballSiumulation;
         Endaufgabe_FußballSiumulation.crc2.lineWidth = 5;
         Endaufgabe_FußballSiumulation.crc2.stroke();
         Endaufgabe_FußballSiumulation.crc2.restore();
-        //Bogen über Straffraum
+        //Bogen über Straffraum links
         Endaufgabe_FußballSiumulation.crc2.save();
         Endaufgabe_FußballSiumulation.crc2.beginPath();
         Endaufgabe_FußballSiumulation.crc2.arc(Endaufgabe_FußballSiumulation.canvas.width / 110 * 21.5, Endaufgabe_FußballSiumulation.canvas.height / 2, 50, 90 * (Math.PI / 180), 270 * (Math.PI / 180), true);
         Endaufgabe_FußballSiumulation.crc2.closePath();
         Endaufgabe_FußballSiumulation.crc2.strokeStyle = "white";
         Endaufgabe_FußballSiumulation.crc2.lineWidth = 5;
+        Endaufgabe_FußballSiumulation.crc2.stroke();
+        Endaufgabe_FußballSiumulation.crc2.restore();
+        //Elfmeter Punkt (jedenfalls fast) links
+        Endaufgabe_FußballSiumulation.crc2.save();
+        Endaufgabe_FußballSiumulation.crc2.beginPath();
+        Endaufgabe_FußballSiumulation.crc2.arc(Endaufgabe_FußballSiumulation.canvas.width / 110 * 15.75, Endaufgabe_FußballSiumulation.canvas.height / 2, 4, 0, 360);
+        Endaufgabe_FußballSiumulation.crc2.closePath();
+        Endaufgabe_FußballSiumulation.crc2.fillStyle = "white";
+        Endaufgabe_FußballSiumulation.crc2.lineWidth = 5;
+        Endaufgabe_FußballSiumulation.crc2.fill();
+        Endaufgabe_FußballSiumulation.crc2.restore();
+        //Tor links
+        Endaufgabe_FußballSiumulation.crc2.save();
+        Endaufgabe_FußballSiumulation.crc2.beginPath();
+        Endaufgabe_FußballSiumulation.crc2.moveTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 5, (Endaufgabe_FußballSiumulation.canvas.height / 2) + 40);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 1, (Endaufgabe_FußballSiumulation.canvas.height / 2) + 40);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 1, (Endaufgabe_FußballSiumulation.canvas.height / 2) - 40);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 5, (Endaufgabe_FußballSiumulation.canvas.height / 2) - 40);
+        Endaufgabe_FußballSiumulation.crc2.closePath();
+        Endaufgabe_FußballSiumulation.crc2.strokeStyle = "white";
+        Endaufgabe_FußballSiumulation.crc2.lineWidth = 5;
+        Endaufgabe_FußballSiumulation.crc2.stroke();
+        Endaufgabe_FußballSiumulation.crc2.restore();
+        //Netz Tor
+        Endaufgabe_FußballSiumulation.crc2.save();
+        Endaufgabe_FußballSiumulation.crc2.beginPath();
+        Endaufgabe_FußballSiumulation.crc2.moveTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 2, (Endaufgabe_FußballSiumulation.canvas.height / 2) + 40);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 2, (Endaufgabe_FußballSiumulation.canvas.height / 2) - 40);
+        Endaufgabe_FußballSiumulation.crc2.moveTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 3, (Endaufgabe_FußballSiumulation.canvas.height / 2) - 40);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 3, (Endaufgabe_FußballSiumulation.canvas.height / 2) + 40);
+        Endaufgabe_FußballSiumulation.crc2.moveTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 4, (Endaufgabe_FußballSiumulation.canvas.height / 2) + 40);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 4, (Endaufgabe_FußballSiumulation.canvas.height / 2) - 40);
+        Endaufgabe_FußballSiumulation.crc2.moveTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 1, (Endaufgabe_FußballSiumulation.canvas.height / 2) + 20);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 5, (Endaufgabe_FußballSiumulation.canvas.height / 2) + 20);
+        Endaufgabe_FußballSiumulation.crc2.moveTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 1, (Endaufgabe_FußballSiumulation.canvas.height / 2) + 0);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 5, (Endaufgabe_FußballSiumulation.canvas.height / 2) + 0);
+        Endaufgabe_FußballSiumulation.crc2.moveTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 1, (Endaufgabe_FußballSiumulation.canvas.height / 2) - 20);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(Endaufgabe_FußballSiumulation.canvas.width / 110 * 5, (Endaufgabe_FußballSiumulation.canvas.height / 2) - 20);
+        Endaufgabe_FußballSiumulation.crc2.closePath();
+        Endaufgabe_FußballSiumulation.crc2.strokeStyle = "white";
         Endaufgabe_FußballSiumulation.crc2.stroke();
         Endaufgabe_FußballSiumulation.crc2.restore();
     }
