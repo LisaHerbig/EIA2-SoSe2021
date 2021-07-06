@@ -2,8 +2,30 @@ body {
     text-align: center;
 }
 
-.hide{
+.hide {
     display: none;
-} 
+}
 
+#inPossession {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    left: 1%;
+    top: 7%;
+    
+}
 
+#scoreBoard {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    left: 90%;
+    top: 7%;
+}
+
+#newGame {
+    text-align: center;
+    position: absolute;
+    top: 6.5%;
+    left: 50%;
+}

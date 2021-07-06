@@ -4,6 +4,16 @@ namespace Endaufgabe_FußballSiumulation {
 
     export let crc2: CanvasRenderingContext2D;
 
+    //let inPosession: HTMLDivElement = document.createElement ("div");
+    //inPosession.setAttribute("id", "inPosession");
+    //inPosession.innerHTML = "im Ballbesitz";
+    let inPossession: HTMLDivElement = <HTMLDivElement> document.querySelector("#inPossession");
+    
+    //let scoreBoard: HTMLDivElement = document.createElement ("div");
+    //scoreBoard.setAttribute("id", "scoreBoard");
+    //scoreBoard.innerHTML = "'Team1' + 'Team2'";
+    let scoreBoard: HTMLDivElement = <HTMLDivElement> document.querySelector("#scoreBoard");
+
     let team1: string = "";
     let team2: string = "";
     let colorTeam1: string = "";
@@ -104,18 +114,35 @@ namespace Endaufgabe_FußballSiumulation {
 
     function prepareGame(): void {
     
+        //document.body.appendChild(inPosession);
+        //document.body.appendChild(scoreBoard);
+        inPossession.removeAttribute("class");
+        inPossession.setAttribute("id", "inPossession");
+        scoreBoard.removeAttribute("class");
+        scoreBoard.setAttribute("id", "scoreBoard");
+
+        let newGame: HTMLButtonElement = <HTMLButtonElement> document.createElement("button");
+        newGame.innerHTML = "start a new game";
+        newGame.setAttribute("id", "newGame");
+        newGame.addEventListener("click", handleNewGame);
+        document.body.appendChild(newGame);
+
         let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
         canvas.removeAttribute("class");
         if (!canvas)
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d"); 
-        canvas.width = window.innerWidth;
+        canvas.width = window.innerHeight * 1.3;
         canvas.height = canvas.width / 100 * 66;
-
+        
         crc2.fillStyle = "green";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
         //drawField();
     
+    }
+
+    function handleNewGame(): void {
+        location.reload();
     }
 
 }

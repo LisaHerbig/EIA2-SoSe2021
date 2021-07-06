@@ -2,6 +2,14 @@
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
     window.addEventListener("load", handleLoad);
+    //let inPosession: HTMLDivElement = document.createElement ("div");
+    //inPosession.setAttribute("id", "inPosession");
+    //inPosession.innerHTML = "im Ballbesitz";
+    let inPossession = document.querySelector("#inPossession");
+    //let scoreBoard: HTMLDivElement = document.createElement ("div");
+    //scoreBoard.setAttribute("id", "scoreBoard");
+    //scoreBoard.innerHTML = "'Team1' + 'Team2'";
+    let scoreBoard = document.querySelector("#scoreBoard");
     let team1 = "";
     let team2 = "";
     let colorTeam1 = "";
@@ -90,16 +98,30 @@ var Endaufgabe_FußballSiumulation;
         prepareGame();
     }
     function prepareGame() {
+        //document.body.appendChild(inPosession);
+        //document.body.appendChild(scoreBoard);
+        inPossession.removeAttribute("class");
+        inPossession.setAttribute("id", "inPossession");
+        scoreBoard.removeAttribute("class");
+        scoreBoard.setAttribute("id", "scoreBoard");
+        let newGame = document.createElement("button");
+        newGame.innerHTML = "start a new game";
+        newGame.setAttribute("id", "newGame");
+        newGame.addEventListener("click", handleNewGame);
+        document.body.appendChild(newGame);
         let canvas = document.querySelector("canvas");
         canvas.removeAttribute("class");
         if (!canvas)
             return;
         Endaufgabe_FußballSiumulation.crc2 = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
+        canvas.width = window.innerHeight * 1.3;
         canvas.height = canvas.width / 100 * 66;
         Endaufgabe_FußballSiumulation.crc2.fillStyle = "green";
         Endaufgabe_FußballSiumulation.crc2.fillRect(0, 0, canvas.width, canvas.height);
         //drawField();
+    }
+    function handleNewGame() {
+        location.reload();
     }
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map
