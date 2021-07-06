@@ -4,7 +4,7 @@ var L11_2_Blumenwiese;
     class Bee extends L11_2_Blumenwiese.Moveable {
         constructor(_position, _type) {
             super(_position, _type);
-            this.home = new L11_2_Blumenwiese.Vector(455, 655);
+            //private home: Vector = new Vector(455, 655);
             this.task = L11_2_Blumenwiese.TASK.WORK;
             this.position = _position;
             for (let h = 0; h < 1; h++) {

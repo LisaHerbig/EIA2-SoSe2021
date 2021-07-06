@@ -2,7 +2,7 @@ namespace L11_2_Blumenwiese {
     export class Bee extends Moveable {
         public collection: number;
         public destination: Vector;
-        private home: Vector = new Vector(455, 655);
+        //private home: Vector = new Vector(455, 655);
         private task: TASK = TASK.WORK;
         private direction: Vector;
   

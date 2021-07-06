@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fußball-Simualtion Endaufgabe EIA</title>
+    <script src="Main.js"></script>
     <link rel="stylesheet" href="Simulation.css">
+    
 </head>
 <body>
-    <h2>Wilkommen zur Fußball-Simualtion</h2>
-    <p>Wähle deine Wunsch-Einstellungen aus und starte das Spiel</p>
-    <div id="settings">
+    <h2 id="welcome">Wilkommen zur Fußball-Simualtion</h2>
+    <p id = "explain">Wähle deine Wunsch-Einstellungen aus und starte das Spiel</p>
+    <form>
         <fieldset id="team">
             <legend>Team</legend>
             Team 1
-            <select name="Select" id="select">
+            <select name="Select1" id="select">
                 <option value="germany">GER</option>
                 <option value="belgien">BEL</option>
                 <option value="italy">ITA</option>
@@ -28,9 +30,9 @@
                 <option value="turkey">TUR</option>
                 <option value="finland">FIN</option>
             </select>
-            <br>
+             <br>
             Team 2
-            <select name="Select" id="select">
+            <select name="Select2" id="select">
                 <option value="sweden">SWE</option>
                 <option value="croatia">CRO</option>
                 <option value="netherlands">NED</option>
@@ -60,25 +62,25 @@
             Line Judges
             <input type= "color" name="Color4" placeholder="black" id="color" value="#000000">
         </fieldset>
-        
+            
         <fieldset id="speed">
             <legend>Speed</legend>
             min
-            <input type="range" name="Slider" min="100" max="200" step="10" value="100" /> 
+            <input type="range" name="Slider1" min="1" max="50" step="5" value="1" /> 
             max
-            <input type="range" name="Slider" min="100" max="200" step="10" value="100" /> 
+            <input type="range" name="Slider2" min="50" max="100" step="5" value="0" /> 
         </fieldset>
 
         <fieldset id="precision">
             <legend>Precision in %</legend>
             min
-            <input type="range" name="Slider" min="100" max="200" step="10" value="100" /> 
+            <input type="range" name="Slider3" min="1" max="50" step="10" value="1" /> 
             max
-            <input type="range" name="Slider" min="100" max="200" step="10" value="100" /> 
+            <input type="range" name="Slider4" min="50" max="100" step="10" value="0" /> 
         </fieldset>
         <br>
-        <button id="startMatch">Start</button>
+        <button id="btn">Start</button>
 
-    </div>
+    </form>
 </body>
 </html>

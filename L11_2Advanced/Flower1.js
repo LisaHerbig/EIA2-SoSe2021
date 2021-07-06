@@ -2,10 +2,10 @@
 var L11_2_Blumenwiese;
 (function (L11_2_Blumenwiese) {
     class Flower1 extends L11_2_Blumenwiese.Flower {
+        //private fps: number = 10;
         constructor(_position) {
             super();
             this.color = "Fuchsia";
-            this.fps = 10;
         }
         displayNectarLevel() {
             //showNectar(this.position, Flower1.degree, this.color, "white", this.fps)
