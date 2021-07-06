@@ -37,9 +37,7 @@ namespace Endaufgabe_FußballSiumulation {
     let btnStart: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#btn");
 
     function handleLoad(): void {
-        //let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
         form.addEventListener("change", handleChange);
-        //let btnStart: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#btn");
         btnStart.addEventListener("click", handleBtn);
     }
 
@@ -102,16 +100,16 @@ namespace Endaufgabe_FußballSiumulation {
 
         explain.setAttribute("class", "hide");
 
-        prepareGame();
+        //prepareGame();
     }
 
-    function prepareGame(): void {
+   /* function prepareGame(): void {
         let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
         canvas.removeAttribute("class");
         if (!canvas)
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d"); 
     
-    }
+    }*/
 
 }

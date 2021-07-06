@@ -30,9 +30,7 @@ var Endaufgabe_FußballSiumulation;
     let form = document.querySelector("form");
     let btnStart = document.querySelector("#btn");
     function handleLoad() {
-        //let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
         form.addEventListener("change", handleChange);
-        //let btnStart: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#btn");
         btnStart.addEventListener("click", handleBtn);
     }
     function handleChange() {
@@ -89,14 +87,15 @@ var Endaufgabe_FußballSiumulation;
         form.setAttribute("class", "hide");
         btnStart.setAttribute("class", "hide");
         explain.setAttribute("class", "hide");
-        prepareGame();
+        //prepareGame();
     }
-    function prepareGame() {
-        let canvas = document.querySelector("canvas");
-        canvas.removeAttribute("class");
-        if (!canvas)
-            return;
-        Endaufgabe_FußballSiumulation.crc2 = canvas.getContext("2d");
-    }
+    /* function prepareGame(): void {
+         let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
+         canvas.removeAttribute("class");
+         if (!canvas)
+             return;
+         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+     
+     }*/
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map
