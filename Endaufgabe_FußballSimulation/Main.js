@@ -1,8 +1,7 @@
 "use strict";
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
-    window.addEventListener("load", handleLoad);
-    let explain = document.querySelector("#explain");
+    window.addEventListener("load", handleLoad, true);
     let team1 = "";
     let team2 = "";
     let colorTeam1 = "";
@@ -28,10 +27,11 @@ var Endaufgabe_FußballSiumulation;
     // MOVEHOME
     //}
     let form = document.querySelector("form");
-    let btnStart = document.querySelector("#btn");
+    let btnStart = document.getElementById("btn");
+    let explain = document.getElementById("explain");
     function handleLoad() {
-        form.addEventListener("change", handleChange);
-        btnStart.addEventListener("click", handleBtn);
+        form.addEventListener("change", handleChange, true);
+        btnStart.addEventListener("click", handleBtn, true);
     }
     function handleChange() {
         let formData = new FormData(document.forms[0]);
@@ -84,9 +84,9 @@ var Endaufgabe_FußballSiumulation;
     }
     function handleBtn() {
         console.log("StartMatch");
-        form.setAttribute("class", "hide");
-        btnStart.setAttribute("class", "hide");
-        explain.setAttribute("class", "hide");
+        form.remove();
+        btnStart.remove();
+        explain.remove();
         //prepareGame();
     }
     /* function prepareGame(): void {

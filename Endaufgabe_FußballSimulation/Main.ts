@@ -1,10 +1,8 @@
 namespace Endaufgabe_FußballSiumulation {
     
-    window.addEventListener("load", handleLoad);
+    window.addEventListener("load", handleLoad, true);
 
     export let crc2: CanvasRenderingContext2D;
-
-    let explain: HTMLElement = <HTMLElement>document.querySelector("#explain");
 
     let team1: string = "";
     let team2: string = "";
@@ -34,11 +32,12 @@ namespace Endaufgabe_FußballSiumulation {
     //}
 
     let form: HTMLFormElement = <HTMLFormElement> document.querySelector("form");
-    let btnStart: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#btn");
+    let btnStart: HTMLButtonElement = <HTMLButtonElement> document.getElementById("btn");
+    let explain: HTMLElement = <HTMLElement>document.getElementById("explain");
 
     function handleLoad(): void {
-        form.addEventListener("change", handleChange);
-        btnStart.addEventListener("click", handleBtn);
+        form.addEventListener("change", handleChange, true);
+        btnStart.addEventListener("click", handleBtn, true);
     }
 
     function handleChange(): void {
@@ -94,11 +93,11 @@ namespace Endaufgabe_FußballSiumulation {
     function handleBtn(): void {
         console.log("StartMatch");
       
-        form.setAttribute("class", "hide");
+        form.remove();
 
-        btnStart.setAttribute("class", "hide");
+        btnStart.remove();
 
-        explain.setAttribute("class", "hide");
+        explain.remove();
 
         //prepareGame();
     }
