@@ -1,6 +1,6 @@
 namespace Endaufgabe_FußballSiumulation {
     
-    window.addEventListener("load", handleLoad, true);
+    window.addEventListener("load", handleLoad);
 
     export let crc2: CanvasRenderingContext2D;
 
@@ -36,8 +36,8 @@ namespace Endaufgabe_FußballSiumulation {
     let explain: HTMLElement = <HTMLElement>document.getElementById("explain");
 
     function handleLoad(): void {
-        form.addEventListener("change", handleChange, true);
-        btnStart.addEventListener("click", handleBtn, true);
+        form.addEventListener("change", handleChange);
+        btnStart.addEventListener("click", handleBtn);
     }
 
     function handleChange(): void {
@@ -99,16 +99,23 @@ namespace Endaufgabe_FußballSiumulation {
 
         explain.remove();
 
-        //prepareGame();
+        prepareGame();
     }
 
-   /* function prepareGame(): void {
+    function prepareGame(): void {
+    
         let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
         canvas.removeAttribute("class");
         if (!canvas)
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d"); 
+        canvas.width = window.innerWidth;
+        canvas.height = canvas.width / 100 * 66;
+
+        crc2.fillStyle = "green";
+        crc2.fillRect(0, 0, canvas.width, canvas.height);
+        //drawField();
     
-    }*/
+    }
 
 }

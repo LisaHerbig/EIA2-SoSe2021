@@ -1,7 +1,7 @@
 "use strict";
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
-    window.addEventListener("load", handleLoad, true);
+    window.addEventListener("load", handleLoad);
     let team1 = "";
     let team2 = "";
     let colorTeam1 = "";
@@ -30,8 +30,8 @@ var Endaufgabe_FußballSiumulation;
     let btnStart = document.getElementById("btn");
     let explain = document.getElementById("explain");
     function handleLoad() {
-        form.addEventListener("change", handleChange, true);
-        btnStart.addEventListener("click", handleBtn, true);
+        form.addEventListener("change", handleChange);
+        btnStart.addEventListener("click", handleBtn);
     }
     function handleChange() {
         let formData = new FormData(document.forms[0]);
@@ -87,15 +87,19 @@ var Endaufgabe_FußballSiumulation;
         form.remove();
         btnStart.remove();
         explain.remove();
-        //prepareGame();
+        prepareGame();
     }
-    /* function prepareGame(): void {
-         let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
-         canvas.removeAttribute("class");
-         if (!canvas)
-             return;
-         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
-     
-     }*/
+    function prepareGame() {
+        let canvas = document.querySelector("canvas");
+        canvas.removeAttribute("class");
+        if (!canvas)
+            return;
+        Endaufgabe_FußballSiumulation.crc2 = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = canvas.width / 100 * 66;
+        Endaufgabe_FußballSiumulation.crc2.fillStyle = "green";
+        Endaufgabe_FußballSiumulation.crc2.fillRect(0, 0, canvas.width, canvas.height);
+        //drawField();
+    }
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map
