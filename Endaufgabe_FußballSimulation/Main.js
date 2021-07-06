@@ -2,8 +2,11 @@
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
     window.addEventListener("load", handleLoad);
+    Endaufgabe_FußballSiumulation.canvas = document.querySelector("canvas");
+    //Div  Spielstand und Ballbesitz
     let inPossession = document.querySelector("#inPossession");
     let scoreBoard = document.querySelector("#scoreBoard");
+    //Variablen für Formular
     let team1 = "";
     let team2 = "";
     let colorTeam1 = "";
@@ -28,6 +31,7 @@ var Endaufgabe_FußballSiumulation;
     // MOVE,
     // MOVEHOME
     //}
+    //HTML Elemente Startseite
     let form = document.querySelector("form");
     let btnStart = document.getElementById("btn");
     let explain = document.getElementById("explain");
@@ -106,16 +110,16 @@ var Endaufgabe_FußballSiumulation;
         newGame.setAttribute("id", "newGame");
         newGame.addEventListener("click", handleNewGame);
         document.body.appendChild(newGame);
-        let canvas = document.querySelector("canvas");
-        canvas.removeAttribute("class");
-        if (!canvas)
+        //let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
+        Endaufgabe_FußballSiumulation.canvas.removeAttribute("class");
+        if (!Endaufgabe_FußballSiumulation.canvas)
             return;
-        Endaufgabe_FußballSiumulation.crc2 = canvas.getContext("2d");
-        canvas.width = window.innerHeight * 1.3;
-        canvas.height = canvas.width / 100 * 66;
-        Endaufgabe_FußballSiumulation.crc2.fillStyle = "green";
-        Endaufgabe_FußballSiumulation.crc2.fillRect(0, 0, canvas.width, canvas.height);
-        //drawField();
+        Endaufgabe_FußballSiumulation.crc2 = Endaufgabe_FußballSiumulation.canvas.getContext("2d");
+        Endaufgabe_FußballSiumulation.canvas.width = window.innerHeight * 1.25;
+        Endaufgabe_FußballSiumulation.canvas.height = Endaufgabe_FußballSiumulation.canvas.width / 110 * 75;
+        //crc2.fillStyle = "green";
+        //crc2.fillRect(0, 0, canvas.width, canvas.height);
+        Endaufgabe_FußballSiumulation.drawField();
     }
     function handleNewGame() {
         location.reload();

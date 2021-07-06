@@ -3,11 +3,13 @@ namespace Endaufgabe_FußballSiumulation {
     window.addEventListener("load", handleLoad);
 
     export let crc2: CanvasRenderingContext2D;
+    export let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
 
+    //Div  Spielstand und Ballbesitz
     let inPossession: HTMLDivElement = <HTMLDivElement> document.querySelector("#inPossession");
-  
     let scoreBoard: HTMLDivElement = <HTMLDivElement> document.querySelector("#scoreBoard");
 
+    //Variablen für Formular
     let team1: string = "";
     let team2: string = "";
     let colorTeam1: string = "";
@@ -35,6 +37,7 @@ namespace Endaufgabe_FußballSiumulation {
        // MOVEHOME
     //}
 
+    //HTML Elemente Startseite
     let form: HTMLFormElement = <HTMLFormElement> document.querySelector("form");
     let btnStart: HTMLButtonElement = <HTMLButtonElement> document.getElementById("btn");
     let explain: HTMLElement = <HTMLElement>document.getElementById("explain");
@@ -122,17 +125,17 @@ namespace Endaufgabe_FußballSiumulation {
         newGame.addEventListener("click", handleNewGame);
         document.body.appendChild(newGame);
 
-        let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
+        //let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
         canvas.removeAttribute("class");
         if (!canvas)
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d"); 
-        canvas.width = window.innerHeight * 1.3;
-        canvas.height = canvas.width / 100 * 66;
+        canvas.width = window.innerHeight * 1.25;
+        canvas.height = canvas.width / 110 * 75;
         
-        crc2.fillStyle = "green";
-        crc2.fillRect(0, 0, canvas.width, canvas.height);
-        //drawField();
+        //crc2.fillStyle = "green";
+        //crc2.fillRect(0, 0, canvas.width, canvas.height);
+        drawField();
     
     }
 
