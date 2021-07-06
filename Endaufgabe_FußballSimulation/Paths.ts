@@ -57,5 +57,28 @@ namespace Endaufgabe_FußballSiumulation {
         crc2.lineWidth = 5;
         crc2.stroke();
         crc2.restore();
+
+        //Torraum Linie links
+        crc2.save();
+        crc2.beginPath();
+        crc2.moveTo(canvas.width / 110 * 5, (canvas.height / 2) + 50);
+        crc2.lineTo(canvas.width / 110 * 10.5, (canvas.height / 2) + 50);
+        crc2.lineTo(canvas.width / 110 * 10.5, (canvas.height / 2) - 50);
+        crc2.lineTo(canvas.width / 110 * 5, (canvas.height / 2) - 50);
+        crc2.closePath();
+        crc2.strokeStyle = "white";
+        crc2.lineWidth = 5;
+        crc2.stroke();
+        crc2.restore();
+
+        //Bogen über Straffraum
+        crc2.save();
+        crc2.beginPath();
+        crc2.arc(canvas.width / 110 * 21.5, canvas.height / 2, 50, 90 * (Math.PI / 180), 270 * (Math.PI / 180), true);
+        crc2.closePath();
+        crc2.strokeStyle = "white";
+        crc2.lineWidth = 5;
+        crc2.stroke();
+        crc2.restore();
     }
 }
