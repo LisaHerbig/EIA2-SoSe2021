@@ -2,13 +2,7 @@
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
     window.addEventListener("load", handleLoad);
-    //let inPosession: HTMLDivElement = document.createElement ("div");
-    //inPosession.setAttribute("id", "inPosession");
-    //inPosession.innerHTML = "im Ballbesitz";
     let inPossession = document.querySelector("#inPossession");
-    //let scoreBoard: HTMLDivElement = document.createElement ("div");
-    //scoreBoard.setAttribute("id", "scoreBoard");
-    //scoreBoard.innerHTML = "'Team1' + 'Team2'";
     let scoreBoard = document.querySelector("#scoreBoard");
     let team1 = "";
     let team2 = "";
@@ -92,9 +86,12 @@ var Endaufgabe_FußballSiumulation;
     }
     function handleBtn() {
         console.log("StartMatch");
-        form.remove();
-        btnStart.remove();
-        explain.remove();
+        //form.remove();
+        form.setAttribute("class", "hide");
+        //btnStart.remove();
+        btnStart.setAttribute("class", "hide");
+        //explain.remove();
+        explain.setAttribute("class", "hide");
         prepareGame();
     }
     function prepareGame() {
