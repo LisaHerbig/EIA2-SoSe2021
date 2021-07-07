@@ -192,7 +192,6 @@ var Endaufgabe_FußballSiumulation;
             Endaufgabe_FußballSiumulation.crc2.stroke();
             Endaufgabe_FußballSiumulation.crc2.restore();
         }
-        console.log("Drawn");
     }
     Endaufgabe_FußballSiumulation.drawShirt = drawShirt;
     function drawBall(_position) {

@@ -7,6 +7,7 @@ var Endaufgabe_FußballSiumulation;
     Endaufgabe_FußballSiumulation.canvas.height = Endaufgabe_FußballSiumulation.canvas.width / 110 * 75;
     Endaufgabe_FußballSiumulation.width = Number(Endaufgabe_FußballSiumulation.canvas.width);
     Endaufgabe_FußballSiumulation.height = Number(Endaufgabe_FußballSiumulation.canvas.height);
+    let imgData;
     //Div  Spielstand und Ballbesitz
     let inPossession = document.querySelector("#inPossession");
     let scoreBoard = document.querySelector("#scoreBoard");
@@ -23,8 +24,8 @@ var Endaufgabe_FußballSiumulation;
     let precisionMax = Number("");
     //Sounds
     //let applaus: HTMLAudioElement = <HTMLAudioElement> new Audio ("Sounds/Applaus.wav");
-    //let atmo: HTMLAudioElement = new Audio ("Sounds/67-Atmo.wav");
-    //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
+    let atmo = new Audio("Sounds/67-Atmo.wav");
+    let whistle = new Audio("Sounds/Whistle.wav");
     let positionsT1 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 10, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 17), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 32, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 57, Endaufgabe_FußballSiumulation.height / 2 + 125), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 + 110)];
     let positionsT2 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 100, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 78, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 54, Endaufgabe_FußballSiumulation.height / 2 - 60), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 + 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 17)];
     let moveables = [];
@@ -123,14 +124,18 @@ var Endaufgabe_FußballSiumulation;
         if (!Endaufgabe_FußballSiumulation.canvas)
             return;
         Endaufgabe_FußballSiumulation.crc2 = Endaufgabe_FußballSiumulation.canvas.getContext("2d");
+        playSound(atmo);
         Endaufgabe_FußballSiumulation.drawField();
+        imgData = Endaufgabe_FußballSiumulation.crc2.getImageData(0, 0, Endaufgabe_FußballSiumulation.crc2.canvas.width, Endaufgabe_FußballSiumulation.crc2.canvas.height);
         setUpTeam1();
         setUpTeam2();
         setUpReferee();
         setUpLineJudge();
-        Endaufgabe_FußballSiumulation.drawBall(new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 2, Endaufgabe_FußballSiumulation.height / 2));
-        //drawShirt(positionsT1[2], "blue", "player", "team1");
-        //console.log(canvas.height, canvas.width, canvas.height / 75 * 10, new Vector(canvas.width / 110 * 75, (canvas.height / 75 * 68)));
+        let ball = new Endaufgabe_FußballSiumulation.Ball(new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 2, Endaufgabe_FußballSiumulation.height / 2));
+        ball.draw();
+        moveables.push(ball);
+        playSound(whistle);
+        window.setInterval(update, 20);
     }
     function setUpTeam1() {
         for (let i = 0; i < 11; i++) {
@@ -167,6 +172,17 @@ var Endaufgabe_FußballSiumulation;
     }
     function handleNewGame() {
         location.reload();
+    }
+    function playSound(_soundname) {
+        _soundname.play();
+    }
+    function update() {
+        Endaufgabe_FußballSiumulation.crc2.clearRect(0, 0, Endaufgabe_FußballSiumulation.canvas.width, Endaufgabe_FußballSiumulation.canvas.height);
+        Endaufgabe_FußballSiumulation.crc2.putImageData(imgData, 0, 0);
+        for (let moveable of moveables) {
+            //moveable.move(1 / 50); 
+            moveable.draw();
+        }
     }
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map

@@ -9,6 +9,7 @@ namespace Endaufgabe_FußballSiumulation {
     export let width: number = Number (canvas.width);
     export let height: number = Number (canvas.height);
 
+    let imgData: ImageData;
     //Div  Spielstand und Ballbesitz
     let inPossession: HTMLDivElement = <HTMLDivElement> document.querySelector("#inPossession");
     let scoreBoard: HTMLDivElement = <HTMLDivElement> document.querySelector("#scoreBoard");
@@ -27,8 +28,8 @@ namespace Endaufgabe_FußballSiumulation {
 
     //Sounds
     //let applaus: HTMLAudioElement = <HTMLAudioElement> new Audio ("Sounds/Applaus.wav");
-    //let atmo: HTMLAudioElement = new Audio ("Sounds/67-Atmo.wav");
-    //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
+    let atmo: HTMLAudioElement = new Audio ("Sounds/67-Atmo.wav");
+    let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
 
     let positionsT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
     let positionsT2: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
@@ -138,16 +139,18 @@ namespace Endaufgabe_FußballSiumulation {
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d"); 
         
+        playSound(atmo);
         drawField();
+        imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
         setUpTeam1();
         setUpTeam2();
         setUpReferee();
         setUpLineJudge();
-        drawBall(new Vector(width / 2, height / 2));
-       
-        //drawShirt(positionsT1[2], "blue", "player", "team1");
-        //console.log(canvas.height, canvas.width, canvas.height / 75 * 10, new Vector(canvas.width / 110 * 75, (canvas.height / 75 * 68)));
-        
+        let ball: Ball = new Ball ( new Vector (width / 2, height / 2));
+        ball.draw();
+        moveables.push(ball);
+        playSound(whistle);
+        window.setInterval(update, 20);
     }
 
     function setUpTeam1(): void {
@@ -188,6 +191,20 @@ namespace Endaufgabe_FußballSiumulation {
 
     function handleNewGame(): void {
         location.reload();
+    }
+
+    function playSound(_soundname: HTMLAudioElement): void {
+        _soundname.play();
+    }
+
+    function update(): void {
+        crc2.clearRect(0, 0, canvas.width, canvas.height);
+        crc2.putImageData(imgData, 0, 0);
+ 
+        for (let moveable of moveables) {
+                 //moveable.move(1 / 50); 
+                 moveable.draw(); 
+        }
     }
 
 }

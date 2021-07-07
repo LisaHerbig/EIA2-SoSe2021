@@ -200,8 +200,6 @@ namespace Endaufgabe_FußballSiumulation {
             crc2.stroke();
             crc2.restore();
         }
-        console.log("Drawn");
-        
     }
 
     export function drawBall(_position: Vector): void {
