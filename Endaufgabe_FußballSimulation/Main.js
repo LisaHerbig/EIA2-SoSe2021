@@ -209,26 +209,27 @@ var Endaufgabe_FußballSiumulation;
     /*
     *Function to see if player is close to ball
     */
-    let ball;
     function checkIfClose() {
-        //let ball: Ball;
+        let ball = [];
         let player = [];
-        console.log(moveables);
+        //console.log(ball);
         for (let moveable of moveables) {
-            if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
-                ball = moveable;
-            }
             if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
                 player.push(moveable);
+            }
+            if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
+                ball.push(moveable);
             }
         }
         for (let j = 0; j < player.length; j++) {
             let v1 = new Endaufgabe_FußballSiumulation.Vector(player[j].position.x, player[j].position.y);
-            let v2 = new Endaufgabe_FußballSiumulation.Vector(ball.position.x, ball.position.y);
+            let v2 = new Endaufgabe_FußballSiumulation.Vector(ball[0].position.x, ball[0].position.y);
             let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(v1, v2);
             let length = difference.length;
-            if (length <= 30) {
+            console.log(length / 110, difference, Endaufgabe_FußballSiumulation.width / 110 * length);
+            if (length <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 30) {
                 player[j].changeTask(TASK.MOVE);
+                console.log("Yes!");
             }
         }
     }
