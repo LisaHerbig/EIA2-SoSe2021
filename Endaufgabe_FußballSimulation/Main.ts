@@ -240,8 +240,32 @@ namespace Endaufgabe_FußballSiumulation {
     /*
     *Function to see if player is close to ball
     */
+    let ball: Ball;
     function checkIfClose(): void {
-        console.log("check");
+        //let ball: Ball;
+        let player: Player[] = [];
+        console.log(moveables);
+
+        for (let moveable of moveables) {
+            if (moveable instanceof Ball) {
+                ball = moveable;
+            }
+            if (moveable instanceof Player) {
+                player.push(moveable);
+            }
+        }
+
+        for (let j: number = 0; j < player.length; j ++) {
+            let v1: Vector = new Vector(player[j].position.x, player[j].position.y);
+            let v2: Vector = new Vector(ball.position.x, ball.position.y);
+            let difference: Vector = Vector.getDifference(v1, v2);
+            let length: number = difference.length;
+
+            if (length <= 30) {
+                player[j].changeTask(TASK.MOVE);
+            }
+
+        }
         
    }
 
