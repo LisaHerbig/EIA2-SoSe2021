@@ -15,11 +15,32 @@ var Endaufgabe_FußballSiumulation;
             this.precision = _precision;
             this.radius = Endaufgabe_FußballSiumulation.canvas.width / 110 * 30;
         }
-        move(_speed, _start, _end) {
+        move() {
             console.log("Player moves evenly toward ball");
+        }
+        moveHome() {
+            console.log("MoveHome");
+        }
+        stand() {
+            console.log("stand");
         }
         draw() {
             Endaufgabe_FußballSiumulation.drawShirt(this.position, this.jerseyColor, this.type, this.team);
+        }
+        changeTask() {
+            switch (this.task) {
+                case Endaufgabe_FußballSiumulation.TASK.STAND:
+                    console.log("stay");
+                    break;
+                case Endaufgabe_FußballSiumulation.TASK.MOVE:
+                    console.log("moveToBallPosition");
+                    break;
+                case Endaufgabe_FußballSiumulation.TASK.MOVEHOME:
+                    console.log("MoveBackToPosition");
+                    break;
+                default:
+                    console.log("something went wrong");
+            }
         }
     }
     Endaufgabe_FußballSiumulation.Player = Player;

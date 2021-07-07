@@ -10,11 +10,11 @@ namespace Endaufgabe_FußballSiumulation {
     export let height: number = Number (canvas.height);
 
     let imgData: ImageData;
-    //Div  Spielstand und Ballbesitz
+    //Div  score and ball possesstion
     let inPossession: HTMLDivElement = <HTMLDivElement> document.querySelector("#inPossession");
     let scoreBoard: HTMLDivElement = <HTMLDivElement> document.querySelector("#scoreBoard");
 
-    //Variablen für Formular
+    //Variables for Formular
     let team1: string = "";
     let team2: string = "";
     let colorTeam1: string = "";
@@ -29,7 +29,7 @@ namespace Endaufgabe_FußballSiumulation {
     //Sounds
     //let applaus: HTMLAudioElement = <HTMLAudioElement> new Audio ("Sounds/Applaus.wav");
     let atmo: HTMLAudioElement = new Audio ("Sounds/67-Atmo.wav");
-    let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
+    //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
 
     let positionsT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
     let positionsT2: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
@@ -44,10 +44,14 @@ namespace Endaufgabe_FußballSiumulation {
         MOVEHOME
     }
 
-    //HTML Elemente Startseite
+    //HTML Elements startpage
     let form: HTMLFormElement = <HTMLFormElement> document.querySelector("form");
     let btnStart: HTMLButtonElement = <HTMLButtonElement> document.getElementById("btn");
     let explain: HTMLElement = <HTMLElement>document.getElementById("explain");
+
+    /*
+    *Function to create a random number betwenn a min and a max
+    */
 
     export function createRandomNum(_min: number, _max: number): number {
         return Math.floor(Math.random() * (_max - _min + 1) + _min);
@@ -57,6 +61,10 @@ namespace Endaufgabe_FußballSiumulation {
         form.addEventListener("change", handleChange);
         btnStart.addEventListener("click", handleBtn);
     }
+
+    /*
+    *Function to get Data from Form Element
+    */
 
     function handleChange(): void {
         let formData: FormData = new FormData(document.forms[0]);
@@ -108,6 +116,10 @@ namespace Endaufgabe_FußballSiumulation {
         }
     }
 
+    /*
+    *Function to hide form and button
+    */
+
     function handleBtn(): void {
         console.log("StartMatch");
       
@@ -117,9 +129,12 @@ namespace Endaufgabe_FußballSiumulation {
         btnStart.setAttribute("class", "hide");
         //explain.remove();
         explain.setAttribute("class", "hide");
-
         prepareGame();
     }
+
+    /*
+    *Function to prepare Game
+    */
 
     function prepareGame(): void {
 
@@ -139,8 +154,8 @@ namespace Endaufgabe_FußballSiumulation {
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d"); 
         
-        playSound(atmo);
         drawField();
+       
         imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
         setUpTeam1();
         setUpTeam2();
@@ -149,7 +164,7 @@ namespace Endaufgabe_FußballSiumulation {
         let ball: Ball = new Ball ( new Vector (width / 2, height / 2));
         ball.draw();
         moveables.push(ball);
-        playSound(whistle);
+        playSound(atmo);
         window.setInterval(update, 20);
     }
 
@@ -172,6 +187,7 @@ namespace Endaufgabe_FußballSiumulation {
     function setUpReferee(): void {
         let referee: Referee = new Referee(new Vector(width / 110 * 60, height / 2 + 30), colorReferee);
         referee.draw();
+        referee.playWhistle();
         moveables.push(referee);
     }
 
@@ -189,13 +205,25 @@ namespace Endaufgabe_FußballSiumulation {
         }
     }
 
+    /*
+    *Function to start a new Game
+    */
+
     function handleNewGame(): void {
         location.reload();
     }
 
+    /*
+    *Function to play Sounds
+    */
+
     function playSound(_soundname: HTMLAudioElement): void {
         _soundname.play();
     }
+
+    /*
+    *Function for Animation
+    */
 
     function update(): void {
         crc2.clearRect(0, 0, canvas.width, canvas.height);
@@ -206,5 +234,10 @@ namespace Endaufgabe_FußballSiumulation {
                  moveable.draw(); 
         }
     }
+
+    /*
+    *Function to see if player is close to ball
+    */
+   
 
 }

@@ -8,10 +8,10 @@ var Endaufgabe_FußballSiumulation;
     Endaufgabe_FußballSiumulation.width = Number(Endaufgabe_FußballSiumulation.canvas.width);
     Endaufgabe_FußballSiumulation.height = Number(Endaufgabe_FußballSiumulation.canvas.height);
     let imgData;
-    //Div  Spielstand und Ballbesitz
+    //Div  score and ball possesstion
     let inPossession = document.querySelector("#inPossession");
     let scoreBoard = document.querySelector("#scoreBoard");
-    //Variablen für Formular
+    //Variables for Formular
     let team1 = "";
     let team2 = "";
     let colorTeam1 = "";
@@ -25,7 +25,7 @@ var Endaufgabe_FußballSiumulation;
     //Sounds
     //let applaus: HTMLAudioElement = <HTMLAudioElement> new Audio ("Sounds/Applaus.wav");
     let atmo = new Audio("Sounds/67-Atmo.wav");
-    let whistle = new Audio("Sounds/Whistle.wav");
+    //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
     let positionsT1 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 10, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 17), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 32, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 57, Endaufgabe_FußballSiumulation.height / 2 + 125), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 + 110)];
     let positionsT2 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 100, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 78, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 54, Endaufgabe_FußballSiumulation.height / 2 - 60), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 + 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 17)];
     let moveables = [];
@@ -39,10 +39,13 @@ var Endaufgabe_FußballSiumulation;
         TASK[TASK["MOVE"] = 1] = "MOVE";
         TASK[TASK["MOVEHOME"] = 2] = "MOVEHOME";
     })(TASK = Endaufgabe_FußballSiumulation.TASK || (Endaufgabe_FußballSiumulation.TASK = {}));
-    //HTML Elemente Startseite
+    //HTML Elements startpage
     let form = document.querySelector("form");
     let btnStart = document.getElementById("btn");
     let explain = document.getElementById("explain");
+    /*
+    *Function to create a random number betwenn a min and a max
+    */
     function createRandomNum(_min, _max) {
         return Math.floor(Math.random() * (_max - _min + 1) + _min);
     }
@@ -51,6 +54,9 @@ var Endaufgabe_FußballSiumulation;
         form.addEventListener("change", handleChange);
         btnStart.addEventListener("click", handleBtn);
     }
+    /*
+    *Function to get Data from Form Element
+    */
     function handleChange() {
         let formData = new FormData(document.forms[0]);
         for (let entry of formData) {
@@ -100,6 +106,9 @@ var Endaufgabe_FußballSiumulation;
             }
         }
     }
+    /*
+    *Function to hide form and button
+    */
     function handleBtn() {
         console.log("StartMatch");
         //form.remove();
@@ -110,6 +119,9 @@ var Endaufgabe_FußballSiumulation;
         explain.setAttribute("class", "hide");
         prepareGame();
     }
+    /*
+    *Function to prepare Game
+    */
     function prepareGame() {
         inPossession.removeAttribute("class");
         inPossession.setAttribute("id", "inPossession");
@@ -124,7 +136,6 @@ var Endaufgabe_FußballSiumulation;
         if (!Endaufgabe_FußballSiumulation.canvas)
             return;
         Endaufgabe_FußballSiumulation.crc2 = Endaufgabe_FußballSiumulation.canvas.getContext("2d");
-        playSound(atmo);
         Endaufgabe_FußballSiumulation.drawField();
         imgData = Endaufgabe_FußballSiumulation.crc2.getImageData(0, 0, Endaufgabe_FußballSiumulation.crc2.canvas.width, Endaufgabe_FußballSiumulation.crc2.canvas.height);
         setUpTeam1();
@@ -134,7 +145,7 @@ var Endaufgabe_FußballSiumulation;
         let ball = new Endaufgabe_FußballSiumulation.Ball(new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 2, Endaufgabe_FußballSiumulation.height / 2));
         ball.draw();
         moveables.push(ball);
-        playSound(whistle);
+        playSound(atmo);
         window.setInterval(update, 20);
     }
     function setUpTeam1() {
@@ -154,6 +165,7 @@ var Endaufgabe_FußballSiumulation;
     function setUpReferee() {
         let referee = new Endaufgabe_FußballSiumulation.Referee(new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 60, Endaufgabe_FußballSiumulation.height / 2 + 30), colorReferee);
         referee.draw();
+        referee.playWhistle();
         moveables.push(referee);
     }
     function setUpLineJudge() {
@@ -170,12 +182,21 @@ var Endaufgabe_FußballSiumulation;
             }
         }
     }
+    /*
+    *Function to start a new Game
+    */
     function handleNewGame() {
         location.reload();
     }
+    /*
+    *Function to play Sounds
+    */
     function playSound(_soundname) {
         _soundname.play();
     }
+    /*
+    *Function for Animation
+    */
     function update() {
         Endaufgabe_FußballSiumulation.crc2.clearRect(0, 0, Endaufgabe_FußballSiumulation.canvas.width, Endaufgabe_FußballSiumulation.canvas.height);
         Endaufgabe_FußballSiumulation.crc2.putImageData(imgData, 0, 0);
@@ -184,5 +205,8 @@ var Endaufgabe_FußballSiumulation;
             moveable.draw();
         }
     }
+    /*
+    *Function to see if player is close to ball
+    */
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map

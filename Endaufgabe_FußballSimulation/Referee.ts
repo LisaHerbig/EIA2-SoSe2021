@@ -3,6 +3,7 @@ namespace Endaufgabe_FußballSiumulation {
         color: string;
         speed: number;
         typ: string = "referee";
+        whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
 
         constructor(_position: Vector, _color: string) {
             super(_position);
@@ -14,6 +15,11 @@ namespace Endaufgabe_FußballSiumulation {
             console.log("Referee moves towards ball with distance (or super-slow)");
             
         }
+
+        playWhistle(): void {
+            this.whistle.play();
+        }
+        
         draw(): void {
             drawShirt(this.position, this.color, this.typ, "team2");
         }
