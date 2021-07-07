@@ -1,7 +1,6 @@
 "use strict";
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
-    Endaufgabe_FußballSiumulation.positionsT1 = [];
     function drawField() {
         Endaufgabe_FußballSiumulation.crc2.fillStyle = "green";
         Endaufgabe_FußballSiumulation.crc2.fillRect(0, 0, Endaufgabe_FußballSiumulation.canvas.width, Endaufgabe_FußballSiumulation.canvas.height);
@@ -193,6 +192,7 @@ var Endaufgabe_FußballSiumulation;
             Endaufgabe_FußballSiumulation.crc2.stroke();
             Endaufgabe_FußballSiumulation.crc2.restore();
         }
+        console.log("Drawn");
     }
     Endaufgabe_FußballSiumulation.drawShirt = drawShirt;
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));

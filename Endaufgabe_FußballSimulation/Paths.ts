@@ -1,5 +1,5 @@
 namespace Endaufgabe_FußballSiumulation {
-    export let positionsT1: Vector [] = [];
+    
     export function drawField(): void {
         crc2.fillStyle = "green";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
@@ -200,5 +200,7 @@ namespace Endaufgabe_FußballSiumulation {
             crc2.stroke();
             crc2.restore();
         }
+        console.log("Drawn");
+        
     }
 }
