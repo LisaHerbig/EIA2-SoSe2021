@@ -157,6 +157,7 @@ namespace Endaufgabe_FußballSiumulation {
 
     export function drawShirt(_position: Vector, _color: string, _typ: string, _team: string): void {
         crc2.save();
+        crc2.scale(0.7, 0.7);
         crc2.beginPath();
         crc2.moveTo(_position.x - canvas.width / 110 * 3, _position.y - canvas.height / 75 * 2);
         crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4,  _position.y - canvas.height / 75 * 2);
@@ -171,7 +172,6 @@ namespace Endaufgabe_FußballSiumulation {
         crc2.closePath();
         crc2.fillStyle = _color;
         crc2.fill();
-        
         if (_team == "team1") {
             crc2.strokeStyle = "white";
             crc2.lineWidth = 3;

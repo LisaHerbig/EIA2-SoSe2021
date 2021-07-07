@@ -150,6 +150,7 @@ var Endaufgabe_FußballSiumulation;
     Endaufgabe_FußballSiumulation.drawField = drawField;
     function drawShirt(_position, _color, _typ, _team) {
         Endaufgabe_FußballSiumulation.crc2.save();
+        Endaufgabe_FußballSiumulation.crc2.scale(0.7, 0.7);
         Endaufgabe_FußballSiumulation.crc2.beginPath();
         Endaufgabe_FußballSiumulation.crc2.moveTo(_position.x - Endaufgabe_FußballSiumulation.canvas.width / 110 * 3, _position.y - Endaufgabe_FußballSiumulation.canvas.height / 75 * 2);
         Endaufgabe_FußballSiumulation.crc2.lineTo((_position.x - Endaufgabe_FußballSiumulation.canvas.width / 110 * 3) + Endaufgabe_FußballSiumulation.canvas.width / 110 * 4, _position.y - Endaufgabe_FußballSiumulation.canvas.height / 75 * 2);
