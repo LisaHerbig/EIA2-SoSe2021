@@ -143,6 +143,7 @@ namespace Endaufgabe_FußballSiumulation {
         setUpTeam2();
         setUpReferee();
         setUpLineJudge();
+        drawBall(new Vector(width / 2, height / 2));
        
         //drawShirt(positionsT1[2], "blue", "player", "team1");
         //console.log(canvas.height, canvas.width, canvas.height / 75 * 10, new Vector(canvas.width / 110 * 75, (canvas.height / 75 * 68)));
@@ -166,7 +167,7 @@ namespace Endaufgabe_FußballSiumulation {
     }
 
     function setUpReferee(): void {
-        let referee: Referee = new Referee(new Vector(width / 110 * 56, height / 2 + 30), colorReferee);
+        let referee: Referee = new Referee(new Vector(width / 110 * 60, height / 2 + 30), colorReferee);
         referee.draw();
         moveables.push(referee);
     }

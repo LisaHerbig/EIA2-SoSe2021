@@ -128,6 +128,7 @@ var Endaufgabe_FußballSiumulation;
         setUpTeam2();
         setUpReferee();
         setUpLineJudge();
+        Endaufgabe_FußballSiumulation.drawBall(new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 2, Endaufgabe_FußballSiumulation.height / 2));
         //drawShirt(positionsT1[2], "blue", "player", "team1");
         //console.log(canvas.height, canvas.width, canvas.height / 75 * 10, new Vector(canvas.width / 110 * 75, (canvas.height / 75 * 68)));
     }
@@ -146,7 +147,7 @@ var Endaufgabe_FußballSiumulation;
         }
     }
     function setUpReferee() {
-        let referee = new Endaufgabe_FußballSiumulation.Referee(new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 56, Endaufgabe_FußballSiumulation.height / 2 + 30), colorReferee);
+        let referee = new Endaufgabe_FußballSiumulation.Referee(new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 60, Endaufgabe_FußballSiumulation.height / 2 + 30), colorReferee);
         referee.draw();
         moveables.push(referee);
     }

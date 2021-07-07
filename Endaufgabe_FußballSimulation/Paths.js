@@ -195,5 +195,39 @@ var Endaufgabe_FußballSiumulation;
         console.log("Drawn");
     }
     Endaufgabe_FußballSiumulation.drawShirt = drawShirt;
+    function drawBall(_position) {
+        Endaufgabe_FußballSiumulation.crc2.save();
+        Endaufgabe_FußballSiumulation.crc2.beginPath();
+        Endaufgabe_FußballSiumulation.crc2.arc(_position.x, _position.y, Endaufgabe_FußballSiumulation.width / 110 * 1.5, 0, 2 * Math.PI);
+        Endaufgabe_FußballSiumulation.crc2.fillStyle = "white";
+        Endaufgabe_FußballSiumulation.crc2.fill();
+        Endaufgabe_FußballSiumulation.crc2.closePath();
+        Endaufgabe_FußballSiumulation.crc2.restore();
+        Endaufgabe_FußballSiumulation.crc2.save();
+        Endaufgabe_FußballSiumulation.crc2.beginPath();
+        Endaufgabe_FußballSiumulation.crc2.moveTo(_position.x - 5, _position.y - 7);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(_position.x + 5, _position.y - 7);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(_position.x + 7, _position.y);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(_position.x, _position.y + 6);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(_position.x - 7, _position.y);
+        Endaufgabe_FußballSiumulation.crc2.closePath();
+        Endaufgabe_FußballSiumulation.crc2.fillStyle = "black";
+        Endaufgabe_FußballSiumulation.crc2.fill();
+        Endaufgabe_FußballSiumulation.crc2.restore();
+        Endaufgabe_FußballSiumulation.crc2.save();
+        Endaufgabe_FußballSiumulation.crc2.beginPath();
+        Endaufgabe_FußballSiumulation.crc2.moveTo(_position.x - 5, _position.y - 7);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(_position.x - 9, _position.y - 12);
+        Endaufgabe_FußballSiumulation.crc2.moveTo(_position.x + 5, _position.y - 7);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(_position.x + 9, _position.y - 12);
+        Endaufgabe_FußballSiumulation.crc2.moveTo(_position.x + 7, _position.y);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(_position.x + 15, _position.y + 4);
+        Endaufgabe_FußballSiumulation.crc2.moveTo(_position.x, _position.y + 6);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(_position.x, _position.y + 14);
+        Endaufgabe_FußballSiumulation.crc2.moveTo(_position.x - 7, _position.y);
+        Endaufgabe_FußballSiumulation.crc2.lineTo(_position.x - 15, _position.y + 4);
+        Endaufgabe_FußballSiumulation.crc2.stroke();
+    }
+    Endaufgabe_FußballSiumulation.drawBall = drawBall;
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Paths.js.map
