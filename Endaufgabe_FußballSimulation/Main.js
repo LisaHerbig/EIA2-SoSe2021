@@ -26,11 +26,12 @@ var Endaufgabe_FußballSiumulation;
     //let goalsT1: number [] = [];
     //let goalsT2: number [] = [];
     //let backNumbers: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-    //enum Task {
-    // STAND,
-    // MOVE,
-    // MOVEHOME
-    //}
+    let TASK;
+    (function (TASK) {
+        TASK[TASK["STAND"] = 0] = "STAND";
+        TASK[TASK["MOVE"] = 1] = "MOVE";
+        TASK[TASK["MOVEHOME"] = 2] = "MOVEHOME";
+    })(TASK = Endaufgabe_FußballSiumulation.TASK || (Endaufgabe_FußballSiumulation.TASK = {}));
     //HTML Elemente Startseite
     let form = document.querySelector("form");
     let btnStart = document.getElementById("btn");
@@ -120,6 +121,9 @@ var Endaufgabe_FußballSiumulation;
         //crc2.fillStyle = "green";
         //crc2.fillRect(0, 0, canvas.width, canvas.height);
         Endaufgabe_FußballSiumulation.drawField();
+        for (let i = 0; i < 23; i++) {
+            Endaufgabe_FußballSiumulation.drawShirt(new Endaufgabe_FußballSiumulation.Vector(100 + 50 * i, 100), "yellow", "player", "team1");
+        }
     }
     function handleNewGame() {
         location.reload();

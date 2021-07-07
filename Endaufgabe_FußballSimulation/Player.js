@@ -1,0 +1,21 @@
+"use strict";
+var Endaufgabe_FußballSiumulation;
+(function (Endaufgabe_FußballSiumulation) {
+    class Player extends Endaufgabe_FußballSiumulation.Moveable {
+        constructor(_position) {
+            super(_position);
+            this.type = "player";
+            this.task = Endaufgabe_FußballSiumulation.TASK.STAND;
+            this.position = _position;
+            this.radius = Endaufgabe_FußballSiumulation.canvas.width / 110 * 30;
+        }
+        move(_speed, _start, _end) {
+            console.log("Player moves evenly toward ball");
+        }
+        draw() {
+            Endaufgabe_FußballSiumulation.drawShirt(this.position, this.jerseyColor, this.type, this.team);
+        }
+    }
+    Endaufgabe_FußballSiumulation.Player = Player;
+})(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
+//# sourceMappingURL=Player.js.map
