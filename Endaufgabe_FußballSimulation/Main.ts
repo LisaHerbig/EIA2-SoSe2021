@@ -28,7 +28,7 @@ namespace Endaufgabe_FußballSiumulation {
 
     //Sounds
     //let applaus: HTMLAudioElement = <HTMLAudioElement> new Audio ("Sounds/Applaus.wav");
-    let atmo: HTMLAudioElement = new Audio ("Sounds/67-Atmo.wav");
+    let atmo: HTMLAudioElement = new Audio ("Sounds/Atmo.wav");
     //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
 
     let positionsT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
@@ -228,6 +228,8 @@ namespace Endaufgabe_FußballSiumulation {
     function update(): void {
         crc2.clearRect(0, 0, canvas.width, canvas.height);
         crc2.putImageData(imgData, 0, 0);
+
+        checkIfClose();
  
         for (let moveable of moveables) {
                  //moveable.move(1 / 50); 
@@ -238,6 +240,10 @@ namespace Endaufgabe_FußballSiumulation {
     /*
     *Function to see if player is close to ball
     */
-   
+    function checkIfClose(): void {
+        console.log("check");
+        
+   }
+
 
 }

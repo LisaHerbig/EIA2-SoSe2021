@@ -40,7 +40,10 @@ namespace Endaufgabe_FußballSiumulation {
             drawShirt(this.position, this.jerseyColor, this.type, this.team);
         }
 
-        changeTask(): void {
+        changeTask(_task?: TASK): void {
+            if (_task)
+                this.task = _task;
+                
             switch (this.task) {
                 case TASK.STAND:
                     console.log("stay");

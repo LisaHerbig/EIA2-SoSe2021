@@ -27,7 +27,9 @@ var Endaufgabe_FußballSiumulation;
         draw() {
             Endaufgabe_FußballSiumulation.drawShirt(this.position, this.jerseyColor, this.type, this.team);
         }
-        changeTask() {
+        changeTask(_task) {
+            if (_task)
+                this.task = _task;
             switch (this.task) {
                 case Endaufgabe_FußballSiumulation.TASK.STAND:
                     console.log("stay");
