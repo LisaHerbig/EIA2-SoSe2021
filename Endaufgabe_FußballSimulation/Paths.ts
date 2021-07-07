@@ -194,8 +194,8 @@ namespace Endaufgabe_FußballSiumulation {
         if (_typ == "referee") {
             crc2.save();
             crc2.beginPath();
-            crc2.moveTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 1, _position.y - canvas.height / 75 * 1);
-            crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 1, _position.y - canvas.height / 75 * 6);
+            crc2.moveTo((_position.x - canvas.width / 110 * 2.5) + canvas.width / 110 + 10, _position.y - canvas.height / 75 * 5);
+            crc2.lineTo((_position.x - canvas.width / 110 * 2.5) + canvas.width / 110 + 10, _position.y - canvas.height / 75 * 3);
             crc2.lineWidth = 3;
             crc2.stroke();
             crc2.restore();

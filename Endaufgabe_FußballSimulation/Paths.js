@@ -186,8 +186,8 @@ var Endaufgabe_FußballSiumulation;
         if (_typ == "referee") {
             Endaufgabe_FußballSiumulation.crc2.save();
             Endaufgabe_FußballSiumulation.crc2.beginPath();
-            Endaufgabe_FußballSiumulation.crc2.moveTo((_position.x - Endaufgabe_FußballSiumulation.canvas.width / 110 * 2) + Endaufgabe_FußballSiumulation.canvas.width / 110 * 1, _position.y - Endaufgabe_FußballSiumulation.canvas.height / 75 * 1);
-            Endaufgabe_FußballSiumulation.crc2.lineTo((_position.x - Endaufgabe_FußballSiumulation.canvas.width / 110 * 2) + Endaufgabe_FußballSiumulation.canvas.width / 110 * 1, _position.y - Endaufgabe_FußballSiumulation.canvas.height / 75 * 6);
+            Endaufgabe_FußballSiumulation.crc2.moveTo((_position.x - Endaufgabe_FußballSiumulation.canvas.width / 110 * 2.5) + Endaufgabe_FußballSiumulation.canvas.width / 110 + 10, _position.y - Endaufgabe_FußballSiumulation.canvas.height / 75 * 5);
+            Endaufgabe_FußballSiumulation.crc2.lineTo((_position.x - Endaufgabe_FußballSiumulation.canvas.width / 110 * 2.5) + Endaufgabe_FußballSiumulation.canvas.width / 110 + 10, _position.y - Endaufgabe_FußballSiumulation.canvas.height / 75 * 3);
             Endaufgabe_FußballSiumulation.crc2.lineWidth = 3;
             Endaufgabe_FußballSiumulation.crc2.stroke();
             Endaufgabe_FußballSiumulation.crc2.restore();

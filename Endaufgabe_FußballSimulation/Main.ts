@@ -140,6 +140,9 @@ namespace Endaufgabe_FußballSiumulation {
         
         drawField();
         setUpTeam1();
+        setUpTeam2();
+        setUpReferee();
+        setUpLineJudge();
        
         //drawShirt(positionsT1[2], "blue", "player", "team1");
         //console.log(canvas.height, canvas.width, canvas.height / 75 * 10, new Vector(canvas.width / 110 * 75, (canvas.height / 75 * 68)));
@@ -151,6 +154,34 @@ namespace Endaufgabe_FußballSiumulation {
             let playerT1: Player = new Player(positionsT1[i], team1, colorTeam1, backNumbers[i], "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax)); 
             playerT1.draw();
             moveables.push(playerT1);
+        }
+    }
+
+    function setUpTeam2(): void {
+        for (let i: number = 0; i < 11; i ++) {
+            let playerT2: Player = new Player(positionsT2[i], team2, colorTeam2, backNumbers[i], "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            playerT2.draw();
+            moveables.push(playerT2);
+        }
+    }
+
+    function setUpReferee(): void {
+        let referee: Referee = new Referee(new Vector(width / 110 * 56, height / 2 + 30), colorReferee);
+        referee.draw();
+        moveables.push(referee);
+    }
+
+    function setUpLineJudge(): void {
+        for (let i: number = 0; i < 2; i++) {
+            if (i == 0) {
+            let lineJudge: LineJudge = new LineJudge(new Vector(width / 2, height / 75 * 76.5), colorLineJudge);
+            lineJudge.draw();
+            moveables.push(lineJudge);
+            } else {
+                let lineJudge: LineJudge = new LineJudge (new Vector(width / 2, height / 75 * 6.5), colorLineJudge);
+                lineJudge.draw();
+                moveables.push(lineJudge);
+            }
         }
     }
 
