@@ -136,9 +136,57 @@ namespace Endaufgabe_FußballSiumulation {
         //crc2.fillStyle = "green";
         //crc2.fillRect(0, 0, canvas.width, canvas.height);
         drawField();
-        for (let i: number = 0; i < 23; i++) {
-        drawShirt(new Vector(100 + 50 * i, 100), "yellow", "player", "team1");
-        }
+        //TWT1
+        drawShirt(new Vector(canvas.width / 110 * 10, (canvas.height / 2) + 30), "red", "player", "team1");
+        //AWT1
+        drawShirt(new Vector(canvas.width / 110 * 15, canvas.height / 75 * 17), "red", "player", "team1");
+        //AW2T2
+        drawShirt(new Vector(canvas.width / 110 * 15, (canvas.height / 75 * 65)), "red", "player", "team1");
+        //S3T2
+        drawShirt(new Vector(canvas.width / 110 * 21.5, (canvas.height / 2 + 110)), "yellow", "player", "team2");
+        //S2T2
+        drawShirt(new Vector(canvas.width / 110 * 21.5, (canvas.height / 2 - 50)), "yellow", "player", "team2");
+        //S1T2
+        drawShirt(new Vector(canvas.width / 110 * 35, (canvas.height / 75 * 15)), "yellow", "player", "team2");
+        //S4T2
+        drawShirt(new Vector(canvas.width / 110 * 35, (canvas.height / 75 * 68)), "yellow", "player", "team2");
+        //M1T1
+        drawShirt(new Vector(canvas.width / 110 * 32, (canvas.height / 2 + 30)), "red", "player", "team1");
+        //M3T1
+        drawShirt(new Vector(canvas.width / 110 * 43, (canvas.height / 2 + 180 )), "red", "player", "team1");
+        //M2T1
+        drawShirt(new Vector(canvas.width / 110 * 43, (canvas.height / 2 - 110 )), "red", "player", "team1");
+        //M1T2
+        drawShirt(new Vector(canvas.width / 110 * 54, (canvas.height / 2 - 60 )), "yellow", "player", "team2");
+        //M2T2
+        //drawShirt(new Vector(canvas.width / 110 * 55, (canvas.height / 2 + 230 )), "yellow", "player", "team2");
+        //M4T1
+        drawShirt(new Vector(canvas.width / 110 * 57, (canvas.height / 2 + 125 )), "red", "player", "team1");
+        //M5T1
+        //drawShirt(new Vector(canvas.width / 110 * 56, (canvas.height / 2 - 160 )), "red", "player", "team1");
+        //TWT1
+        drawShirt(new Vector(canvas.width / 110 * 100, (canvas.height / 2 + 30 )), "yellow", "player", "team2");
+        //AW1T2
+        drawShirt(new Vector(canvas.width / 110 * 95, (canvas.height / 75 * 17)), "yellow", "player", "team2");
+        //AW2T2
+        drawShirt(new Vector(canvas.width / 110 * 95, (canvas.height / 75 * 65)), "yellow", "player", "team2");
+        //s2T1
+        drawShirt(new Vector(canvas.width / 110 * 88.5, (canvas.height / 2 - 50)), "red", "player", "team1");
+        //S3T1
+        drawShirt(new Vector(canvas.width / 110 * 88.5, (canvas.height / 2 + 110)), "red", "player", "team1");
+        //M5T2
+        drawShirt(new Vector(canvas.width / 110 * 78, (canvas.height / 2 + 30)), "yellow", "player", "team2");
+        //M3T2
+        drawShirt(new Vector(canvas.width / 110 * 67, (canvas.height / 2 + 180 )), "yellow", "player", "team2");
+        //M4T2
+        drawShirt(new Vector(canvas.width / 110 * 67, (canvas.height / 2 - 110 )), "yellow", "player", "team2");
+        //S1T1
+        drawShirt(new Vector(canvas.width / 110 * 75, (canvas.height / 75 * 15)), "red", "player", "team1");
+        //S4T1
+        drawShirt(new Vector(canvas.width / 110 * 75, (canvas.height / 75 * 68)), "red", "player", "team1");
+        
+        console.log(canvas.height, canvas.width, canvas.height / 75);
+        
     }
 
     function handleNewGame(): void {

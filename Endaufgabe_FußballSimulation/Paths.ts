@@ -1,4 +1,5 @@
 namespace Endaufgabe_FußballSiumulation {
+    export let positionsT1: Vector [] = [];
     export function drawField(): void {
         crc2.fillStyle = "green";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
@@ -157,32 +158,34 @@ namespace Endaufgabe_FußballSiumulation {
 
     export function drawShirt(_position: Vector, _color: string, _typ: string, _team: string): void {
         crc2.save();
-        crc2.scale(0.7, 0.7);
         crc2.beginPath();
-        crc2.moveTo(_position.x - canvas.width / 110 * 3, _position.y - canvas.height / 75 * 2);
-        crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4,  _position.y - canvas.height / 75 * 2);
-        crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 3);
-        crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4 + canvas.width / 110 * 1, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 3 + canvas.height / 75 * 1);
-        crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4 + 2 * (canvas.width / 110 * 1), (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 3);
-        crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 2, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 5);
-        crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 6, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 5);
-        crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 8, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 3);
-        crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 7, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 2);
-        crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 6, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 3);
+        crc2.moveTo(_position.x - canvas.width / 110 * 2, _position.y - canvas.height / 75 * 2);
+        crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3,  _position.y - canvas.height / 75 * 2);
+        crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 2);
+        crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3 + canvas.width / 110 * 1, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 2 + canvas.height / 75 * 1);
+        crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3 + 2 * (canvas.width / 110 * 1), (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 2);
+        crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 2, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 4);
+        crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 5, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 4);
+        crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 7, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 2);
+        crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 6, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 1);
+        crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3 + 2 * (canvas.width / 110 * 1) - canvas.width / 110 * 5, (_position.y - canvas.height / 75 * 2) - canvas.height / 75 * 2);
         crc2.closePath();
         crc2.fillStyle = _color;
         crc2.fill();
-        if (_team == "team1") {
-            crc2.strokeStyle = "white";
-            crc2.lineWidth = 3;
-            crc2.stroke();
-        }
         crc2.restore();
+        if (_team == "team1") {
+            crc2.save();
+            crc2.strokeStyle = "white";
+            crc2.lineWidth = 2;
+            crc2.stroke();
+            crc2.restore();
+        }
+        //crc2.restore();
         if (_typ == "lineJudge") {
             crc2.save();
             crc2.beginPath();
-            crc2.moveTo(_position.x - canvas.width / 110 * 3, _position.y - canvas.height / 75 * 4);
-            crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 4, _position.y - canvas.height / 75 * 4);
+            crc2.moveTo(_position.x - canvas.width / 110 * 2, _position.y - canvas.height / 75 * 3);
+            crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 3, _position.y - canvas.height / 75 * 3);
             crc2.closePath();
             crc2.lineWidth = 7;
             crc2.stroke();
@@ -191,8 +194,8 @@ namespace Endaufgabe_FußballSiumulation {
         if (_typ == "referee") {
             crc2.save();
             crc2.beginPath();
-            crc2.moveTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 2, _position.y - canvas.height / 75 * 2);
-            crc2.lineTo((_position.x - canvas.width / 110 * 3) + canvas.width / 110 * 2, _position.y - canvas.height / 75 * 7);
+            crc2.moveTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 1, _position.y - canvas.height / 75 * 1);
+            crc2.lineTo((_position.x - canvas.width / 110 * 2) + canvas.width / 110 * 1, _position.y - canvas.height / 75 * 6);
             crc2.lineWidth = 3;
             crc2.stroke();
             crc2.restore();
