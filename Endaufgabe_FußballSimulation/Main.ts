@@ -32,11 +32,11 @@ namespace Endaufgabe_FußballSiumulation {
 
     let positionsT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
     let positionsT2: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
-    //let moveables: Moveable [] = [];
+    let moveables: Moveable [] = [];
     //let animation: boolean = true;
     //let goalsT1: number [] = [];
     //let goalsT2: number [] = [];
-    //let backNumbers: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    let backNumbers: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     export enum TASK {
         STAND,
         MOVE,
@@ -47,6 +47,10 @@ namespace Endaufgabe_FußballSiumulation {
     let form: HTMLFormElement = <HTMLFormElement> document.querySelector("form");
     let btnStart: HTMLButtonElement = <HTMLButtonElement> document.getElementById("btn");
     let explain: HTMLElement = <HTMLElement>document.getElementById("explain");
+
+    export function createRandomNum(_min: number, _max: number): number {
+        return Math.floor(Math.random() * (_max - _min + 1) + _min);
+    }
 
     function handleLoad(): void {
         form.addEventListener("change", handleChange);
@@ -135,10 +139,19 @@ namespace Endaufgabe_FußballSiumulation {
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d"); 
         
         drawField();
+        setUpTeam1();
+       
+        //drawShirt(positionsT1[2], "blue", "player", "team1");
+        //console.log(canvas.height, canvas.width, canvas.height / 75 * 10, new Vector(canvas.width / 110 * 75, (canvas.height / 75 * 68)));
         
-        drawShirt(positionsT1[2], "blue", "player", "team1");
-        console.log(canvas.height, canvas.width, canvas.height / 75 * 10, new Vector(canvas.width / 110 * 75, (canvas.height / 75 * 68)));
-        
+    }
+
+    function setUpTeam1(): void {
+        for (let i: number = 0; i < 11; i ++) {
+            let playerT1: Player = new Player(positionsT1[i], team1, colorTeam1, backNumbers[i], "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax)); 
+            playerT1.draw();
+            moveables.push(playerT1);
+        }
     }
 
     function handleNewGame(): void {
