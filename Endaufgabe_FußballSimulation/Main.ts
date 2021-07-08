@@ -265,7 +265,7 @@ namespace Endaufgabe_FußballSiumulation {
             
 
             if (length <= canvas.width / 110 * 30) {
-                player[j].changeTask(TASK.MOVE);
+                player[j].changeTask(TASK.MOVE, ball[0].position);
                 console.log("Yes!");
                 
             }

@@ -19,11 +19,16 @@ namespace Endaufgabe_FußballSiumulation {
             this.team = _team;
             this.speed = _speed;
             this.precision = _precision;
-            this.radius = canvas.width / 110 * 30;
+            //this.radius = canvas.width / 110 * 30;
         }
         
-        move(): void {
-           console.log("Player moves evenly toward ball");
+        move(_ballPosition?: Vector): void {
+           console.log("Player moves evenly towards ball");
+           if (_ballPosition) {
+           let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
+           difference.scale(1 /  8);
+           this.position.add(difference);
+           }
 
         }
         
@@ -40,7 +45,7 @@ namespace Endaufgabe_FußballSiumulation {
             drawShirt(this.position, this.jerseyColor, this.type, this.team);
         }
 
-        changeTask(_task?: TASK): void {
+        changeTask(_task?: TASK, _ball?: Vector): void {
             if (_task)
                 this.task = _task;
                 
@@ -49,7 +54,8 @@ namespace Endaufgabe_FußballSiumulation {
                     console.log("stay");
                     break;
                 case TASK.MOVE:
-                    console.log("moveToBallPosition");
+                    //console.log("moveToBallPosition");
+                    this.move(_ball);
                     break;
                 case TASK.MOVEHOME:
                     console.log("MoveBackToPosition");

@@ -13,10 +13,15 @@ var Endaufgabe_FußballSiumulation;
             this.team = _team;
             this.speed = _speed;
             this.precision = _precision;
-            this.radius = Endaufgabe_FußballSiumulation.canvas.width / 110 * 30;
+            //this.radius = canvas.width / 110 * 30;
         }
-        move() {
-            console.log("Player moves evenly toward ball");
+        move(_ballPosition) {
+            console.log("Player moves evenly towards ball");
+            if (_ballPosition) {
+                let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(_ballPosition, this.position);
+                difference.scale(1 / 8);
+                this.position.add(difference);
+            }
         }
         moveHome() {
             console.log("MoveHome");
@@ -27,7 +32,7 @@ var Endaufgabe_FußballSiumulation;
         draw() {
             Endaufgabe_FußballSiumulation.drawShirt(this.position, this.jerseyColor, this.type, this.team);
         }
-        changeTask(_task) {
+        changeTask(_task, _ball) {
             if (_task)
                 this.task = _task;
             switch (this.task) {
@@ -35,7 +40,8 @@ var Endaufgabe_FußballSiumulation;
                     console.log("stay");
                     break;
                 case Endaufgabe_FußballSiumulation.TASK.MOVE:
-                    console.log("moveToBallPosition");
+                    //console.log("moveToBallPosition");
+                    this.move(_ball);
                     break;
                 case Endaufgabe_FußballSiumulation.TASK.MOVEHOME:
                     console.log("MoveBackToPosition");

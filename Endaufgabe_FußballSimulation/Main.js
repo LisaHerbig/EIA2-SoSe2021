@@ -228,7 +228,7 @@ var Endaufgabe_FußballSiumulation;
             let length = difference.length;
             console.log(length / 110, difference, Endaufgabe_FußballSiumulation.width / 110 * length);
             if (length <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 30) {
-                player[j].changeTask(TASK.MOVE);
+                player[j].changeTask(TASK.MOVE, ball[0].position);
                 console.log("Yes!");
             }
         }

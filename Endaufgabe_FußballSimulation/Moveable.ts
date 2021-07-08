@@ -16,7 +16,7 @@ namespace Endaufgabe_FußballSiumulation {
             return false;
         }
 
-        abstract move(_speed: number, _start: Vector, _end: Vector): void;
+        abstract move(): void;
         abstract draw(): void;
     }
 }
