@@ -231,8 +231,7 @@ namespace Endaufgabe_FußballSiumulation {
 
         checkIfClose();
  
-        for (let moveable of moveables) {
-                 //moveable.move(1 / 50); 
+        for (let moveable of moveables) { 
                  moveable.draw(); 
         }
     }

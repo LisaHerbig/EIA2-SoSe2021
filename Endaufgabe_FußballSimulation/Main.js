@@ -202,7 +202,6 @@ var Endaufgabe_FußballSiumulation;
         Endaufgabe_FußballSiumulation.crc2.putImageData(imgData, 0, 0);
         checkIfClose();
         for (let moveable of moveables) {
-            //moveable.move(1 / 50); 
             moveable.draw();
         }
     }
