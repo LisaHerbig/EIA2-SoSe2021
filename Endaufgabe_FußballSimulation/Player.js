@@ -16,11 +16,15 @@ var Endaufgabe_FußballSiumulation;
             //this.radius = canvas.width / 110 * 30;
         }
         move(_ballPosition) {
-            console.log("Player moves evenly towards ball");
+            //console.log("Player moves evenly towards ball");
             if (_ballPosition) {
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(_ballPosition, this.position);
                 difference.scale(1 / this.speed);
                 this.position.add(difference);
+                if (this.position == _ballPosition) {
+                    let event = new CustomEvent("first_player", { detail: { player: this } });
+                    Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
+                }
             }
         }
         moveHome() {

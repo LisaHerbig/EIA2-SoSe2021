@@ -8,6 +8,7 @@ namespace Endaufgabe_FußballSiumulation {
     canvas.height = canvas.width / 110 * 75;
     export let width: number = Number (canvas.width);
     export let height: number = Number (canvas.height);
+    canvas.addEventListener("first_player", handleReach);
 
     let imgData: ImageData;
     //Div  score and ball possesstion
@@ -34,7 +35,7 @@ namespace Endaufgabe_FußballSiumulation {
     let positionsT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
     let positionsT2: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
     let moveables: Moveable [] = [];
-    //let animation: boolean = true;
+    let animation: boolean = true;
     //let goalsT1: number [] = [];
     //let goalsT2: number [] = [];
     let backNumbers: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -220,19 +221,23 @@ namespace Endaufgabe_FußballSiumulation {
     function playSound(_soundname: HTMLAudioElement): void {
         _soundname.play();
     }
+    
+
 
     /*
     *Function for Animation
     */
 
     function update(): void {
-        crc2.clearRect(0, 0, canvas.width, canvas.height);
-        crc2.putImageData(imgData, 0, 0);
+        if (animation == true) {
+            crc2.clearRect(0, 0, canvas.width, canvas.height);
+            crc2.putImageData(imgData, 0, 0);
 
-        checkIfClose();
- 
-        for (let moveable of moveables) { 
-                 moveable.draw(); 
+            checkIfClose();
+    
+            for (let moveable of moveables) { 
+                    moveable.draw(); 
+            }
         }
     }
 
@@ -260,12 +265,12 @@ namespace Endaufgabe_FußballSiumulation {
             let v2: Vector = new Vector(ball[0].position.x, ball[0].position.y);
             let difference: Vector = Vector.getDifference(v1, v2);
             let length: number = difference.length;
-            console.log(length / 110, difference, width / 110 * length);
+            //console.log(length / 110, difference, width / 110 * length);
             
 
             if (length <= canvas.width / 110 * 30) {
                 player[j].changeTask(TASK.MOVE, ball[0].position);
-                console.log("Yes!");
+                //console.log("Yes!");
                 
             }
 
@@ -273,5 +278,12 @@ namespace Endaufgabe_FußballSiumulation {
         
    }
 
+    function handleReach(): void {
+        console.log("reached");
+        
+        animation = false;
+        atmo.pause();
+        
+   }
 
 }

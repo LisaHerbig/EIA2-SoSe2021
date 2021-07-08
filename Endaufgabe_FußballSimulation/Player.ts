@@ -23,11 +23,16 @@ namespace Endaufgabe_FußballSiumulation {
         }
         
         move(_ballPosition?: Vector): void {
-           console.log("Player moves evenly towards ball");
+           //console.log("Player moves evenly towards ball");
            if (_ballPosition) {
            let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
            difference.scale(1 / this.speed);
            this.position.add(difference);
+
+           if (this.position == _ballPosition) {
+                let event: CustomEvent = new CustomEvent("first_player", {detail: {player: this}});
+                crc2.canvas.dispatchEvent(event);
+           }
            }
 
         }
