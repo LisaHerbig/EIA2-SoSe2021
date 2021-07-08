@@ -26,7 +26,7 @@ namespace Endaufgabe_FußballSiumulation {
            console.log("Player moves evenly towards ball");
            if (_ballPosition) {
            let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
-           difference.scale(1 /  8);
+           difference.scale(1 / this.speed);
            this.position.add(difference);
            }
 
