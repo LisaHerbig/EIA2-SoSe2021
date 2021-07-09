@@ -34,7 +34,7 @@ var Endaufgabe_FußballSiumulation;
             }
         }
         displayBallPossession(_nation, _backNumber) {
-            //
+            Endaufgabe_FußballSiumulation.inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
         }
         moveHome() {
             console.log("MoveHome");

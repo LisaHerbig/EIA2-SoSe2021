@@ -7,10 +7,36 @@ namespace Endaufgabe_FußballSiumulation {
         constructor(_position: Vector) {
             super (_position);
             this.position = _position;
-
         }
-        move(): void {
-            //console.log("Ball moves towards click position");  
+        move(_event?: MouseEvent): void {
+            console.log("Ball moves towards click position");  
+            if (_event) {
+                let x: number = _event.clientX;
+                let y: number = _event.clientY;
+                let clickPosition: Vector = new Vector(x, y);
+                let difference: Vector = Vector.getDifference(clickPosition, this.position);
+                let length: number = difference.length / 10;
+                console.log(length / 10);
+
+                if (length > 55) {
+                    console.log("Radius muss super groß sein");  
+                }
+                if (length > 30) {
+                    console.log("Radius muss groß sein");  
+                }
+                if (length < 30) {
+                    console.log("Radius smaller");
+                    if (length < 25) {
+                        console.log("smaller");
+                        if (length < 10) {
+                            console.log("Super small");
+                            
+                        }
+                        
+                    }
+                    
+                }
+            }
         }
 
         draw(): void {

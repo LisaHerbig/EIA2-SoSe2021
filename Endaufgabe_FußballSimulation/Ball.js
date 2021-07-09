@@ -7,8 +7,31 @@ var Endaufgabe_FußballSiumulation;
             this.start = new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 2, Endaufgabe_FußballSiumulation.height / 2);
             this.position = _position;
         }
-        move() {
-            //console.log("Ball moves towards click position");  
+        move(_event) {
+            console.log("Ball moves towards click position");
+            if (_event) {
+                let x = _event.clientX;
+                let y = _event.clientY;
+                let clickPosition = new Endaufgabe_FußballSiumulation.Vector(x, y);
+                let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(clickPosition, this.position);
+                let length = difference.length / 10;
+                console.log(length / 10);
+                if (length > 55) {
+                    console.log("Radius muss super groß sein");
+                }
+                if (length > 30) {
+                    console.log("Radius muss groß sein");
+                }
+                if (length < 30) {
+                    console.log("Radius smaller");
+                    if (length < 25) {
+                        console.log("smaller");
+                        if (length < 10) {
+                            console.log("Super small");
+                        }
+                    }
+                }
+            }
         }
         draw() {
             Endaufgabe_FußballSiumulation.drawBall(this.position);

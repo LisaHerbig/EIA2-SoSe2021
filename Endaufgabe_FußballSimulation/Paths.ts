@@ -205,6 +205,7 @@ namespace Endaufgabe_FußballSiumulation {
     export function drawBall(_position: Vector): void {
         crc2.save();
         crc2.beginPath();
+        //crc2.translate(_position.x, _position.y);
         crc2.arc(_position.x, _position.y, width / 110 * 1.5, 0, 2 * Math.PI);
         crc2.fillStyle = "white";
         crc2.fill();
@@ -225,16 +226,18 @@ namespace Endaufgabe_FußballSiumulation {
 
         crc2.save();
         crc2.beginPath();
-        crc2.moveTo(_position.x - 5, _position.y - 7);
-        crc2.lineTo(_position.x - 9, _position.y - 12);
-        crc2.moveTo(_position.x + 5, _position.y - 7);
-        crc2.lineTo(_position.x + 9, _position.y - 12);
-        crc2.moveTo(_position.x + 7, _position.y);
-        crc2.lineTo(_position.x + 15, _position.y + 4);
-        crc2.moveTo(_position.x, _position.y + 6);
-        crc2.lineTo(_position.x, _position.y + 14);
-        crc2.moveTo(_position.x - 7, _position.y);
-        crc2.lineTo(_position.x - 15, _position.y + 4);
+        crc2.moveTo(_position.x - 3, _position.y - 5);
+        crc2.lineTo(_position.x - 7, _position.y - 10);
+        crc2.moveTo(_position.x + 3, _position.y - 5);
+        crc2.lineTo(_position.x + 7, _position.y - 10);
+        crc2.moveTo(_position.x + 5, _position.y);
+        crc2.lineTo(_position.x + 13, _position.y + 2);
+        crc2.moveTo(_position.x, _position.y + 4);
+        crc2.lineTo(_position.x, _position.y + 12);
+        crc2.moveTo(_position.x - 5, _position.y);
+        crc2.lineTo(_position.x - 13, _position.y + 2);
+        //crc2.translate(_position.x, _position.y);
         crc2.stroke();
+        crc2.restore();
     }
 }

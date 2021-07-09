@@ -8,11 +8,11 @@ namespace Endaufgabe_FußballSiumulation {
     canvas.height = canvas.width / 110 * 75;
     export let width: number = Number (canvas.width);
     export let height: number = Number (canvas.height);
-    canvas.addEventListener("first_player", handleReach);
+    //canvas.addEventListener("first_player", handleReach);
 
     let imgData: ImageData;
     //Div  score and ball possesstion
-    let inPossession: HTMLDivElement = <HTMLDivElement> document.querySelector("#inPossession");
+    export let inPossession: HTMLDivElement = <HTMLDivElement> document.querySelector("#inPossession");
     let scoreBoard: HTMLDivElement = <HTMLDivElement> document.querySelector("#scoreBoard");
 
     //Variables for Formular
@@ -61,6 +61,9 @@ namespace Endaufgabe_FußballSiumulation {
     function handleLoad(): void {
         form.addEventListener("change", handleChange);
         btnStart.addEventListener("click", handleBtn);
+
+        canvas.addEventListener("first_player", handleReach);
+        canvas.addEventListener("click", handleClick);
     }
 
     /*
@@ -221,8 +224,6 @@ namespace Endaufgabe_FußballSiumulation {
     function playSound(_soundname: HTMLAudioElement): void {
         _soundname.play();
     }
-    
-
 
     /*
     *Function for Animation
@@ -266,24 +267,32 @@ namespace Endaufgabe_FußballSiumulation {
             let difference: Vector = Vector.getDifference(v1, v2);
             let length: number = difference.length;
             //console.log(length / 110, difference, width / 110 * length);
-            
-
             if (length <= canvas.width / 110 * 30) {
                 player[j].changeTask(TASK.MOVE, ball[0].position);
                 //console.log("Yes!");
-                
             }
-
         }
-        
    }
+
+   /*
+    *Function to handle when a player reached the ball
+    */
 
     function handleReach(): void {
-        console.log("reached");
-        
+        //console.log("reached");
         animation = false;
         atmo.pause();
-        
    }
 
+    function handleClick(_event: MouseEvent): void {
+    //content
+    console.log("click");
+    for (let moveable of moveables) {
+        if  (moveable instanceof Ball) {
+            let ball: Ball = moveable;
+            ball.move(_event);
+        }
+    }
+    
+   }
 }

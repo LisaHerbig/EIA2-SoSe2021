@@ -7,10 +7,10 @@ var Endaufgabe_FußballSiumulation;
     Endaufgabe_FußballSiumulation.canvas.height = Endaufgabe_FußballSiumulation.canvas.width / 110 * 75;
     Endaufgabe_FußballSiumulation.width = Number(Endaufgabe_FußballSiumulation.canvas.width);
     Endaufgabe_FußballSiumulation.height = Number(Endaufgabe_FußballSiumulation.canvas.height);
-    Endaufgabe_FußballSiumulation.canvas.addEventListener("first_player", handleReach);
+    //canvas.addEventListener("first_player", handleReach);
     let imgData;
     //Div  score and ball possesstion
-    let inPossession = document.querySelector("#inPossession");
+    Endaufgabe_FußballSiumulation.inPossession = document.querySelector("#inPossession");
     let scoreBoard = document.querySelector("#scoreBoard");
     //Variables for Formular
     let team1 = "";
@@ -54,6 +54,8 @@ var Endaufgabe_FußballSiumulation;
     function handleLoad() {
         form.addEventListener("change", handleChange);
         btnStart.addEventListener("click", handleBtn);
+        Endaufgabe_FußballSiumulation.canvas.addEventListener("first_player", handleReach);
+        Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleClick);
     }
     /*
     *Function to get Data from Form Element
@@ -124,8 +126,8 @@ var Endaufgabe_FußballSiumulation;
     *Function to prepare Game
     */
     function prepareGame() {
-        inPossession.removeAttribute("class");
-        inPossession.setAttribute("id", "inPossession");
+        Endaufgabe_FußballSiumulation.inPossession.removeAttribute("class");
+        Endaufgabe_FußballSiumulation.inPossession.setAttribute("id", "inPossession");
         scoreBoard.removeAttribute("class");
         scoreBoard.setAttribute("id", "scoreBoard");
         let newGame = document.createElement("button");
@@ -235,10 +237,23 @@ var Endaufgabe_FußballSiumulation;
             }
         }
     }
+    /*
+     *Function to handle when a player reached the ball
+     */
     function handleReach() {
-        console.log("reached");
+        //console.log("reached");
         animation = false;
         atmo.pause();
+    }
+    function handleClick(_event) {
+        //content
+        console.log("click");
+        for (let moveable of moveables) {
+            if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
+                let ball = moveable;
+                ball.move(_event);
+            }
+        }
     }
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map

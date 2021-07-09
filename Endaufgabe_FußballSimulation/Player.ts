@@ -44,8 +44,9 @@ namespace Endaufgabe_FußballSiumulation {
         }
         
         displayBallPossession(_nation: string, _backNumber: number): void {
-            //
+            inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
         }
+
         moveHome(): void {
             console.log("MoveHome");
             
