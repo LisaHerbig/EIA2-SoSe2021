@@ -23,20 +23,29 @@ namespace Endaufgabe_FußballSiumulation {
         }
         
         move(_ballPosition?: Vector): void {
-           //console.log("Player moves evenly towards ball");
+           //console.log("_ballPosition, this.position");
            if (_ballPosition) {
            let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
-           difference.scale(1 / this.speed);
-           this.position.add(difference);
+           let offset: Vector = new Vector (difference.x, difference.y);
+           offset.scale(1 / this.speed);
+           this.position.add(offset);
+           let playerPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
+           let ballPositionRound: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
+           console.log(ballPositionRound, playerPositionRound);
 
-           if (this.position == _ballPosition) {
-                let event: CustomEvent = new CustomEvent("first_player", {detail: {player: this}});
-                crc2.canvas.dispatchEvent(event);
+           if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
+               console.log("reachedBall", ballPositionRound);
+               let event: CustomEvent = new CustomEvent("first_player", {detail: {player: this}});
+               crc2.canvas.dispatchEvent(event);
+               this.displayBallPossession(this.nation, this.backNumber);
            }
            }
 
         }
         
+        displayBallPossession(_nation: string, _backNumber: number): void {
+            //
+        }
         moveHome(): void {
             console.log("MoveHome");
             

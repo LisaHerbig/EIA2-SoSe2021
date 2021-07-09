@@ -16,16 +16,25 @@ var Endaufgabe_FußballSiumulation;
             //this.radius = canvas.width / 110 * 30;
         }
         move(_ballPosition) {
-            //console.log("Player moves evenly towards ball");
+            //console.log("_ballPosition, this.position");
             if (_ballPosition) {
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(_ballPosition, this.position);
-                difference.scale(1 / this.speed);
-                this.position.add(difference);
-                if (this.position == _ballPosition) {
+                let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
+                offset.scale(1 / this.speed);
+                this.position.add(offset);
+                let playerPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
+                let ballPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
+                console.log(ballPositionRound, playerPositionRound);
+                if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
+                    console.log("reachedBall", ballPositionRound);
                     let event = new CustomEvent("first_player", { detail: { player: this } });
                     Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
+                    this.displayBallPossession(this.nation, this.backNumber);
                 }
             }
+        }
+        displayBallPossession(_nation, _backNumber) {
+            //
         }
         moveHome() {
             console.log("MoveHome");
