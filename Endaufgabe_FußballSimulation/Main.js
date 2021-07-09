@@ -252,6 +252,7 @@ var Endaufgabe_FußballSiumulation;
             if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
                 let ball = moveable;
                 ball.move(_event);
+                animation = true;
             }
         }
     }

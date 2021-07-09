@@ -291,6 +291,7 @@ namespace Endaufgabe_FußballSiumulation {
         if  (moveable instanceof Ball) {
             let ball: Ball = moveable;
             ball.move(_event);
+            animation = true;
         }
     }
     

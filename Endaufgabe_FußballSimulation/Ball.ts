@@ -1,7 +1,7 @@
 namespace Endaufgabe_FußballSiumulation {
     export class Ball extends Moveable {
         start: Vector = new Vector (width / 2, height / 2);
-        speed: number;
+        speed: number = 50;
         targetPosition: Vector;
 
         constructor(_position: Vector) {
@@ -16,6 +16,8 @@ namespace Endaufgabe_FußballSiumulation {
                 let clickPosition: Vector = new Vector(x, y);
                 let difference: Vector = Vector.getDifference(clickPosition, this.position);
                 let length: number = difference.length / 10;
+                let offset: Vector = new Vector(difference.x, difference.y);
+                offset.scale(1 / this.speed);
                 console.log(length / 10);
 
                 if (length > 55) {
@@ -25,6 +27,8 @@ namespace Endaufgabe_FußballSiumulation {
                     console.log("Radius muss groß sein");  
                 }
                 if (length < 30) {
+                    this.position.add(offset);
+                    //imation = true;
                     console.log("Radius smaller");
                     if (length < 25) {
                         console.log("smaller");

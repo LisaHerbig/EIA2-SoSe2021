@@ -5,6 +5,7 @@ var Endaufgabe_FußballSiumulation;
         constructor(_position) {
             super(_position);
             this.start = new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 2, Endaufgabe_FußballSiumulation.height / 2);
+            this.speed = 50;
             this.position = _position;
         }
         move(_event) {
@@ -15,6 +16,8 @@ var Endaufgabe_FußballSiumulation;
                 let clickPosition = new Endaufgabe_FußballSiumulation.Vector(x, y);
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(clickPosition, this.position);
                 let length = difference.length / 10;
+                let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
+                offset.scale(1 / this.speed);
                 console.log(length / 10);
                 if (length > 55) {
                     console.log("Radius muss super groß sein");
@@ -23,6 +26,8 @@ var Endaufgabe_FußballSiumulation;
                     console.log("Radius muss groß sein");
                 }
                 if (length < 30) {
+                    this.position.add(offset);
+                    //imation = true;
                     console.log("Radius smaller");
                     if (length < 25) {
                         console.log("smaller");
