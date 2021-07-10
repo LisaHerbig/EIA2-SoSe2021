@@ -39,7 +39,7 @@ namespace Endaufgabe_FußballSiumulation {
     let moveables: Moveable [] = [];
     let animation: boolean = true;
     export let checkClose: boolean = true;
-    let ballMoves: boolean = false;
+    export let ballMoves: boolean = false;
     //let goalsT1: number [] = [];
     //let goalsT2: number [] = [];
     let backNumbers: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -237,10 +237,14 @@ namespace Endaufgabe_FußballSiumulation {
         //console.log("update");
         
         if (animation == true) {
+            //console.log("animation");
+            
             crc2.clearRect(0, 0, canvas.width, canvas.height);
             crc2.putImageData(imgData, 0, 0);
 
             if (checkClose == true) {
+                //console.log("checkifClose");
+                
                 checkIfClose();
             }
 
@@ -276,7 +280,9 @@ namespace Endaufgabe_FußballSiumulation {
         let ball: Ball [] = [];
         let player: Player[] = [];
         //console.log(ball);
-
+        ball.length = 0;
+        player.length = 0;
+        
         for (let moveable of moveables) {
 
             if (moveable instanceof Player) {
@@ -294,6 +300,8 @@ namespace Endaufgabe_FußballSiumulation {
             let length: number = difference.length;
             //console.log(length / 110, difference, width / 110 * length);
             if (length <= canvas.width / 110 * 30) {
+                //console.log("length<30ChangeTaskTOMove");
+                
                 player[j].changeTask(TASK.MOVE, ball[0].position);
                 //console.log("Yes!");
             }
@@ -313,6 +321,7 @@ namespace Endaufgabe_FußballSiumulation {
         animation = true;
         checkClose = false;
         ballMoves = true;
+        playSound(atmo);
     }
 
     

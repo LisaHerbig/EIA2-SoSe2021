@@ -43,10 +43,12 @@ var Endaufgabe_FußballSiumulation;
             let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
             offset.scale(1 / this.speed);
             this.position.add(offset);
-            /*if (this.position.x == this.home.x && this.position.y == this.home.y) {
-                this.changeTask(TASK.STAND);
-                checkClose = true;
-            }*/
+            if (this.position.x == this.home.x && this.position.y == this.home.y) {
+                //this.changeTask(TASK.STAND);
+                Endaufgabe_FußballSiumulation.ballMoves = false;
+                Endaufgabe_FußballSiumulation.checkClose = true;
+                this.stand();
+            }
         }
         displayBallPossession(_nation, _backNumber) {
             Endaufgabe_FußballSiumulation.inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";

@@ -29,20 +29,21 @@ namespace Endaufgabe_FußballSiumulation {
             //console.log("move", this.home, this.position);
            //console.log("_ballPosition, this.position");
             if (_ballPosition) {
-            let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
-            let offset: Vector = new Vector (difference.x, difference.y);
-            offset.scale(1 / this.speed);
-            this.position.add(offset);
-            let playerPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
-            let ballPositionRound: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
-           //console.log(ballPositionRound, playerPositionRound);
+                    
+                let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
+                let offset: Vector = new Vector (difference.x, difference.y);
+                offset.scale(1 / this.speed);
+                this.position.add(offset);
+                let playerPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
+                let ballPositionRound: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
+            //console.log(ballPositionRound, playerPositionRound);
 
-            if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
-                //console.log("reachedBall", ballPositionRound);
-                let event: CustomEvent = new CustomEvent("first_player", {detail: {player: this}});
-                crc2.canvas.dispatchEvent(event);
-                this.displayBallPossession(this.nation, this.backNumber);
-            }
+                if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
+                    //console.log("reachedBall", ballPositionRound);
+                    let event: CustomEvent = new CustomEvent("first_player", {detail: {player: this}});
+                    crc2.canvas.dispatchEvent(event);
+                    this.displayBallPossession(this.nation, this.backNumber);
+                }
            }
             //console.log("endeMove", this.home, this.position);
 
@@ -55,10 +56,12 @@ namespace Endaufgabe_FußballSiumulation {
             offset.scale(1 / this.speed);
             this.position.add(offset); 
 
-            /*if (this.position.x == this.home.x && this.position.y == this.home.y) {
-                this.changeTask(TASK.STAND);
+            if (this.position.x == this.home.x && this.position.y == this.home.y) {
+                //this.changeTask(TASK.STAND);
+                ballMoves = false;
                 checkClose = true;
-            }*/
+                this.stand();
+            }
         }
         
         displayBallPossession(_nation: string, _backNumber: number): void {

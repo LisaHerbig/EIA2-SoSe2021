@@ -34,7 +34,7 @@ var Endaufgabe_FußballSiumulation;
     let moveables = [];
     let animation = true;
     Endaufgabe_FußballSiumulation.checkClose = true;
-    let ballMoves = false;
+    Endaufgabe_FußballSiumulation.ballMoves = false;
     //let goalsT1: number [] = [];
     //let goalsT2: number [] = [];
     let backNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -207,12 +207,14 @@ var Endaufgabe_FußballSiumulation;
     function update() {
         //console.log("update");
         if (animation == true) {
+            //console.log("animation");
             Endaufgabe_FußballSiumulation.crc2.clearRect(0, 0, Endaufgabe_FußballSiumulation.canvas.width, Endaufgabe_FußballSiumulation.canvas.height);
             Endaufgabe_FußballSiumulation.crc2.putImageData(imgData, 0, 0);
             if (Endaufgabe_FußballSiumulation.checkClose == true) {
+                //console.log("checkifClose");
                 checkIfClose();
             }
-            if (ballMoves == true) {
+            if (Endaufgabe_FußballSiumulation.ballMoves == true) {
                 let player = [];
                 let ball = [];
                 for (let moveable of moveables) {
@@ -242,6 +244,8 @@ var Endaufgabe_FußballSiumulation;
         let ball = [];
         let player = [];
         //console.log(ball);
+        ball.length = 0;
+        player.length = 0;
         for (let moveable of moveables) {
             if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
                 player.push(moveable);
@@ -257,6 +261,7 @@ var Endaufgabe_FußballSiumulation;
             let length = difference.length;
             //console.log(length / 110, difference, width / 110 * length);
             if (length <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 30) {
+                //console.log("length<30ChangeTaskTOMove");
                 player[j].changeTask(TASK.MOVE, ball[0].position);
                 //console.log("Yes!");
             }
@@ -272,7 +277,8 @@ var Endaufgabe_FußballSiumulation;
     function handleClick(_event) {
         animation = true;
         Endaufgabe_FußballSiumulation.checkClose = false;
-        ballMoves = true;
+        Endaufgabe_FußballSiumulation.ballMoves = true;
+        playSound(atmo);
     }
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map
