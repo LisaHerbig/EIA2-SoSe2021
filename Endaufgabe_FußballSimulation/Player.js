@@ -2,11 +2,12 @@
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
     class Player extends Endaufgabe_FußballSiumulation.Moveable {
-        constructor(_position, _nation, _color, _backNumber, _team, _speed, _precision) {
+        constructor(_position, _home, _nation, _color, _backNumber, _team, _speed, _precision) {
             super(_position);
             this.type = "player";
             this.task = Endaufgabe_FußballSiumulation.TASK.STAND;
             this.position = _position;
+            this.home = _home;
             this.nation = _nation;
             this.jerseyColor = _color;
             this.backNumber = _backNumber;
@@ -24,20 +25,24 @@ var Endaufgabe_FußballSiumulation;
                 this.position.add(offset);
                 let playerPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
                 let ballPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
-                console.log(ballPositionRound, playerPositionRound);
+                //console.log(ballPositionRound, playerPositionRound);
                 if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
-                    console.log("reachedBall", ballPositionRound);
+                    //console.log("reachedBall", ballPositionRound);
                     let event = new CustomEvent("first_player", { detail: { player: this } });
                     Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
                     this.displayBallPossession(this.nation, this.backNumber);
                 }
             }
         }
+        moveHome() {
+            console.log("moving", this.home, this.position);
+            let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(this.home, this.position);
+            let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
+            offset.scale(1 / this.speed);
+            this.position.add(offset);
+        }
         displayBallPossession(_nation, _backNumber) {
             Endaufgabe_FußballSiumulation.inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
-        }
-        moveHome() {
-            console.log("MoveHome");
         }
         stand() {
             console.log("stand");
@@ -57,7 +62,8 @@ var Endaufgabe_FußballSiumulation;
                     this.move(_ball);
                     break;
                 case Endaufgabe_FußballSiumulation.TASK.MOVEHOME:
-                    console.log("MoveBackToPosition");
+                    //console.log("MoveBackToPosition");
+                    this.moveHome();
                     break;
                 default:
                     console.log("something went wrong");

@@ -32,6 +32,7 @@ var Endaufgabe_FußballSiumulation;
     let moveables = [];
     let animation = true;
     let checkClose = true;
+    let ballMoves = false;
     //let goalsT1: number [] = [];
     //let goalsT2: number [] = [];
     let backNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -154,14 +155,14 @@ var Endaufgabe_FußballSiumulation;
     }
     function setUpTeam1() {
         for (let i = 0; i < 11; i++) {
-            let playerT1 = new Endaufgabe_FußballSiumulation.Player(positionsT1[i], team1, colorTeam1, backNumbers[i], "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            let playerT1 = new Endaufgabe_FußballSiumulation.Player(positionsT1[i], positionsT1[i], team1, colorTeam1, backNumbers[i], "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             playerT1.draw();
             moveables.push(playerT1);
         }
     }
     function setUpTeam2() {
         for (let i = 0; i < 11; i++) {
-            let playerT2 = new Endaufgabe_FußballSiumulation.Player(positionsT2[i], team2, colorTeam2, backNumbers[i], "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            let playerT2 = new Endaufgabe_FußballSiumulation.Player(positionsT2[i], positionsT2[i], team2, colorTeam2, backNumbers[i], "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             playerT2.draw();
             moveables.push(playerT2);
         }
@@ -202,6 +203,7 @@ var Endaufgabe_FußballSiumulation;
     *Function for Animation
     */
     function update() {
+        //console.log("update");
         if (animation == true) {
             Endaufgabe_FußballSiumulation.crc2.clearRect(0, 0, Endaufgabe_FußballSiumulation.canvas.width, Endaufgabe_FußballSiumulation.canvas.height);
             Endaufgabe_FußballSiumulation.crc2.putImageData(imgData, 0, 0);
@@ -210,6 +212,24 @@ var Endaufgabe_FußballSiumulation;
             }
             for (let moveable of moveables) {
                 moveable.draw();
+            }
+            if (ballMoves == true) {
+                let player = [];
+                let ball = [];
+                for (let moveable of moveables) {
+                    if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
+                        ball.push(moveable);
+                        ball[0].move();
+                        ball[0].draw();
+                    }
+                    if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
+                        player.push(moveable);
+                    }
+                    for (let p = 0; p < player.length; p++) {
+                        player[p].changeTask(TASK.MOVEHOME);
+                        //}
+                    }
+                }
             }
         }
     }
@@ -244,35 +264,13 @@ var Endaufgabe_FußballSiumulation;
      *Function to handle when a player reached the ball
      */
     function handleReach() {
-        //console.log("reached");
         animation = false;
         atmo.pause();
     }
     function handleClick(_event) {
-        checkClose = false;
         animation = true;
-        //content
-        //let player: Player [] = [];
-        let ball = [];
-        console.log("click");
-        for (let moveable of moveables) {
-            if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
-                let ball = moveable;
-                ball.move(_event);
-                //animation = true;
-            }
-            if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
-                console.log("instancePlayerHandleClick");
-                //let v1: Vector = new Vector(moveable.position.x, moveable.position.y);
-                //let v2: Vector = new Vector(ball[0].position.x, ball[0].position.y);
-                //let difference: Vector = Vector.getDifference(v1, v2);
-                //let length: number = difference.length;
-                //if (length <= canvas.width / 110 * 30) {s
-                console.log("instancePlayerHandleClickLength<30");
-                moveable.changeTask(TASK.MOVEHOME);
-                //}
-            }
-        }
+        checkClose = false;
+        ballMoves = true;
     }
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map
