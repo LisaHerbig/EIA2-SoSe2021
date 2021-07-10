@@ -14,11 +14,11 @@ var Endaufgabe_FußballSiumulation;
             this.team = _team;
             this.speed = _speed;
             this.precision = _precision;
-            console.log("constructor", this.home, this.position);
+            //console.log("constructor", this.home, this.position);
             //this.radius = canvas.width / 110 * 30;
         }
         move(_ballPosition) {
-            console.log("move", this.home, this.position);
+            //console.log("move", this.home, this.position);
             //console.log("_ballPosition, this.position");
             if (_ballPosition) {
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(_ballPosition, this.position);
@@ -35,14 +35,18 @@ var Endaufgabe_FußballSiumulation;
                     this.displayBallPossession(this.nation, this.backNumber);
                 }
             }
-            console.log("endeMove", this.home, this.position);
+            //console.log("endeMove", this.home, this.position);
         }
         moveHome() {
-            console.log("moving", this.home, this.position);
+            //console.log("moving", this.home, this.position);
             let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(this.home, this.position);
             let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
             offset.scale(1 / this.speed);
             this.position.add(offset);
+            /*if (this.position.x == this.home.x && this.position.y == this.home.y) {
+                this.changeTask(TASK.STAND);
+                checkClose = true;
+            }*/
         }
         displayBallPossession(_nation, _backNumber) {
             Endaufgabe_FußballSiumulation.inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";

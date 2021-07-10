@@ -9,7 +9,7 @@ var Endaufgabe_FußballSiumulation;
             this.position = _position;
         }
         move(_event) {
-            console.log("Ball moves towards click position");
+            //console.log("Ball moves towards click position");  
             if (_event) {
                 let x = _event.clientX;
                 let y = _event.clientY;

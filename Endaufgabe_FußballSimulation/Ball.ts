@@ -9,7 +9,7 @@ namespace Endaufgabe_FußballSiumulation {
             this.position = _position;
         }
         move(_event?: MouseEvent): void {
-            console.log("Ball moves towards click position");  
+            //console.log("Ball moves towards click position");  
             if (_event) {
                 let x: number = _event.clientX;
                 let y: number = _event.clientY;
