@@ -20,12 +20,15 @@ namespace Endaufgabe_FußballSiumulation {
             this.team = _team;
             this.speed = _speed;
             this.precision = _precision;
+            console.log("constructor", this.home, this.position);
+            
             //this.radius = canvas.width / 110 * 30;
         }
         
         move(_ballPosition?: Vector): void {
+            console.log("move", this.home, this.position);
            //console.log("_ballPosition, this.position");
-           if (_ballPosition) {
+            if (_ballPosition) {
             let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
             let offset: Vector = new Vector (difference.x, difference.y);
             offset.scale(1 / this.speed);
@@ -41,6 +44,7 @@ namespace Endaufgabe_FußballSiumulation {
                 this.displayBallPossession(this.nation, this.backNumber);
             }
            }
+            console.log("endeMove", this.home, this.position);
 
         }
 

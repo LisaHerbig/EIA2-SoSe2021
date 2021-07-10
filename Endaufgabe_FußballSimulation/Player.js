@@ -14,9 +14,11 @@ var Endaufgabe_FußballSiumulation;
             this.team = _team;
             this.speed = _speed;
             this.precision = _precision;
+            console.log("constructor", this.home, this.position);
             //this.radius = canvas.width / 110 * 30;
         }
         move(_ballPosition) {
+            console.log("move", this.home, this.position);
             //console.log("_ballPosition, this.position");
             if (_ballPosition) {
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(_ballPosition, this.position);
@@ -33,6 +35,7 @@ var Endaufgabe_FußballSiumulation;
                     this.displayBallPossession(this.nation, this.backNumber);
                 }
             }
+            console.log("endeMove", this.home, this.position);
         }
         moveHome() {
             console.log("moving", this.home, this.position);
