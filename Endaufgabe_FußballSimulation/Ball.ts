@@ -25,6 +25,7 @@ namespace Endaufgabe_FußballSiumulation {
                 }
                 if (length > 30) {
                     console.log("Radius muss groß sein");  
+                    this.position.add(offset);
                 }
                 if (length < 30) {
                     this.position.add(offset);

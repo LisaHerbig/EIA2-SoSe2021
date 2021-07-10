@@ -31,6 +31,7 @@ var Endaufgabe_FußballSiumulation;
     let positionsT2 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 100, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 78, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 54, Endaufgabe_FußballSiumulation.height / 2 - 60), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 + 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 17)];
     let moveables = [];
     let animation = true;
+    let checkClose = true;
     //let goalsT1: number [] = [];
     //let goalsT2: number [] = [];
     let backNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -204,7 +205,9 @@ var Endaufgabe_FußballSiumulation;
         if (animation == true) {
             Endaufgabe_FußballSiumulation.crc2.clearRect(0, 0, Endaufgabe_FußballSiumulation.canvas.width, Endaufgabe_FußballSiumulation.canvas.height);
             Endaufgabe_FußballSiumulation.crc2.putImageData(imgData, 0, 0);
-            checkIfClose();
+            if (checkClose == true) {
+                checkIfClose();
+            }
             for (let moveable of moveables) {
                 moveable.draw();
             }
@@ -246,13 +249,28 @@ var Endaufgabe_FußballSiumulation;
         atmo.pause();
     }
     function handleClick(_event) {
+        checkClose = false;
+        animation = true;
         //content
+        //let player: Player [] = [];
+        let ball = [];
         console.log("click");
         for (let moveable of moveables) {
             if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
                 let ball = moveable;
                 ball.move(_event);
-                animation = true;
+                //animation = true;
+            }
+            if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
+                console.log("instancePlayerHandleClick");
+                //let v1: Vector = new Vector(moveable.position.x, moveable.position.y);
+                //let v2: Vector = new Vector(ball[0].position.x, ball[0].position.y);
+                //let difference: Vector = Vector.getDifference(v1, v2);
+                //let length: number = difference.length;
+                //if (length <= canvas.width / 110 * 30) {s
+                console.log("instancePlayerHandleClickLength<30");
+                moveable.changeTask(TASK.MOVEHOME);
+                //}
             }
         }
     }
