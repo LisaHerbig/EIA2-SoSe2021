@@ -3,7 +3,7 @@ var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
     window.addEventListener("load", handleLoad);
     Endaufgabe_FußballSiumulation.canvas = document.querySelector("canvas");
-    Endaufgabe_FußballSiumulation.canvas.width = window.innerHeight * 1.25;
+    Endaufgabe_FußballSiumulation.canvas.width = window.innerHeight;
     Endaufgabe_FußballSiumulation.canvas.height = Endaufgabe_FußballSiumulation.canvas.width / 110 * 75;
     Endaufgabe_FußballSiumulation.width = Number(Endaufgabe_FußballSiumulation.canvas.width);
     Endaufgabe_FußballSiumulation.height = Number(Endaufgabe_FußballSiumulation.canvas.height);

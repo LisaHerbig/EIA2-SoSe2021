@@ -4,7 +4,7 @@ namespace Endaufgabe_FußballSiumulation {
 
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.querySelector("canvas");
-    canvas.width = window.innerHeight * 1.25;
+    canvas.width = window.innerHeight;
     canvas.height = canvas.width / 110 * 75;
     export let width: number = Number (canvas.width);
     export let height: number = Number (canvas.height);
