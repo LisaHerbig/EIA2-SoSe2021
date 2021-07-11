@@ -54,7 +54,7 @@ var Endaufgabe_FußballSiumulation;
             Endaufgabe_FußballSiumulation.inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
         }
         displayInformation(_event) {
-            console.log("displayInformation");
+            //console.log("displayInformation");
             let infoBox = document.createElement("div");
             infoBox.innerHTML = "Position: " + " x: " + Math.round(this.position.x) + ", y: " + Math.round(this.position.y) + "<br>" + "Origin: " + "x: " + Math.round(this.home.x) + " y: " + Math.round(this.home.y) + "<br>" + "Nation: " + this.nation + "<br>" + "Team: " + this.team + "<br>" + "Number: " + this.backNumber + "<br>" + "Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
             //infoBox.style.opacity = "10%";

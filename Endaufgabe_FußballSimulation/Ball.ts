@@ -3,6 +3,7 @@ namespace Endaufgabe_FußballSiumulation {
         start: Vector = new Vector (width / 2, height / 2);
         speed: number = 50;
         targetPosition: Vector;
+        applaus: HTMLAudioElement =  new Audio ("Sounds/Applaus.wav");
 
         constructor(_position: Vector) {
             super (_position);
@@ -32,6 +33,34 @@ namespace Endaufgabe_FußballSiumulation {
                     //this.displayBallPossession(this.nation, this.backNumber);
                 }
         }
+        }
+
+        goal(): void {
+            
+            //let ballX: number = canvas.width / 110 * (this.position.x);
+            //let ballY: number = canvas.height / 2 * (this.position.y);
+            //if (this.position.x <= canvas.width / 110 * 5 && canvas.height / 2 + 40 < this.position.y && this.position.y < canvas.width / 2 - 40) {
+               // console.log("goal for team left");
+                
+            //}
+            if (this.position.x <= canvas.width / 110 * 5 && this.position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
+                console.log("goalForTeam left Team2");
+                this.applaus.play();
+                goalsT2.push(1);
+                scoreBoard.innerHTML = "Team 1: " + goalsT1.length + "Team 2: " + goalsT2.length;
+
+                
+            }
+
+            if (this.position.x >= canvas.width / 110 * 100 && this.position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
+                console.log("goalForTeam right Team1");
+                this.applaus.play();
+                goalsT1.push(1);
+                scoreBoard.innerHTML = "Team 1: " + goalsT1.length + "Team 2: " + goalsT2.length;
+                
+            }
+            console.log(this.position.x, this.position.y, "canvas width", canvas.width / 110 * 5, "canvasheight", canvas.height / 2 + 40);
+            
         }
 
         draw(): void {

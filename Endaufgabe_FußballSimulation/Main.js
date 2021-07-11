@@ -11,7 +11,7 @@ var Endaufgabe_FußballSiumulation;
     let imgData;
     //Div  score and ball possesstion
     Endaufgabe_FußballSiumulation.inPossession = document.querySelector("#inPossession");
-    let scoreBoard = document.querySelector("#scoreBoard");
+    Endaufgabe_FußballSiumulation.scoreBoard = document.querySelector("#scoreBoard");
     //Variables for Formular
     let team1 = "";
     let team2 = "";
@@ -38,8 +38,8 @@ var Endaufgabe_FußballSiumulation;
     Endaufgabe_FußballSiumulation.checkClose = true;
     Endaufgabe_FußballSiumulation.ballMoves = false;
     //let newPlayer: boolean = false;
-    //let goalsT1: number [] = [];
-    //let goalsT2: number [] = [];
+    Endaufgabe_FußballSiumulation.goalsT1 = [];
+    Endaufgabe_FußballSiumulation.goalsT2 = [];
     let backNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     let TASK;
     (function (TASK) {
@@ -137,8 +137,8 @@ var Endaufgabe_FußballSiumulation;
     function prepareGame() {
         Endaufgabe_FußballSiumulation.inPossession.removeAttribute("class");
         Endaufgabe_FußballSiumulation.inPossession.setAttribute("id", "inPossession");
-        scoreBoard.removeAttribute("class");
-        scoreBoard.setAttribute("id", "scoreBoard");
+        Endaufgabe_FußballSiumulation.scoreBoard.removeAttribute("class");
+        Endaufgabe_FußballSiumulation.scoreBoard.setAttribute("id", "scoreBoard");
         let newGame = document.createElement("button");
         newGame.innerHTML = "start a new game";
         newGame.setAttribute("id", "newGame");
@@ -239,6 +239,9 @@ var Endaufgabe_FußballSiumulation;
             }
             for (let moveable of moveables) {
                 moveable.draw();
+                if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
+                    moveable.goal();
+                }
             }
         }
     }

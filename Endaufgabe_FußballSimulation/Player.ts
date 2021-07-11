@@ -69,7 +69,7 @@ namespace Endaufgabe_FußballSiumulation {
         }
         
         displayInformation(_event?: MouseEvent): void {
-            console.log("displayInformation");
+            //console.log("displayInformation");
             let infoBox: HTMLElement = document.createElement("div");
             infoBox.innerHTML = "Position: " + " x: " + Math.round(this.position.x) + ", y: " + Math.round(this.position.y) + "<br>" + "Origin: " + "x: " + Math.round(this.home.x) + " y: " + Math.round(this.home.y) + "<br>" + "Nation: " + this.nation  + "<br>" + "Team: " + this.team + "<br>" + "Number: " + this.backNumber + "<br>" +  "Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
             //infoBox.style.opacity = "10%";

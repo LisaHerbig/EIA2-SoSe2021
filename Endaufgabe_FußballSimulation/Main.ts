@@ -13,7 +13,7 @@ namespace Endaufgabe_FußballSiumulation {
     let imgData: ImageData;
     //Div  score and ball possesstion
     export let inPossession: HTMLDivElement = <HTMLDivElement> document.querySelector("#inPossession");
-    let scoreBoard: HTMLDivElement = <HTMLDivElement> document.querySelector("#scoreBoard");
+    export let scoreBoard: HTMLDivElement = <HTMLDivElement> document.querySelector("#scoreBoard");
 
     //Variables for Formular
     let team1: string = "";
@@ -43,8 +43,8 @@ namespace Endaufgabe_FußballSiumulation {
     export let checkClose: boolean = true;
     export let ballMoves: boolean = false;
     //let newPlayer: boolean = false;
-    //let goalsT1: number [] = [];
-    //let goalsT2: number [] = [];
+    export let goalsT1: number [] = [];
+    export let goalsT2: number [] = [];
     let backNumbers: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     export enum TASK {
         STAND,
@@ -250,7 +250,6 @@ namespace Endaufgabe_FußballSiumulation {
 
             if (checkClose == true) {
                 //console.log("checkifClose");
-                
                 checkIfClose();
             }
 
@@ -274,6 +273,9 @@ namespace Endaufgabe_FußballSiumulation {
             }
             for (let moveable of moveables) { 
                 moveable.draw(); 
+                if (moveable instanceof Ball) {
+                    moveable.goal();
+                }
             }
             
         }
