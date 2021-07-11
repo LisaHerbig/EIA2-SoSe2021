@@ -69,7 +69,7 @@ namespace Endaufgabe_FußballSiumulation {
         }
         
         stand(): void {
-            console.log("stand"); 
+            //console.log("stand"); 
         }
 
         draw(): void {
@@ -82,7 +82,7 @@ namespace Endaufgabe_FußballSiumulation {
                 
             switch (this.task) {
                 case TASK.STAND:
-                    console.log("stay");
+                    //console.log("stay");
                     break;
                 case TASK.MOVE:
                     //console.log("moveToBallPosition");

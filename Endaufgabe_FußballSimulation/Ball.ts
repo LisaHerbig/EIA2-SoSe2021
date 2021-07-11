@@ -10,43 +10,27 @@ namespace Endaufgabe_FußballSiumulation {
         }
         move(_event?: MouseEvent): void {
             //console.log("Ball moves towards click position");  
-            if (_event) {
-                console.log("Ball moves towards click position");  
+            if (_event) {  
                 let x: number = _event.clientX;
                 let y: number = _event.clientY;
-                let clickPosition: Vector = new Vector(x, y);
-                let difference: Vector = Vector.getDifference(clickPosition, this.position);
-                let length: number = difference.length / 10;
-                let offset: Vector = new Vector(difference.x, difference.y);
+                let mousePos: Vector = new Vector(x, y);
+                let difference: Vector =  Vector.getDifference(mousePos, this.position);
+                let offset: Vector = new Vector (difference.x, difference.y);
                 offset.scale(1 / this.speed);
-                console.log(length / 10);
                 this.position.add(offset);
-                if (length > 55) {
-                    console.log("Radius muss super groß sein");  
-                }
-                if (length > 30) {
-                    console.log("Radius muss groß sein");  
-                    this.position.add(offset);
-                }
-                if (length < 30) {
-                    this.position.add(offset);
-                    //imation = true;
-                    console.log("Radius smaller");
-                    if (length < 25) {
-                        console.log("smaller");
-                        if (length < 10) {
-                            console.log("Super small");
-                            
-                        }
-                        
-                    }
-                    
-                }
-                
-                if (this.position.x == clickPosition.x && this.position.y == clickPosition.y) {
+                let playerPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
+                let mousePositionRound: Vector = new Vector(Math.round(mousePos.x), Math.round(mousePos.y));
+            //console.log(ballPositionRound, playerPositionRound);
+
+                if (playerPositionRound.x == mousePositionRound.x && playerPositionRound.y == mousePositionRound.y) {
+                    //console.log("reachedBall", ballPositionRound);
+                    console.log("Reached");
                     ballMoves = false;
+                    //let event: CustomEvent = new CustomEvent("first_player", {detail: {player: this}});
+                    //crc2.canvas.dispatchEvent(event);
+                    //this.displayBallPossession(this.nation, this.backNumber);
                 }
-            }
+        }
         }
 
         draw(): void {

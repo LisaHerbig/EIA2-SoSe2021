@@ -54,7 +54,7 @@ var Endaufgabe_FußballSiumulation;
             Endaufgabe_FußballSiumulation.inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
         }
         stand() {
-            console.log("stand");
+            //console.log("stand"); 
         }
         draw() {
             Endaufgabe_FußballSiumulation.drawShirt(this.position, this.jerseyColor, this.type, this.team);
@@ -64,7 +64,7 @@ var Endaufgabe_FußballSiumulation;
                 this.task = _task;
             switch (this.task) {
                 case Endaufgabe_FußballSiumulation.TASK.STAND:
-                    console.log("stay");
+                    //console.log("stay");
                     break;
                 case Endaufgabe_FußballSiumulation.TASK.MOVE:
                     //console.log("moveToBallPosition");

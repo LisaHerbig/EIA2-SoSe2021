@@ -207,12 +207,13 @@ namespace Endaufgabe_FußballSiumulation {
         crc2.beginPath();
         //crc2.translate(_position.x, _position.y);
         crc2.arc(_position.x, _position.y, width / 110 * 1.5, 0, 2 * Math.PI);
+        //crc2.translate(_position.x, _position.y);
         crc2.fillStyle = "white";
         crc2.fill();
         crc2.closePath();
         crc2.restore();
 
-        crc2.save();
+        /*crc2.save();
         crc2.beginPath();
         crc2.moveTo(_position.x - 5, _position.y - 7);
         crc2.lineTo(_position.x + 5, _position.y - 7);
@@ -239,5 +240,6 @@ namespace Endaufgabe_FußballSiumulation {
         //crc2.translate(_position.x, _position.y);
         crc2.stroke();
         crc2.restore();
+        //crc2.translate(_position.x, _position.y);*/
     }
 }
