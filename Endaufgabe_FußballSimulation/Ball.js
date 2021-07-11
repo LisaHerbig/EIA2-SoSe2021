@@ -11,6 +11,7 @@ var Endaufgabe_FußballSiumulation;
         move(_event) {
             //console.log("Ball moves towards click position");  
             if (_event) {
+                console.log("Ball moves towards click position");
                 let x = _event.clientX;
                 let y = _event.clientY;
                 let clickPosition = new Endaufgabe_FußballSiumulation.Vector(x, y);
@@ -19,6 +20,7 @@ var Endaufgabe_FußballSiumulation;
                 let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
                 offset.scale(1 / this.speed);
                 console.log(length / 10);
+                this.position.add(offset);
                 if (length > 55) {
                     console.log("Radius muss super groß sein");
                 }
@@ -36,6 +38,9 @@ var Endaufgabe_FußballSiumulation;
                             console.log("Super small");
                         }
                     }
+                }
+                if (this.position.x == clickPosition.x && this.position.y == clickPosition.y) {
+                    Endaufgabe_FußballSiumulation.ballMoves = false;
                 }
             }
         }

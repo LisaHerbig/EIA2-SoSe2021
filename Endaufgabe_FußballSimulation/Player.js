@@ -45,7 +45,7 @@ var Endaufgabe_FußballSiumulation;
             this.position.add(offset);
             if (this.position.x == this.home.x && this.position.y == this.home.y) {
                 //this.changeTask(TASK.STAND);
-                Endaufgabe_FußballSiumulation.ballMoves = false;
+                //ballMoves = false;
                 Endaufgabe_FußballSiumulation.checkClose = true;
                 this.stand();
             }

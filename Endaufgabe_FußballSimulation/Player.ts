@@ -58,7 +58,7 @@ namespace Endaufgabe_FußballSiumulation {
 
             if (this.position.x == this.home.x && this.position.y == this.home.y) {
                 //this.changeTask(TASK.STAND);
-                ballMoves = false;
+                //ballMoves = false;
                 checkClose = true;
                 this.stand();
             }
