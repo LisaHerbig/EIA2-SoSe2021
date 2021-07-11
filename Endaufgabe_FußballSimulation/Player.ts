@@ -67,6 +67,15 @@ namespace Endaufgabe_FußballSiumulation {
         displayBallPossession(_nation: string, _backNumber: number): void {
             inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
         }
+
+        displayInformation(): void {
+            console.log("displayInformation");
+            
+            let infoBox: HTMLElement = document.createElement("div");
+            infoBox.innerHTML = this.position + this.nation + this.home + this.team + this.speed + this.precision;
+            infoBox.style.backgroundColor = "white";
+            canvas.appendChild(infoBox);
+        }
         
         stand(): void {
             //console.log("stand"); 

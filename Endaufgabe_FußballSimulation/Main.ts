@@ -72,6 +72,7 @@ namespace Endaufgabe_FußballSiumulation {
         canvas.addEventListener("click", handleClick);
 
         document.addEventListener("keydown", handleNewPlayer);
+        canvas.addEventListener("click", handleInfo);
     }
 
     /*
@@ -403,5 +404,42 @@ namespace Endaufgabe_FußballSiumulation {
         //newPlayer = false;
     }
 
+    /*
+    * Function for Information about Player
+    */
+    function handleInfo(_event: MouseEvent): void {
+        let shiftKeyPressed: boolean = _event.shiftKey;
+        console.log("handleInfo");
+        
+        if (shiftKeyPressed == true) {
+            console.log("shifKey is pressed");
+            
+            for (let moveable of moveables) {
+                console.log("moveables array loop");
+                
+                if (moveable instanceof Player) {
+                    console.log("moveable instance of Player");
+                    
+                    let rect: DOMRect = canvas.getBoundingClientRect();
+                    let x: number = _event.clientX - rect.left;
+                    let y: number = _event.clientY - rect.top;
+                    let mousePos: Vector = new Vector(x, y);
+                    let difference: Vector = Vector.getDifference(moveable.position, mousePos);
+                    let length: number = difference.length / 100;
+                    //let scaledLength: number = width / 110 * length;
+                    console.log(length);
+                    
+
+                    if (length < 1) {
+                        console.log("length < 1");
+                        moveable.displayInformation();
+                    }
+                }
+            }
+        }
+
+    }
+
+      
     
 }

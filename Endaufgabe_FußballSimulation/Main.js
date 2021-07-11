@@ -63,6 +63,7 @@ var Endaufgabe_FußballSiumulation;
         Endaufgabe_FußballSiumulation.canvas.addEventListener("first_player", handleReach);
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleClick);
         document.addEventListener("keydown", handleNewPlayer);
+        Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleInfo);
     }
     /*
     *Function to get Data from Form Element
@@ -348,6 +349,34 @@ var Endaufgabe_FußballSiumulation;
             document.body.removeChild(addT2);
         }
         //newPlayer = false;
+    }
+    /*
+    * Function for Information about Player
+    */
+    function handleInfo(_event) {
+        let shiftKeyPressed = _event.shiftKey;
+        console.log("handleInfo");
+        if (shiftKeyPressed == true) {
+            console.log("shifKey is pressed");
+            for (let moveable of moveables) {
+                console.log("moveables array loop");
+                if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
+                    console.log("moveable instance of Player");
+                    let rect = Endaufgabe_FußballSiumulation.canvas.getBoundingClientRect();
+                    let x = _event.clientX - rect.left;
+                    let y = _event.clientY - rect.top;
+                    let mousePos = new Endaufgabe_FußballSiumulation.Vector(x, y);
+                    let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(moveable.position, mousePos);
+                    let length = difference.length / 100;
+                    //let scaledLength: number = width / 110 * length;
+                    console.log(length);
+                    if (length < 1) {
+                        console.log("length < 1");
+                        moveable.displayInformation();
+                    }
+                }
+            }
+        }
     }
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map
