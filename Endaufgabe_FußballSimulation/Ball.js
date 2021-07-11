@@ -18,12 +18,12 @@ var Endaufgabe_FußballSiumulation;
                 let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
                 offset.scale(1 / this.speed);
                 this.position.add(offset);
-                let playerPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
+                let ballPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
                 let mousePositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(mousePos.x), Math.round(mousePos.y));
                 //console.log(ballPositionRound, playerPositionRound);
-                if (playerPositionRound.x == mousePositionRound.x && playerPositionRound.y == mousePositionRound.y) {
-                    //console.log("reachedBall", ballPositionRound);
-                    console.log("Reached");
+                if (ballPositionRound.x == mousePositionRound.x && ballPositionRound.y == mousePositionRound.y) {
+                    //console.log("reachedBall", width / 110 * (0.1 *  mousePositionRound.x), width / 110 * mousePositionRound.y, ballPositionRound);
+                    //console.log("Reached");
                     Endaufgabe_FußballSiumulation.ballMoves = false;
                     //let event: CustomEvent = new CustomEvent("first_player", {detail: {player: this}});
                     //crc2.canvas.dispatchEvent(event);
