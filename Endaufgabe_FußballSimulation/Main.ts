@@ -32,6 +32,7 @@ namespace Endaufgabe_FußballSiumulation {
     let atmo: HTMLAudioElement = new Audio ("Sounds/Atmo.wav");
     //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
 
+    //let displayInfo: boolean = false;
     let event: MouseEvent; 
     let positionsT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
     let positionsT2: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
@@ -274,6 +275,7 @@ namespace Endaufgabe_FußballSiumulation {
             for (let moveable of moveables) { 
                 moveable.draw(); 
             }
+            
         }
     }
 
@@ -432,7 +434,7 @@ namespace Endaufgabe_FußballSiumulation {
 
                     if (length < 1) {
                         console.log("length < 1");
-                        moveable.displayInformation();
+                        moveable.displayInformation(_event);
                     }
                 }
             }

@@ -53,11 +53,16 @@ var Endaufgabe_FußballSiumulation;
         displayBallPossession(_nation, _backNumber) {
             Endaufgabe_FußballSiumulation.inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
         }
-        displayInformation() {
+        displayInformation(_event) {
             console.log("displayInformation");
-            let infoBox = document.createElement("div");
+            let infoBox = document.createElement("span");
             infoBox.innerHTML = this.position + this.nation + this.home + this.team + this.speed + this.precision;
-            infoBox.style.backgroundColor = "white";
+            infoBox.style.backgroundColor = "yellow";
+            infoBox.style.left = _event.clientX + "px";
+            infoBox.style.top = _event.clientY + "px";
+            infoBox.style.position = "relative";
+            //infoBox.style.display = "inline-block";
+            infoBox.style.zIndex = "-1";
             Endaufgabe_FußballSiumulation.canvas.appendChild(infoBox);
         }
         stand() {
