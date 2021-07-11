@@ -209,6 +209,7 @@ var Endaufgabe_FußballSiumulation;
     /*
     *Function for Animation
     */
+    Endaufgabe_FußballSiumulation.goal = false;
     function update() {
         //console.log("update");
         if (animation == true) {
@@ -240,7 +241,10 @@ var Endaufgabe_FußballSiumulation;
             for (let moveable of moveables) {
                 moveable.draw();
                 if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
-                    moveable.goal();
+                    if (Endaufgabe_FußballSiumulation.goal == false) {
+                        moveable.goal();
+                        //moveable.position = moveable.start;
+                    }
                 }
             }
         }

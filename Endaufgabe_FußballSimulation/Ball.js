@@ -40,18 +40,33 @@ var Endaufgabe_FußballSiumulation;
             // console.log("goal for team left");
             //}
             if (this.position.x <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 5 && this.position.y < Endaufgabe_FußballSiumulation.canvas.height / 2 + 40 && this.position.y > Endaufgabe_FußballSiumulation.canvas.height / 2 - 40) {
-                console.log("goalForTeam left Team2");
-                this.applaus.play();
-                Endaufgabe_FußballSiumulation.goalsT2.push(1);
-                Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + "Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
+                Endaufgabe_FußballSiumulation.goal = true;
+                this.handleGoal("team2");
+                //this.position = this.start;
             }
             if (this.position.x >= Endaufgabe_FußballSiumulation.canvas.width / 110 * 100 && this.position.y < Endaufgabe_FußballSiumulation.canvas.height / 2 + 40 && this.position.y > Endaufgabe_FußballSiumulation.canvas.height / 2 - 40) {
+                Endaufgabe_FußballSiumulation.goal = true;
+                this.handleGoal("team1");
+            }
+            //console.log(this.position.x, this.position.y, "canvas width", canvas.width / 110 * 5, "canvasheight", canvas.height / 2 + 40);
+        }
+        handleGoal(_team) {
+            if (_team == "team2") {
+                console.log("goalForTeam left Team2");
+                this.position = this.start;
+                this.applaus.play();
+                Endaufgabe_FußballSiumulation.goalsT2.push(1);
+                Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + " : " + " Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
+                Endaufgabe_FußballSiumulation.goal = false;
+            }
+            if (_team == "team1") {
                 console.log("goalForTeam right Team1");
                 this.applaus.play();
                 Endaufgabe_FußballSiumulation.goalsT1.push(1);
-                Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + "Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
+                this.position = this.start;
+                Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + " : " + " Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
+                Endaufgabe_FußballSiumulation.goal = false;
             }
-            console.log(this.position.x, this.position.y, "canvas width", Endaufgabe_FußballSiumulation.canvas.width / 110 * 5, "canvasheight", Endaufgabe_FußballSiumulation.canvas.height / 2 + 40);
         }
         draw() {
             Endaufgabe_FußballSiumulation.drawBall(this.position);

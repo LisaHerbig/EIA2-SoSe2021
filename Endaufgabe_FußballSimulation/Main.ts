@@ -238,6 +238,7 @@ namespace Endaufgabe_FußballSiumulation {
     /*
     *Function for Animation
     */
+    export let goal: boolean = false;
 
     function update(): void {
         //console.log("update");
@@ -274,7 +275,10 @@ namespace Endaufgabe_FußballSiumulation {
             for (let moveable of moveables) { 
                 moveable.draw(); 
                 if (moveable instanceof Ball) {
+                    if (goal == false) {
                     moveable.goal();
+                    //moveable.position = moveable.start;
+                    }
                 }
             }
             

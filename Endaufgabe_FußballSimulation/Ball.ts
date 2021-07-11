@@ -44,24 +44,42 @@ namespace Endaufgabe_FußballSiumulation {
                 
             //}
             if (this.position.x <= canvas.width / 110 * 5 && this.position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
-                console.log("goalForTeam left Team2");
-                this.applaus.play();
-                goalsT2.push(1);
-                scoreBoard.innerHTML = "Team 1: " + goalsT1.length + "Team 2: " + goalsT2.length;
+                goal = true;
+                this.handleGoal("team2");
+                
+                //this.position = this.start;
 
                 
             }
 
             if (this.position.x >= canvas.width / 110 * 100 && this.position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
+                goal = true;
+                this.handleGoal("team1");
+              
+                
+            }
+            //console.log(this.position.x, this.position.y, "canvas width", canvas.width / 110 * 5, "canvasheight", canvas.height / 2 + 40);
+            
+        }
+
+        handleGoal(_team: string): void {
+            if (_team == "team2") {
+                console.log("goalForTeam left Team2");
+                this.position = this.start;
+                this.applaus.play();
+                goalsT2.push(1);
+                scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
+                goal = false;
+            }   
+            if (_team == "team1") {
                 console.log("goalForTeam right Team1");
                 this.applaus.play();
                 goalsT1.push(1);
-                scoreBoard.innerHTML = "Team 1: " + goalsT1.length + "Team 2: " + goalsT2.length;
-                
+                this.position = this.start;
+                scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
+                goal = false;
             }
-            console.log(this.position.x, this.position.y, "canvas width", canvas.width / 110 * 5, "canvasheight", canvas.height / 2 + 40);
-            
-        }
+    }
 
         draw(): void {
             drawBall(this.position);
