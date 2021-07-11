@@ -328,29 +328,34 @@ namespace Endaufgabe_FußballSiumulation {
     function handleClick(_event: MouseEvent): void {
         //if (newPlayer == false) {
             animation = true;
-            checkClose = false;
+            checkClose = true;
             ballMoves = true;
             playSound(atmo);
             event = _event;
        //}
     }
 
+     /*
+    *Functions to add new players to team
+    */
+    let addT1: HTMLButtonElement = document.createElement("button");
+    let addT2: HTMLButtonElement = document.createElement("button");
     function handleNewPlayer(_event: KeyboardEvent): void {
         let keyName: string = _event.key;
         if (keyName == "+") {
             console.log("addNewPlayer");
-            animation = false;
-            let addT1: HTMLButtonElement = document.createElement("button");
+            //animation = false;
+            //let addT1: HTMLButtonElement = document.createElement("button");
             addT1.innerHTML = "Team1";
             addT1.setAttribute("id", "btnAddTeam1");
             addT1.style.backgroundColor = colorTeam1;
             addT1.addEventListener("click", handleNewPlayerT1);
             document.body.appendChild(addT1);
 
-            let addT2: HTMLButtonElement = document.createElement("button");
+            //let addT2: HTMLButtonElement = document.createElement("button");
             addT2.innerHTML = "Team2";
             addT2.setAttribute("id", "btnAddTeam2");
-            addT1.style.backgroundColor = colorTeam2;
+            addT2.style.backgroundColor = colorTeam2;
             addT2.addEventListener("click", handleNewPlayerT2);
             document.body.appendChild(addT2);
         }
@@ -358,6 +363,7 @@ namespace Endaufgabe_FußballSiumulation {
 
     function handleNewPlayerT1(): void {
         alert("hold alt and click on canvas to choose player position");
+        canvas.addEventListener("click", handleplaceNewPlayer1);
     }
     
     function handleNewPlayerT2(): void {
@@ -366,13 +372,33 @@ namespace Endaufgabe_FußballSiumulation {
         canvas.addEventListener("click", handleplaceNewPlayer2);
     }
 
+    function handleplaceNewPlayer1(_event: MouseEvent): void {
+        let altKeyPressed: boolean = _event.altKey;
+
+        if (altKeyPressed == true) {
+            let rect: DOMRect = canvas.getBoundingClientRect();
+            let x: number = _event.clientX - rect.left;
+            let y: number = _event.clientY - rect.top;
+            homeT1.push(new Vector(x, y));
+            let newPlayer: Player = new Player(new Vector(x, y), homeT1[homeT1.length - 1], team1, colorTeam1, 12, "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            moveables.push(newPlayer);
+            document.body.removeChild(addT1);
+            document.body.removeChild(addT2);
+        }
+    }
+
     function handleplaceNewPlayer2(_event: MouseEvent): void {
         let altKeyPressed: boolean = _event.altKey;
 
         if (altKeyPressed == true) {
-            homeT2.push(new Vector(_event.clientX, _event.clientY));
-            let newPlayer: Player = new Player(new Vector(_event.clientX, _event.clientY), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            let rect: DOMRect = canvas.getBoundingClientRect();
+            let x: number = _event.clientX - rect.left;
+            let y: number = _event.clientY - rect.top;
+            homeT2.push(new Vector(x, y));
+            let newPlayer: Player = new Player(new Vector(x, y), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
+            document.body.removeChild(addT1);
+            document.body.removeChild(addT2);
         }
         //newPlayer = false;
     }
