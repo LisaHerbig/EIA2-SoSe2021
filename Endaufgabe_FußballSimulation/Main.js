@@ -61,6 +61,7 @@ var Endaufgabe_FußballSiumulation;
         btnStart.addEventListener("click", handleBtn);
         Endaufgabe_FußballSiumulation.canvas.addEventListener("first_player", handleReach);
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleClick);
+        document.addEventListener("keydown", handleNewPlayer);
     }
     /*
     *Function to get Data from Form Element
@@ -275,12 +276,49 @@ var Endaufgabe_FußballSiumulation;
         animation = false;
         atmo.pause();
     }
+    /*
+     *Function to handle when user clicks on Canvas
+     */
     function handleClick(_event) {
         animation = true;
         Endaufgabe_FußballSiumulation.checkClose = false;
         Endaufgabe_FußballSiumulation.ballMoves = true;
         playSound(atmo);
         event = _event;
+    }
+    function handleNewPlayer(_event) {
+        let keyName = _event.key;
+        if (keyName == "+") {
+            console.log("addNewPlayer");
+            animation = false;
+            let addT1 = document.createElement("button");
+            addT1.innerHTML = "Team1";
+            addT1.setAttribute("id", "btnAddTeam1");
+            addT1.style.backgroundColor = colorTeam1;
+            addT1.addEventListener("click", handleNewPlayerT1);
+            document.body.appendChild(addT1);
+            let addT2 = document.createElement("button");
+            addT2.innerHTML = "Team2";
+            addT2.setAttribute("id", "btnAddTeam2");
+            addT1.style.backgroundColor = colorTeam2;
+            addT2.addEventListener("click", handleNewPlayerT2);
+            document.body.appendChild(addT2);
+        }
+    }
+    function handleNewPlayerT1() {
+        alert("hold alt and click on canvas to choose player position");
+    }
+    function handleNewPlayerT2() {
+        alert("hold alt and click on canvas to choose player position");
+        Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleplaceNewPlayer2);
+    }
+    function handleplaceNewPlayer2(_event) {
+        let altKeyPressed = _event.altKey;
+        if (altKeyPressed == true) {
+            homeT2.push(new Endaufgabe_FußballSiumulation.Vector(_event.clientX, _event.clientY));
+            let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(_event.clientX, _event.clientY), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            moveables.push(newPlayer);
+        }
     }
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map

@@ -69,6 +69,8 @@ namespace Endaufgabe_FußballSiumulation {
 
         canvas.addEventListener("first_player", handleReach);
         canvas.addEventListener("click", handleClick);
+
+        document.addEventListener("keydown", handleNewPlayer);
     }
 
     /*
@@ -318,12 +320,56 @@ namespace Endaufgabe_FußballSiumulation {
         atmo.pause();
    }
 
+   /*
+    *Function to handle when user clicks on Canvas
+    */
+
     function handleClick(_event: MouseEvent): void {
         animation = true;
         checkClose = false;
         ballMoves = true;
         playSound(atmo);
         event = _event;
+    }
+
+    function handleNewPlayer(_event: KeyboardEvent): void {
+        let keyName: string = _event.key;
+        if (keyName == "+") {
+            console.log("addNewPlayer");
+            animation = false;
+            let addT1: HTMLButtonElement = document.createElement("button");
+            addT1.innerHTML = "Team1";
+            addT1.setAttribute("id", "btnAddTeam1");
+            addT1.style.backgroundColor = colorTeam1;
+            addT1.addEventListener("click", handleNewPlayerT1);
+            document.body.appendChild(addT1);
+
+            let addT2: HTMLButtonElement = document.createElement("button");
+            addT2.innerHTML = "Team2";
+            addT2.setAttribute("id", "btnAddTeam2");
+            addT1.style.backgroundColor = colorTeam2;
+            addT2.addEventListener("click", handleNewPlayerT2);
+            document.body.appendChild(addT2);
+        }
+    }
+
+    function handleNewPlayerT1(): void {
+        alert("hold alt and click on canvas to choose player position");
+    }
+    
+    function handleNewPlayerT2(): void {
+        alert("hold alt and click on canvas to choose player position");
+        canvas.addEventListener("click", handleplaceNewPlayer2);
+    }
+
+    function handleplaceNewPlayer2(_event: MouseEvent): void {
+        let altKeyPressed: boolean = _event.altKey;
+
+        if (altKeyPressed == true) {
+            homeT2.push(new Vector(_event.clientX, _event.clientY));
+            let newPlayer: Player = new Player(new Vector(_event.clientX, _event.clientY), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            moveables.push(newPlayer);
+        }
     }
 
     
