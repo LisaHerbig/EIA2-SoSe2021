@@ -41,6 +41,7 @@ namespace Endaufgabe_FußballSiumulation {
     let animation: boolean = true;
     export let checkClose: boolean = true;
     export let ballMoves: boolean = false;
+    //let newPlayer: boolean = false;
     //let goalsT1: number [] = [];
     //let goalsT2: number [] = [];
     let backNumbers: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -325,11 +326,13 @@ namespace Endaufgabe_FußballSiumulation {
     */
 
     function handleClick(_event: MouseEvent): void {
-        animation = true;
-        checkClose = false;
-        ballMoves = true;
-        playSound(atmo);
-        event = _event;
+        //if (newPlayer == false) {
+            animation = true;
+            checkClose = false;
+            ballMoves = true;
+            playSound(atmo);
+            event = _event;
+       //}
     }
 
     function handleNewPlayer(_event: KeyboardEvent): void {
@@ -359,6 +362,7 @@ namespace Endaufgabe_FußballSiumulation {
     
     function handleNewPlayerT2(): void {
         alert("hold alt and click on canvas to choose player position");
+        //newPlayer = true;
         canvas.addEventListener("click", handleplaceNewPlayer2);
     }
 
@@ -370,6 +374,7 @@ namespace Endaufgabe_FußballSiumulation {
             let newPlayer: Player = new Player(new Vector(_event.clientX, _event.clientY), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
         }
+        //newPlayer = false;
     }
 
     

@@ -11,8 +11,9 @@ var Endaufgabe_FußballSiumulation;
         move(_event) {
             //console.log("Ball moves towards click position");  
             if (_event) {
-                let x = _event.clientX;
-                let y = _event.clientY;
+                let rect = Endaufgabe_FußballSiumulation.canvas.getBoundingClientRect();
+                let x = _event.clientX - rect.left;
+                let y = _event.clientY - rect.top;
                 let mousePos = new Endaufgabe_FußballSiumulation.Vector(x, y);
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(mousePos, this.position);
                 let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);

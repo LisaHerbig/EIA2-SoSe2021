@@ -11,8 +11,9 @@ namespace Endaufgabe_FußballSiumulation {
         move(_event?: MouseEvent): void {
             //console.log("Ball moves towards click position");  
             if (_event) {  
-                let x: number = _event.clientX;
-                let y: number = _event.clientY;
+                let rect: DOMRect = canvas.getBoundingClientRect();
+                let x: number = _event.clientX - rect.left;
+                let y: number = _event.clientY - rect.top;
                 let mousePos: Vector = new Vector(x, y);
                 let difference: Vector =  Vector.getDifference(mousePos, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);

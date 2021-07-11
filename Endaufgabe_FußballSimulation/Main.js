@@ -36,6 +36,7 @@ var Endaufgabe_FußballSiumulation;
     let animation = true;
     Endaufgabe_FußballSiumulation.checkClose = true;
     Endaufgabe_FußballSiumulation.ballMoves = false;
+    //let newPlayer: boolean = false;
     //let goalsT1: number [] = [];
     //let goalsT2: number [] = [];
     let backNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -280,11 +281,13 @@ var Endaufgabe_FußballSiumulation;
      *Function to handle when user clicks on Canvas
      */
     function handleClick(_event) {
+        //if (newPlayer == false) {
         animation = true;
         Endaufgabe_FußballSiumulation.checkClose = false;
         Endaufgabe_FußballSiumulation.ballMoves = true;
         playSound(atmo);
         event = _event;
+        //}
     }
     function handleNewPlayer(_event) {
         let keyName = _event.key;
@@ -310,6 +313,7 @@ var Endaufgabe_FußballSiumulation;
     }
     function handleNewPlayerT2() {
         alert("hold alt and click on canvas to choose player position");
+        //newPlayer = true;
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleplaceNewPlayer2);
     }
     function handleplaceNewPlayer2(_event) {
@@ -319,6 +323,7 @@ var Endaufgabe_FußballSiumulation;
             let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(_event.clientX, _event.clientY), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
         }
+        //newPlayer = false;
     }
 })(Endaufgabe_FußballSiumulation || (Endaufgabe_FußballSiumulation = {}));
 //# sourceMappingURL=Main.js.map
