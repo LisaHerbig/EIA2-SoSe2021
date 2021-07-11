@@ -67,18 +67,21 @@ namespace Endaufgabe_FußballSiumulation {
         displayBallPossession(_nation: string, _backNumber: number): void {
             inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
         }
-
-        displayInformation(_event: MouseEvent): void {
+        
+        displayInformation(_event?: MouseEvent): void {
             console.log("displayInformation");
-            let infoBox: HTMLElement = document.createElement("span");
-            infoBox.innerHTML = this.position + this.nation + this.home + this.team + this.speed + this.precision;
-            infoBox.style.backgroundColor = "yellow";
-            infoBox.style.left = _event.clientX + "px";
-            infoBox.style.top = _event.clientY + "px";
-            infoBox.style.position = "relative";
-            //infoBox.style.display = "inline-block";
-            infoBox.style.zIndex = "-1";
-            canvas.appendChild(infoBox);
+            let infoBox: HTMLElement = document.createElement("div");
+            infoBox.innerHTML = "Position: " + " x: " + Math.round(this.position.x) + ", y: " + Math.round(this.position.y) + "<br>" + "Origin: " + "x: " + Math.round(this.home.x) + " y: " + Math.round(this.home.y) + "<br>" + "Nation: " + this.nation  + "<br>" + "Team: " + this.team + "<br>" + "Number: " + this.backNumber + "<br>" +  "Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
+            //infoBox.style.opacity = "10%";
+            infoBox.style.fontWeight = "bold";
+            infoBox.style.fontSize = "100";
+            infoBox.style.fontFamily = "Arial, Helvetica, sans-serif";
+            infoBox.style.color = this.jerseyColor;
+            document.body.appendChild(infoBox);
+
+            setTimeout(function(): void { 
+                document.body.removeChild(infoBox);
+            },         5000);
         }
         
         stand(): void {

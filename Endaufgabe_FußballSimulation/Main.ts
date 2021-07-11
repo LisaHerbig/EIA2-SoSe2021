@@ -412,7 +412,6 @@ namespace Endaufgabe_FußballSiumulation {
     function handleInfo(_event: MouseEvent): void {
         let shiftKeyPressed: boolean = _event.shiftKey;
         console.log("handleInfo");
-        
         if (shiftKeyPressed == true) {
             console.log("shifKey is pressed");
             
