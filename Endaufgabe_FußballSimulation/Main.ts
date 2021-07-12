@@ -33,6 +33,8 @@ namespace Endaufgabe_FußballSiumulation {
     //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
 
     //let displayInfo: boolean = false;
+    let activePlayer: CustomEventInit;
+    
     let event: MouseEvent; 
     let positionsT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
     let positionsT2: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
@@ -69,7 +71,11 @@ namespace Endaufgabe_FußballSiumulation {
         form.addEventListener("change", handleChange);
         btnStart.addEventListener("click", handleBtn);
 
-        canvas.addEventListener("first_player", handleReach);
+        canvas.addEventListener("first_player", function(e: CustomEventInit): void {
+            //console.log(e.detail);
+            handleReach(e.detail);
+            
+        });
         canvas.addEventListener("click", handleClick);
 
         document.addEventListener("keydown", handleNewPlayer);
@@ -250,7 +256,7 @@ namespace Endaufgabe_FußballSiumulation {
             crc2.putImageData(imgData, 0, 0);
 
             if (checkClose == true) {
-                //console.log("checkifClose");
+                console.log("checkifClose");
                 checkIfClose();
             }
 
@@ -260,7 +266,7 @@ namespace Endaufgabe_FußballSiumulation {
                 for (let moveable of moveables) {
                     if  (moveable instanceof Ball) {
                         ball.push(moveable);
-                        ball[0].move(event);
+                        ball[0].move(event, activePlayer);
                         ball[0].draw();
                     }
                     if (moveable instanceof Player) {
@@ -325,9 +331,12 @@ namespace Endaufgabe_FußballSiumulation {
     *Function to handle when a player reached the ball
     */
 
-    function handleReach(): void {
+    function handleReach(_player: CustomEventInit): void {
         animation = false;
         atmo.pause();
+        activePlayer = _player;
+        console.log(activePlayer);
+        
    }
 
    /*

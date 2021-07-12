@@ -9,9 +9,9 @@ var Endaufgabe_FußballSiumulation;
             this.applaus = new Audio("Sounds/Applaus.wav");
             this.position = _position;
         }
-        move(_event) {
+        move(_event, _activePlayer) {
             //console.log("Ball moves towards click position");  
-            if (_event) {
+            if (_event && _activePlayer) {
                 let rect = Endaufgabe_FußballSiumulation.canvas.getBoundingClientRect();
                 let x = _event.clientX - rect.left;
                 let y = _event.clientY - rect.top;

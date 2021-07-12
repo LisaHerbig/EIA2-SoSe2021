@@ -40,7 +40,7 @@ namespace Endaufgabe_FußballSiumulation {
 
                 if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
                     //console.log("reachedBall", ballPositionRound);
-                    let event: CustomEvent = new CustomEvent("first_player", {detail: {player: this}});
+                    let event: CustomEvent = new CustomEvent("first_player", {detail: {player: this.precision}});
                     crc2.canvas.dispatchEvent(event);
                     this.displayBallPossession(this.nation, this.backNumber);
                 }

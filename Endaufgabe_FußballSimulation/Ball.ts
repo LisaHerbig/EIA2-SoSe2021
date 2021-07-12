@@ -9,9 +9,9 @@ namespace Endaufgabe_FußballSiumulation {
             super (_position);
             this.position = _position;
         }
-        move(_event?: MouseEvent): void {
+        move(_event?: MouseEvent, _activePlayer?: CustomEventInit): void {
             //console.log("Ball moves towards click position");  
-            if (_event) {  
+            if (_event && _activePlayer) {  
                 let rect: DOMRect = canvas.getBoundingClientRect();
                 let x: number = _event.clientX - rect.left;
                 let y: number = _event.clientY - rect.top;
