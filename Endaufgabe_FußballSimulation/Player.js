@@ -30,7 +30,8 @@ var Endaufgabe_FußballSiumulation;
                 //console.log(ballPositionRound, playerPositionRound);
                 if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
                     //console.log("reachedBall", ballPositionRound);
-                    let event = new CustomEvent("first_player", { detail: { player: this.precision } });
+                    Endaufgabe_FußballSiumulation.activePlayerPrecision = this.precision;
+                    let event = new CustomEvent("first_player", { "detail": { player: this } });
                     Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
                     this.displayBallPossession(this.nation, this.backNumber);
                 }

@@ -33,7 +33,7 @@ namespace Endaufgabe_FußballSiumulation {
     //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
 
     //let displayInfo: boolean = false;
-    let activePlayer: CustomEventInit;
+    export let activePlayerPrecision: number;
     
     let event: MouseEvent; 
     let positionsT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
@@ -44,6 +44,7 @@ namespace Endaufgabe_FußballSiumulation {
     let animation: boolean = true;
     export let checkClose: boolean = true;
     export let ballMoves: boolean = false;
+    export let newBallPos: boolean = true;
     //let newPlayer: boolean = false;
     export let goalsT1: number [] = [];
     export let goalsT2: number [] = [];
@@ -256,7 +257,7 @@ namespace Endaufgabe_FußballSiumulation {
             crc2.putImageData(imgData, 0, 0);
 
             if (checkClose == true) {
-                console.log("checkifClose");
+                //console.log("checkifClose");
                 checkIfClose();
             }
 
@@ -264,9 +265,12 @@ namespace Endaufgabe_FußballSiumulation {
                 let player: Player [] = [];
                 let ball: Ball [] = [];
                 for (let moveable of moveables) {
+                    
                     if  (moveable instanceof Ball) {
+                        console.log("moveBall");
+                        
                         ball.push(moveable);
-                        ball[0].move(event, activePlayer);
+                        ball[0].move(event);
                         ball[0].draw();
                     }
                     if (moveable instanceof Player) {
@@ -334,8 +338,9 @@ namespace Endaufgabe_FußballSiumulation {
     function handleReach(_player: CustomEventInit): void {
         animation = false;
         atmo.pause();
-        activePlayer = _player;
-        console.log(activePlayer);
+
+        //activePlayer = parseInt(_player);
+        console.log(activePlayerPrecision);
         
    }
 
