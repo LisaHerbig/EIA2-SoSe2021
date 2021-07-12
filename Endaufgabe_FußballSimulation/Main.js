@@ -26,6 +26,9 @@ var Endaufgabe_FußballSiumulation;
     //Sounds
     //let applaus: HTMLAudioElement = <HTMLAudioElement> new Audio ("Sounds/Applaus.wav");
     let atmo = new Audio("Sounds/Atmo.wav");
+    //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
+    let addT1 = document.querySelector("#AddPlayerT1");
+    let addT2 = document.querySelector("#AddPlayerT2");
     let event;
     let positionsT1 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 10, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 17), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 32, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 57, Endaufgabe_FußballSiumulation.height / 2 + 125), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 + 110)];
     let positionsT2 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 100, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 78, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 54, Endaufgabe_FußballSiumulation.height / 2 - 60), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 + 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 17)];
@@ -67,6 +70,8 @@ var Endaufgabe_FußballSiumulation;
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleClick);
         document.addEventListener("keydown", handleNewPlayer);
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleInfo);
+        addT1.addEventListener("click", handleNewPlayerT1);
+        addT2.addEventListener("click", handleNewPlayerT2);
     }
     /*
     *Function to get Data from Form Element
@@ -227,7 +232,7 @@ var Endaufgabe_FußballSiumulation;
                 let ball = [];
                 for (let moveable of moveables) {
                     if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
-                        console.log("moveBall");
+                        //console.log("moveBall");
                         ball.push(moveable);
                         ball[0].move(event);
                         ball[0].draw();
@@ -306,25 +311,35 @@ var Endaufgabe_FußballSiumulation;
     /*
    *Functions to add new players to team
    */
-    let addT1 = document.createElement("button");
-    let addT2 = document.createElement("button");
+    //let addT1: HTMLButtonElement = document.createElement("button");
+    //addT1.type = "button";
+    //let addT2: HTMLButtonElement = document.createElement("button");
+    //addT2.type = "button";
+    //let addT1: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT1");
+    //let addT2: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT2");
+    //addT1.addEventListener("click", handleNewPlayerT1);
+    //addT2.addEventListener("click", handleNewPlayerT2);
     function handleNewPlayer(_event) {
         let keyName = _event.key;
         if (keyName == "+") {
             console.log("addNewPlayer");
             //animation = false;
             //let addT1: HTMLButtonElement = document.createElement("button");
-            addT1.innerHTML = "Team1";
-            addT1.setAttribute("id", "btnAddTeam1");
+            //addT1.innerHTML = "Team1";
+            //addT1.setAttribute("id", "btnAddTeam1");
+            addT1.setAttribute("class", "show");
             addT1.style.backgroundColor = colorTeam1;
-            addT1.addEventListener("click", handleNewPlayerT1);
-            document.body.appendChild(addT1);
+            //addT1.addEventListener("click", handleNewPlayerT1);
+            //document.body.appendChild(addT1);
             //let addT2: HTMLButtonElement = document.createElement("button");
-            addT2.innerHTML = "Team2";
-            addT2.setAttribute("id", "btnAddTeam2");
+            //addT2.innerHTML = "Team2";
+            addT2.setAttribute("class", "show");
             addT2.style.backgroundColor = colorTeam2;
-            addT2.addEventListener("click", handleNewPlayerT2);
-            document.body.appendChild(addT2);
+            //addT2.addEventListener("click", handleNewPlayerT2);
+            //addT2.setAttribute("id", "btnAddTeam2");
+            //addT2.style.backgroundColor = colorTeam2;
+            //addT2.addEventListener("click", handleNewPlayerT2);
+            //document.body.appendChild(addT2);
         }
     }
     function handleNewPlayerT1() {
@@ -345,8 +360,10 @@ var Endaufgabe_FußballSiumulation;
             homeT1.push(new Endaufgabe_FußballSiumulation.Vector(x, y));
             let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(x, y), homeT1[homeT1.length - 1], team1, colorTeam1, 12, "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
-            document.body.removeChild(addT1);
-            document.body.removeChild(addT2);
+            addT1.setAttribute("class", "hide");
+            //document.body.removeChild(addT1);
+            addT2.setAttribute("class", "hide");
+            Endaufgabe_FußballSiumulation.canvas.removeEventListener("click", handleplaceNewPlayer1);
         }
     }
     function handleplaceNewPlayer2(_event) {
@@ -358,8 +375,11 @@ var Endaufgabe_FußballSiumulation;
             homeT2.push(new Endaufgabe_FußballSiumulation.Vector(x, y));
             let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(x, y), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
-            document.body.removeChild(addT1);
-            document.body.removeChild(addT2);
+            //document.body.removeChild(addT1);
+            //document.body.removeChild(addT2);
+            addT1.setAttribute("class", "hide");
+            addT2.setAttribute("class", "hide");
+            Endaufgabe_FußballSiumulation.canvas.removeEventListener("click", handleplaceNewPlayer2);
         }
         //newPlayer = false;
     }

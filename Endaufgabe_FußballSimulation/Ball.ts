@@ -25,7 +25,7 @@ namespace Endaufgabe_FußballSiumulation {
                     case (length < (width / 110 * 10.5)):
                         //let newPosA1: Vector[] = [];
                         //if (newBallPos == true) {
-                        console.log("area1");
+                        //console.log("area1");
                         this.moveWithOfset(mousePos, 3);
                         newBallPos = false;
                         //}
@@ -77,7 +77,7 @@ namespace Endaufgabe_FußballSiumulation {
                         console.log("area5");
                         this.moveWithOfset(mousePos, 50);
                         break;
-                        
+
                     default:
                         console.log("something went wrong"); 
                 }
@@ -103,13 +103,13 @@ namespace Endaufgabe_FußballSiumulation {
             let offset2: Vector = new Vector(difference2.x, difference2.y);
             offset2.scale(1 / this.speed);
             this.position.add(offset2);
-            console.log("BallPosition: ", this.position, "Spread", spread, "MousePos: ", _mousePos, "newPos: ", newPos);
+            //console.log("BallPosition: ", this.position, "Spread", spread, "MousePos: ", _mousePos, "newPos: ", newPos);
             let round2: Vector = new Vector(Math.round(newPos.x), Math.round(newPos.y));
             let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
-            console.log("roundPos newPos", round2, "roundBall", roundBall2);
+            //console.log("roundPos newPos", round2, "roundBall", roundBall2);
                     
             if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
-                        console.log("BallReachedPosition"); 
+                        //console.log("BallReachedPosition"); 
                         ballMoves = false;
                         //newBallPos = true;
                         }

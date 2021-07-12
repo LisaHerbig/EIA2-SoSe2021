@@ -32,6 +32,9 @@ namespace Endaufgabe_FußballSiumulation {
     let atmo: HTMLAudioElement = new Audio ("Sounds/Atmo.wav");
     //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
 
+    let addT1: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT1");
+    let addT2: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT2");
+
     //let displayInfo: boolean = false;
     export let activePlayerPrecision: number;
     
@@ -81,6 +84,9 @@ namespace Endaufgabe_FußballSiumulation {
 
         document.addEventListener("keydown", handleNewPlayer);
         canvas.addEventListener("click", handleInfo);
+
+        addT1.addEventListener("click", handleNewPlayerT1);
+        addT2.addEventListener("click", handleNewPlayerT2);
     }
 
     /*
@@ -267,7 +273,7 @@ namespace Endaufgabe_FußballSiumulation {
                 for (let moveable of moveables) {
                     
                     if  (moveable instanceof Ball) {
-                        console.log("moveBall");
+                        //console.log("moveBall");
                         
                         ball.push(moveable);
                         ball[0].move(event);
@@ -361,26 +367,37 @@ namespace Endaufgabe_FußballSiumulation {
      /*
     *Functions to add new players to team
     */
-    let addT1: HTMLButtonElement = document.createElement("button");
-    let addT2: HTMLButtonElement = document.createElement("button");
+    //let addT1: HTMLButtonElement = document.createElement("button");
+    //addT1.type = "button";
+    //let addT2: HTMLButtonElement = document.createElement("button");
+    //addT2.type = "button";
+    //let addT1: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT1");
+    //let addT2: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT2");
+    //addT1.addEventListener("click", handleNewPlayerT1);
+    //addT2.addEventListener("click", handleNewPlayerT2);
+
     function handleNewPlayer(_event: KeyboardEvent): void {
         let keyName: string = _event.key;
         if (keyName == "+") {
             console.log("addNewPlayer");
             //animation = false;
             //let addT1: HTMLButtonElement = document.createElement("button");
-            addT1.innerHTML = "Team1";
-            addT1.setAttribute("id", "btnAddTeam1");
+            //addT1.innerHTML = "Team1";
+            //addT1.setAttribute("id", "btnAddTeam1");
+            addT1.setAttribute("class", "show");
             addT1.style.backgroundColor = colorTeam1;
-            addT1.addEventListener("click", handleNewPlayerT1);
-            document.body.appendChild(addT1);
+            //addT1.addEventListener("click", handleNewPlayerT1);
+            //document.body.appendChild(addT1);
 
             //let addT2: HTMLButtonElement = document.createElement("button");
-            addT2.innerHTML = "Team2";
-            addT2.setAttribute("id", "btnAddTeam2");
+            //addT2.innerHTML = "Team2";
+            addT2.setAttribute("class", "show");
             addT2.style.backgroundColor = colorTeam2;
-            addT2.addEventListener("click", handleNewPlayerT2);
-            document.body.appendChild(addT2);
+            //addT2.addEventListener("click", handleNewPlayerT2);
+            //addT2.setAttribute("id", "btnAddTeam2");
+            //addT2.style.backgroundColor = colorTeam2;
+            //addT2.addEventListener("click", handleNewPlayerT2);
+            //document.body.appendChild(addT2);
         }
     }
 
@@ -405,8 +422,10 @@ namespace Endaufgabe_FußballSiumulation {
             homeT1.push(new Vector(x, y));
             let newPlayer: Player = new Player(new Vector(x, y), homeT1[homeT1.length - 1], team1, colorTeam1, 12, "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
-            document.body.removeChild(addT1);
-            document.body.removeChild(addT2);
+            addT1.setAttribute("class", "hide");
+            //document.body.removeChild(addT1);
+            addT2.setAttribute("class", "hide");
+            canvas.removeEventListener("click", handleplaceNewPlayer1);
         }
     }
 
@@ -420,8 +439,11 @@ namespace Endaufgabe_FußballSiumulation {
             homeT2.push(new Vector(x, y));
             let newPlayer: Player = new Player(new Vector(x, y), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
-            document.body.removeChild(addT1);
-            document.body.removeChild(addT2);
+            //document.body.removeChild(addT1);
+            //document.body.removeChild(addT2);
+            addT1.setAttribute("class", "hide");
+            addT2.setAttribute("class", "hide");
+            canvas.removeEventListener("click", handleplaceNewPlayer2);
         }
         //newPlayer = false;
     }
