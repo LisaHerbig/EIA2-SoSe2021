@@ -11,7 +11,7 @@ var Endaufgabe_FußballSiumulation;
         }
         move(_event) {
             //console.log("Ball moves towards click position");  
-            if (_event) {
+            if (_event && Endaufgabe_FußballSiumulation.stopDifference == false) {
                 //let playerPrecision: number = Number(_activePlayer);
                 let rect = Endaufgabe_FußballSiumulation.canvas.getBoundingClientRect();
                 let x = _event.clientX - rect.left;
@@ -82,7 +82,9 @@ var Endaufgabe_FußballSiumulation;
                 if (ballPositionRound.x == mousePositionRound.x && ballPositionRound.y == mousePositionRound.y) {
                     Endaufgabe_FußballSiumulation.ballMoves = false;
                 }
+                //stopDifference = false;
             }
+            //stopDifference = false;
         }
         moveWithOfset(_mousePos, _spread) {
             let spread = Endaufgabe_FußballSiumulation.width / 110 * _spread * (Endaufgabe_FußballSiumulation.activePlayerPrecision / 100);
@@ -97,7 +99,7 @@ var Endaufgabe_FußballSiumulation;
             let roundBall2 = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
             //console.log("roundPos newPos", round2, "roundBall", roundBall2);
             if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
-                //console.log("BallReachedPosition"); 
+                console.log("BallReachedPosition");
                 Endaufgabe_FußballSiumulation.ballMoves = false;
                 //newBallPos = true;
             }
@@ -110,11 +112,13 @@ var Endaufgabe_FußballSiumulation;
             //}
             if (this.position.x <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 5 && this.position.y < Endaufgabe_FußballSiumulation.canvas.height / 2 + 40 && this.position.y > Endaufgabe_FußballSiumulation.canvas.height / 2 - 40) {
                 Endaufgabe_FußballSiumulation.goal = true;
+                Endaufgabe_FußballSiumulation.stopDifference = true;
                 this.handleGoal("team2");
                 //this.position = this.start;
             }
             if (this.position.x >= Endaufgabe_FußballSiumulation.canvas.width / 110 * 100 && this.position.y < Endaufgabe_FußballSiumulation.canvas.height / 2 + 40 && this.position.y > Endaufgabe_FußballSiumulation.canvas.height / 2 - 40) {
                 Endaufgabe_FußballSiumulation.goal = true;
+                Endaufgabe_FußballSiumulation.stopDifference = true;
                 this.handleGoal("team1");
             }
             //console.log(this.position.x, this.position.y, "canvas width", canvas.width / 110 * 5, "canvasheight", canvas.height / 2 + 40);
@@ -127,6 +131,7 @@ var Endaufgabe_FußballSiumulation;
                 Endaufgabe_FußballSiumulation.goalsT2.push(1);
                 Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + " : " + " Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
                 Endaufgabe_FußballSiumulation.goal = false;
+                //stopDifference = false;
             }
             if (_team == "team1") {
                 console.log("goalForTeam right Team1");
@@ -136,6 +141,7 @@ var Endaufgabe_FußballSiumulation;
                 Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + " : " + " Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
                 Endaufgabe_FußballSiumulation.goal = false;
             }
+            //stopDifference = false;
         }
         draw() {
             Endaufgabe_FußballSiumulation.drawBall(this.position);

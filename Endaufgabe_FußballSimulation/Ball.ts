@@ -11,7 +11,7 @@ namespace Endaufgabe_FußballSiumulation {
         }
         move(_event?: MouseEvent): void {
             //console.log("Ball moves towards click position");  
-            if (_event) {  
+            if (_event && stopDifference == false) {  
                 //let playerPrecision: number = Number(_activePlayer);
                 let rect: DOMRect = canvas.getBoundingClientRect();
                 let x: number = _event.clientX - rect.left;
@@ -92,7 +92,9 @@ namespace Endaufgabe_FußballSiumulation {
                 if (ballPositionRound.x == mousePositionRound.x && ballPositionRound.y == mousePositionRound.y) {
                     ballMoves = false;
                 }
+                //stopDifference = false;
         }
+            //stopDifference = false;
         }
 
         moveWithOfset(_mousePos: Vector, _spread: number): void {
@@ -109,7 +111,7 @@ namespace Endaufgabe_FußballSiumulation {
             //console.log("roundPos newPos", round2, "roundBall", roundBall2);
                     
             if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
-                        //console.log("BallReachedPosition"); 
+                        console.log("BallReachedPosition"); 
                         ballMoves = false;
                         //newBallPos = true;
                         }
@@ -125,6 +127,7 @@ namespace Endaufgabe_FußballSiumulation {
             //}
             if (this.position.x <= canvas.width / 110 * 5 && this.position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
                 goal = true;
+                stopDifference = true;
                 this.handleGoal("team2");
                 
                 //this.position = this.start;
@@ -134,6 +137,7 @@ namespace Endaufgabe_FußballSiumulation {
 
             if (this.position.x >= canvas.width / 110 * 100 && this.position.y < canvas.height / 2 + 40 && this.position.y > canvas.height / 2 - 40) {
                 goal = true;
+                stopDifference = true;
                 this.handleGoal("team1");
               
                 
@@ -150,6 +154,7 @@ namespace Endaufgabe_FußballSiumulation {
                 goalsT2.push(1);
                 scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
                 goal = false;
+                //stopDifference = false;
             }   
             if (_team == "team1") {
                 console.log("goalForTeam right Team1");
@@ -159,6 +164,7 @@ namespace Endaufgabe_FußballSiumulation {
                 scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
                 goal = false;
             }
+            //stopDifference = false;
     }
 
         draw(): void {
