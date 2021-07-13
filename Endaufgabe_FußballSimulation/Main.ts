@@ -81,7 +81,7 @@ namespace Endaufgabe_FußballSiumulation {
 
         canvas.addEventListener("click", handleClick);
 
-        document.addEventListener("keydown", handleNewPlayer);
+        document.addEventListener("keydown", handleExchange);
         canvas.addEventListener("click", handleInfo);
 
         addT1.addEventListener("click", handleNewPlayerT1);
@@ -356,14 +356,19 @@ namespace Endaufgabe_FußballSiumulation {
     *Functions to add new players to team
     */
 
-    function handleNewPlayer(_event: KeyboardEvent): void {
+    function handleExchange(_event: KeyboardEvent): void {
         let keyName: string = _event.key;
         if (keyName == "+") {
-            console.log("addNewPlayer");
+            //console.log("addNewPlayer");
             addT1.setAttribute("class", "show");
             addT1.style.backgroundColor = colorTeam1;
             addT2.setAttribute("class", "show");
             addT2.style.backgroundColor = colorTeam2;
+        }
+
+        if (keyName == "-") {
+            alert("hold Ctrl. and click on the player you want to delete");
+            canvas.addEventListener("click", handleDelete);
         }
     }
 
@@ -414,6 +419,39 @@ namespace Endaufgabe_FußballSiumulation {
         //newPlayer = false;
     }
 
+    function handleDelete(_event: MouseEvent): void {
+        let ctrlKeyPressed: boolean = _event.ctrlKey;
+        console.log("delete");
+        
+        if (ctrlKeyPressed == true) {
+            console.log("keyIsPressed");
+            
+            //let players: Player [] = [];
+            let rect: DOMRect = canvas.getBoundingClientRect();
+            let x: number = _event.clientX - rect.left;
+            let y: number = _event.clientY - rect.top;
+            //let PositionInArray: number; 
+
+            for (let [i, moveable] of moveables.entries()) {
+                if (moveable instanceof Player) {
+                    console.log(i, moveable);
+                    //players.push(moveable);
+                    let v1: Vector = new Vector(moveable.position.x, moveable.position.y);
+                    let v2: Vector = new Vector(x, y);
+                    let difference: Vector = Vector.getDifference(v1, v2);
+                    let length: number = difference.length;
+                    if (length <= canvas.width / 110 * 5) {
+                        console.log("less than 1m");
+                        moveables.splice(i, 1);
+                        //console.log("less than 1m");
+                        
+                    }
+                }
+            }
+        }
+    }
+
+
     /*
     * Function for Information about Player
     */
@@ -448,6 +486,8 @@ namespace Endaufgabe_FußballSiumulation {
         }
 
     }
+
+    
 
       
     

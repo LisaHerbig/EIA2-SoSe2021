@@ -68,7 +68,7 @@ var Endaufgabe_FußballSiumulation;
             handleReach(e.detail);
         });
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleClick);
-        document.addEventListener("keydown", handleNewPlayer);
+        document.addEventListener("keydown", handleExchange);
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleInfo);
         addT1.addEventListener("click", handleNewPlayerT1);
         addT2.addEventListener("click", handleNewPlayerT2);
@@ -303,14 +303,18 @@ var Endaufgabe_FußballSiumulation;
     /*
    *Functions to add new players to team
    */
-    function handleNewPlayer(_event) {
+    function handleExchange(_event) {
         let keyName = _event.key;
         if (keyName == "+") {
-            console.log("addNewPlayer");
+            //console.log("addNewPlayer");
             addT1.setAttribute("class", "show");
             addT1.style.backgroundColor = colorTeam1;
             addT2.setAttribute("class", "show");
             addT2.style.backgroundColor = colorTeam2;
+        }
+        if (keyName == "-") {
+            alert("hold Ctrl. and click on the player you want to delete");
+            Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleDelete);
         }
     }
     function handleNewPlayerT1() {
@@ -353,6 +357,33 @@ var Endaufgabe_FußballSiumulation;
             Endaufgabe_FußballSiumulation.canvas.removeEventListener("click", handleplaceNewPlayer2);
         }
         //newPlayer = false;
+    }
+    function handleDelete(_event) {
+        let ctrlKeyPressed = _event.ctrlKey;
+        console.log("delete");
+        if (ctrlKeyPressed == true) {
+            console.log("keyIsPressed");
+            //let players: Player [] = [];
+            let rect = Endaufgabe_FußballSiumulation.canvas.getBoundingClientRect();
+            let x = _event.clientX - rect.left;
+            let y = _event.clientY - rect.top;
+            //let PositionInArray: number; 
+            for (let [i, moveable] of moveables.entries()) {
+                if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
+                    console.log(i, moveable);
+                    //players.push(moveable);
+                    let v1 = new Endaufgabe_FußballSiumulation.Vector(moveable.position.x, moveable.position.y);
+                    let v2 = new Endaufgabe_FußballSiumulation.Vector(x, y);
+                    let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(v1, v2);
+                    let length = difference.length;
+                    if (length <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 5) {
+                        console.log("less than 1m");
+                        moveables.splice(i, 1);
+                        //console.log("less than 1m");
+                    }
+                }
+            }
+        }
     }
     /*
     * Function for Information about Player
