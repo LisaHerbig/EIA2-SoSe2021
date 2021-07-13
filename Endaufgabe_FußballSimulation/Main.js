@@ -43,7 +43,8 @@ var Endaufgabe_FußballSiumulation;
     //let newPlayer: boolean = false;
     Endaufgabe_FußballSiumulation.goalsT1 = [];
     Endaufgabe_FußballSiumulation.goalsT2 = [];
-    let backNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    let backNumbersT1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    let backNumbersT2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     let TASK;
     (function (TASK) {
         TASK[TASK["STAND"] = 0] = "STAND";
@@ -166,14 +167,14 @@ var Endaufgabe_FußballSiumulation;
     }
     function setUpTeam1() {
         for (let i = 0; i < 11; i++) {
-            let playerT1 = new Endaufgabe_FußballSiumulation.Player(positionsT1[i], homeT1[i], team1, colorTeam1, backNumbers[i], "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            let playerT1 = new Endaufgabe_FußballSiumulation.Player(positionsT1[i], homeT1[i], team1, colorTeam1, backNumbersT1[i], "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             playerT1.draw();
             moveables.push(playerT1);
         }
     }
     function setUpTeam2() {
         for (let i = 0; i < 11; i++) {
-            let playerT2 = new Endaufgabe_FußballSiumulation.Player(positionsT2[i], homeT2[i], team2, colorTeam2, backNumbers[i], "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            let playerT2 = new Endaufgabe_FußballSiumulation.Player(positionsT2[i], homeT2[i], team2, colorTeam2, backNumbersT2[i], "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             playerT2.draw();
             moveables.push(playerT2);
         }
@@ -333,7 +334,8 @@ var Endaufgabe_FußballSiumulation;
             let x = _event.clientX - rect.left;
             let y = _event.clientY - rect.top;
             homeT1.push(new Endaufgabe_FußballSiumulation.Vector(x, y));
-            let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(x, y), homeT1[homeT1.length - 1], team1, colorTeam1, 12, "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            backNumbersT1.push(1);
+            let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(x, y), homeT1[homeT1.length - 1], team1, colorTeam1, backNumbersT1.length, "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
             addT1.setAttribute("class", "hide");
             //document.body.removeChild(addT1);
@@ -348,7 +350,8 @@ var Endaufgabe_FußballSiumulation;
             let x = _event.clientX - rect.left;
             let y = _event.clientY - rect.top;
             homeT2.push(new Endaufgabe_FußballSiumulation.Vector(x, y));
-            let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(x, y), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            backNumbersT2.push(1);
+            let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(x, y), homeT2[homeT2.length - 1], team2, colorTeam2, backNumbersT2.length, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
             //document.body.removeChild(addT1);
             //document.body.removeChild(addT2);
@@ -360,9 +363,9 @@ var Endaufgabe_FußballSiumulation;
     }
     function handleDelete(_event) {
         let ctrlKeyPressed = _event.ctrlKey;
-        console.log("delete");
+        //console.log("delete");
         if (ctrlKeyPressed == true) {
-            console.log("keyIsPressed");
+            //console.log("keyIsPressed");
             //let players: Player [] = [];
             let rect = Endaufgabe_FußballSiumulation.canvas.getBoundingClientRect();
             let x = _event.clientX - rect.left;

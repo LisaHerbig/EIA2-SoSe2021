@@ -51,7 +51,8 @@ namespace Endaufgabe_FußballSiumulation {
     //let newPlayer: boolean = false;
     export let goalsT1: number [] = [];
     export let goalsT2: number [] = [];
-    let backNumbers: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    let backNumbersT1: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    let backNumbersT2: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     export enum TASK {
         STAND,
         MOVE,
@@ -192,7 +193,7 @@ namespace Endaufgabe_FußballSiumulation {
 
     function setUpTeam1(): void {
         for (let i: number = 0; i < 11; i ++) {
-            let playerT1: Player = new Player(positionsT1[i], homeT1[i], team1, colorTeam1, backNumbers[i], "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax)); 
+            let playerT1: Player = new Player(positionsT1[i], homeT1[i], team1, colorTeam1, backNumbersT1[i], "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax)); 
             playerT1.draw();
             moveables.push(playerT1);
         }
@@ -200,7 +201,7 @@ namespace Endaufgabe_FußballSiumulation {
 
     function setUpTeam2(): void {
         for (let i: number = 0; i < 11; i ++) {
-            let playerT2: Player = new Player(positionsT2[i], homeT2[i], team2, colorTeam2, backNumbers[i], "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            let playerT2: Player = new Player(positionsT2[i], homeT2[i], team2, colorTeam2, backNumbersT2[i], "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             playerT2.draw();
             moveables.push(playerT2);
         }
@@ -391,7 +392,8 @@ namespace Endaufgabe_FußballSiumulation {
             let x: number = _event.clientX - rect.left;
             let y: number = _event.clientY - rect.top;
             homeT1.push(new Vector(x, y));
-            let newPlayer: Player = new Player(new Vector(x, y), homeT1[homeT1.length - 1], team1, colorTeam1, 12, "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            backNumbersT1.push(1);
+            let newPlayer: Player = new Player(new Vector(x, y), homeT1[homeT1.length - 1], team1, colorTeam1, backNumbersT1.length, "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
             addT1.setAttribute("class", "hide");
             //document.body.removeChild(addT1);
@@ -408,7 +410,8 @@ namespace Endaufgabe_FußballSiumulation {
             let x: number = _event.clientX - rect.left;
             let y: number = _event.clientY - rect.top;
             homeT2.push(new Vector(x, y));
-            let newPlayer: Player = new Player(new Vector(x, y), homeT2[homeT2.length - 1], team2, colorTeam2, 12, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
+            backNumbersT2.push(1);
+            let newPlayer: Player = new Player(new Vector(x, y), homeT2[homeT2.length - 1], team2, colorTeam2, backNumbersT2.length, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
             //document.body.removeChild(addT1);
             //document.body.removeChild(addT2);
@@ -421,10 +424,10 @@ namespace Endaufgabe_FußballSiumulation {
 
     function handleDelete(_event: MouseEvent): void {
         let ctrlKeyPressed: boolean = _event.ctrlKey;
-        console.log("delete");
+        //console.log("delete");
         
         if (ctrlKeyPressed == true) {
-            console.log("keyIsPressed");
+            //console.log("keyIsPressed");
             
             //let players: Player [] = [];
             let rect: DOMRect = canvas.getBoundingClientRect();
