@@ -76,10 +76,9 @@ namespace Endaufgabe_FußballSiumulation {
         btnStart.addEventListener("click", handleBtn);
 
         canvas.addEventListener("first_player", function(e: CustomEventInit): void {
-            //console.log(e.detail);
             handleReach(e.detail);
-            
         });
+
         canvas.addEventListener("click", handleClick);
 
         document.addEventListener("keydown", handleNewPlayer);
@@ -149,12 +148,8 @@ namespace Endaufgabe_FußballSiumulation {
 
     function handleBtn(): void {
         console.log("StartMatch");
-      
-        //form.remove();
         form.setAttribute("class", "hide");
-        //btnStart.remove();
         btnStart.setAttribute("class", "hide");
-        //explain.remove();
         explain.setAttribute("class", "hide");
         prepareGame();
     }
@@ -254,16 +249,12 @@ namespace Endaufgabe_FußballSiumulation {
     export let goal: boolean = false;
 
     function update(): void {
-        //console.log("update");
-        
         if (animation == true) {
-            //console.log("animation");
-            
+
             crc2.clearRect(0, 0, canvas.width, canvas.height);
             crc2.putImageData(imgData, 0, 0);
 
             if (checkClose == true) {
-                //console.log("checkifClose");
                 checkIfClose();
             }
 
@@ -273,8 +264,6 @@ namespace Endaufgabe_FußballSiumulation {
                 for (let moveable of moveables) {
                     
                     if  (moveable instanceof Ball) {
-                        //console.log("moveBall");
-                        
                         ball.push(moveable);
                         ball[0].move(event);
                         ball[0].draw();
@@ -284,18 +273,27 @@ namespace Endaufgabe_FußballSiumulation {
                     }
                     for (let p: number = 0; p < player.length; p++) { 
                         player[p].changeTask(TASK.MOVEHOME);
-                        //}
                     }
                 }
             }
+
             for (let moveable of moveables) { 
-                moveable.draw(); 
+                //moveable.draw(); 
+                //console.log("look for LineJudge");
+                
+                if (moveable instanceof LineJudge) {
+                    //console.log("LIneJudgeUpdate");
+                    moveable.move();
+                    //moveable.draw();
+                }
                 if (moveable instanceof Ball) {
+                    //console.log("look for Goal");
+                    
                     if (goal == false) {
                     moveable.goal();
-                    //moveable.position = moveable.start;
                     }
                 }
+                moveable.draw(); 
             }
             
         }
@@ -308,7 +306,6 @@ namespace Endaufgabe_FußballSiumulation {
     function checkIfClose(): void {
         let ball: Ball [] = [];
         let player: Player[] = [];
-        //console.log(ball);
         ball.length = 0;
         player.length = 0;
         
@@ -327,12 +324,8 @@ namespace Endaufgabe_FußballSiumulation {
             let v2: Vector = new Vector(ball[0].position.x, ball[0].position.y);
             let difference: Vector = Vector.getDifference(v1, v2);
             let length: number = difference.length;
-            //console.log(length / 110, difference, width / 110 * length);
             if (length <= canvas.width / 110 * 30) {
-                //console.log("length<30ChangeTaskTOMove");
-                
                 player[j].changeTask(TASK.MOVE, ball[0].position);
-                //console.log("Yes!");
             }
         }
    }
@@ -344,10 +337,7 @@ namespace Endaufgabe_FußballSiumulation {
     function handleReach(_player: CustomEventInit): void {
         animation = false;
         atmo.pause();
-
-        //activePlayer = parseInt(_player);
-        console.log(activePlayerPrecision);
-        
+        console.log(activePlayerPrecision); 
    }
 
    /*
@@ -355,49 +345,25 @@ namespace Endaufgabe_FußballSiumulation {
     */
 
     function handleClick(_event: MouseEvent): void {
-        //if (newPlayer == false) {
             animation = true;
             checkClose = true;
             ballMoves = true;
             playSound(atmo);
             event = _event;
-       //}
     }
 
      /*
     *Functions to add new players to team
     */
-    //let addT1: HTMLButtonElement = document.createElement("button");
-    //addT1.type = "button";
-    //let addT2: HTMLButtonElement = document.createElement("button");
-    //addT2.type = "button";
-    //let addT1: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT1");
-    //let addT2: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT2");
-    //addT1.addEventListener("click", handleNewPlayerT1);
-    //addT2.addEventListener("click", handleNewPlayerT2);
 
     function handleNewPlayer(_event: KeyboardEvent): void {
         let keyName: string = _event.key;
         if (keyName == "+") {
             console.log("addNewPlayer");
-            //animation = false;
-            //let addT1: HTMLButtonElement = document.createElement("button");
-            //addT1.innerHTML = "Team1";
-            //addT1.setAttribute("id", "btnAddTeam1");
             addT1.setAttribute("class", "show");
             addT1.style.backgroundColor = colorTeam1;
-            //addT1.addEventListener("click", handleNewPlayerT1);
-            //document.body.appendChild(addT1);
-
-            //let addT2: HTMLButtonElement = document.createElement("button");
-            //addT2.innerHTML = "Team2";
             addT2.setAttribute("class", "show");
             addT2.style.backgroundColor = colorTeam2;
-            //addT2.addEventListener("click", handleNewPlayerT2);
-            //addT2.setAttribute("id", "btnAddTeam2");
-            //addT2.style.backgroundColor = colorTeam2;
-            //addT2.addEventListener("click", handleNewPlayerT2);
-            //document.body.appendChild(addT2);
         }
     }
 

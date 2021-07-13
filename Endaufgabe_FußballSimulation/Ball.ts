@@ -59,22 +59,22 @@ namespace Endaufgabe_FußballSiumulation {
                         break;
 
                     case (length < (width / 110 * 21.5)): 
-                        console.log("area2");
+                        //console.log("area2");
                         this.moveWithOfset(mousePos, 10);
                         break;
 
                     case (length < (width / 2)): 
-                        console.log("area3");
+                        //console.log("area3");
                         this.moveWithOfset(mousePos, 20);
                         break;
 
                     case (length < (width / 110 * 88.5)):
-                        console.log("area4");
+                        //console.log("area4");
                         this.moveWithOfset(mousePos, 35);
                         break;
 
                     case (length < (width / 110 * 110)):
-                        console.log("area5");
+                        //console.log("area5");
                         this.moveWithOfset(mousePos, 50);
                         break;
 

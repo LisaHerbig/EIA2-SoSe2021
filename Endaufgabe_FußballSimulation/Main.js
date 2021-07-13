@@ -65,7 +65,6 @@ var Endaufgabe_FußballSiumulation;
         form.addEventListener("change", handleChange);
         btnStart.addEventListener("click", handleBtn);
         Endaufgabe_FußballSiumulation.canvas.addEventListener("first_player", function (e) {
-            //console.log(e.detail);
             handleReach(e.detail);
         });
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleClick);
@@ -131,11 +130,8 @@ var Endaufgabe_FußballSiumulation;
     */
     function handleBtn() {
         console.log("StartMatch");
-        //form.remove();
         form.setAttribute("class", "hide");
-        //btnStart.remove();
         btnStart.setAttribute("class", "hide");
-        //explain.remove();
         explain.setAttribute("class", "hide");
         prepareGame();
     }
@@ -219,13 +215,10 @@ var Endaufgabe_FußballSiumulation;
     */
     Endaufgabe_FußballSiumulation.goal = false;
     function update() {
-        //console.log("update");
         if (animation == true) {
-            //console.log("animation");
             Endaufgabe_FußballSiumulation.crc2.clearRect(0, 0, Endaufgabe_FußballSiumulation.canvas.width, Endaufgabe_FußballSiumulation.canvas.height);
             Endaufgabe_FußballSiumulation.crc2.putImageData(imgData, 0, 0);
             if (Endaufgabe_FußballSiumulation.checkClose == true) {
-                //console.log("checkifClose");
                 checkIfClose();
             }
             if (Endaufgabe_FußballSiumulation.ballMoves == true) {
@@ -233,7 +226,6 @@ var Endaufgabe_FußballSiumulation;
                 let ball = [];
                 for (let moveable of moveables) {
                     if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
-                        //console.log("moveBall");
                         ball.push(moveable);
                         ball[0].move(event);
                         ball[0].draw();
@@ -243,18 +235,24 @@ var Endaufgabe_FußballSiumulation;
                     }
                     for (let p = 0; p < player.length; p++) {
                         player[p].changeTask(TASK.MOVEHOME);
-                        //}
                     }
                 }
             }
             for (let moveable of moveables) {
-                moveable.draw();
+                //moveable.draw(); 
+                //console.log("look for LineJudge");
+                if (moveable instanceof Endaufgabe_FußballSiumulation.LineJudge) {
+                    //console.log("LIneJudgeUpdate");
+                    moveable.move();
+                    //moveable.draw();
+                }
                 if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
+                    //console.log("look for Goal");
                     if (Endaufgabe_FußballSiumulation.goal == false) {
                         moveable.goal();
-                        //moveable.position = moveable.start;
                     }
                 }
+                moveable.draw();
             }
         }
     }
@@ -264,7 +262,6 @@ var Endaufgabe_FußballSiumulation;
     function checkIfClose() {
         let ball = [];
         let player = [];
-        //console.log(ball);
         ball.length = 0;
         player.length = 0;
         for (let moveable of moveables) {
@@ -280,11 +277,8 @@ var Endaufgabe_FußballSiumulation;
             let v2 = new Endaufgabe_FußballSiumulation.Vector(ball[0].position.x, ball[0].position.y);
             let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(v1, v2);
             let length = difference.length;
-            //console.log(length / 110, difference, width / 110 * length);
             if (length <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 30) {
-                //console.log("length<30ChangeTaskTOMove");
                 player[j].changeTask(TASK.MOVE, ball[0].position);
-                //console.log("Yes!");
             }
         }
     }
@@ -294,53 +288,29 @@ var Endaufgabe_FußballSiumulation;
     function handleReach(_player) {
         animation = false;
         atmo.pause();
-        //activePlayer = parseInt(_player);
         console.log(Endaufgabe_FußballSiumulation.activePlayerPrecision);
     }
     /*
      *Function to handle when user clicks on Canvas
      */
     function handleClick(_event) {
-        //if (newPlayer == false) {
         animation = true;
         Endaufgabe_FußballSiumulation.checkClose = true;
         Endaufgabe_FußballSiumulation.ballMoves = true;
         playSound(atmo);
         event = _event;
-        //}
     }
     /*
    *Functions to add new players to team
    */
-    //let addT1: HTMLButtonElement = document.createElement("button");
-    //addT1.type = "button";
-    //let addT2: HTMLButtonElement = document.createElement("button");
-    //addT2.type = "button";
-    //let addT1: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT1");
-    //let addT2: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT2");
-    //addT1.addEventListener("click", handleNewPlayerT1);
-    //addT2.addEventListener("click", handleNewPlayerT2);
     function handleNewPlayer(_event) {
         let keyName = _event.key;
         if (keyName == "+") {
             console.log("addNewPlayer");
-            //animation = false;
-            //let addT1: HTMLButtonElement = document.createElement("button");
-            //addT1.innerHTML = "Team1";
-            //addT1.setAttribute("id", "btnAddTeam1");
             addT1.setAttribute("class", "show");
             addT1.style.backgroundColor = colorTeam1;
-            //addT1.addEventListener("click", handleNewPlayerT1);
-            //document.body.appendChild(addT1);
-            //let addT2: HTMLButtonElement = document.createElement("button");
-            //addT2.innerHTML = "Team2";
             addT2.setAttribute("class", "show");
             addT2.style.backgroundColor = colorTeam2;
-            //addT2.addEventListener("click", handleNewPlayerT2);
-            //addT2.setAttribute("id", "btnAddTeam2");
-            //addT2.style.backgroundColor = colorTeam2;
-            //addT2.addEventListener("click", handleNewPlayerT2);
-            //document.body.appendChild(addT2);
         }
     }
     function handleNewPlayerT1() {

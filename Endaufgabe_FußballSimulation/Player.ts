@@ -20,14 +20,9 @@ namespace Endaufgabe_FußballSiumulation {
             this.team = _team;
             this.speed = _speed;
             this.precision = _precision;
-            //console.log("constructor", this.home, this.position);
-            
-            //this.radius = canvas.width / 110 * 30;
         }
         
         move(_ballPosition?: Vector): void {
-            //console.log("move", this.home, this.position);
-           //console.log("_ballPosition, this.position");
             if (_ballPosition) {
                     
                 let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
@@ -73,7 +68,6 @@ namespace Endaufgabe_FußballSiumulation {
             //console.log("displayInformation");
             let infoBox: HTMLElement = document.createElement("div");
             infoBox.innerHTML = "Position: " + " x: " + Math.round(this.position.x) + ", y: " + Math.round(this.position.y) + "<br>" + "Origin: " + "x: " + Math.round(this.home.x) + " y: " + Math.round(this.home.y) + "<br>" + "Nation: " + this.nation  + "<br>" + "Team: " + this.team + "<br>" + "Number: " + this.backNumber + "<br>" +  "Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
-            //infoBox.style.opacity = "10%";
             infoBox.style.fontWeight = "bold";
             infoBox.style.fontSize = "100";
             infoBox.style.fontFamily = "Arial, Helvetica, sans-serif";
