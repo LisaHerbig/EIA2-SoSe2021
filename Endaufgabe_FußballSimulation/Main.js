@@ -241,7 +241,7 @@ var Endaufgabe_FußballSiumulation;
             for (let moveable of moveables) {
                 //moveable.draw(); 
                 //console.log("look for LineJudge");
-                if (moveable instanceof Endaufgabe_FußballSiumulation.LineJudge) {
+                if (moveable instanceof Endaufgabe_FußballSiumulation.LineJudge || moveable instanceof Endaufgabe_FußballSiumulation.Referee) {
                     //console.log("LIneJudgeUpdate");
                     moveable.move();
                     //moveable.draw();
@@ -288,7 +288,7 @@ var Endaufgabe_FußballSiumulation;
     function handleReach(_player) {
         animation = false;
         atmo.pause();
-        console.log(Endaufgabe_FußballSiumulation.activePlayerPrecision);
+        //console.log(activePlayerPrecision); 
     }
     /*
      *Function to handle when user clicks on Canvas
@@ -359,7 +359,7 @@ var Endaufgabe_FußballSiumulation;
     */
     function handleInfo(_event) {
         let shiftKeyPressed = _event.shiftKey;
-        console.log("handleInfo");
+        //console.log("handleInfo");
         if (shiftKeyPressed == true) {
             console.log("shifKey is pressed");
             for (let moveable of moveables) {

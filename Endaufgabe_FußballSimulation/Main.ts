@@ -281,7 +281,7 @@ namespace Endaufgabe_FußballSiumulation {
                 //moveable.draw(); 
                 //console.log("look for LineJudge");
                 
-                if (moveable instanceof LineJudge) {
+                if (moveable instanceof LineJudge || moveable instanceof Referee) {
                     //console.log("LIneJudgeUpdate");
                     moveable.move();
                     //moveable.draw();
@@ -337,7 +337,7 @@ namespace Endaufgabe_FußballSiumulation {
     function handleReach(_player: CustomEventInit): void {
         animation = false;
         atmo.pause();
-        console.log(activePlayerPrecision); 
+        //console.log(activePlayerPrecision); 
    }
 
    /*
@@ -419,7 +419,7 @@ namespace Endaufgabe_FußballSiumulation {
     */
     function handleInfo(_event: MouseEvent): void {
         let shiftKeyPressed: boolean = _event.shiftKey;
-        console.log("handleInfo");
+        //console.log("handleInfo");
         if (shiftKeyPressed == true) {
             console.log("shifKey is pressed");
             
