@@ -23,10 +23,10 @@ var Endaufgabe_FußballSiumulation;
             let position = new Endaufgabe_FußballSiumulation.Vector(moveXDirection, moveYDirection);
             position.scale(1 / this.speed);
             this.position.add(position);
-            if (this.position.x < 0)
-                this.position.x += Endaufgabe_FußballSiumulation.crc2.canvas.width;
-            if (this.position.x > Endaufgabe_FußballSiumulation.crc2.canvas.width)
-                this.position.x -= Endaufgabe_FußballSiumulation.crc2.canvas.width;
+            //if (this.position.x < 0)
+            //this.position.x += crc2.canvas.width;
+            //if (this.position.x > crc2.canvas.width)
+            //this.position.x -= crc2.canvas.width;
         }
         playWhistle() {
             this.whistle.play();

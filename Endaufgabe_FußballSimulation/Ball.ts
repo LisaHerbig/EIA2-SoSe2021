@@ -23,7 +23,7 @@ namespace Endaufgabe_FußballSiumulation {
                 switch (true) {
                     case (length < (width / 110 * 10.5)):
                         this.moveWithOfset(mousePos, 3);
-                        newBallPos = false;
+                        //newBallPos = false;
                         break;
 
                     case (length < (width / 110 * 21.5)): 
@@ -96,7 +96,7 @@ namespace Endaufgabe_FußballSiumulation {
                 goalsT2.push(1);
                 scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
                 goal = false;
-                stopDifference = false;
+                //stopDifference = false;
             }   
             if (_team == "team1") {
                 console.log("goalForTeam right Team1");
@@ -105,7 +105,7 @@ namespace Endaufgabe_FußballSiumulation {
                 this.position = this.start;
                 scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
                 goal = false;
-                stopDifference = false;
+                //stopDifference = false;
             }
     }
 

@@ -26,10 +26,10 @@ namespace Endaufgabe_FußballSiumulation {
             let position: Vector = new Vector(moveXDirection, moveYDirection);
             position.scale(1 / this.speed);
             this.position.add(position);
-            if (this.position.x < 0)
-             this.position.x += crc2.canvas.width;
-            if (this.position.x > crc2.canvas.width)
-             this.position.x -= crc2.canvas.width;
+            //if (this.position.x < 0)
+             //this.position.x += crc2.canvas.width;
+            //if (this.position.x > crc2.canvas.width)
+             //this.position.x -= crc2.canvas.width;
         }
 
         playWhistle(): void {

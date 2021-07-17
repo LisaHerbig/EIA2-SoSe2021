@@ -21,7 +21,7 @@ var Endaufgabe_FußballSiumulation;
                 switch (true) {
                     case (length < (Endaufgabe_FußballSiumulation.width / 110 * 10.5)):
                         this.moveWithOfset(mousePos, 3);
-                        Endaufgabe_FußballSiumulation.newBallPos = false;
+                        //newBallPos = false;
                         break;
                     case (length < (Endaufgabe_FußballSiumulation.width / 110 * 21.5)):
                         this.moveWithOfset(mousePos, 10);
@@ -81,7 +81,7 @@ var Endaufgabe_FußballSiumulation;
                 Endaufgabe_FußballSiumulation.goalsT2.push(1);
                 Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + " : " + " Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
                 Endaufgabe_FußballSiumulation.goal = false;
-                Endaufgabe_FußballSiumulation.stopDifference = false;
+                //stopDifference = false;
             }
             if (_team == "team1") {
                 console.log("goalForTeam right Team1");
@@ -90,7 +90,7 @@ var Endaufgabe_FußballSiumulation;
                 this.position = this.start;
                 Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + " : " + " Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
                 Endaufgabe_FußballSiumulation.goal = false;
-                Endaufgabe_FußballSiumulation.stopDifference = false;
+                //stopDifference = false;
             }
         }
         draw() {
