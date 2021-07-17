@@ -17,11 +17,11 @@ var Endaufgabe_FußballSiumulation;
                 let y = _event.clientY - rect.top;
                 let newPos;
                 if (Endaufgabe_FußballSiumulation.goal == true) {
-                    console.log("in if for goal = true");
+                    //console.log("in if for goal = true");
                     x = this.start.x;
                     y = this.start.y;
                     //goal = false;
-                    console.log(Endaufgabe_FußballSiumulation.goal, "Goal status");
+                    //console.log(goal, "Goal status");
                 }
                 let mousePos = new Endaufgabe_FußballSiumulation.Vector(x, y);
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(mousePos, this.position);
@@ -37,16 +37,16 @@ var Endaufgabe_FußballSiumulation;
                             Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 3);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 110 * 21.5)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 10);
+                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 15);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 2)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 20);
+                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 25);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 110 * 88.5)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 35);
+                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 50);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 110 * 110)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 50);
+                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 70);
                             break;
                         default:
                             console.log("something went wrong");

@@ -19,11 +19,11 @@ namespace Endaufgabe_FußballSiumulation {
                 let y: number = _event.clientY - rect.top;
                 let newPos: Vector | undefined;
                 if (goal == true) {
-                    console.log("in if for goal = true");
+                    //console.log("in if for goal = true");
                     x = this.start.x;
                     y = this.start.y;
                     //goal = false;
-                    console.log(goal, "Goal status");
+                    //console.log(goal, "Goal status");
                 }
                 let mousePos: Vector = new Vector(x, y);
                 let difference: Vector =  Vector.getDifference(mousePos, this.position);
@@ -42,19 +42,19 @@ namespace Endaufgabe_FußballSiumulation {
                             break;
     
                         case (length < (width / 110 * 21.5)): 
-                            spreading = this.moveWithOffset(mousePos, 10);
+                            spreading = this.moveWithOffset(mousePos, 15);
                             break;
     
                         case (length < (width / 2)): 
-                            spreading = this.moveWithOffset(mousePos, 20);
+                            spreading = this.moveWithOffset(mousePos, 25);
                             break;
     
                         case (length < (width / 110 * 88.5)):
-                            spreading = this.moveWithOffset(mousePos, 35);
+                            spreading = this.moveWithOffset(mousePos, 50);
                             break;
     
                         case (length < (width / 110 * 110)):
-                            spreading = this.moveWithOffset(mousePos, 50);
+                            spreading = this.moveWithOffset(mousePos, 70);
                             break;
     
                         default:
