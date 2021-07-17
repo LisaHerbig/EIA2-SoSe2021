@@ -85,12 +85,22 @@ namespace Endaufgabe_FußballSiumulation {
         moveWithOffset(_mousePos: Vector, _spread: number): Vector[] {
             hasRun = true;
             let spread: number = width / 110 * _spread * (activePlayerPrecision / 100);
+            function getNewPos(): Vector {
+                let newPosNeg: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x - spread), createRandomNum(_mousePos.y, _mousePos.y - spread));
+                let newPosPos: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x + spread), createRandomNum(_mousePos.y, _mousePos.y + spread));
+                let newPosAll: Vector = new Vector(createRandomNum(newPosNeg.x, newPosPos.x), createRandomNum(newPosNeg.y, newPosPos.y));
+                let newPos: Vector = new Vector(newPosAll.x, newPosAll.y);
+                return newPos;
+            }
             let newPosNeg: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x - spread), createRandomNum(_mousePos.y, _mousePos.y - spread));
             let newPosPos: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x + spread), createRandomNum(_mousePos.y, _mousePos.y + spread));
             let newPosAll: Vector = new Vector(createRandomNum(newPosNeg.x, newPosPos.x), createRandomNum(newPosNeg.y, newPosPos.y));
             let newPos: Vector = new Vector(newPosAll.x, newPosAll.y);
             let difference2: Vector = Vector.getDifference(newPos, this.position);
             let offset2: Vector = new Vector(difference2.x, difference2.y);
+            if (newPos.x < 0 || newPos.x > width || newPos.y < 0 || newPos.y > height) {
+                getNewPos();
+            }
             return [offset2, newPos];
         }
 

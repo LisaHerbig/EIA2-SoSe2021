@@ -70,12 +70,22 @@ var Endaufgabe_FußballSiumulation;
         moveWithOffset(_mousePos, _spread) {
             Endaufgabe_FußballSiumulation.hasRun = true;
             let spread = Endaufgabe_FußballSiumulation.width / 110 * _spread * (Endaufgabe_FußballSiumulation.activePlayerPrecision / 100);
+            function getNewPos() {
+                let newPosNeg = new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.x, _mousePos.x - spread), Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.y, _mousePos.y - spread));
+                let newPosPos = new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.x, _mousePos.x + spread), Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.y, _mousePos.y + spread));
+                let newPosAll = new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.createRandomNum(newPosNeg.x, newPosPos.x), Endaufgabe_FußballSiumulation.createRandomNum(newPosNeg.y, newPosPos.y));
+                let newPos = new Endaufgabe_FußballSiumulation.Vector(newPosAll.x, newPosAll.y);
+                return newPos;
+            }
             let newPosNeg = new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.x, _mousePos.x - spread), Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.y, _mousePos.y - spread));
             let newPosPos = new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.x, _mousePos.x + spread), Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.y, _mousePos.y + spread));
             let newPosAll = new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.createRandomNum(newPosNeg.x, newPosPos.x), Endaufgabe_FußballSiumulation.createRandomNum(newPosNeg.y, newPosPos.y));
             let newPos = new Endaufgabe_FußballSiumulation.Vector(newPosAll.x, newPosAll.y);
             let difference2 = Endaufgabe_FußballSiumulation.Vector.getDifference(newPos, this.position);
             let offset2 = new Endaufgabe_FußballSiumulation.Vector(difference2.x, difference2.y);
+            if (newPos.x < 0 || newPos.x > Endaufgabe_FußballSiumulation.width || newPos.y < 0 || newPos.y > Endaufgabe_FußballSiumulation.height) {
+                getNewPos();
+            }
             return [offset2, newPos];
         }
         goal() {
