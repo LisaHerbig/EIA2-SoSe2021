@@ -14,7 +14,6 @@ namespace Endaufgabe_FußballSiumulation {
     //Div  score and ball possesstion
     export let inPossession: HTMLDivElement = <HTMLDivElement> document.querySelector("#inPossession");
     export let scoreBoard: HTMLDivElement = <HTMLDivElement> document.querySelector("#scoreBoard");
-
     //Variables for Formular
     let team1: string = "";
     let team2: string = "";
