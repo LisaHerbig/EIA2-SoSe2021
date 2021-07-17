@@ -8,6 +8,8 @@ namespace Endaufgabe_FußballSiumulation {
         constructor(_position: Vector) {
             super (_position);
             this.position = _position;
+            console.log(this.start);
+            
         }
 
         move(_event?: MouseEvent): void {
@@ -15,18 +17,26 @@ namespace Endaufgabe_FußballSiumulation {
                 let rect: DOMRect = canvas.getBoundingClientRect();
                 let x: number = _event.clientX - rect.left;
                 let y: number = _event.clientY - rect.top;
+                let newPos: Vector | undefined;
                 if (goal == true) {
+                    console.log("in if for goal = true");
                     x = this.start.x;
                     y = this.start.y;
-                    goal = false;
+                    //goal = false;
+                    console.log(goal, "Goal status");
                 }
                 let mousePos: Vector = new Vector(x, y);
                 let difference: Vector =  Vector.getDifference(mousePos, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);
                 let length: number = offset.length;
-                //let spreading: Vector[] | undefined;
+                //console.log(mousePos, this.position, this.start, "Mouse and This position and Start");
+                
+
                 if (hasRun == false) {
                     switch (true) {
+                        case (length == 0):
+                            console.log("length = ", length);
+                            break;
                         case (length < (width / 110 * 10.5)):
                             spreading = this.moveWithOffset(mousePos, 3);
                             break;
@@ -51,50 +61,27 @@ namespace Endaufgabe_FußballSiumulation {
                             console.log("something went wrong"); 
                     }
                 }
-                //let newOffset: Vector | undefined;
-                let newPos: Vector | undefined;
+                
+                //let newPos: Vector | undefined;
                 if (spreading) {
-                    //newOffset  = spreading[0];
                     newPos = spreading[1];
-                    //console.log(spreading[0] , " : offset", spreading[1], " : newPos");
-                    
-                    //spreading[0].scale(1 / this.speed);
-                    //this.position.add(offset); 
-                    //let round2: Vector = new Vector(Math.round(spreading[1].x), Math.round(spreading[1].y));
-                    //let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
-                    //console.log(roundBall2, "RoundBall");
-                    
-                    //if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
-                       // console.log("BallReachedPosition"); 
-                        //ballMoves = false;
-                        //hasRun = false;
-                        //}
                 }
                 if (newPos != null) {
                     let difference: Vector = Vector.getDifference(newPos, this.position); 
                     let newOffset: Vector = new Vector(difference.x, difference.y);
                     newOffset.scale(1 / this.speed);
                     this.position.add(newOffset);
-                    //console.log("newOffset:", newOffset);
                     
                     let round2: Vector = new Vector(Math.round(newPos.x), Math.round(newPos.y));
                     let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
-                    //console.log(roundBall2, " BallPosGerundet", round2, "newPosGerundet");
                     
                     if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
                         console.log("BallReachedPosition"); 
                         ballMoves = false;
                         hasRun = false;
+                        goal = false;
                         }
                 }
-
-                //let ballPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
-                //let mousePositionRound: Vector = new Vector(Math.round(mousePos.x), Math.round(mousePos.y));
-                
-
-                //if (ballPositionRound.x == mousePositionRound.x && ballPositionRound.y == mousePositionRound.y) {
-                    //ballMoves = false;
-                //}
         }
         }
 
@@ -107,17 +94,7 @@ namespace Endaufgabe_FußballSiumulation {
             let newPos: Vector = new Vector(newPosAll.x, newPosAll.y);
             let difference2: Vector = Vector.getDifference(newPos, this.position);
             let offset2: Vector = new Vector(difference2.x, difference2.y);
-            //console.log(spread, " : spread");
-            
-            //offset2.scale(1 / this.speed);
-            //this.position.add(offset2);
-            //let round2: Vector = new Vector(Math.round(newPos.x), Math.round(newPos.y));
-            //let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
             return [offset2, newPos];
-            //if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
-                        //console.log("BallReachedPosition"); 
-                        //ballMoves = false;
-                        //}
         }
 
         goal(): void {
@@ -139,6 +116,7 @@ namespace Endaufgabe_FußballSiumulation {
                 this.applaus.play();
                 goalsT2.push(1);
                 scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
+                hasRun = false;
             }   
             if (_team == "team1") {
                 console.log("goalForTeam right Team1");
@@ -146,6 +124,7 @@ namespace Endaufgabe_FußballSiumulation {
                 goalsT1.push(1);
                 this.position = new Vector (this.start.x, this.start.y);
                 scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
+                hasRun = false;
             }
     }
 
