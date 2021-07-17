@@ -24,56 +24,100 @@ namespace Endaufgabe_FußballSiumulation {
                 let difference: Vector =  Vector.getDifference(mousePos, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);
                 let length: number = offset.length;
-                
-                switch (true) {
-                    case (length < (width / 110 * 10.5)):
-                        this.moveWithOffset(mousePos, 3);
-                        break;
-
-                    case (length < (width / 110 * 21.5)): 
-                        this.moveWithOffset(mousePos, 10);
-                        break;
-
-                    case (length < (width / 2)): 
-                        this.moveWithOffset(mousePos, 20);
-                        break;
-
-                    case (length < (width / 110 * 88.5)):
-                        this.moveWithOffset(mousePos, 35);
-                        break;
-
-                    case (length < (width / 110 * 110)):
-                        this.moveWithOffset(mousePos, 50);
-                        break;
-
-                    default:
-                        console.log("something went wrong"); 
+                //let spreading: Vector[] | undefined;
+                if (hasRun == false) {
+                    switch (true) {
+                        case (length < (width / 110 * 10.5)):
+                            spreading = this.moveWithOffset(mousePos, 3);
+                            break;
+    
+                        case (length < (width / 110 * 21.5)): 
+                            spreading = this.moveWithOffset(mousePos, 10);
+                            break;
+    
+                        case (length < (width / 2)): 
+                            spreading = this.moveWithOffset(mousePos, 20);
+                            break;
+    
+                        case (length < (width / 110 * 88.5)):
+                            spreading = this.moveWithOffset(mousePos, 35);
+                            break;
+    
+                        case (length < (width / 110 * 110)):
+                            spreading = this.moveWithOffset(mousePos, 50);
+                            break;
+    
+                        default:
+                            console.log("something went wrong"); 
+                    }
                 }
-
-                let ballPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
-                let mousePositionRound: Vector = new Vector(Math.round(mousePos.x), Math.round(mousePos.y));
-                
-
-                if (ballPositionRound.x == mousePositionRound.x && ballPositionRound.y == mousePositionRound.y) {
-                    ballMoves = false;
-                }
-        }
-        }
-
-        moveWithOffset(_mousePos: Vector, _spread: number): void {
-            let spread: number = width / 110 * _spread * (activePlayerPrecision / 100);
-            let newPos: Vector = new Vector(_mousePos.x + spread, _mousePos.y + spread);
-            let difference2: Vector = Vector.getDifference(newPos, this.position);
-            let offset2: Vector = new Vector(difference2.x, difference2.y);
-            offset2.scale(1 / this.speed);
-            this.position.add(offset2);
-            let round2: Vector = new Vector(Math.round(newPos.x), Math.round(newPos.y));
-            let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
+                //let newOffset: Vector | undefined;
+                let newPos: Vector | undefined;
+                if (spreading) {
+                    //newOffset  = spreading[0];
+                    newPos = spreading[1];
+                    //console.log(spreading[0] , " : offset", spreading[1], " : newPos");
                     
-            if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
+                    //spreading[0].scale(1 / this.speed);
+                    //this.position.add(offset); 
+                    //let round2: Vector = new Vector(Math.round(spreading[1].x), Math.round(spreading[1].y));
+                    //let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
+                    //console.log(roundBall2, "RoundBall");
+                    
+                    //if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
+                       // console.log("BallReachedPosition"); 
+                        //ballMoves = false;
+                        //hasRun = false;
+                        //}
+                }
+                if (newPos != null) {
+                    let difference: Vector = Vector.getDifference(newPos, this.position); 
+                    let newOffset: Vector = new Vector(difference.x, difference.y);
+                    newOffset.scale(1 / this.speed);
+                    this.position.add(newOffset);
+                    //console.log("newOffset:", newOffset);
+                    
+                    let round2: Vector = new Vector(Math.round(newPos.x), Math.round(newPos.y));
+                    let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
+                    //console.log(roundBall2, " BallPosGerundet", round2, "newPosGerundet");
+                    
+                    if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
                         console.log("BallReachedPosition"); 
                         ballMoves = false;
+                        hasRun = false;
                         }
+                }
+
+                //let ballPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
+                //let mousePositionRound: Vector = new Vector(Math.round(mousePos.x), Math.round(mousePos.y));
+                
+
+                //if (ballPositionRound.x == mousePositionRound.x && ballPositionRound.y == mousePositionRound.y) {
+                    //ballMoves = false;
+                //}
+        }
+        }
+
+        moveWithOffset(_mousePos: Vector, _spread: number): Vector[] {
+            hasRun = true;
+            let spread: number = width / 110 * _spread * (activePlayerPrecision / 100);
+            let newPosNeg: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x - spread), createRandomNum(_mousePos.y, _mousePos.y - spread));
+            let newPosPos: Vector = new Vector(createRandomNum(_mousePos.x, _mousePos.x + spread), createRandomNum(_mousePos.y, _mousePos.y + spread));
+            let newPosAll: Vector = new Vector(createRandomNum(newPosNeg.x, newPosPos.x), createRandomNum(newPosNeg.y, newPosPos.y));
+            let newPos: Vector = new Vector(newPosAll.x, newPosAll.y);
+            let difference2: Vector = Vector.getDifference(newPos, this.position);
+            let offset2: Vector = new Vector(difference2.x, difference2.y);
+            //console.log(spread, " : spread");
+            
+            //offset2.scale(1 / this.speed);
+            //this.position.add(offset2);
+            //let round2: Vector = new Vector(Math.round(newPos.x), Math.round(newPos.y));
+            //let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
+            return [offset2, newPos];
+            //if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
+                        //console.log("BallReachedPosition"); 
+                        //ballMoves = false;
+                        //}
         }
 
         goal(): void {
