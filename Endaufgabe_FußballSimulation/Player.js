@@ -1,6 +1,7 @@
 "use strict";
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
+    //let x: number = 0;
     class Player extends Endaufgabe_FußballSiumulation.Moveable {
         constructor(_position, _home, _nation, _color, _backNumber, _team, _speed, _precision) {
             super(_position);

@@ -110,6 +110,8 @@ var Endaufgabe_FußballSiumulation;
                 Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + " : " + " Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
                 Endaufgabe_FußballSiumulation.hasRun = false;
             }
+            let event = new CustomEvent("startAgain");
+            Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
         }
         draw() {
             Endaufgabe_FußballSiumulation.drawBall(this.position);

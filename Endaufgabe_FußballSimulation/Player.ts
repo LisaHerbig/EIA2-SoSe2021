@@ -1,4 +1,5 @@
 namespace Endaufgabe_FußballSiumulation {
+    //let x: number = 0;
     export class Player extends Moveable {
         home: Vector;
         type: string = "player";
@@ -24,6 +25,7 @@ namespace Endaufgabe_FußballSiumulation {
         
         move(_ballPosition?: Vector): void {
             if (_ballPosition) {
+                
                 let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);
                 offset.scale(1 / this.speed);

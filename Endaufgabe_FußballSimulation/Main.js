@@ -42,6 +42,7 @@ var Endaufgabe_FußballSiumulation;
     Endaufgabe_FußballSiumulation.checkClose = true;
     Endaufgabe_FußballSiumulation.ballMoves = false;
     Endaufgabe_FußballSiumulation.newBallPos = true;
+    Endaufgabe_FußballSiumulation.getDifference = true;
     //let newPlayer: boolean = false;
     Endaufgabe_FußballSiumulation.goalsT1 = [];
     Endaufgabe_FußballSiumulation.goalsT2 = [];
@@ -75,6 +76,7 @@ var Endaufgabe_FußballSiumulation;
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleInfo);
         addT1.addEventListener("click", handleNewPlayerT1);
         addT2.addEventListener("click", handleNewPlayerT2);
+        Endaufgabe_FußballSiumulation.canvas.addEventListener("startAgain", handleStartAgain);
     }
     /*
     *Function to get Data from Form Element
@@ -415,6 +417,17 @@ var Endaufgabe_FußballSiumulation;
                         moveable.displayInformation(_event);
                     }
                 }
+            }
+        }
+    }
+    /*
+    *Function to start Game again after goal
+    */
+    function handleStartAgain() {
+        for (let moveable of moveables) {
+            if (moveable instanceof Endaufgabe_FußballSiumulation.Referee) {
+                let referee = moveable;
+                referee.playWhistle();
             }
         }
     }

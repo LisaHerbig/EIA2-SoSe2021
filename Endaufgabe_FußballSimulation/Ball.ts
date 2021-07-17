@@ -126,6 +126,8 @@ namespace Endaufgabe_FußballSiumulation {
                 scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
                 hasRun = false;
             }
+            let event: CustomEvent = new CustomEvent("startAgain");
+            crc2.canvas.dispatchEvent(event);
     }
 
         draw(): void {

@@ -50,6 +50,7 @@ namespace Endaufgabe_FußballSiumulation {
     export let checkClose: boolean = true;
     export let ballMoves: boolean = false;
     export let newBallPos: boolean = true;
+    export let getDifference: boolean = true;
     //let newPlayer: boolean = false;
     export let goalsT1: number [] = [];
     export let goalsT2: number [] = [];
@@ -90,6 +91,8 @@ namespace Endaufgabe_FußballSiumulation {
 
         addT1.addEventListener("click", handleNewPlayerT1);
         addT2.addEventListener("click", handleNewPlayerT2);
+
+        canvas.addEventListener("startAgain", handleStartAgain);
     }
 
     /*
@@ -493,6 +496,19 @@ namespace Endaufgabe_FußballSiumulation {
 
     }
 
+    /*
+    *Function to start Game again after goal
+    */
+    function handleStartAgain(): void {
+       for (let moveable of moveables) {
+           if (moveable instanceof Referee) {
+              let referee: Referee = moveable;
+              referee.playWhistle();
+                   
+               }
+           }
+    }
+   
     
 
       
