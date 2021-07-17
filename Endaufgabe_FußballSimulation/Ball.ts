@@ -18,20 +18,17 @@ namespace Endaufgabe_FußballSiumulation {
                 let x: number = _event.clientX - rect.left;
                 let y: number = _event.clientY - rect.top;
                 let newPos: Vector | undefined;
+
                 if (goal == true) {
-                    //console.log("in if for goal = true");
                     x = this.start.x;
                     y = this.start.y;
-                    //goal = false;
-                    //console.log(goal, "Goal status");
                 }
+
                 let mousePos: Vector = new Vector(x, y);
                 let difference: Vector =  Vector.getDifference(mousePos, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);
                 let length: number = offset.length;
-                //console.log(mousePos, this.position, this.start, "Mouse and This position and Start");
-                
-
+            
                 if (hasRun == false) {
                     switch (true) {
                         case (length == 0):
@@ -62,10 +59,10 @@ namespace Endaufgabe_FußballSiumulation {
                     }
                 }
                 
-                //let newPos: Vector | undefined;
                 if (spreading) {
                     newPos = spreading[1];
                 }
+
                 if (newPos != null) {
                     let difference: Vector = Vector.getDifference(newPos, this.position); 
                     let newOffset: Vector = new Vector(difference.x, difference.y);
@@ -80,9 +77,9 @@ namespace Endaufgabe_FußballSiumulation {
                         ballMoves = false;
                         hasRun = false;
                         goal = false;
-                        }
+                    }
                 }
-        }
+            }
         }
 
         moveWithOffset(_mousePos: Vector, _spread: number): Vector[] {

@@ -17,17 +17,13 @@ var Endaufgabe_FußballSiumulation;
                 let y = _event.clientY - rect.top;
                 let newPos;
                 if (Endaufgabe_FußballSiumulation.goal == true) {
-                    //console.log("in if for goal = true");
                     x = this.start.x;
                     y = this.start.y;
-                    //goal = false;
-                    //console.log(goal, "Goal status");
                 }
                 let mousePos = new Endaufgabe_FußballSiumulation.Vector(x, y);
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(mousePos, this.position);
                 let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
                 let length = offset.length;
-                //console.log(mousePos, this.position, this.start, "Mouse and This position and Start");
                 if (Endaufgabe_FußballSiumulation.hasRun == false) {
                     switch (true) {
                         case (length == 0):
@@ -52,7 +48,6 @@ var Endaufgabe_FußballSiumulation;
                             console.log("something went wrong");
                     }
                 }
-                //let newPos: Vector | undefined;
                 if (Endaufgabe_FußballSiumulation.spreading) {
                     newPos = Endaufgabe_FußballSiumulation.spreading[1];
                 }
