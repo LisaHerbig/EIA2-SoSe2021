@@ -7,7 +7,6 @@ var Endaufgabe_FußballSiumulation;
     Endaufgabe_FußballSiumulation.canvas.height = Endaufgabe_FußballSiumulation.canvas.width / 110 * 75;
     Endaufgabe_FußballSiumulation.width = Number(Endaufgabe_FußballSiumulation.canvas.width);
     Endaufgabe_FußballSiumulation.height = Number(Endaufgabe_FußballSiumulation.canvas.height);
-    //canvas.addEventListener("first_player", handleReach);
     let imgData;
     //Div  score and ball possesstion
     Endaufgabe_FußballSiumulation.inPossession = document.querySelector("#inPossession");
@@ -24,31 +23,19 @@ var Endaufgabe_FußballSiumulation;
     let precisionMin = Number("");
     let precisionMax = Number("");
     //Sounds
-    //let applaus: HTMLAudioElement = <HTMLAudioElement> new Audio ("Sounds/Applaus.wav");
     let atmo = new Audio("Sounds/Atmo.wav");
-    //let whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
     let addT1 = document.querySelector("#AddPlayerT1");
     let addT2 = document.querySelector("#AddPlayerT2");
-    //let displayInfo: boolean = false;
-    //export let activePlayerPrecision: number;
-    //export let stopDifference: boolean = false;
     let eventClick;
     let positionsT1 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 10, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 17), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 32, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 57, Endaufgabe_FußballSiumulation.height / 2 + 125), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 + 110)];
     let positionsT2 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 100, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 78, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 54, Endaufgabe_FußballSiumulation.height / 2 - 60), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 + 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 17)];
     let homeT1 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 10, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 17), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 15, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 32, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 43, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 57, Endaufgabe_FußballSiumulation.height / 2 + 125), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 75, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 88.5, Endaufgabe_FußballSiumulation.height / 2 + 110)];
     let homeT2 = [new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 100, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 78, Endaufgabe_FußballSiumulation.height / 2 + 30), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 - 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 67, Endaufgabe_FußballSiumulation.height / 2 + 180), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 54, Endaufgabe_FußballSiumulation.height / 2 - 60), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 68), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 + 110), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 21.5, Endaufgabe_FußballSiumulation.height / 2 - 50), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 35, Endaufgabe_FußballSiumulation.height / 75 * 15), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 65), new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.width / 110 * 95, Endaufgabe_FußballSiumulation.height / 75 * 17)];
     let moveables = [];
-    //export let spreading: Vector[] | undefined;
     let animation = true;
-    // export let hasRun: boolean = false;
     Endaufgabe_FußballSiumulation.goal = false;
     Endaufgabe_FußballSiumulation.checkClose = true;
     Endaufgabe_FußballSiumulation.ballMoves = false;
-    //export let newBallPos: boolean = true;
-    //export let getDifference: boolean = true;
-    //let newPlayer: boolean = false;
-    //export let goalsT1: number [] = [];
-    //export let goalsT2: number [] = [];
     let backNumbersT1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     let backNumbersT2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     let TASK;
@@ -90,43 +77,33 @@ var Endaufgabe_FußballSiumulation;
             switch (entry[0]) {
                 case "Select1":
                     team1 = String(entry[1]);
-                    //console.log(team1);
                     break;
                 case "Select2":
                     team2 = String(entry[1]);
-                    //console.log(team2);
                     break;
                 case "Color1":
                     colorTeam1 = String(entry[1]);
-                    // console.log(colorTeam1);
                     break;
                 case "Color2":
                     colorTeam2 = String(entry[1]);
-                    //console.log(colorTeam2);
                     break;
                 case "Color3":
                     colorReferee = String(entry[1]);
-                    //console.log(colorReferee);
                     break;
                 case "Color4":
                     colorLineJudge = String(entry[1]);
-                    //console.log(colorLineJudge);
                     break;
                 case "Slider1":
                     speedMin = Number(entry[1]);
-                    //console.log(speedMin);
                     break;
                 case "Slider2":
                     speedMax = Number(entry[1]);
-                    //console.log(speedMax);
                     break;
                 case "Slider3":
                     precisionMin = Number(entry[1]);
-                    //console.log(precisionMin);
                     break;
                 case "Slider4":
                     precisionMax = Number(entry[1]);
-                    //console.log(precisionMax);
                     break;
                 default:
                     console.log("Something is wrong");
@@ -137,7 +114,6 @@ var Endaufgabe_FußballSiumulation;
     *Function to hide form and button
     */
     function handleBtn() {
-        //console.log("StartMatch");
         form.setAttribute("class", "hide");
         btnStart.setAttribute("class", "hide");
         explain.setAttribute("class", "hide");
@@ -231,14 +207,10 @@ var Endaufgabe_FußballSiumulation;
             }
             if (Endaufgabe_FußballSiumulation.ballMoves == true) {
                 let player = [];
-                //let ball: Ball [] = [];
                 for (let moveable of moveables) {
                     if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
-                        //ball.push(moveable);
-                        //ball[0].move(eventClick);
                         moveable.move(eventClick);
                         moveable.draw();
-                        //ball[0].draw();
                     }
                     if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
                         player.push(moveable);
@@ -249,15 +221,10 @@ var Endaufgabe_FußballSiumulation;
                 }
             }
             for (let moveable of moveables) {
-                //moveable.draw(); 
-                //console.log("look for LineJudge");
                 if (moveable instanceof Endaufgabe_FußballSiumulation.LineJudge || moveable instanceof Endaufgabe_FußballSiumulation.Referee) {
-                    //console.log("LIneJudgeUpdate");
                     moveable.move();
-                    //moveable.draw();
                 }
                 if (moveable instanceof Endaufgabe_FußballSiumulation.Ball) {
-                    //console.log("look for Goal");
                     if (Endaufgabe_FußballSiumulation.goal == false) {
                         moveable.goal();
                     }
@@ -298,7 +265,6 @@ var Endaufgabe_FußballSiumulation;
     function handleReach() {
         animation = false;
         atmo.pause();
-        //console.log(activePlayerPrecision); 
     }
     /*
      *Function to handle when user clicks on Canvas
@@ -316,7 +282,6 @@ var Endaufgabe_FußballSiumulation;
     function handleExchange(_event) {
         let keyName = _event.key;
         if (keyName == "+") {
-            //console.log("addNewPlayer");
             addT1.setAttribute("class", "show");
             addT1.style.backgroundColor = colorTeam1;
             addT2.setAttribute("class", "show");
@@ -333,7 +298,6 @@ var Endaufgabe_FußballSiumulation;
     }
     function handleNewPlayerT2() {
         alert("Halte die Alt Taste gedrückt und klicke auf den Canvas um einen neuen Spieler hinzuzufügen");
-        //newPlayer = true;
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleplaceNewPlayer2);
     }
     function handleplaceNewPlayer1(_event) {
@@ -347,7 +311,6 @@ var Endaufgabe_FußballSiumulation;
             let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(x, y), homeT1[homeT1.length - 1], team1, colorTeam1, backNumbersT1.length, "team1", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
             addT1.setAttribute("class", "hide");
-            //document.body.removeChild(addT1);
             addT2.setAttribute("class", "hide");
             Endaufgabe_FußballSiumulation.canvas.removeEventListener("click", handleplaceNewPlayer1);
         }
@@ -362,36 +325,25 @@ var Endaufgabe_FußballSiumulation;
             backNumbersT2.push(1);
             let newPlayer = new Endaufgabe_FußballSiumulation.Player(new Endaufgabe_FußballSiumulation.Vector(x, y), homeT2[homeT2.length - 1], team2, colorTeam2, backNumbersT2.length, "team2", createRandomNum(speedMin, speedMax), createRandomNum(precisionMin, precisionMax));
             moveables.push(newPlayer);
-            //document.body.removeChild(addT1);
-            //document.body.removeChild(addT2);
             addT1.setAttribute("class", "hide");
             addT2.setAttribute("class", "hide");
             Endaufgabe_FußballSiumulation.canvas.removeEventListener("click", handleplaceNewPlayer2);
         }
-        //newPlayer = false;
     }
     function handleDelete(_event) {
         let ctrlKeyPressed = _event.ctrlKey;
-        //console.log("delete");
         if (ctrlKeyPressed == true) {
-            //console.log("keyIsPressed");
-            //let players: Player [] = [];
             let rect = Endaufgabe_FußballSiumulation.canvas.getBoundingClientRect();
             let x = _event.clientX - rect.left;
             let y = _event.clientY - rect.top;
-            //let PositionInArray: number; 
             for (let [i, moveable] of moveables.entries()) {
                 if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
-                    //console.log(i, moveable);
-                    //players.push(moveable);
                     let v1 = new Endaufgabe_FußballSiumulation.Vector(moveable.position.x, moveable.position.y);
                     let v2 = new Endaufgabe_FußballSiumulation.Vector(x, y);
                     let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(v1, v2);
                     let length = difference.length;
                     if (length <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 5) {
-                        //console.log("less than 1m");
                         moveables.splice(i, 1);
-                        //console.log("less than 1m");
                     }
                 }
             }
@@ -402,13 +354,9 @@ var Endaufgabe_FußballSiumulation;
     */
     function handleInfo(_event) {
         let shiftKeyPressed = _event.shiftKey;
-        //console.log("handleInfo");
         if (shiftKeyPressed == true) {
-            //console.log("shifKey is pressed");
             for (let moveable of moveables) {
-                //console.log("moveables array loop");
                 if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
-                    //console.log("moveable instance of Player");
                     let rect = Endaufgabe_FußballSiumulation.canvas.getBoundingClientRect();
                     let x = _event.clientX - rect.left;
                     let y = _event.clientY - rect.top;

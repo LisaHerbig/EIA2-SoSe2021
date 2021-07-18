@@ -11,7 +11,6 @@ var Endaufgabe_FußballSiumulation;
             this.color = _color;
         }
         move() {
-            //console.log("Referee moves towards ball with distance (or super-slow)");
             let xleftMax = Endaufgabe_FußballSiumulation.width / 21.5;
             let xrightMax = Endaufgabe_FußballSiumulation.width / 110 * 78.5;
             let moveX = Endaufgabe_FußballSiumulation.createRandomNum(xleftMax, xrightMax);
@@ -23,10 +22,6 @@ var Endaufgabe_FußballSiumulation;
             let position = new Endaufgabe_FußballSiumulation.Vector(moveXDirection, moveYDirection);
             position.scale(1 / this.speed);
             this.position.add(position);
-            //if (this.position.x < 0)
-            //this.position.x += crc2.canvas.width;
-            //if (this.position.x > crc2.canvas.width)
-            //this.position.x -= crc2.canvas.width;
         }
         playWhistle() {
             this.whistle.play();

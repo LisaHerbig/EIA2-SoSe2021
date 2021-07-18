@@ -17,17 +17,6 @@ var Endaufgabe_FußballSiumulation;
             }
             return undefined;
         }
-        //public static getRandom(_minLength: number, _maxLength: number): Vector {
-        //let length: number = _minLength + Math.random() * (_maxLength - _minLength);
-        //let direction: number = Math.random() * 2 * Math.PI;
-        // return Vector.getPolar(direction, length);
-        //}
-        //public static getPolar(_angle: number, _length: number): Vector {
-        ////let vector: Vector = new Vector();
-        // vector.set(Math.cos(_angle), Math.sin(_angle));
-        // vector.scale(_length);
-        //return vector;
-        //}
         get length() {
             return Math.hypot(this.x, this.y);
         }

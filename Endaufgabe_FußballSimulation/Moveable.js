@@ -2,6 +2,7 @@
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
     class Moveable {
+        //radius: number;
         constructor(_position) {
             this.position = _position;
         }

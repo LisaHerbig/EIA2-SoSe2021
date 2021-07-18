@@ -13,7 +13,6 @@ var Endaufgabe_FußballSiumulation;
             this.speed = 50;
             this.applaus = new Audio("Sounds/Applaus.wav");
             this.position = _position;
-            //console.log(this.start);
         }
         move(_event) {
             if (_event) {
@@ -64,13 +63,25 @@ var Endaufgabe_FußballSiumulation;
                     let round2 = new Endaufgabe_FußballSiumulation.Vector(Math.round(newPos.x), Math.round(newPos.y));
                     let roundBall2 = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
                     if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
-                        //console.log("BallReachedPosition"); 
                         Endaufgabe_FußballSiumulation.ballMoves = false;
                         hasRun = false;
                         Endaufgabe_FußballSiumulation.goal = false;
                     }
                 }
             }
+        }
+        goal() {
+            if (this.position.x <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 5 && this.position.y < Endaufgabe_FußballSiumulation.canvas.height / 2 + 40 && this.position.y > Endaufgabe_FußballSiumulation.canvas.height / 2 - 40) {
+                Endaufgabe_FußballSiumulation.goal = true;
+                this.handleGoal("team2");
+            }
+            if (this.position.x >= Endaufgabe_FußballSiumulation.canvas.width / 110 * 100 && this.position.y < Endaufgabe_FußballSiumulation.canvas.height / 2 + 40 && this.position.y > Endaufgabe_FußballSiumulation.canvas.height / 2 - 40) {
+                Endaufgabe_FußballSiumulation.goal = true;
+                this.handleGoal("team1");
+            }
+        }
+        draw() {
+            Endaufgabe_FußballSiumulation.drawBall(this.position);
         }
         moveWithOffset(_mousePos, _spread) {
             hasRun = true;
@@ -93,19 +104,8 @@ var Endaufgabe_FußballSiumulation;
             }
             return [offset2, newPos];
         }
-        goal() {
-            if (this.position.x <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 5 && this.position.y < Endaufgabe_FußballSiumulation.canvas.height / 2 + 40 && this.position.y > Endaufgabe_FußballSiumulation.canvas.height / 2 - 40) {
-                Endaufgabe_FußballSiumulation.goal = true;
-                this.handleGoal("team2");
-            }
-            if (this.position.x >= Endaufgabe_FußballSiumulation.canvas.width / 110 * 100 && this.position.y < Endaufgabe_FußballSiumulation.canvas.height / 2 + 40 && this.position.y > Endaufgabe_FußballSiumulation.canvas.height / 2 - 40) {
-                Endaufgabe_FußballSiumulation.goal = true;
-                this.handleGoal("team1");
-            }
-        }
         handleGoal(_team) {
             if (_team == "team2") {
-                //console.log(goal, this.start);
                 this.position = new Endaufgabe_FußballSiumulation.Vector(this.start.x, this.start.y);
                 this.applaus.play();
                 goalsT2.push(1);
@@ -113,7 +113,6 @@ var Endaufgabe_FußballSiumulation;
                 hasRun = false;
             }
             if (_team == "team1") {
-                //console.log("goalForTeam right Team1");
                 this.applaus.play();
                 goalsT1.push(1);
                 this.position = new Endaufgabe_FußballSiumulation.Vector(this.start.x, this.start.y);
@@ -122,9 +121,6 @@ var Endaufgabe_FußballSiumulation;
             }
             let event = new CustomEvent("startAgain");
             Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
-        }
-        draw() {
-            Endaufgabe_FußballSiumulation.drawBall(this.position);
         }
     }
     Endaufgabe_FußballSiumulation.Ball = Ball;

@@ -1,15 +1,14 @@
 namespace Endaufgabe_FußballSiumulation {
-    //let x: number = 0;
     export class Player extends Moveable {
-        home: Vector;
-        type: string = "player";
-        team: string;
-        nation: string;
-        speed: number;
-        precision: number;
-        jerseyColor: string;
-        backNumber: number; 
-        task: TASK = TASK.STAND;
+        public task: TASK = TASK.STAND;
+        private team: string;
+        private nation: string;
+        private speed: number;
+        private precision: number;
+        private jerseyColor: string;
+        private backNumber: number; 
+        private home: Vector;
+        private type: string = "player";
 
 
         constructor(_position: Vector, _home: Vector, _nation: string, _color: string, _backNumber: number, _team: string, _speed: number, _precision: number) {
@@ -24,7 +23,7 @@ namespace Endaufgabe_FußballSiumulation {
             this.precision = _precision;
         }
         
-        move(_ballPosition?: Vector): void {
+        public move(_ballPosition?: Vector): void {
             if (_ballPosition) {
                 
                 let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
@@ -34,53 +33,25 @@ namespace Endaufgabe_FußballSiumulation {
                 if (normalise) {   
                     normalise.scale(1 / this.speed);
                     this.position.add(normalise);
-                    //console.log(normalise);
                 }
-                //normalise.scale(1 / this.speed);
-                //this.position.add(normalise);
-                //console.log(normalise);
                 
                 let playerPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
                 let ballPositionRound: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
-                //console.log(ballPositionRound, playerPositionRound);
-
 
                 if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
-                    //console.log("reachedBall", ballPositionRound);
                     activePlayerPrecision = this.precision;
                     let event: CustomEvent = new CustomEvent("first_player", {"detail": {player: this}});
                     crc2.canvas.dispatchEvent(event);
                     this.displayBallPossession(this.nation, this.backNumber);
                 }
            }
-            //console.log("endeMove", this.home, this.position);
-
-
-        }
-
-
-        moveHome(): void {
-            //console.log("moving", this.home, this.position);
-            let difference: Vector =  Vector.getDifference(this.home, this.position);
-            let offset: Vector = new Vector (difference.x, difference.y);
-            offset.scale(1 / this.speed);
-            this.position.add(offset); 
-
-
-            if (this.position.x == this.home.x && this.position.y == this.home.y) {
-                //this.changeTask(TASK.STAND);
-                //ballMoves = false;
-                checkClose = true;
-                this.stand();
-            }
         }
         
-        displayBallPossession(_nation: string, _backNumber: number): void {
+        public displayBallPossession(_nation: string, _backNumber: number): void {
             inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
         }
         
-        displayInformation(_event?: MouseEvent): void {
-            //console.log("displayInformation");
+        public displayInformation(_event?: MouseEvent): void {
             let color: string = this.jerseyColor;
             let infoBox: HTMLElement = document.createElement("div");
             infoBox.innerHTML = "Position: " + " x: " + Math.round(this.position.x) + ", y: " + Math.round(this.position.y) + "<br>" + "Origin: " + "x: " + Math.round(this.home.x) + " y: " + Math.round(this.home.y) + "<br>" + "Nation: " + this.nation  + "<br>" + "Team: " + this.team + "<br>" + "Number: " + this.backNumber + "<br>" +  "Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
@@ -90,9 +61,7 @@ namespace Endaufgabe_FußballSiumulation {
             infoBox.style.color = color;
             infoBox.style.backgroundColor = "white";
             if (color == "#ffffff") {
-                //console.log("WHite");
                 infoBox.style.backgroundColor = "darkgrey";
-                //infoBox.style.color = "black";
             }
             document.body.appendChild(infoBox);
 
@@ -101,18 +70,13 @@ namespace Endaufgabe_FußballSiumulation {
                 document.body.removeChild(infoBox);
             },         5000);
         }
-        
-        stand(): void {
-            //console.log("stand"); 
-        }
 
-
-        draw(): void {
+        public draw(): void {
             drawShirt(this.position, this.jerseyColor, this.type, this.team);
         }
 
 
-        changeTask(_task?: TASK, _ball?: Vector): void {
+        public changeTask(_task?: TASK, _ball?: Vector): void {
             if (_task)
                 this.task = _task;
                 
@@ -121,16 +85,31 @@ namespace Endaufgabe_FußballSiumulation {
                     //console.log("stay");
                     break;
                 case TASK.MOVE:
-                    //console.log("moveToBallPosition");
                     this.move(_ball);
                     break;
                 case TASK.MOVEHOME:
-                    //console.log("MoveBackToPosition");
                     this.moveHome();
                     break;
                 default:
                     console.log("something went wrong");       
             }
+        }
+
+        private moveHome(): void {
+            let difference: Vector =  Vector.getDifference(this.home, this.position);
+            let offset: Vector = new Vector (difference.x, difference.y);
+            offset.scale(1 / this.speed);
+            this.position.add(offset); 
+
+
+            if (this.position.x == this.home.x && this.position.y == this.home.y) {
+                checkClose = true;
+                this.stand();
+            }
+        }
+
+        private stand(): void {
+            //console.log("stand"); 
         }
     }
 }

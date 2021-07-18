@@ -1,9 +1,9 @@
 namespace Endaufgabe_FußballSiumulation {
     export class Referee extends Moveable {
-        color: string;
-        speed: number = 150;
-        typ: string = "referee";
-        whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
+        private color: string;
+        private speed: number = 150;
+        private typ: string = "referee";
+        private whistle: HTMLAudioElement = new Audio ("Sounds/Whistle.wav");
 
         constructor(_position: Vector, _color: string) {
             super(_position);
@@ -11,8 +11,7 @@ namespace Endaufgabe_FußballSiumulation {
             this.color = _color;
         }
 
-        move(): void {
-            //console.log("Referee moves towards ball with distance (or super-slow)");
+        public move(): void {
             let xleftMax: number = width / 21.5;
             let xrightMax: number = width / 110 * 78.5;
             let moveX: number = createRandomNum(xleftMax, xrightMax);
@@ -26,17 +25,13 @@ namespace Endaufgabe_FußballSiumulation {
             let position: Vector = new Vector(moveXDirection, moveYDirection);
             position.scale(1 / this.speed);
             this.position.add(position);
-            //if (this.position.x < 0)
-             //this.position.x += crc2.canvas.width;
-            //if (this.position.x > crc2.canvas.width)
-             //this.position.x -= crc2.canvas.width;
         }
 
-        playWhistle(): void {
+        public playWhistle(): void {
             this.whistle.play();
         }
         
-        draw(): void {
+        public draw(): void {
             drawShirt(this.position, this.color, this.typ, "team2");
         }
 

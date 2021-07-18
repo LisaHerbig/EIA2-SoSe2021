@@ -1,12 +1,11 @@
 "use strict";
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
-    //let x: number = 0;
     class Player extends Endaufgabe_FußballSiumulation.Moveable {
         constructor(_position, _home, _nation, _color, _backNumber, _team, _speed, _precision) {
             super(_position);
-            this.type = "player";
             this.task = Endaufgabe_FußballSiumulation.TASK.STAND;
+            this.type = "player";
             this.position = _position;
             this.home = _home;
             this.nation = _nation;
@@ -25,42 +24,21 @@ var Endaufgabe_FußballSiumulation;
                 if (normalise) {
                     normalise.scale(1 / this.speed);
                     this.position.add(normalise);
-                    //console.log(normalise);
                 }
-                //normalise.scale(1 / this.speed);
-                //this.position.add(normalise);
-                //console.log(normalise);
                 let playerPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
                 let ballPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
-                //console.log(ballPositionRound, playerPositionRound);
                 if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
-                    //console.log("reachedBall", ballPositionRound);
                     Endaufgabe_FußballSiumulation.activePlayerPrecision = this.precision;
                     let event = new CustomEvent("first_player", { "detail": { player: this } });
                     Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
                     this.displayBallPossession(this.nation, this.backNumber);
                 }
             }
-            //console.log("endeMove", this.home, this.position);
-        }
-        moveHome() {
-            //console.log("moving", this.home, this.position);
-            let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(this.home, this.position);
-            let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
-            offset.scale(1 / this.speed);
-            this.position.add(offset);
-            if (this.position.x == this.home.x && this.position.y == this.home.y) {
-                //this.changeTask(TASK.STAND);
-                //ballMoves = false;
-                Endaufgabe_FußballSiumulation.checkClose = true;
-                this.stand();
-            }
         }
         displayBallPossession(_nation, _backNumber) {
             Endaufgabe_FußballSiumulation.inPossession.innerHTML = _nation + " " + _backNumber + " im Ballbesitz";
         }
         displayInformation(_event) {
-            //console.log("displayInformation");
             let color = this.jerseyColor;
             let infoBox = document.createElement("div");
             infoBox.innerHTML = "Position: " + " x: " + Math.round(this.position.x) + ", y: " + Math.round(this.position.y) + "<br>" + "Origin: " + "x: " + Math.round(this.home.x) + " y: " + Math.round(this.home.y) + "<br>" + "Nation: " + this.nation + "<br>" + "Team: " + this.team + "<br>" + "Number: " + this.backNumber + "<br>" + "Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
@@ -70,17 +48,12 @@ var Endaufgabe_FußballSiumulation;
             infoBox.style.color = color;
             infoBox.style.backgroundColor = "white";
             if (color == "#ffffff") {
-                //console.log("WHite");
                 infoBox.style.backgroundColor = "darkgrey";
-                //infoBox.style.color = "black";
             }
             document.body.appendChild(infoBox);
             setTimeout(function () {
                 document.body.removeChild(infoBox);
             }, 5000);
-        }
-        stand() {
-            //console.log("stand"); 
         }
         draw() {
             Endaufgabe_FußballSiumulation.drawShirt(this.position, this.jerseyColor, this.type, this.team);
@@ -93,16 +66,27 @@ var Endaufgabe_FußballSiumulation;
                     //console.log("stay");
                     break;
                 case Endaufgabe_FußballSiumulation.TASK.MOVE:
-                    //console.log("moveToBallPosition");
                     this.move(_ball);
                     break;
                 case Endaufgabe_FußballSiumulation.TASK.MOVEHOME:
-                    //console.log("MoveBackToPosition");
                     this.moveHome();
                     break;
                 default:
                     console.log("something went wrong");
             }
+        }
+        moveHome() {
+            let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(this.home, this.position);
+            let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
+            offset.scale(1 / this.speed);
+            this.position.add(offset);
+            if (this.position.x == this.home.x && this.position.y == this.home.y) {
+                Endaufgabe_FußballSiumulation.checkClose = true;
+                this.stand();
+            }
+        }
+        stand() {
+            //console.log("stand"); 
         }
     }
     Endaufgabe_FußballSiumulation.Player = Player;
