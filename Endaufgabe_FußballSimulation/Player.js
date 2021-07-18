@@ -61,12 +61,18 @@ var Endaufgabe_FußballSiumulation;
         }
         displayInformation(_event) {
             //console.log("displayInformation");
+            let color = this.jerseyColor;
             let infoBox = document.createElement("div");
             infoBox.innerHTML = "Position: " + " x: " + Math.round(this.position.x) + ", y: " + Math.round(this.position.y) + "<br>" + "Origin: " + "x: " + Math.round(this.home.x) + " y: " + Math.round(this.home.y) + "<br>" + "Nation: " + this.nation + "<br>" + "Team: " + this.team + "<br>" + "Number: " + this.backNumber + "<br>" + "Speed: " + this.speed + "<br>" + "Precision: " + this.precision;
             infoBox.style.fontWeight = "bold";
             infoBox.style.fontSize = "100";
             infoBox.style.fontFamily = "Arial, Helvetica, sans-serif";
-            infoBox.style.color = this.jerseyColor;
+            infoBox.style.color = color;
+            if (color == "#ffffff") {
+                console.log("WHite");
+                infoBox.style.backgroundColor = "darkgrey";
+                //infoBox.style.color = "black";
+            }
             document.body.appendChild(infoBox);
             setTimeout(function () {
                 document.body.removeChild(infoBox);
