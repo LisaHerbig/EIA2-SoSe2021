@@ -88,6 +88,7 @@ namespace Endaufgabe_FußballSiumulation {
             infoBox.style.fontSize = "100";
             infoBox.style.fontFamily = "Arial, Helvetica, sans-serif";
             infoBox.style.color = color;
+            infoBox.style.backgroundColor = "white";
             if (color == "#ffffff") {
                 console.log("WHite");
                 infoBox.style.backgroundColor = "darkgrey";

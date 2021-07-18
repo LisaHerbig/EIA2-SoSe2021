@@ -1,5 +1,12 @@
 body {
     text-align: center;
+    background-image: url(Bilder/goal.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 .hide {
@@ -35,4 +42,33 @@ body {
     display: block;
 }
 
+#form {
+    font-size: 30px;;
+}
 
+#team, #color, #speed, #precision {
+    background-color: rgb(52, 54, 54);
+}
+
+#welcome {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#explain {
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#inPossession, #scoreBoard {
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#btn, #newGame, #AddPlayerT1, #AddPlayerT2 {
+    border-radius: 20px;
+    padding: 1%;
+    background-color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
