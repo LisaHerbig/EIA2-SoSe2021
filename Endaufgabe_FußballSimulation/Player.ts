@@ -1,5 +1,6 @@
 namespace Endaufgabe_FußballSiumulation {
-    //let x: number = 0;
+    let x: number = 0;
+
     export class Player extends Moveable {
         home: Vector;
         type: string = "player";
@@ -10,6 +11,7 @@ namespace Endaufgabe_FußballSiumulation {
         jerseyColor: string;
         backNumber: number; 
         task: TASK = TASK.STAND;
+        difference: Vector;
 
         constructor(_position: Vector, _home: Vector, _nation: string, _color: string, _backNumber: number, _team: string, _speed: number, _precision: number) {
             super(_position);
@@ -25,22 +27,29 @@ namespace Endaufgabe_FußballSiumulation {
         
         move(_ballPosition?: Vector): void {
             if (_ballPosition) {
-                
-                let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
-                let offset: Vector = new Vector (difference.x, difference.y);
-                offset.scale(1 / this.speed);
-                this.position.add(offset);
-                let playerPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
-                let ballPositionRound: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
-            //console.log(ballPositionRound, playerPositionRound);
-
-                if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
-                    //console.log("reachedBall", ballPositionRound);
-                    activePlayerPrecision = this.precision;
-                    let event: CustomEvent = new CustomEvent("first_player", {"detail": {player: this}});
-                    crc2.canvas.dispatchEvent(event);
-                    this.displayBallPossession(this.nation, this.backNumber);
+                if (x == 0) {
+                    let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
+                    this.difference = new Vector(difference.x, difference.y);
+                    //x = 1;
                 }
+                if (this.difference) {
+                    x = 1;
+                    let offset: Vector = new Vector (this.difference.x, this.difference.y);
+                    let scaleOffset: Vector = new Vector(offset.x, offset.y);
+                    scaleOffset.scale(1 / this.speed);
+                    this.position.add(scaleOffset);
+                    let playerPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
+                    let ballPositionRound: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
+    
+                    if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
+                        activePlayerPrecision = this.precision;
+                        let event: CustomEvent = new CustomEvent("first_player", {"detail": {player: this}});
+                        crc2.canvas.dispatchEvent(event);
+                        this.displayBallPossession(this.nation, this.backNumber);
+                        x = 0;
+                    }
+                }
+               
            }
             //console.log("endeMove", this.home, this.position);
 

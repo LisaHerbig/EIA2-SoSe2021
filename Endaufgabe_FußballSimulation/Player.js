@@ -1,7 +1,7 @@
 "use strict";
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
-    //let x: number = 0;
+    let x = 0;
     class Player extends Endaufgabe_FußballSiumulation.Moveable {
         constructor(_position, _home, _nation, _color, _backNumber, _team, _speed, _precision) {
             super(_position);
@@ -18,19 +18,26 @@ var Endaufgabe_FußballSiumulation;
         }
         move(_ballPosition) {
             if (_ballPosition) {
-                let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(_ballPosition, this.position);
-                let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
-                offset.scale(1 / this.speed);
-                this.position.add(offset);
-                let playerPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
-                let ballPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
-                //console.log(ballPositionRound, playerPositionRound);
-                if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
-                    //console.log("reachedBall", ballPositionRound);
-                    Endaufgabe_FußballSiumulation.activePlayerPrecision = this.precision;
-                    let event = new CustomEvent("first_player", { "detail": { player: this } });
-                    Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
-                    this.displayBallPossession(this.nation, this.backNumber);
+                if (x == 0) {
+                    let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(_ballPosition, this.position);
+                    this.difference = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
+                    //x = 1;
+                }
+                if (this.difference) {
+                    x = 1;
+                    let offset = new Endaufgabe_FußballSiumulation.Vector(this.difference.x, this.difference.y);
+                    let scaleOffset = new Endaufgabe_FußballSiumulation.Vector(offset.x, offset.y);
+                    scaleOffset.scale(1 / this.speed);
+                    this.position.add(scaleOffset);
+                    let playerPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
+                    let ballPositionRound = new Endaufgabe_FußballSiumulation.Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
+                    if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
+                        Endaufgabe_FußballSiumulation.activePlayerPrecision = this.precision;
+                        let event = new CustomEvent("first_player", { "detail": { player: this } });
+                        Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
+                        this.displayBallPossession(this.nation, this.backNumber);
+                        x = 0;
+                    }
                 }
             }
             //console.log("endeMove", this.home, this.position);

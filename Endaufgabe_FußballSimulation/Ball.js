@@ -1,6 +1,11 @@
 "use strict";
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
+    //let activePlayerPrecision: number;
+    let spreading;
+    let hasRun = false;
+    let goalsT1 = [];
+    let goalsT2 = [];
     class Ball extends Endaufgabe_FußballSiumulation.Moveable {
         constructor(_position) {
             super(_position);
@@ -24,32 +29,32 @@ var Endaufgabe_FußballSiumulation;
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(mousePos, this.position);
                 let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
                 let length = offset.length;
-                if (Endaufgabe_FußballSiumulation.hasRun == false) {
+                if (hasRun == false) {
                     switch (true) {
                         case (length == 0):
                             console.log("length = ", length);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 110 * 10.5)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 3);
+                            spreading = this.moveWithOffset(mousePos, 3);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 110 * 21.5)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 15);
+                            spreading = this.moveWithOffset(mousePos, 15);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 2)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 30);
+                            spreading = this.moveWithOffset(mousePos, 30);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 110 * 88.5)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 50);
+                            spreading = this.moveWithOffset(mousePos, 50);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 110 * 110)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 70);
+                            spreading = this.moveWithOffset(mousePos, 70);
                             break;
                         default:
                             console.log("something went wrong");
                     }
                 }
-                if (Endaufgabe_FußballSiumulation.spreading) {
-                    newPos = Endaufgabe_FußballSiumulation.spreading[1];
+                if (spreading) {
+                    newPos = spreading[1];
                 }
                 if (newPos != null) {
                     let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(newPos, this.position);
@@ -61,14 +66,14 @@ var Endaufgabe_FußballSiumulation;
                     if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
                         console.log("BallReachedPosition");
                         Endaufgabe_FußballSiumulation.ballMoves = false;
-                        Endaufgabe_FußballSiumulation.hasRun = false;
+                        hasRun = false;
                         Endaufgabe_FußballSiumulation.goal = false;
                     }
                 }
             }
         }
         moveWithOffset(_mousePos, _spread) {
-            Endaufgabe_FußballSiumulation.hasRun = true;
+            hasRun = true;
             let spread = Endaufgabe_FußballSiumulation.width / 110 * _spread * (Endaufgabe_FußballSiumulation.activePlayerPrecision / 100);
             function getNewPos() {
                 let newPosNeg = new Endaufgabe_FußballSiumulation.Vector(Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.x, _mousePos.x - spread), Endaufgabe_FußballSiumulation.createRandomNum(_mousePos.y, _mousePos.y - spread));
@@ -103,17 +108,17 @@ var Endaufgabe_FußballSiumulation;
                 console.log(Endaufgabe_FußballSiumulation.goal, this.start);
                 this.position = new Endaufgabe_FußballSiumulation.Vector(this.start.x, this.start.y);
                 this.applaus.play();
-                Endaufgabe_FußballSiumulation.goalsT2.push(1);
-                Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + " : " + " Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
-                Endaufgabe_FußballSiumulation.hasRun = false;
+                goalsT2.push(1);
+                Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
+                hasRun = false;
             }
             if (_team == "team1") {
                 console.log("goalForTeam right Team1");
                 this.applaus.play();
-                Endaufgabe_FußballSiumulation.goalsT1.push(1);
+                goalsT1.push(1);
                 this.position = new Endaufgabe_FußballSiumulation.Vector(this.start.x, this.start.y);
-                Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + Endaufgabe_FußballSiumulation.goalsT1.length + " : " + " Team 2: " + Endaufgabe_FußballSiumulation.goalsT2.length;
-                Endaufgabe_FußballSiumulation.hasRun = false;
+                Endaufgabe_FußballSiumulation.scoreBoard.innerHTML = "Team 1: " + goalsT1.length + " : " + " Team 2: " + goalsT2.length;
+                hasRun = false;
             }
             let event = new CustomEvent("startAgain");
             Endaufgabe_FußballSiumulation.crc2.canvas.dispatchEvent(event);
