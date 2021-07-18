@@ -12,7 +12,8 @@ var Endaufgabe_FußballSiumulation;
             let magnitude = Math.sqrt(_normalise.x * _normalise.x + _normalise.y * _normalise.y);
             if (magnitude > 0) {
                 let normalised = new Vector(_normalise.x / magnitude, _normalise.y / magnitude);
-                return normalised;
+                let scaledNormalised = new Vector(normalised.x * 10, normalised.y * 10);
+                return scaledNormalised;
             }
             return undefined;
         }

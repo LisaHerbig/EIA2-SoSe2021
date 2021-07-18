@@ -34,7 +34,7 @@ namespace Endaufgabe_FußballSiumulation {
                 if (normalise) {   
                     normalise.scale(1 / this.speed);
                     this.position.add(normalise);
-                    console.log(normalise);
+                    //console.log(normalise);
                 }
                 //normalise.scale(1 / this.speed);
                 //this.position.add(normalise);
