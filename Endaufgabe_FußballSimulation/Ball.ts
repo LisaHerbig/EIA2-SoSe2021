@@ -1,5 +1,11 @@
 namespace Endaufgabe_FußballSiumulation {
-    let activePlayerPrecision: number;
+
+    //let activePlayerPrecision: number;
+    let spreading: Vector[] | undefined;
+    let hasRun: boolean = false;
+    let goalsT1: number [] = [];
+    let goalsT2: number [] = [];
+
     export class Ball extends Moveable {
         start: Vector = new Vector (width / 2, height / 2);
         speed: number = 50;

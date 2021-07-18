@@ -35,25 +35,26 @@ namespace Endaufgabe_FußballSiumulation {
     let addT2: HTMLButtonElement = <HTMLButtonElement> document.querySelector("#AddPlayerT2");
 
     //let displayInfo: boolean = false;
-    export let activePlayerPrecision: number;
-    export let stopDifference: boolean = false;
-    let event: MouseEvent; 
+    //export let activePlayerPrecision: number;
+    //export let stopDifference: boolean = false;
+    let eventClick: MouseEvent; 
     let positionsT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
     let positionsT2: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
     let homeT1: Vector [] = [new Vector(width / 110 * 10, height / 2 + 30), new Vector(width / 110 * 15, height / 75 * 17), new Vector (width / 110 * 15, height / 75 * 65), new Vector(width / 110 * 32, height / 2 + 30), new Vector(width / 110 * 43, height / 2 - 110), new Vector(width / 110 * 43, height / 2 + 180), new Vector(width / 110 * 57, height / 2 + 125), new Vector(width / 110 * 75, height / 75 * 15), new Vector(width / 110 * 75, height / 75 * 68), new Vector(width / 110 * 88.5, height / 2 - 50), new Vector(width / 110 * 88.5, height / 2 + 110)];
     let homeT2: Vector [] = [new Vector(width / 110 * 100, height / 2 + 30), new Vector(width / 110 * 78, height / 2 + 30), new Vector(width / 110 * 67, height / 2 - 110), new Vector(width / 110 * 67, height / 2 + 180), new Vector(width / 110 * 54, height / 2 - 60), new Vector(width / 110 * 35, height / 75 * 68), new Vector(width / 110 * 21.5, height / 2 + 110), new Vector(width / 110 * 21.5, height / 2 - 50), new Vector(width / 110 * 35, height / 75 * 15), new Vector(width / 110 * 95, height / 75 * 65), new Vector(width / 110 * 95, height / 75 * 17)];
     let moveables: Moveable [] = [];
-    export let spreading: Vector[] | undefined;
+    //export let spreading: Vector[] | undefined;
     let animation: boolean = true;
-    export let hasRun: boolean = false;
+    export let activePlayerPrecision: number;
+   // export let hasRun: boolean = false;
     export let goal: boolean = false;
     export let checkClose: boolean = true;
     export let ballMoves: boolean = false;
-    export let newBallPos: boolean = true;
-    export let getDifference: boolean = true;
+    //export let newBallPos: boolean = true;
+    //export let getDifference: boolean = true;
     //let newPlayer: boolean = false;
-    export let goalsT1: number [] = [];
-    export let goalsT2: number [] = [];
+    //export let goalsT1: number [] = [];
+    //export let goalsT2: number [] = [];
     let backNumbersT1: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     let backNumbersT2: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -80,9 +81,8 @@ namespace Endaufgabe_FußballSiumulation {
         form.addEventListener("change", handleChange);
         btnStart.addEventListener("click", handleBtn);
 
-        canvas.addEventListener("first_player", function(e: CustomEventInit): void {
-            handleReach(e.detail);
-        });
+        canvas.addEventListener("first_player", handleReach);
+        
 
         canvas.addEventListener("click", handleClick);
 
@@ -267,13 +267,15 @@ namespace Endaufgabe_FußballSiumulation {
 
             if (ballMoves == true) {
                 let player: Player [] = [];
-                let ball: Ball [] = [];
+                //let ball: Ball [] = [];
                 for (let moveable of moveables) {
                     
                     if  (moveable instanceof Ball) {
-                        ball.push(moveable);
-                        ball[0].move(event);
-                        ball[0].draw();
+                        //ball.push(moveable);
+                        //ball[0].move(eventClick);
+                        moveable.move(eventClick);
+                        moveable.draw();
+                        //ball[0].draw();
                     }
                     if (moveable instanceof Player) {
                         player.push(moveable);
@@ -341,7 +343,7 @@ namespace Endaufgabe_FußballSiumulation {
     *Function to handle when a player reached the ball
     */
 
-    function handleReach(_player: CustomEventInit): void {
+    function handleReach(): void {
         animation = false;
         atmo.pause();
         //console.log(activePlayerPrecision); 
@@ -356,7 +358,7 @@ namespace Endaufgabe_FußballSiumulation {
             checkClose = true;
             ballMoves = true;
             playSound(atmo);
-            event = _event;
+            eventClick = _event;
     }
 
      /*
