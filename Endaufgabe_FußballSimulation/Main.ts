@@ -93,6 +93,9 @@ namespace Endaufgabe_FußballSiumulation {
         addT2.addEventListener("click", handleNewPlayerT2);
 
         canvas.addEventListener("startAgain", handleStartAgain);
+
+        document.addEventListener("keydown", handleHelp);
+        document.addEventListener("keyup", deleteHelp);
     }
 
     /*
@@ -510,7 +513,27 @@ namespace Endaufgabe_FußballSiumulation {
                }
            }
     }
-   
+    let helpBox: HTMLDivElement = document.createElement("div");
+    function handleHelp(_event: KeyboardEvent): void {
+        let keyName: string = _event.key;
+        if (keyName == "h" ) {
+            //let helpBox: HTMLDivElement = document.createElement("div");
+            helpBox.setAttribute("id", "help");
+            helpBox.innerHTML = "Neuen Spieler hinzufügen: '+'" + "<br>" + "Spieler löschen: '-'" + "<br>" + "Schießen: Doppelklick" + "<br>" + "Spielerinforamtionen anzeigen: Shift + Klick auf Spieler" + "<br>" + "Neues Spiel: Klick auf Button am Ende (Neues Spiel)" + "<br>" + "Um dieses Fenster zu schließen, drücke 'z' auf deiner Tastatur";
+            helpBox.style.backgroundColor = "#F084A5";
+            helpBox.style.fontFamily = "Arial, Helvetica, sans-serif";
+            helpBox.style.fontWeight = "bold";
+            helpBox.style.fontSize = "150";
+            document.body.appendChild(helpBox);
+        }
+    }
+    function deleteHelp(_event: KeyboardEvent): void {
+        let keyName: string = _event.key;
+        if (keyName == "z") {
+            helpBox.removeEventListener("keydown", handleHelp);
+            document.body.removeChild(helpBox);
+        }
+    }
     
 
       
