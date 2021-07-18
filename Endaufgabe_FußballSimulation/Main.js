@@ -90,43 +90,43 @@ var Endaufgabe_FußballSiumulation;
             switch (entry[0]) {
                 case "Select1":
                     team1 = String(entry[1]);
-                    console.log(team1);
+                    //console.log(team1);
                     break;
                 case "Select2":
                     team2 = String(entry[1]);
-                    console.log(team2);
+                    //console.log(team2);
                     break;
                 case "Color1":
                     colorTeam1 = String(entry[1]);
-                    console.log(colorTeam1);
+                    // console.log(colorTeam1);
                     break;
                 case "Color2":
                     colorTeam2 = String(entry[1]);
-                    console.log(colorTeam2);
+                    //console.log(colorTeam2);
                     break;
                 case "Color3":
                     colorReferee = String(entry[1]);
-                    console.log(colorReferee);
+                    //console.log(colorReferee);
                     break;
                 case "Color4":
                     colorLineJudge = String(entry[1]);
-                    console.log(colorLineJudge);
+                    //console.log(colorLineJudge);
                     break;
                 case "Slider1":
                     speedMin = Number(entry[1]);
-                    console.log(speedMin);
+                    //console.log(speedMin);
                     break;
                 case "Slider2":
                     speedMax = Number(entry[1]);
-                    console.log(speedMax);
+                    //console.log(speedMax);
                     break;
                 case "Slider3":
                     precisionMin = Number(entry[1]);
-                    console.log(precisionMin);
+                    //console.log(precisionMin);
                     break;
                 case "Slider4":
                     precisionMax = Number(entry[1]);
-                    console.log(precisionMax);
+                    //console.log(precisionMax);
                     break;
                 default:
                     console.log("Something is wrong");
@@ -137,7 +137,7 @@ var Endaufgabe_FußballSiumulation;
     *Function to hide form and button
     */
     function handleBtn() {
-        console.log("StartMatch");
+        //console.log("StartMatch");
         form.setAttribute("class", "hide");
         btnStart.setAttribute("class", "hide");
         explain.setAttribute("class", "hide");
@@ -152,7 +152,7 @@ var Endaufgabe_FußballSiumulation;
         Endaufgabe_FußballSiumulation.scoreBoard.removeAttribute("class");
         Endaufgabe_FußballSiumulation.scoreBoard.setAttribute("id", "scoreBoard");
         let newGame = document.createElement("button");
-        newGame.innerHTML = "start a new game";
+        newGame.innerHTML = "Neues Spiel";
         newGame.setAttribute("id", "newGame");
         newGame.addEventListener("click", handleNewGame);
         document.body.appendChild(newGame);
@@ -323,16 +323,16 @@ var Endaufgabe_FußballSiumulation;
             addT2.style.backgroundColor = colorTeam2;
         }
         if (keyName == "-") {
-            alert("hold Ctrl. and click on the player you want to delete");
+            alert("Halte die Strg. Taste gedrückt und klicke auf den Spieler, den du löschen möchtest (Achtung: stehen die Spieler zu nah beieinander, können mehrere gelöscht werden)");
             Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleDelete);
         }
     }
     function handleNewPlayerT1() {
-        alert("hold alt and click on canvas to choose player position");
+        alert("Halte die Alt Taste gedrückt und klicke auf den Canvas um einen neuen Spieler hinzuzufügen");
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleplaceNewPlayer1);
     }
     function handleNewPlayerT2() {
-        alert("hold alt and click on canvas to choose player position");
+        alert("Halte die Alt Taste gedrückt und klicke auf den Canvas um einen neuen Spieler hinzuzufügen");
         //newPlayer = true;
         Endaufgabe_FußballSiumulation.canvas.addEventListener("click", handleplaceNewPlayer2);
     }
@@ -382,14 +382,14 @@ var Endaufgabe_FußballSiumulation;
             //let PositionInArray: number; 
             for (let [i, moveable] of moveables.entries()) {
                 if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
-                    console.log(i, moveable);
+                    //console.log(i, moveable);
                     //players.push(moveable);
                     let v1 = new Endaufgabe_FußballSiumulation.Vector(moveable.position.x, moveable.position.y);
                     let v2 = new Endaufgabe_FußballSiumulation.Vector(x, y);
                     let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(v1, v2);
                     let length = difference.length;
                     if (length <= Endaufgabe_FußballSiumulation.canvas.width / 110 * 5) {
-                        console.log("less than 1m");
+                        //console.log("less than 1m");
                         moveables.splice(i, 1);
                         //console.log("less than 1m");
                     }
@@ -404,19 +404,17 @@ var Endaufgabe_FußballSiumulation;
         let shiftKeyPressed = _event.shiftKey;
         //console.log("handleInfo");
         if (shiftKeyPressed == true) {
-            console.log("shifKey is pressed");
+            //console.log("shifKey is pressed");
             for (let moveable of moveables) {
-                console.log("moveables array loop");
+                //console.log("moveables array loop");
                 if (moveable instanceof Endaufgabe_FußballSiumulation.Player) {
-                    console.log("moveable instance of Player");
+                    //console.log("moveable instance of Player");
                     let rect = Endaufgabe_FußballSiumulation.canvas.getBoundingClientRect();
                     let x = _event.clientX - rect.left;
                     let y = _event.clientY - rect.top;
                     let mousePos = new Endaufgabe_FußballSiumulation.Vector(x, y);
                     let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(moveable.position, mousePos);
                     let length = difference.length / 100;
-                    //let scaledLength: number = width / 110 * length;
-                    console.log(length);
                     if (length < 1) {
                         console.log("length < 1");
                         moveable.displayInformation(_event);
@@ -436,11 +434,13 @@ var Endaufgabe_FußballSiumulation;
             }
         }
     }
+    /*
+    *Function for helpBox
+    */
     let helpBox = document.createElement("div");
     function handleHelp(_event) {
         let keyName = _event.key;
         if (keyName == "h") {
-            //let helpBox: HTMLDivElement = document.createElement("div");
             helpBox.setAttribute("id", "help");
             helpBox.innerHTML = "Neuen Spieler hinzufügen: '+'" + "<br>" + "Spieler löschen: '-'" + "<br>" + "Schießen: Doppelklick" + "<br>" + "Spielerinforamtionen anzeigen: Shift + Klick auf Spieler" + "<br>" + "Neues Spiel: Klick auf Button am Ende (Neues Spiel)" + "<br>" + "Um dieses Fenster zu schließen, drücke 'z' auf deiner Tastatur";
             helpBox.style.backgroundColor = "#F084A5";

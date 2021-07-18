@@ -90,7 +90,7 @@ namespace Endaufgabe_FußballSiumulation {
             infoBox.style.color = color;
             infoBox.style.backgroundColor = "white";
             if (color == "#ffffff") {
-                console.log("WHite");
+                //console.log("WHite");
                 infoBox.style.backgroundColor = "darkgrey";
                 //infoBox.style.color = "black";
             }

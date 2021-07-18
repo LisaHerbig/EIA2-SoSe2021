@@ -13,7 +13,7 @@ var Endaufgabe_FußballSiumulation;
             this.speed = 50;
             this.applaus = new Audio("Sounds/Applaus.wav");
             this.position = _position;
-            console.log(this.start);
+            //console.log(this.start);
         }
         move(_event) {
             if (_event) {
@@ -64,7 +64,7 @@ var Endaufgabe_FußballSiumulation;
                     let round2 = new Endaufgabe_FußballSiumulation.Vector(Math.round(newPos.x), Math.round(newPos.y));
                     let roundBall2 = new Endaufgabe_FußballSiumulation.Vector(Math.round(this.position.x), Math.round(this.position.y));
                     if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
-                        console.log("BallReachedPosition");
+                        //console.log("BallReachedPosition"); 
                         Endaufgabe_FußballSiumulation.ballMoves = false;
                         hasRun = false;
                         Endaufgabe_FußballSiumulation.goal = false;
@@ -105,7 +105,7 @@ var Endaufgabe_FußballSiumulation;
         }
         handleGoal(_team) {
             if (_team == "team2") {
-                console.log(Endaufgabe_FußballSiumulation.goal, this.start);
+                //console.log(goal, this.start);
                 this.position = new Endaufgabe_FußballSiumulation.Vector(this.start.x, this.start.y);
                 this.applaus.play();
                 goalsT2.push(1);
@@ -113,7 +113,7 @@ var Endaufgabe_FußballSiumulation;
                 hasRun = false;
             }
             if (_team == "team1") {
-                console.log("goalForTeam right Team1");
+                //console.log("goalForTeam right Team1");
                 this.applaus.play();
                 goalsT1.push(1);
                 this.position = new Endaufgabe_FußballSiumulation.Vector(this.start.x, this.start.y);

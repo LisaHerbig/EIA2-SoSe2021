@@ -15,7 +15,7 @@ namespace Endaufgabe_FußballSiumulation {
         constructor(_position: Vector) {
             super (_position);
             this.position = _position;
-            console.log(this.start);
+            //console.log(this.start);
             
         }
 
@@ -80,7 +80,7 @@ namespace Endaufgabe_FußballSiumulation {
                     let roundBall2: Vector = new Vector (Math.round(this.position.x), Math.round(this.position.y));
                     
                     if (round2.x == roundBall2.x && round2.y == roundBall2.y) {
-                        console.log("BallReachedPosition"); 
+                        //console.log("BallReachedPosition"); 
                         ballMoves = false;
                         hasRun = false;
                         goal = false;
@@ -125,7 +125,7 @@ namespace Endaufgabe_FußballSiumulation {
 
         handleGoal(_team: string): void {
             if (_team == "team2") {
-                console.log(goal, this.start);
+                //console.log(goal, this.start);
                 this.position = new Vector (this.start.x, this.start.y);
                 this.applaus.play();
                 goalsT2.push(1);
@@ -133,7 +133,7 @@ namespace Endaufgabe_FußballSiumulation {
                 hasRun = false;
             }   
             if (_team == "team1") {
-                console.log("goalForTeam right Team1");
+                //console.log("goalForTeam right Team1");
                 this.applaus.play();
                 goalsT1.push(1);
                 this.position = new Vector (this.start.x, this.start.y);
