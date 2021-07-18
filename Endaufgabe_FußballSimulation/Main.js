@@ -416,7 +416,7 @@ var Endaufgabe_FußballSiumulation;
                     let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(moveable.position, mousePos);
                     let length = difference.length / 100;
                     if (length < 1) {
-                        console.log("length < 1");
+                        console.log("length < 0.01");
                         moveable.displayInformation(_event);
                     }
                 }

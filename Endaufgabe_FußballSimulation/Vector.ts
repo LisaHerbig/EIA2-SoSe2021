@@ -55,9 +55,9 @@ namespace Endaufgabe_FußballSiumulation {
           this.y += _addend.y;
         }
     
-        public copy(): Vector {
+        /*public copy(): Vector {
           return new Vector(this.x, this.y);
-        }
+        }*/
 
     }
 }

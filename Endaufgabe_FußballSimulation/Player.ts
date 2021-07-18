@@ -42,7 +42,7 @@ namespace Endaufgabe_FußballSiumulation {
                 
                 let playerPositionRound: Vector = new Vector(Math.round(this.position.x), Math.round(this.position.y));
                 let ballPositionRound: Vector = new Vector(Math.round(_ballPosition.x), Math.round(_ballPosition.y));
-            //console.log(ballPositionRound, playerPositionRound);
+                //console.log(ballPositionRound, playerPositionRound);
 
 
                 if (playerPositionRound.x == ballPositionRound.x && playerPositionRound.y == ballPositionRound.y) {
