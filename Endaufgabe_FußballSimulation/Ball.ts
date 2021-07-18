@@ -1,4 +1,5 @@
 namespace Endaufgabe_FußballSiumulation {
+    let activePlayerPrecision: number;
     export class Ball extends Moveable {
         start: Vector = new Vector (width / 2, height / 2);
         speed: number = 50;
@@ -43,7 +44,7 @@ namespace Endaufgabe_FußballSiumulation {
                             break;
     
                         case (length < (width / 2)): 
-                            spreading = this.moveWithOffset(mousePos, 25);
+                            spreading = this.moveWithOffset(mousePos, 30);
                             break;
     
                         case (length < (width / 110 * 88.5)):

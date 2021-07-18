@@ -36,7 +36,7 @@ var Endaufgabe_FußballSiumulation;
                             Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 15);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 2)):
-                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 25);
+                            Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 30);
                             break;
                         case (length < (Endaufgabe_FußballSiumulation.width / 110 * 88.5)):
                             Endaufgabe_FußballSiumulation.spreading = this.moveWithOffset(mousePos, 50);
