@@ -17,7 +17,7 @@ namespace Endaufgabe_FußballSiumulation {
           if (magnitude > 0) {
             
           let normalised: Vector = new Vector (_normalise.x / magnitude, _normalise.y / magnitude);
-          let scaledNormalised: Vector = new Vector (normalised.x * 10, normalised.y * 10);
+          let scaledNormalised: Vector = new Vector (normalised.x * 20, normalised.y * 20);
           return scaledNormalised;
           }
           return undefined;
@@ -41,7 +41,7 @@ namespace Endaufgabe_FußballSiumulation {
           this.x += _addend.x;
           this.y += _addend.y;
         }
-        
+
 
     }
 }
