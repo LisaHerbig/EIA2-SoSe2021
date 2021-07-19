@@ -1,8 +1,8 @@
 namespace Endaufgabe_FußballSiumulation {
     export abstract class Moveable {
         
-        static home?: Vector;
-        position: Vector;
+        //static home?: Vector;
+        public position: Vector;
         //radius: number;
 
 

@@ -12,7 +12,7 @@ namespace Endaufgabe_FußballSiumulation {
         }
 
         
-        public static getNormalisedVector(_normalise: Vector, _length: number): Vector | undefined  {
+        public static getNormalisedVector(_normalise: Vector): Vector | undefined  {
           let magnitude: number = Math.sqrt(_normalise.x * _normalise.x + _normalise.y * _normalise.y);
           if (magnitude > 0) {
             

@@ -28,8 +28,8 @@ namespace Endaufgabe_FußballSiumulation {
                 
                 let difference: Vector =  Vector.getDifference(_ballPosition, this.position);
                 let offset: Vector = new Vector (difference.x, difference.y);
-                let length: number = offset.length;
-                let normalise: Vector | undefined = Vector.getNormalisedVector(offset, length);
+                //let length: number = offset.length;
+                let normalise: Vector | undefined = Vector.getNormalisedVector(offset);
                 if (normalise) {   
                     normalise.scale(1 / this.speed);
                     this.position.add(normalise);

@@ -1,5 +1,7 @@
 namespace Endaufgabe_FußballSiumulation {
-    
+    /*
+    * Bei Vektorklasse Insperation aus der in den Vorlesungen vorgestellten Klasse von Prof. Jirka Dell Oro-Friedl
+    */
     window.addEventListener("load", handleLoad);
 
     export let crc2: CanvasRenderingContext2D;
