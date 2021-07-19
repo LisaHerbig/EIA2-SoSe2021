@@ -467,7 +467,7 @@ namespace Endaufgabe_FußballSiumulation {
         let keyName: string = _event.key;
         if (keyName == "h" ) {
             helpBox.setAttribute("id", "help");
-            helpBox.innerHTML = "Neuen Spieler hinzufügen: '+'" + "<br>" + "Spieler löschen: '-'" + "<br>" + "Schießen: Doppelklick" + "<br>" + "Spielerinforamtionen anzeigen: Shift + Klick auf Spieler" + "<br>" + "Neues Spiel: Klick auf Button am Ende (Neues Spiel)" + "<br>" + "Um dieses Fenster zu schließen, drücke 'z' auf deiner Tastatur";
+            helpBox.innerHTML = "Neuen Spieler hinzufügen: '+'" + "<br>" + "Spieler löschen: '-'" + "<br>" + "Schießen: Klick" + "<br>" + "Spielerinforamtionen anzeigen: Shift + Klick auf Spieler" + "<br>" + "Neues Spiel: Klick auf Button am Ende (Neues Spiel)" + "<br>" + "Um dieses Fenster zu schließen, drücke 'z' auf deiner Tastatur";
             helpBox.style.backgroundColor = "#F084A5";
             helpBox.style.fontFamily = "Arial, Helvetica, sans-serif";
             helpBox.style.fontWeight = "bold";
