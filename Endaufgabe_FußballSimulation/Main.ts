@@ -436,8 +436,8 @@ namespace Endaufgabe_FußballSiumulation {
                     let mousePos: Vector = new Vector(x, y);
                     let difference: Vector = Vector.getDifference(moveable.position, mousePos);
                     let length: number = difference.length / 100;
-                    if (length < 1) {
-                        console.log("length < 0.00000001");
+                    if (length < 0.4) {
+                        //console.log("length < 0");
                         moveable.displayInformation(_event);
                     }
                 }
