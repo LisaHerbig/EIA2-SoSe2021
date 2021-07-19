@@ -235,7 +235,6 @@ namespace Endaufgabe_FußballSiumulation {
     /*
     *Function for Animation
     */
-    //export let goal: boolean = false;
 
     function update(): void {
         if (animation == true) {

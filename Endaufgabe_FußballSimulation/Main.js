@@ -200,7 +200,6 @@ var Endaufgabe_FußballSiumulation;
     /*
     *Function for Animation
     */
-    //export let goal: boolean = false;
     function update() {
         if (animation == true) {
             Endaufgabe_FußballSiumulation.crc2.clearRect(0, 0, Endaufgabe_FußballSiumulation.canvas.width, Endaufgabe_FußballSiumulation.canvas.height);
