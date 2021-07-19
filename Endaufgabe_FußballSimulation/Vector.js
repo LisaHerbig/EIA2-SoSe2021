@@ -8,7 +8,7 @@ var Endaufgabe_FußballSiumulation;
         static getDifference(_v0, _v1) {
             return new Vector(_v0.x - _v1.x, _v0.y - _v1.y);
         }
-        static getNormalisedVector(_normalise, _length) {
+        static getNormalisedVector(_normalise) {
             let magnitude = Math.sqrt(_normalise.x * _normalise.x + _normalise.y * _normalise.y);
             if (magnitude > 0) {
                 let normalised = new Vector(_normalise.x / magnitude, _normalise.y / magnitude);

@@ -1,6 +1,9 @@
 "use strict";
 var Endaufgabe_FußballSiumulation;
 (function (Endaufgabe_FußballSiumulation) {
+    /*
+    * Bei Vektorklasse Insperation aus der in den Vorlesungen vorgestellten Klasse von Prof. Jirka Dell Oro-Friedl
+    */
     window.addEventListener("load", handleLoad);
     Endaufgabe_FußballSiumulation.canvas = document.querySelector("canvas");
     Endaufgabe_FußballSiumulation.canvas.width = window.innerHeight;
@@ -364,7 +367,7 @@ var Endaufgabe_FußballSiumulation;
                     let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(moveable.position, mousePos);
                     let length = difference.length / 100;
                     if (length < 1) {
-                        console.log("length < 0.01");
+                        console.log("length < 0.001");
                         moveable.displayInformation(_event);
                     }
                 }

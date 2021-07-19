@@ -19,8 +19,8 @@ var Endaufgabe_FußballSiumulation;
             if (_ballPosition) {
                 let difference = Endaufgabe_FußballSiumulation.Vector.getDifference(_ballPosition, this.position);
                 let offset = new Endaufgabe_FußballSiumulation.Vector(difference.x, difference.y);
-                let length = offset.length;
-                let normalise = Endaufgabe_FußballSiumulation.Vector.getNormalisedVector(offset, length);
+                //let length: number = offset.length;
+                let normalise = Endaufgabe_FußballSiumulation.Vector.getNormalisedVector(offset);
                 if (normalise) {
                     normalise.scale(1 / this.speed);
                     this.position.add(normalise);
